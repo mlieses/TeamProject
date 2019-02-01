@@ -47,8 +47,16 @@
 <script type="text/javascript">
 $(document).ready(function() {	
 		$(".a_click1").css("color","black");
-		$("#contents").load("hostProfileUpdate.jsp");	
-	
+		$("#contents").load("hostProfileUpdate.jsp");
+		
+		// home에서 공간관리 누르면 파라메타값으로 1을 넘겨받고 맞을시 클릭2번 선택한것처럼 보임.
+		if($("#MyPage").attr('value') == 1)
+		{$(".a_click1").css("color","grey");
+		$(".a_click2").css("color","black");
+		$(".a_click3").css("color","grey");
+		$(".a_click4").css("color","grey");	
+		$(".a_click5").css("color","grey");
+		$("#contents").load("../detailPageController.do?a=7");}
 		
 	$(".a_click1").click(function(){
 		//alert("클릭");
@@ -64,10 +72,9 @@ $(document).ready(function() {
 		$(".a_click1").css("color","grey");
 		$(".a_click2").css("color","black");
 		$(".a_click3").css("color","grey");
-		$(".a_click4").css("color","grey");
+		$(".a_click4").css("color","grey");	
 		$(".a_click5").css("color","grey");
-		$("#contents").load("MyPageDetail.jsp");
-		//../detailPageController.do?a=7
+		$("#contents").load("../detailPageController.do?a=7");
 
 	});
 	$(".a_click3").click(function(){
@@ -104,6 +111,8 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
+<!-- home페이지에서 공간관리 누를때 request값 a를 받기위한 input태그 -->
+<input type="hidden" id="MyPage" value="${param.a}">
 <!-- 최상단 네비 바 시작 -->
 <jsp:include page="../Top.jsp" flush="false"/>
 <!-- 최상단 네비 바 종료 -->

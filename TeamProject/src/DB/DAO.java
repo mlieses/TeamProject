@@ -34,7 +34,7 @@ public class DAO {
 		
 		try {
 			// hosting 테이블
-			String sql ="insert into hosting values(?,null,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			String sql ="insert into hosting values(null,?,?,?,?,?,?,?,?,?,?,?,?)";
 			pstmt =	con.prepareStatement(sql);
 	
 			pstmt.setString(1, dto.getHost_id());
@@ -48,10 +48,7 @@ public class DAO {
 			pstmt.setInt(9, dto.getHeating());
 			pstmt.setInt(10, dto.getSocket());
 			pstmt.setString(11, dto.getContent());
-			pstmt.setString(12, dto.getFrom());
-			pstmt.setString(13, dto.getTo());
-			pstmt.setString(14, dto.getaTime());
-			pstmt.setString(15, dto.getEtc());
+			pstmt.setString(12, dto.getEtc());
 			
 			pstmt.executeUpdate();
 			System.out.println("hosting테이블 insert완료");
@@ -150,7 +147,6 @@ public class DAO {
 					while(rs.next()) {
 						SelectDTO dto = new SelectDTO();
 						
-						dto.setaTime(rs.getString("Time"));
 						dto.setContent(rs.getString("content"));
 						dto.setImg1(rs.getString("pic1"));
 						dto.setSubject(rs.getString("subject"));
@@ -163,7 +159,7 @@ public class DAO {
 					}else if(num ==2){
 						String sql ="";
 						
-						sql="select * from hosting natural join hosting_bill natural join hosting_pic where room = '카페' ";
+						sql="select * from hosting natural join hosting_bill natural join hosting_pic where room_type = '카페' ";
 						
 						pstmt = con.prepareStatement(sql);
 					rs=	pstmt.executeQuery();
@@ -171,7 +167,6 @@ public class DAO {
 					while(rs.next()) {
 						SelectDTO dto = new SelectDTO();
 						
-						dto.setaTime(rs.getString("Time"));
 						dto.setContent(rs.getString("content"));
 						dto.setImg1(rs.getString("pic1"));
 						dto.setSubject(rs.getString("subject"));
@@ -185,7 +180,7 @@ public class DAO {
 					}else if(num == 3){
 						String sql ="";
 						
-						sql="select * from hosting natural join hosting_bill natural join hosting_pic where room = '강의실' ";
+						sql="select * from hosting natural join hosting_bill natural join hosting_pic where room_type = '스터디룸' ";
 						
 						pstmt = con.prepareStatement(sql);
 					rs=	pstmt.executeQuery();
@@ -193,7 +188,6 @@ public class DAO {
 					while(rs.next()) {
 						SelectDTO dto = new SelectDTO();
 						
-						dto.setaTime(rs.getString("Time"));
 						dto.setContent(rs.getString("content"));
 						dto.setImg1(rs.getString("pic1"));
 						dto.setSubject(rs.getString("subject"));
@@ -208,7 +202,7 @@ public class DAO {
 					}else if(num ==4){
 						String sql ="";
 						
-						sql="select * from hosting natural join hosting_bill natural join hosting_pic where room = '룸' ";
+						sql="select * from hosting natural join hosting_bill natural join hosting_pic where room_type = '강의실' ";
 						
 						pstmt = con.prepareStatement(sql);
 					rs=	pstmt.executeQuery();
@@ -216,7 +210,28 @@ public class DAO {
 					while(rs.next()) {
 						SelectDTO dto = new SelectDTO();
 						
-						dto.setaTime(rs.getString("Time"));
+						dto.setContent(rs.getString("content"));
+						dto.setImg1(rs.getString("pic1"));
+						dto.setSubject(rs.getString("subject"));
+						dto.setWeekday(rs.getInt("weekday"));
+						dto.setHoliday(rs.getInt("holiday"));
+						vector.add(dto);	
+						
+																		
+					}					
+						
+						
+					}else if(num == 10){
+						String sql ="";
+						
+						sql="select * from hosting natural join hosting_bill natural join hosting_pic where room_type = '야외' ";
+						
+						pstmt = con.prepareStatement(sql);
+					rs=	pstmt.executeQuery();
+					
+					while(rs.next()) {
+						SelectDTO dto = new SelectDTO();
+						
 						dto.setContent(rs.getString("content"));
 						dto.setImg1(rs.getString("pic1"));
 						dto.setSubject(rs.getString("subject"));

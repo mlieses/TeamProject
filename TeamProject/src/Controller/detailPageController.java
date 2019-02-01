@@ -30,6 +30,7 @@ public class detailPageController extends HttpServlet {
 		RequestDispatcher dis = request.getRequestDispatcher("Jong/detail.jsp");
 		DAO dao = new DAO();
 
+		//전체 
 		if(a == 1) {
 						
 			Vector<SelectDTO> vector =	dao.select(1);
@@ -37,6 +38,7 @@ public class detailPageController extends HttpServlet {
 			
 			dis.forward(request, response);
 		}
+		//카페
 		else if(a == 2) {
 			
 			Vector<SelectDTO> vector =	dao.select(2);
@@ -45,6 +47,7 @@ public class detailPageController extends HttpServlet {
 			dis.forward(request, response);
 			
 		}
+		//스터디룸
 		else if(a == 3) {
 			
 
@@ -53,21 +56,34 @@ public class detailPageController extends HttpServlet {
 			request.setAttribute("vector", vector);
 			dis.forward(request, response);
 		}
+		//강의실
 		else if (a == 4) {
 			
 			
 			Vector<SelectDTO> vector =	dao.select(4);
 			request.setAttribute("vector", vector);
 			dis.forward(request, response);
-		}else if (a == 5) {
+		}
+		//야외
+		else if( a == 10) {
+			
+			Vector<SelectDTO> vector =	dao.select(10);
+			request.setAttribute("vector", vector);
+			dis.forward(request, response);}
+		
+		//detail페이지로 이동
+		else if (a == 5) {
 			System.out.println("디테일페이지로 이동");
 			dis.forward(request, response);
-
+		
+		//insertBoard페이지로 이동
 		}else if(a== 6){
 			System.out.println("공간등록 페이지로 이동");
 			dis = request.getRequestDispatcher("Jong/insertBoard.jsp");
 			dis.forward(request, response);
-		}else if(a== 7){
+		}
+		//MyPageDetail페이지로 이동
+		else if(a== 7){
 			System.out.println("공간 관리 페이지로 이동");
 			dis = request.getRequestDispatcher("/Jong/MyPageDetail.jsp");
 			dis.forward(request, response);			

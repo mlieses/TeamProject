@@ -97,8 +97,9 @@ $(document).ready(function() {
 				  <div class="w3-bar w3-white " id="nav2" style="border-bottom:1px solid;">
 				  	<div class="w3-bar-item"><a href="./detailPageController.do?a=1">전체</a></div>
 				  	<div class="w3-bar-item"><a href="./detailPageController.do?a=2">카페</a></div>
-				  	<div class="w3-bar-item"><a href="./detailPageController.do?a=3">강의실</a></div>
-				  	<div class="w3-bar-item"><a href="./detailPageController.do?a=4">룸</a></div>
+				  	<div class="w3-bar-item"><a href="./detailPageController.do?a=3">스터디룸</a></div>
+				  	<div class="w3-bar-item"><a href="./detailPageController.do?a=4">강의실</a></div>
+				  	<div class="w3-bar-item"><a href="./detailPageController.do?a=10">야외</a></div>
 				  </div>
 				</div>	
 				
@@ -125,18 +126,13 @@ $(document).ready(function() {
 							for(int i=0; i < vector.size() ; i++){
 								if(vector.size() == 0){break;} // 글이 없는 경우 반복문 빠져나가고 콘솔오류 발생 방지
 								SelectDTO dto = vector.get(i);	
-								String aTime = dto.getaTime();
 								
-								//  >=5 조건 안해 놓으면 5칸 이상이 안될 시 범위오류 생김
-								if(aTime.length() >=5){
-								aTime =	aTime.substring(0, 5); //이용시간의 가장 첫 번째 영업시간만 잘라냄.
-									
-								}
+					
 								
 								
 					%>					
 					<tr align="center" height="300px;">
-						<td width="40%"><div style="width: 90%"><img src="../upload/<%=dto.getImg1()%>" width="100%"></div></td>
+						<td width="40%"><div style="width: 90%"><img src="upload/<%=dto.getImg1()%>" width="100%"></div></td>
 						<td width="50%" style="text-align:left; position: relative;">
 							<div style="position: absolute; top: 0px;">
 								<h1 style="margin-bottom: -3px;"><%= dto.getSubject()%></h1>
@@ -155,7 +151,7 @@ $(document).ready(function() {
 								</div>
 							</div>
 							<div style="margin-top: 50px;">	
-								<p style="margin-bottom: 0px"><b>이용시간</b>&nbsp;&nbsp; <%=aTime%>부터 <br> 
+								<p style="margin-bottom: 0px"><b>이용시간</b>&nbsp;&nbsp; <br> 
 									<img alt="예약가" src="re.JPG"> &nbsp;&nbsp;&nbsp;   
 									&nbsp;평일<span style="font-size: 28px;">&nbsp;<%=dto.getWeekday()%></span><b>원</b>
 									&nbsp;주말<span style="font-size: 28px;">&nbsp;<%=dto.getHoliday()%></span><b>원</b>

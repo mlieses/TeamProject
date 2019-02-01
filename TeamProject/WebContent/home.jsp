@@ -364,7 +364,7 @@ letter-spacing: 1px;
   	</div>
   	
   	<div class="w3-col w3-center" style="width:20%;">
-  	<a href="user/hostPage.jsp" style="text-decoration: none;">
+  	<a href="user/hostPage.jsp?a=1" style="text-decoration: none;">
   	<i class="material-icons" style="font-size:80px;color:#333;">event_note</i>
   	<p style="margin:2px;">공간관리</p>
   	</a>
