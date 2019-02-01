@@ -49,6 +49,7 @@ $(document).ready(function() {
 		$(".a_click1").css("color","black");
 		$("#contents").load("hostProfileUpdate.jsp");	
 	
+		
 	$(".a_click1").click(function(){
 		//alert("클릭");
 		$(".a_click1").css("color","black");
@@ -65,7 +66,8 @@ $(document).ready(function() {
 		$(".a_click3").css("color","grey");
 		$(".a_click4").css("color","grey");
 		$(".a_click5").css("color","grey");
-		$("#contents").load("../Jong/MyPageDetail.jsp");
+		$("#contents").load("MyPageDetail.jsp");
+		//../detailPageController.do?a=7
 
 	});
 	$(".a_click3").click(function(){

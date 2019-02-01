@@ -59,11 +59,25 @@ public class detailPageController extends HttpServlet {
 			Vector<SelectDTO> vector =	dao.select(4);
 			request.setAttribute("vector", vector);
 			dis.forward(request, response);
-		}else {
-			System.out.println("�삱諛붾Ⅸ寃쎈줈濡� �젒�냽�븯�떆�삤.");
+		}else if (a == 5) {
+			System.out.println("디테일페이지로 이동");
+			dis.forward(request, response);
+
+		}else if(a== 6){
+			System.out.println("공간등록 페이지로 이동");
+			dis = request.getRequestDispatcher("Jong/insertBoard.jsp");
+			dis.forward(request, response);
+		}else if(a== 7){
+			System.out.println("공간 관리 페이지로 이동");
+			dis = request.getRequestDispatcher("/Jong/MyPageDetail.jsp");
+			dis.forward(request, response);			
 		}
 		
+		else {
+			System.out.println("잘못된 경로로 들어오셨습니다.");
+		}
 		
+		  
 		
 	}
 

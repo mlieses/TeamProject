@@ -87,12 +87,12 @@ $(document).ready(function() {
 
 </head>
 <body>
+
+
+
 		
-	<div style="width:100%;" >		
-			
-				
-			
-	
+	<div style="width:100%; margin-top: 55px;" >		
+		
 				<table width="100%" border="1">
 					<%										
 						DAO dao = new DAO();

@@ -5,7 +5,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <!DOCTYPE html>
 <html>
-<!-- 깃 테스트 -->
 <title>나눔 공간</title>
 <meta charset="UTF-8">
 <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->

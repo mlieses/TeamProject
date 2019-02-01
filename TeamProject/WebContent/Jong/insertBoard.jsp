@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
-<link rel="stylesheet" href="insertBoard.css">
+<link rel="stylesheet" href="Jong/insertBoard.css">
 
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=55bb85418a60e0c25e4702007dc138fe&libraries=services"></script>
@@ -420,13 +420,19 @@ $( function() {
 </head>
 <body>
 
-<div class="container">
+  <jsp:include page="../Top.jsp" flush="false"/>
+
+
+<div class="container" style="margin-top: 55px;">
 
   <form action="http://localhost:8080/TeamProject/insertBoardController.do" enctype="multipart/form-data" method="post" name="f">
   
   <input type="hidden" id="wdo" value="" name="Wdo">
   <input type="hidden" id="kdo" value="" name="Kdo">
    
+  
+  
+  
   
   <div class="row">
     <div class="col-10">
@@ -435,7 +441,7 @@ $( function() {
     <div class="col-90">
       <input type="text" id="subject" name="subject" placeholder="Title">
     </div>
-  </div>
+  </div>  
   
   <div class="row">
     <div class="col-10">

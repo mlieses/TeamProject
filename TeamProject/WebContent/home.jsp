@@ -313,7 +313,7 @@ letter-spacing: 1px;
   	</div>
 
   	<div class="w3-quarter w3-center">
-  	<a href="Jong/detail.jsp" style="text-decoration: none;">
+  	<a href="detailPageController.do?a=5" style="text-decoration: none;">
   	<i class="material-icons" style="font-size:80px;color:#333;">search</i>  	
   	<p style="margin:2px;">공간찾기</p>
   	</a>
@@ -350,21 +350,21 @@ letter-spacing: 1px;
   	</div>
   	
   	<div class="w3-col w3-center" style="width:20%;">
-  	<a href="#" style="text-decoration: none;">
+  	<a href="detailPageController.do?a=5" style="text-decoration: none;">
   	<i class="material-icons" style="font-size:80px;color:#333;">search</i>  	
   	<p style="margin:2px;">공간찾기</p>
   	</a>
   	</div>
   	
   	<div class="w3-col w3-center" style="width:20%;">
-  	<a href="#" style="text-decoration: none;">
+  	<a href="detailPageController.do?a=6" style="text-decoration: none;">
   	<i class="material-icons" style="font-size:80px;color:#333;">weekend</i>
   	<p style="margin:2px;">공간등록</p>
   	</a>
   	</div>
   	
   	<div class="w3-col w3-center" style="width:20%;">
-  	<a href="#" style="text-decoration: none;">
+  	<a href="user/hostPage.jsp" style="text-decoration: none;">
   	<i class="material-icons" style="font-size:80px;color:#333;">event_note</i>
   	<p style="margin:2px;">공간관리</p>
   	</a>
