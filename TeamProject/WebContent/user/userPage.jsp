@@ -50,46 +50,14 @@ $(document).ready(function() {
 		//alert("클릭");
 		$(".a_click1").css("color","black");
 		$(".a_click2").css("color","grey");
-		$(".a_click3").css("color","grey");
-		$(".a_click4").css("color","grey");
-		$(".a_click5").css("color","grey");
 		$("#contents").load("userProfileUpdate.jsp");
 	});
 	$(".a_click2").click(function(){
 		//alert("클릭");
 		$(".a_click1").css("color","grey");
 		$(".a_click2").css("color","black");
-		$(".a_click3").css("color","grey");
-		$(".a_click4").css("color","grey");
-		$(".a_click5").css("color","grey");
-		$(".a_click5").css("color","grey");
-		$("#contents").load("../ReservationController.do?userId="+id);
+		("#contents").load("");
 
-
-	});
-	$(".a_click3").click(function(){
-		//alert("클릭");
-		$(".a_click1").css("color","grey");
-		$(".a_click2").css("color","grey");
-		$(".a_click3").css("color","black");
-		$(".a_click4").css("color","grey");
-		$(".a_click5").css("color","grey");
-	});
-	$(".a_click4").click(function(){
-		//alert("클릭");
-		$(".a_click1").css("color","grey");
-		$(".a_click2").css("color","grey");
-		$(".a_click3").css("color","grey");
-		$(".a_click4").css("color","black");
-		$(".a_click5").css("color","grey");
-	});
-	$(".a_click5").click(function(){
-		//alert("클릭");
-		$(".a_click1").css("color","grey");
-		$(".a_click2").css("color","grey");
-		$(".a_click3").css("color","grey");
-		$(".a_click4").css("color","grey");
-		$(".a_click5").css("color","black");
 	});
 	
 });
@@ -109,10 +77,11 @@ $(document).ready(function() {
 				<h1 style="padding-left: 20px;">목록</h1>			
 				<ul class="ul_left">
 					<li><a href="#" class="a_click1">프로필 수정</a></li>
-					<li><a href="#" class="a_click2">예약 정보</a></li> <!-- 예약 현황 게시판 -->
-					<li><a href="#" class="a_click3">후기</a></li> <!-- 예약한 공간에 대한 후기 -->
+					<li><a href="#" class="a_click2">회원 탈퇴</a></li>
+				<!-- 	<li><a href="#" class="a_click2">예약 정보</a></li> 예약 현황 게시판
+					<li><a href="#" class="a_click3">후기</a></li> 예약한 공간에 대한 후기
 					<li><a href="#" class="a_click4">추천글</a></li>					
-					<li><a href="#" class="a_click5">결제 정보</a></li>
+					<li><a href="#" class="a_click5">결제 정보</a></li> -->
 				</ul>			
 			</div>		
 			<div class="w3-col m6" id="contents" ></div>

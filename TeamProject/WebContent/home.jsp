@@ -306,7 +306,7 @@ letter-spacing: 1px;
   <div class="w3-container w3-padding-16 w3-content" style="max-width:45%">
   	
   	<div class="w3-quarter w3-center">
-  	<a href="event/event.jsp" style="text-decoration: none;">
+  	<a href="./Event.do" style="text-decoration: none;">
   	<i class="material-icons" style="font-size:80px;color:#333;">loyalty</i>
   	<p style="margin:2px;">쿠폰/이벤트</p>
   	</a>
@@ -343,7 +343,7 @@ letter-spacing: 1px;
     <div class="w3-container w3-padding-16 w3-content" style="max-width:45%">
   	
   	<div class="w3-col w3-center" style="width:20%;">
-  	<a href="event.jsp" style="text-decoration: none;">
+  	<a href="./Event.do" style="text-decoration: none;">
   	<i class="material-icons" style="font-size:80px;color:#333;">loyalty</i>
   	<p style="margin:2px;">쿠폰/이벤트</p>
   	</a>

@@ -67,7 +67,7 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
       <a href="ePage4.jsp" class="w3-btn" style="padding: 3px">
 	      <div class="w3-display-container">
 		    <div class="w3-display-topleft w3-blue w3-padding">호스트이벤트</div>
-		    <img src="e_img/e_img4.jpg" alt="event" style="width:100%">
+		    <img src="event/e_img/e_img4.jpg" alt="event" style="width:100%">
 	      </div>
       </a> 
       <h6 class="w3-border-bottom w3-border-light-grey w3-padding-16">
@@ -80,7 +80,7 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
       <a href="ePage3.jsp" class="w3-btn" style="padding: 3px">
 	      <div class="w3-display-container">
 		    <div class="w3-display-topleft w3-blue w3-padding">첫후기쓰고 쿠폰받자</div>
-		    <img src="e_img/e_img2.jpg" alt="event" style="width:100%">
+		    <img src="event/e_img/e_img2.jpg" alt="event" style="width:100%">
 	      </div>
       </a>
       <h6 class="w3-border-bottom w3-border-light-grey w3-padding-16">
@@ -93,7 +93,7 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
       <a href="ePage2.jsp" class="w3-btn" style="padding: 3px">
 	      <div class="w3-display-container">
 		     <div class="w3-display-topleft w3-blue w3-padding">친구랑 쿠폰나눠쓰기</div>
-		     <img src="e_img/e_img3.jpg" alt="event" style="width:100%">
+		     <img src="event/e_img/e_img3.jpg" alt="event" style="width:100%">
 	      </div>
       </a>
       <h6 class="w3-border-bottom w3-border-light-grey w3-padding-16">
@@ -106,7 +106,7 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
       <a href="ePage1.jsp" class="w3-btn" style="padding: 3px">
 	      <div class="w3-display-container">
 		    <div class="w3-display-topleft w3-blue w3-padding">회원가입 이벤트</div>
-		    <img src="e_img/e_img1.jpg" alt="event" style="width:100%">
+		    <img src="event/e_img/e_img1.jpg" alt="event" style="width:100%">
 	      </div>
       </a>
       <h6 class="w3-border-bottom w3-border-light-grey w3-padding-16">

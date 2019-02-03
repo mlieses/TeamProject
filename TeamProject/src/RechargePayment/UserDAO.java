@@ -27,7 +27,7 @@ public class UserDAO {
 					Context init = new InitialContext();
 
 					// 2.연결된 Was서버에서 DataSource(커넥션풀)을 검색해서 얻기
-					ds = (DataSource) init.lookup("java:comp/env/jdbc/jspbeginner");
+					ds = (DataSource) init.lookup("java:comp/env/jdbc/sharespace");
 
 				} catch (Exception e) {
 					System.out.println("커넥션풀 가져오기 실패 : " + e);
