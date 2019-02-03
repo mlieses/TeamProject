@@ -90,9 +90,9 @@ public class BookingDAO {
 				
 				rs = pstmt.executeQuery();
 				
-				rs.next();
+				rs.next();			
 				
-				boodto.setRoom_no(Integer.parseInt(roomNumber));
+				boodto.setRoom_no(Integer.parseInt(roomNumber));				
 				boodto.setPeople(rs.getString("people"));
 				boodto.setSubject(rs.getString("subject"));
 				boodto.setContent(rs.getString("content"));
@@ -112,6 +112,33 @@ public class BookingDAO {
 			}	
 			
 			return null;
+		}
+		// 제일 마지막 Booking 번호 가져오기
+		public int maxBookNo() {
+			// TODO Auto-generated method stub
+			
+			try {
+				
+				con = ds.getConnection();
+				
+				String sql = "SELECT max(book_no) FROM booking";
+				
+				pstmt = con.prepareStatement(sql);
+				
+				rs = pstmt.executeQuery();
+				
+				rs.next();
+				
+				int maxNo = rs.getInt("book_no");
+				
+				return maxNo;
+			} catch (Exception e) {
+				System.out.println("maxBookNo()"+e);
+			} finally{
+				freeResource();
+			}			
+			
+			return 0;
 		}
 	
 	
