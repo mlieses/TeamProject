@@ -264,8 +264,9 @@ $( function() {
     <div class="col-90">
       <select name="room">
       	<option value="카페">카페</option>
+      	<option value="스터디룸">스터디룸</option>
       	<option value="강의실">강의실</option>
-      	<option value="룸">룸</option>
+      	<option value="야외">야외</option>
       </select>      
     </div>
   </div>
