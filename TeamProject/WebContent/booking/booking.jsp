@@ -149,18 +149,32 @@ small{
 			<div class="w3-col m5 div_left" align="left">
 				<div class="w3-row">
 					<div class="w3-col m5">		
-						<img alt="" src="../img/room01.jpg" width="270" height="170">
+						<img alt="${boodto.subject }" src="./upload/${boodto.pic1 }" width="270" height="170">
 					</div>
+					<div class="w3-col m1">
+					<p></p>
+					</div>	
 					<div class="w3-col m3">
-						<h2>제 목</h2>
-						<p>11111111111111111</p>
+						<h2>${boodto.subject }</h2>
+						<p>${boodto.content }</p>
 					</div>
 				</div>
-				
 				<hr>
 				<div class="w3-row">
 					<div class="w3-col m5">
-						<h5>예약시간</h5>
+						<h5>시작시간</h5>
+					</div>
+					<div class="w3-col m7">
+						<h5>${boodto.book_hour }</h5>
+					</div>
+				</div>
+				<hr>
+				<div class="w3-row">
+					<div class="w3-col m5">
+						<h5>총 예약시간</h5>
+					</div>
+					<div class="w3-col m7">
+						<h5>${time}</h5>
 					</div>
 				</div>
 				<hr>
@@ -271,17 +285,10 @@ small{
 							<h5>예약일</h5>
 						</div>	
 						<div class="w3-col m12">
-							<font size="10px"><b>${selectDate}</b></font>
+							<font size="6px"><b>${selectDate}</b></font>
 						</div>							
-						<div class="w3-col m12">
-						<hr>
-						</div>
-						<div class="w3-col m6">
-							예약시간
-						</div>
-						<div class="w3-col m6" align="right">	
-							${time }시간
-						</div>
+						<div class="w3-col m12">						
+						</div>						
 					</div>
 				</div>			
 				<div class="w3-col m3 div_right w3-dark-grey">

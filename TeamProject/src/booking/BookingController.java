@@ -37,8 +37,13 @@ public class BookingController extends HttpServlet {
 		
 		System.out.println(st.countTokens());
 		
-		Date date = new Date();
-		
+		String startTime = "시간정보가 없습니다.";
+		int nextTok = Integer.parseInt(st.nextToken());
+		// 시작시간 가져오기
+		if(!startTime.equals("")){
+			nextTok +=9;
+			startTime = String.valueOf(nextTok);
+		}		
 		
 		// 사진 제목 내용 (호스트 쪽)
 		BookingDAO boodao = new BookingDAO();	
@@ -48,6 +53,7 @@ public class BookingController extends HttpServlet {
 		request.setAttribute("roomNumber", roomNumber);
 		request.setAttribute("selectDate", selectDate);
 		request.setAttribute("selectTime", selectTime);
+		request.setAttribute("startTime", startTime);
 		request.setAttribute("allPrice", allPrice);
 		request.setAttribute("boodto", boodto);
 		request.setAttribute("time", st.countTokens());
