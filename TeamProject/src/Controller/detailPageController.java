@@ -88,6 +88,12 @@ public class detailPageController extends HttpServlet {
 			dis = request.getRequestDispatcher("/Jong/MyPageDetail.jsp");
 			dis.forward(request, response);			
 		}
+		//m_detail.jsp로 이동
+		else if(a == 8) {
+			System.out.println("m_detail페이지로 이동");
+			dis = request.getRequestDispatcher("m_detail.jsp");
+			dis.forward(request, response);	
+		}
 		
 		else {
 			System.out.println("잘못된 경로로 들어오셨습니다.");

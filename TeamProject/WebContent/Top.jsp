@@ -158,8 +158,7 @@ function host_click_modal() {
 }
 
 function host_space(){
-	/*  location.href="${path2}hostSignUp.jsp"; */
-	alert("이버튼은 호스트 로그인시 공간등록및/ 공간 변경 페이지로 이동입니다.");
+	location.href="detailPageController.do?a=7";
  }
 </script>
 <style type="text/css">

@@ -109,6 +109,7 @@ and h.people = '소';
 //						people = 2;
 //					}
 					
+					
 					try {
 						con = ds.getConnection();	
 						System.out.println("연결됨");
@@ -135,17 +136,17 @@ and h.people = '소';
 						
 						
 						
-						
-						
+
 						pstmt = con.prepareStatement(sql);
+
 						pstmt.setString(1, bookDate);// 날짜
 						pstmt.setString(2, type);// 공간 윻ㅇ
 						pstmt.setString(3, location);// 인원 
 						pstmt.setString(4, number);// 인원 
-						
+
 					
 						rs = pstmt.executeQuery();
-						
+
 						while(rs.next()){
 							
 							SearchDTO dto = new SearchDTO();
@@ -159,11 +160,8 @@ and h.people = '소';
 							dto.setToilet(rs.getInt("toilet"));
 							dto.setAirconditioner(rs.getInt("airconditioner"));
 							dto.setHeating(rs.getInt("heating"));
-							dto.setSocket(rs.getInt("socket"));
-							
+							dto.setSocket(rs.getInt("socket"));						
 							dto.setContent(rs.getString("content"));
-							dto.setFromdate(rs.getString("fromdate"));
-							dto.setTodate(rs.getString("todate"));
 							dto.setEtc(rs.getString("etc"));
 							
 							
