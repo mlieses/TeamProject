@@ -61,7 +61,7 @@ public class insertBoardController extends HttpServlet {
 		String img2="";
 		String img3="";
 		String etc ="";
-		String host_id="a@naver.com";
+		String host_id="";
 		int weekday = 0;
 		int holiday = 0;
 		int parking = 0;
@@ -85,6 +85,7 @@ public class insertBoardController extends HttpServlet {
 						
 			Enumeration formNames = multi.getFileNames(); 
 			
+			host_id = multi.getParameter("HostId");
 			subject = multi.getParameter("subject");
 			room = multi.getParameter("room");
 			people = multi.getParameter("people");

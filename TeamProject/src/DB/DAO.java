@@ -354,7 +354,7 @@ public class DAO {
 						
 						dto.setRoom_no(rs.getInt("room_no")); 
 						dto.setSubject(rs.getString("subject"));
-						dto.setRoom(rs.getString("room"));
+						dto.setRoom(rs.getString("room_type"));
 						dto.setPeople(rs.getString("people"));
 						dto.setDrink(rs.getInt("drink"));
 						dto.setElevator(rs.getInt("elevator"));
@@ -368,9 +368,6 @@ public class DAO {
 						dto.setCabinet(rs.getInt("cabinet"));
 						dto.setWifi(rs.getInt("wifi"));						
 						dto.setContent(rs.getString("content"));
-						dto.setFrom(rs.getString("fromdate"));
-						dto.setTo(rs.getString("todate"));
-						dto.setaTime(rs.getString("Time"));
 						dto.setEtc(rs.getString("etc"));
 						dto.setWeekday(rs.getInt("weekday"));
 						dto.setHoliday(rs.getInt("holiday"));						
@@ -479,14 +476,15 @@ public class DAO {
 				
 		try {
 			// hosting 테이블
-			String sql ="update hosting set subject =?, room = ? , people =? , drink =? , elevator =?, toilet =? ,"
-					+ " airconditioner =? , heating =? , socket =?  , content =? , fromdate =? , todate =? ,"
-					+ " time = ? ,etc=?  where room_no = ? ";
+			String sql ="update hosting set subject =?, room_type = ? , people =? , drink =? , elevator =?, toilet =? ,"
+					+ " airconditioner =? , heating =? , socket =?  , content =? , "
+					+ " etc=?  where room_no = ? ";
 									
 			
 			System.out.println(dto.getDrink());
 			
-		pstmt =	con.prepareStatement(sql);			
+			pstmt =	con.prepareStatement(sql);		
+			
 			pstmt.setString(1, dto.getSubject());
 			pstmt.setString(2, dto.getRoom());
 			pstmt.setString(3, dto.getPeople());
@@ -497,11 +495,8 @@ public class DAO {
 			pstmt.setInt(8, dto.getHeating());
 			pstmt.setInt(9, dto.getSocket());
 			pstmt.setString(10, dto.getContent());
-			pstmt.setString(11, dto.getFrom());
-			pstmt.setString(12, dto.getTo());
-			pstmt.setString(13, dto.getaTime());
-			pstmt.setString(14, dto.getEtc());
-			pstmt.setInt(15, dto.getRoom_no());
+			pstmt.setString(11, dto.getEtc());
+			pstmt.setInt(12, dto.getRoom_no());
 						
 			pstmt.executeUpdate();
 			

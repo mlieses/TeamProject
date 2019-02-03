@@ -29,7 +29,7 @@ public class detailPageController extends HttpServlet {
 		int a = Integer.parseInt(request.getParameter("a"));
 		RequestDispatcher dis = request.getRequestDispatcher("Jong/detail.jsp");
 		DAO dao = new DAO();
-
+		String Host_id = request.getParameter("HostId"); //Host_id값 받아오기
 		//전체 
 		if(a == 1) {
 						
@@ -79,13 +79,13 @@ public class detailPageController extends HttpServlet {
 		//insertBoard페이지로 이동
 		}else if(a== 6){
 			System.out.println("공간등록 페이지로 이동");
-			dis = request.getRequestDispatcher("Jong/insertBoard.jsp");
+			dis = request.getRequestDispatcher("Jong/insertBoard.jsp?HostId="+Host_id);
 			dis.forward(request, response);
 		}
 		//MyPageDetail페이지로 이동
 		else if(a== 7){
 			System.out.println("공간 관리 페이지로 이동");
-			dis = request.getRequestDispatcher("/Jong/MyPageDetail.jsp");
+			dis = request.getRequestDispatcher("/Jong/MyPageDetail.jsp?HostId="+Host_id);
 			dis.forward(request, response);			
 		}
 		//m_detail.jsp로 이동

@@ -244,7 +244,7 @@ $( function() {
   <input type="hidden" id="wdo" value="" name="Wdo">
   <input type="hidden" id="kdo" value="" name="Kdo">
    
-  
+   <input type="hidden" value="${param.HostId}" name="HostId">  
   
   
   

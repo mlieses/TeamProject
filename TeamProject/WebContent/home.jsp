@@ -369,14 +369,14 @@ letter-spacing: 1px;
   	</div>
   	
   	<div class="w3-col w3-center" style="width:20%;">
-  	<a href="detailPageController.do?a=6" style="text-decoration: none;">
+  	<a href="detailPageController.do?a=6&HostId=${sessionScope.hdto.host_id}" style="text-decoration: none;">
   	<i class="material-icons" style="font-size:80px;color:#333;">weekend</i>
   	<p style="margin:2px;">공간등록</p>
   	</a>
   	</div>
   	
   	<div class="w3-col w3-center" style="width:20%;">
-  	<a href="detailPageController.do?a=7" style="text-decoration: none;">
+  	<a href="detailPageController.do?a=7&HostId=${sessionScope.hdto.host_id}" style="text-decoration: none;">
   	<i class="material-icons" style="font-size:80px;color:#333;">event_note</i>
   	<p style="margin:2px;">공간관리</p>
   	</a>

@@ -96,10 +96,11 @@ $(document).ready(function() {
 					<%										
 						DAO dao = new DAO();
 						Vector<SelectDTO> vector = null;
+						String host_id = request.getParameter("HostId");
 						
 						if(request.getAttribute("vector") == null){
 						
-							vector = dao.select("a@naver.com");	//아이디 값 넣어주기
+							vector = dao.select(host_id);	//아이디 값 넣어주기
 						}
 					
 							for(int i=0; i < vector.size() ; i++){
@@ -110,17 +111,17 @@ $(document).ready(function() {
 								
 					%>					
 					<tr align="center" height="100px;">
-						<td width="20%"><div style="width: 90%"><img src="http://localhost:8080/TeamProject/upload/<%=dto.getImg1()%>" width="100%"></div></td>
+						<td width="20%"><div style="width: 90%"><img src="upload/<%=dto.getImg1()%>" width="100%"></div></td>
 						<td width="50%" style="text-align:left; position: relative; padding: 10px;">
 							<span style="font-size: 20px;"><%=dto.getSubject()%></span>
 						</td>	
 						<td width="10%" align="center">
-							<a href="http://localhost:8080/TeamProject/updateBoardController.do?roomNo=<%=dto.getRoom_no()%>"><button class="w3-btn w3-white w3-border w3-border-blue w3-round-large">수정</button></a>
-							<a href="http://localhost:8080/TeamProject/deleteBoardController.do?roomNo=<%=dto.getRoom_no()%>"><button class="w3-btn w3-white w3-border w3-border-blue w3-round-large">삭제</button></a>
+							<a href="updateBoardController.do?roomNo=<%=dto.getRoom_no()%>"><button class="w3-btn w3-white w3-border w3-border-blue w3-round-large">수정</button></a>
+							<a href="deleteBoardController.do?roomNo=<%=dto.getRoom_no()%>"><button class="w3-btn w3-white w3-border w3-border-blue w3-round-large">삭제</button></a>
 						</td>
 					</tr>	
 					<%
-							}		
+						}		
 					
 					%>
 					
