@@ -1,8 +1,8 @@
 package booking;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
+
 import java.util.StringTokenizer;
 
 import javax.servlet.RequestDispatcher;
@@ -24,6 +24,8 @@ public class BookingController extends HttpServlet {
 	}
 
 	protected void doPro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		request.setCharacterEncoding("UTF-8");
 		
 		String roomNumber = request.getParameter("roomNumber"); // 룸넘버
 		String selectDate = request.getParameter("selectDate"); // 선택 날짜
@@ -50,13 +52,15 @@ public class BookingController extends HttpServlet {
 		
 		BookingDTO boodto = boodao.getPreBookingList(roomNumber); 
 		
-		request.setAttribute("roomNumber", roomNumber);
+		request.setAttribute("roomNumber", roomNumber);		
 		request.setAttribute("selectDate", selectDate);
 		request.setAttribute("selectTime", selectTime);
 		request.setAttribute("startTime", startTime);
 		request.setAttribute("allPrice", allPrice);
 		request.setAttribute("boodto", boodto);
-		request.setAttribute("time", st.countTokens());
+		request.setAttribute("time", st.countTokens()+1);
+		
+		
 		RequestDispatcher dis = request.getRequestDispatcher("booking/booking.jsp");
 		
 		dis.forward(request, response);
