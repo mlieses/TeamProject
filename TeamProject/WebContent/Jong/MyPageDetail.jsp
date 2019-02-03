@@ -87,6 +87,7 @@ $(document).ready(function() {
 <body>
 
 
+<jsp:include page="../Top.jsp" flush="false"/>
 
 		
 	<div style="width:100%; margin-top: 55px;" >		
@@ -104,12 +105,7 @@ $(document).ready(function() {
 							for(int i=0; i < vector.size() ; i++){
 								if(vector.size() == 0){break;} // 글이 없는 경우 반복문 빠져나가고 콘솔오류 발생 방지
 								SelectDTO dto = vector.get(i);	
-								String aTime = dto.getaTime();
-								
-								//  >=5 조건 안해 놓으면 5칸 이상이 안될 시 범위오류 생김
-								if(aTime.length() >=5){
-								aTime =	aTime.substring(0, 5); //이용시간의 가장 첫 번째 영업시간만 잘라냄.									
-								}
+							
 								
 								
 					%>					

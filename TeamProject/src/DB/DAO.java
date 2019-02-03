@@ -29,7 +29,9 @@ public class DAO {
 
 	public void insert(HostingDTO dto, HostingBillDTO dto1, HostingOptionDTO dto2, HostingPicDTO dto3, HostingAddressDTO dto4) {
 		
-		getCon();				
+		getCon();	
+		
+		int room_no;
 		
 		
 		try {
@@ -53,8 +55,18 @@ public class DAO {
 			pstmt.executeUpdate();
 			System.out.println("hosting테이블 insert완료");
 			
+			// 이번에 추가한 room_no값 리턴 받기
+			sql = "select * from hosting order by room_no desc";
+			
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			rs.next();
+			room_no = rs.getInt(1);
+			
+			
+			
 			// hosting_bill 테이블
-			sql ="insert into hosting_bill values(null,?,?)";
+			sql ="insert into hosting_bill values("+room_no+",?,?)";
 			
 			pstmt = con.prepareStatement(sql);
 			
@@ -65,7 +77,7 @@ public class DAO {
 			System.out.println("hosting_bill테이블 insert완료");
 			
 			// Hosting_Option 테이블
-			sql = "insert into hosting_option values(null,?,?,?,?,?)";
+			sql = "insert into hosting_option values("+room_no+",?,?,?,?,?)";
 			
 			pstmt = con.prepareStatement(sql);
 			
@@ -78,7 +90,7 @@ public class DAO {
 			System.out.println("hosting_option테이블 insert완료");
 			
 			//Hosting_pic 테이블
-			sql ="insert into hosting_pic values(null,?,?,?,?,null)";
+			sql ="insert into hosting_pic values("+room_no+",?,?,?,?,null)";
 			
 			pstmt = con.prepareStatement(sql);
 			
@@ -90,7 +102,7 @@ public class DAO {
 			System.out.println("hosting_pic테이블 insert완료");
 			
 			//Hosting_address 테이블
-			sql = "insert into hosting_address values(null,?,?,?,?,?,?)";
+			sql = "insert into hosting_address values("+room_no+",?,?,?,?,?,?)";
 			
 			pstmt = con.prepareStatement(sql);			
 			
@@ -276,7 +288,6 @@ public class DAO {
 		
 		Vector<SelectDTO> vector = new Vector<SelectDTO>();
 		
-	
 			
 				try {
 					String sql ="select * from hosting natural join hosting_bill natural join hosting_pic where host_id = ? ";
@@ -288,7 +299,6 @@ public class DAO {
 					while(rs.next()) {
 						SelectDTO dto = new SelectDTO();
 						
-						dto.setaTime(rs.getString("Time"));
 						dto.setContent(rs.getString("content"));
 						dto.setImg1(rs.getString("pic1"));
 						dto.setSubject(rs.getString("subject"));
