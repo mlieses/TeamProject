@@ -143,6 +143,18 @@ function setValue(obj, target){
 }
 
 
+// 호스트되기 클릭시
+function star_click(){	 
+	 if("${sessionScope.udto.host_check}" != 1){		 
+	 	if(confirm("호스트 등록이 되어있지 않습니다. 호스트 가입 하시겠습니까?")){
+			 location.href="user/hostSignUp.jsp";
+		}		 
+	 }else{
+		 alert("회원님은 이미 호스트가입이 되어 있습니다. 호스트 로그인 해주십시오.");
+		 
+	 }	
+}
+
 	
 </script>
 
@@ -327,7 +339,7 @@ letter-spacing: 1px;
   	</div>
   	
   	<div class="w3-quarter w3-center">
-  	<a href="#" style="text-decoration: none;">
+  	<a href="#" onclick="star_click()" style="text-decoration: none;">
   	<i class="material-icons" style="font-size:80px;color:#333;">stars</i>
   	<p style="margin:2px;">호스트되기</p>
   	</a>
@@ -364,7 +376,7 @@ letter-spacing: 1px;
   	</div>
   	
   	<div class="w3-col w3-center" style="width:20%;">
-  	<a href="user/hostPage.jsp?a=1" style="text-decoration: none;">
+  	<a href="#" style="text-decoration: none;">
   	<i class="material-icons" style="font-size:80px;color:#333;">event_note</i>
   	<p style="margin:2px;">공간관리</p>
   	</a>

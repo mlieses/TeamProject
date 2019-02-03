@@ -239,7 +239,7 @@ $( function() {
 
 <div class="container" style="width: 60%; margin: auto; margin-top: 60px;">
 
-  <form action="insertBoardController.do" enctype="multipart/form-data" method="post" name="f">
+  <form action="./insertBoardController.do" enctype="multipart/form-data" method="post" name="f">
   
   <input type="hidden" id="wdo" value="" name="Wdo">
   <input type="hidden" id="kdo" value="" name="Kdo">
