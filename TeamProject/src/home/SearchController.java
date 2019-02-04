@@ -35,13 +35,8 @@ public class SearchController extends HttpServlet {
 		Vector<SearchDTO> FindV = dao.FindSpace(type, location, date, number);
 		
 		request.setAttribute("FindV", FindV );
-		
-		Vector<SearchDTO> a = FindV;   
-		System.out.println(a.size());
-		
-		
-		
-		RequestDispatcher dis = request.getRequestDispatcher("Jong/detail.jsp");
+				
+		RequestDispatcher dis = request.getRequestDispatcher("Jong/detail2.jsp?dateValue="+date);
 		dis.forward(request, response);
 	}
 

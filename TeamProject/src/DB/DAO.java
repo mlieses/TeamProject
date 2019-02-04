@@ -594,5 +594,49 @@ public class DAO {
 	}
 	
 	
+	public SelectDTO selectReview(int room_no) {
+		
+		
+		getCon();
+		SelectDTO dto = new SelectDTO();
+		
+		try {
+			String sql ="select count(room_no) room_Number , round(avg(re_point) , 0) rank from review where room_no = ? ";
+						 
+						
+			
+			pstmt =	con.prepareStatement(sql);
+			pstmt.setInt(1, room_no);
+			
+			rs = pstmt.executeQuery();
+			rs.next();
+			
+			
+			dto.setReviewNumber(rs.getInt("room_Number"));
+			dto.setReviewPoint(rs.getInt("rank"));
+			
+			
+		} catch (Exception e) {
+			System.out.println("selectReview에서 오류 " + e );
+		} finally {
+			try {
+				if(pstmt !=null){
+					pstmt.close();					
+				}
+				
+				if(con != null){
+					con.close();
+				}if(rs != null){
+					rs.close();
+				}
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		
+		return dto;
+	}
+	
+	
 
 }
