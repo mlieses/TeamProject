@@ -313,7 +313,7 @@ function setValue(obj, target){
 					%>					
 					<tr align="center" height="300px;">
 						<td width="40%"><div style="width: 90%">
-							<a href="detailPageController.do?a=8"><img src="upload/<%=dto.getImg1()%>" width="100%"></a></div>
+							<a href="detailPageController.do?a=8"><img src="upload/<%=dto.getImg1()%>" width="100%" height="200px;"></a></div>
 						</td>
 						<td width="50%" style="text-align:left; position: relative;">
 							<div style="position: absolute; top: 0px;">

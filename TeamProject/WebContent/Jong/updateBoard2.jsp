@@ -227,9 +227,10 @@
 </head>
 <body>
 
+  <jsp:include page="../Top.jsp" flush="false"/>
 
 
-<div class="container">
+<div class="container" style="width: 60%; margin: auto; margin-top: 60px;"> 
 
   <form action="updateBoardController2.do" enctype="multipart/form-data" method="post" name="f">
   

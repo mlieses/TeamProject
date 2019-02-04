@@ -307,6 +307,9 @@ public class DAO {
 						dto.setRoom_no(rs.getInt("room_no")); 
 						dto.setRoom(rs.getString("room_type"));
 						dto.setPeople(rs.getString("people"));
+						dto.setImg2(rs.getString("pic2"));
+						dto.setImg3(rs.getString("pic3"));
+						dto.setImg4(rs.getString("pic4"));
 						
 						vector.add(dto);	
 																		

@@ -115,17 +115,41 @@ $(document).ready(function() {
 					%>					
 					<tr align="center" height="100px;">
 						<td width="20%" style="position: relative;">
-							<div style="width: 100%"><img src="upload/<%=dto.getImg1()%>" width="100%" height="150px;"></div>
+							<div style="width: 100%"><a href="detailPageController.do?a=8"><img src="upload/<%=dto.getImg1()%>" width="100%" height="150px;"></a></div>
 								<div class="w3-row" style="position: absolute; bottom: 0px; left: 0px; height: 40px;">
+								
+								<%if(dto.getImg2() == null || dto.getImg2().equals("")) {%>	
 									<div class="w3-third w3-container">
-									  	<div style="width: 90%"><img src="upload/<%=dto.getImg1()%>" width="100%"></div>
-									</div>
+									  	<div style="width: 90%"><img src="Jong/basic.JPG" width="100%" height="30px;"></div>
+									</div>			
+							    <%}else { %>					
 									<div class="w3-third w3-container">
-										<div style="width: 90%"><img src="upload/<%=dto.getImg1()%>" width="100%"></div>
+									  	<div style="width: 90%"><img src="upload/<%=dto.getImg2()%>" width="100%"></div>
 									</div>
+								<%} %>
+								
+								
+								<%if(dto.getImg3() == null || dto.getImg3().equals("")) {%>	
 									<div class="w3-third w3-container">
-									  	<div style="width: 90%"><img src="upload/<%=dto.getImg1()%>" width="100%"></div>
+									  	<div style="width: 90%"><img src="Jong/basic.JPG" width="100%" height="30px;" ></div>
+									</div>			
+							    <%}else { %>					
+									<div class="w3-third w3-container">
+									  	<div style="width: 90%"><img src="upload/<%=dto.getImg3()%>" width="100%"></div>
 									</div>
+								<%} %>
+								
+								<%if(dto.getImg4() == null || dto.getImg4().equals("")) {%>	
+									<div class="w3-third w3-container" >
+									  	<div style="width: 90%"><img src="Jong/basic.JPG" width="100%" height="30px;"></div>
+									</div>			
+							    <%}else { %>					
+									<div class="w3-third w3-container">
+									  	<div style="width: 90%"><img src="upload/<%=dto.getImg4()%>" width="100%"></div>
+									</div>
+								<%} %>
+								
+							
 								</div>				
 						</td>
 						<td width="50%" style="text-align:left; position: relative; padding: 20px;">
