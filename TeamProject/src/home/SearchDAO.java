@@ -131,7 +131,7 @@ and h.people = '소';
 								+"on h.room_no = c.room_no "
 								+"where c.ch != 12 "
 								+"and h.room_type = ? "
-								+"and a.a_address like '%?%' "
+								+"and a.a_address like '%"+location+"?%' "
 								+"and h.people = ? ";
 						
 						
@@ -141,8 +141,8 @@ and h.people = '소';
 
 						pstmt.setString(1, bookDate);// 날짜
 						pstmt.setString(2, type);// 공간 윻ㅇ
-						pstmt.setString(3, location);// 인원 
-						pstmt.setString(4, number);// 인원 
+//						pstmt.setString(3, location);// 위치 
+						pstmt.setString(3, number);// 인원 
 
 					
 						rs = pstmt.executeQuery();
