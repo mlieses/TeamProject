@@ -129,7 +129,7 @@ public class BookingDAO {
 				
 				rs.next();
 				
-				int maxNo = rs.getInt("book_no");
+				int maxNo = rs.getInt(1);
 				
 				return maxNo;
 			} catch (Exception e) {
@@ -140,6 +140,119 @@ public class BookingDAO {
 			
 			return 0;
 		}
+		// booking 테이블에 예약정보를 저장한다.
+		public int setBookingInsert(BookingDTO boodto) {
+			
+			int book_flag=0;
+			
+			try {
+				
+				con = ds.getConnection();
+				
+				String sql = "INSERT INTO booking(book_no, room_no, email, book_phone, book_date, book_time,"
+						+ " book_hour, book_parking, book_wifi, book_projector, book_laptop,book_cabinet, total_price,"
+						+ " book_check) VALUES(0,?,?,?,?,?,?,?,?,?,?,?,?,0)";
+				
+				pstmt = con.prepareStatement(sql);
+				
+				pstmt.setInt(1, boodto.getRoom_no());
+				pstmt.setString(2, boodto.getEmail());
+				pstmt.setString(3, boodto.getBook_phone());
+				pstmt.setTimestamp(4, boodto.getBook_date());
+				pstmt.setInt(5, boodto.getBook_time());
+				pstmt.setInt(6, boodto.getBook_hour());
+				pstmt.setInt(7, boodto.getParking());
+				pstmt.setInt(8, boodto.getWifi());
+				pstmt.setInt(9, boodto.getProjector());
+				pstmt.setInt(10, boodto.getLaptop());
+				pstmt.setInt(11, boodto.getCabinet());
+				pstmt.setInt(12, boodto.getTotal_price());
+				System.out.println(pstmt.toString());
+				
+				book_flag = pstmt.executeUpdate();
+				
+				return book_flag;
+				
+				
+			} catch (Exception e) {
+				System.out.println("setBookingInsert()메서드에서  "+e );
+			} finally{
+				freeResource();
+			}		
+			
+			return 0;
+		}// setBookingInsert() 끝
+		
+		
+		// Booking_Time 테이블에 예약시간 저장하기
+		public int setBooking_TimeInsert(BookingTimeDTO btdto) {
+			// TODO Auto-generated method stub
+			int bookTime_flag=0;
+			
+			try {
+				
+				con = ds.getConnection();
+				
+				String sql = "INSERT INTO booking_time(book_no, book_date, t10, t11, t12, "
+						+ "t13, t14, t15, t16, t17, t18, t19, t20, t21) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+				
+				pstmt = con.prepareStatement(sql);
+				
+				pstmt.setInt(1, btdto.getBook_no());
+				pstmt.setTimestamp(2, btdto.getBook_date());
+				pstmt.setInt(3, btdto.getT10());
+				pstmt.setInt(4, btdto.getT11());
+				pstmt.setInt(5, btdto.getT12());
+				pstmt.setInt(6, btdto.getT13());
+				pstmt.setInt(7, btdto.getT14());
+				pstmt.setInt(8, btdto.getT15());
+				pstmt.setInt(9, btdto.getT16());
+				pstmt.setInt(10, btdto.getT17());
+				pstmt.setInt(11, btdto.getT18());
+				pstmt.setInt(12, btdto.getT19());
+				pstmt.setInt(13, btdto.getT20());
+				pstmt.setInt(14, btdto.getT21());
+				
+				System.out.println(pstmt.toString());
+				
+				bookTime_flag = pstmt.executeUpdate();
+				
+				return bookTime_flag;
+				
+			} catch (Exception e) {
+				System.out.println("setBooking_TimeInsert() 메서드에서"+e);
+			} finally{
+				freeResource();
+			}
+			
+			return 0;
+		}// setBooking_TimeInsert() 메서드 끝
+
+		public void setUserPointUpdate(String email, int setPoint) {
+			// TODO Auto-generated method stub
+			
+			try {
+				
+				con = ds.getConnection();
+				
+				String sql = "UPDATE user SET point = ? WHERE email = ?";
+				
+				pstmt = con.prepareStatement(sql);
+				
+				pstmt.setInt(1, setPoint);
+				pstmt.setString(2, email);
+				
+				System.out.println(pstmt.toString());
+				pstmt.executeUpdate();
+				
+			} catch (Exception e) {
+				System.out.println("setUserPointUpdate() 메서드에서"+ e);
+			} finally {
+				freeResource();
+			}
+			
+			
+		}// setUserPointUpdate() 메서드 끝
 	
 	
 		

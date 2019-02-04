@@ -201,7 +201,7 @@ a{
       			<button onclick="click_modal()" class="w3-bar-item w3-button w3-dark-grey">${sessionScope.udto.name }</button>
       			<div id="drop" class="w3-dropdown-content w3-bar-block w3-card-4  w3-animate-zoom" style="right:0; width: 200px; top:56px;">
       				<small>&nbsp;&nbsp;${sessionScope.udto.email} &nbsp;&nbsp;보유 포인트 : </small>    
-      				<br><font color="red" class="w3-margin-left">${sessionScope.udto.point} </font> 포인트(￦)  				   				
+      				<br><font color="red" class="w3-margin-left">${sessionScope.udto.point} </font> <small>포인트(￦)</small>  				   				
       				<hr>
       				<a href="${path2}userPage.jsp" class="w3-bar-item w3-button">프로필수정/탈퇴</a>
       				<a href="${path1}" class="w3-bar-item w3-button">리뷰</a>
@@ -220,7 +220,7 @@ a{
    				<button onclick="host_click_modal()" class="w3-bar-item w3-button w3-orange">${sessionScope.hdto.host_nic }</button>
    				<div id="drop_host" class="w3-dropdown-content w3-bar-block w3-card-4  w3-animate-zoom" style="right:0; width: 200px; top:56px;">
    						<small>&nbsp;&nbsp;${sessionScope.hdto.email} &nbsp;&nbsp;보유 포인트 : </small>    
-      				<br><font color="red" class="w3-margin-left">${sessionScope.point} </font> 포인트(￦)  				   				
+      				<br><font color="red" class="w3-margin-left">${sessionScope.point} </font> <small>포인트(￦)</small>	  				   				
       				<hr>
    					<a href="${path2}hostPage.jsp" class="w3-bar-item w3-button">프로필수정/탈퇴</a>
    					<a href="${path2}" class="w3-bar-item w3-button">리뷰 관리</a>

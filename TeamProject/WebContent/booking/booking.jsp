@@ -167,6 +167,7 @@ small{
 		<input type="hidden" name="startTime" value="${startTime }"><!-- 시작시간 -->
 		<input type="hidden" name="usingTime" value="${time }"><!-- 이용시간 -->
 		<input type="hidden" name="email" value="${email }"><!-- email -->
+		<input type="hidden" name="point" value="${point_book }"><!-- 현재 보유 포인트 -->
 		<!-- 전체 div -->	
 		<div class="w3-row">
 		<!-- div 오른쪽 시작 -->
@@ -407,6 +408,7 @@ function func_insert(){
 		alert("포인트가 부족합니다 충전해 주세요");
 		return false;
 	}
+	// 현재 결제할 총 가격
 	document.form_insert.totalPay.value = totalPay;
 	document.form_insert.submit();
 }
