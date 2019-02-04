@@ -36,6 +36,11 @@ public class SearchController extends HttpServlet {
 		
 		request.setAttribute("FindV", FindV );
 		
+		Vector<SearchDTO> a = FindV;   
+		System.out.println(a.size());
+		
+		
+		
 		RequestDispatcher dis = request.getRequestDispatcher("Jong/detail.jsp");
 		dis.forward(request, response);
 	}

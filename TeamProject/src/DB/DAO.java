@@ -305,7 +305,8 @@ public class DAO {
 						dto.setWeekday(rs.getInt("weekday"));
 						dto.setHoliday(rs.getInt("holiday"));
 						dto.setRoom_no(rs.getInt("room_no")); 
-						//이미지명, 제목 , room_no만 필요
+						dto.setRoom(rs.getString("room_type"));
+						dto.setPeople(rs.getString("people"));
 						
 						vector.add(dto);	
 																		
@@ -413,13 +414,9 @@ public class DAO {
 		
 		try {
 			
-				String sql = "delete from hosting where room_no =?";
-																		
-				pstmt =	con.prepareStatement(sql);
-				pstmt.setInt(1, dto.getRoom_no());	
-				pstmt.executeUpdate();
+			
 				
-				sql = "delete from hosting_address where room_no =?";
+	String		sql = "delete from hosting_address where room_no =?";
 				
 				pstmt =	con.prepareStatement(sql);
 				pstmt.setInt(1, dto.getRoom_no());	
@@ -443,6 +440,11 @@ public class DAO {
 				pstmt.setInt(1, dto.getRoom_no());	
 				pstmt.executeUpdate();
 				
+				sql = "delete from hosting where room_no =?";
+				
+				pstmt =	con.prepareStatement(sql);
+				pstmt.setInt(1, dto.getRoom_no());	
+				pstmt.executeUpdate();
 				
 				
 		} catch (Exception e) {

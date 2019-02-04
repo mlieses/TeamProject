@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="DB.DAO"%>
 <%@page import="DB.SelectDTO"%>
 <%@page import="java.util.Vector"%>
@@ -92,8 +93,10 @@ $(document).ready(function() {
 		
 	<div style="width:100%; margin-top: 55px;" >		
 		
-				<table width="100%" border="1">
-					<%										
+				<table width="100%" class="w3-table w3-bordered">
+					<%
+						DecimalFormat formatter = new DecimalFormat("###,###");
+					
 						DAO dao = new DAO();
 						Vector<SelectDTO> vector = null;
 						String host_id = request.getParameter("HostId");
@@ -111,11 +114,56 @@ $(document).ready(function() {
 								
 					%>					
 					<tr align="center" height="100px;">
-						<td width="20%"><div style="width: 90%"><img src="upload/<%=dto.getImg1()%>" width="100%"></div></td>
-						<td width="50%" style="text-align:left; position: relative; padding: 10px;">
-							<span style="font-size: 20px;"><%=dto.getSubject()%></span>
-						</td>	
-						<td width="10%" align="center">
+						<td width="20%" style="position: relative;">
+							<div style="width: 100%"><img src="upload/<%=dto.getImg1()%>" width="100%" height="150px;"></div>
+								<div class="w3-row" style="position: absolute; bottom: 0px; left: 0px; height: 40px;">
+									<div class="w3-third w3-container">
+									  	<div style="width: 90%"><img src="upload/<%=dto.getImg1()%>" width="100%"></div>
+									</div>
+									<div class="w3-third w3-container">
+										<div style="width: 90%"><img src="upload/<%=dto.getImg1()%>" width="100%"></div>
+									</div>
+									<div class="w3-third w3-container">
+									  	<div style="width: 90%"><img src="upload/<%=dto.getImg1()%>" width="100%"></div>
+									</div>
+								</div>				
+						</td>
+						<td width="50%" style="text-align:left; position: relative; padding: 20px;">
+							<div style="position: absolute; top: 0px;">
+								<h1 style="margin-bottom: -3px;"><%= dto.getSubject()%></h1>
+								<div class="starRev">
+								  <span class="starR1">별1_왼쪽</span>
+								  <span class="starR2">별1_오른쪽</span>
+								  <span class="starR1">별2_왼쪽</span>
+								  <span class="starR2">별2_오른쪽</span>
+								  <span class="starR1">별3_왼쪽</span>
+								  <span class="starR2">별3_오른쪽</span>
+								  <span class="starR1">별4_왼쪽</span>
+								  <span class="starR2">별4_오른쪽</span>
+								  <span class="starR1">별5_왼쪽</span>
+								  <span class="starR2">별5_오른쪽</span>
+								  <p style="font-size: 24px; color: gray; display: inline;">&nbsp;&nbsp; 후기 : n개</p>
+								</div>
+							</div>
+							<div>	
+								<p><br><br><br>
+									<img alt="예약가" src="re.JPG"> &nbsp;   
+									&nbsp;<b>평일<span style="font-size: 24px;">&nbsp;<%=formatter.format(dto.getWeekday())%></span>원</b>
+									&nbsp;<b>주말<span style="font-size: 24px;">&nbsp;<%=formatter.format(dto.getHoliday())%></span>원</b>
+								</p>
+							</div>
+							<div>	
+								<p>	  
+									<span class="w3-large"><i class="fa fa-male"></i></span>
+										<b>인원 :&nbsp;<%=dto.getPeople()%></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					   				<span class="w3-large"><i class="fa fa-home"></i></span>
+					   					<b> 방 유형 :&nbsp;<%=dto.getRoom()%></b>
+								</p>
+							</div>
+	
+							
+						</td>
+						<td width="10%" style="text-align:center; vertical-align:middle;">
 							<a href="updateBoardController.do?roomNo=<%=dto.getRoom_no()%>"><button class="w3-btn w3-white w3-border w3-border-blue w3-round-large">수정</button></a>
 							<a href="deleteBoardController.do?roomNo=<%=dto.getRoom_no()%>"><button class="w3-btn w3-white w3-border w3-border-blue w3-round-large">삭제</button></a>
 						</td>

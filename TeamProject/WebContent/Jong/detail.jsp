@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="DB.DAO"%>
 <%@page import="DB.SelectDTO"%>
 <%@page import="java.util.Vector"%>
@@ -268,7 +269,7 @@ function setValue(obj, target){
 						      
 						   	 </div> <!-- 검색창  -->
    	   	   
-	</form>
+						</form>
 					</div>
 				  </div>
 				  <div class="w3-bar w3-white " id="nav2" style="border-bottom:1px solid;">
@@ -289,7 +290,9 @@ function setValue(obj, target){
 		
 		
 				<table width="100%">
-					<%										
+					<%						
+						DecimalFormat formatter = new DecimalFormat("###,###");
+
 						DAO dao = new DAO();
 						Vector<SelectDTO> vector = null;
 						
@@ -329,11 +332,11 @@ function setValue(obj, target){
 								  <p style="font-size: 24px; color: gray; display: inline;">&nbsp;&nbsp; 후기 : n개</p>
 								</div>
 							</div>
-							<div style="margin-top: 50px;">	
-								<p style="margin-bottom: 0px"><b>이용시간</b>&nbsp;&nbsp; <br> 
-									<img alt="예약가" src="re.JPG"> &nbsp;&nbsp;&nbsp;   
-									&nbsp;평일<span style="font-size: 28px;">&nbsp;<%=dto.getWeekday()%></span><b>원</b>
-									&nbsp;주말<span style="font-size: 28px;">&nbsp;<%=dto.getHoliday()%></span><b>원</b>
+							<div>	
+								<p>
+									<img alt="예약가" src="re.JPG">
+									&nbsp;<b>평일<span style="font-size: 24px;">&nbsp;<%=formatter.format(dto.getWeekday())%></span>원</b>
+									&nbsp;<b>주말<span style="font-size: 24px;">&nbsp;<%=formatter.format(dto.getHoliday())%></span>원</b>
 								</p>
 							</div>
 							<div>
