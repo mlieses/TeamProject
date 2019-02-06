@@ -126,15 +126,15 @@ public class ReservListDAO {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			System.out.println("Getlist 실행됨");
-			int check = 1;
+
 			rs = pstmt.executeQuery();
 //			System.out.println("P1");
 			
 			while(rs.next()){
-				System.out.println(check);
-//				System.out.println("몇개냐?");
+			
+
 				ReservListDTO dto = new ReservListDTO();
-				System.out.println("어디야?"+check);
+
 				dto.setBook_no(rs.getInt("book_no")); 
 				dto.setEmail(id);
 				dto.setBook_date(rs.getDate("book_date"));
@@ -169,9 +169,9 @@ public class ReservListDAO {
 				dto.setRe_date(rs.getDate("re_date"));
 				dto.setRe_point(rs.getInt("re_point"));
 				dto.setRe_content(rs.getString("re_content"));
-				System.out.println("안담기나?"+check);
+			
 				ReservList.add(dto);
-				check++;
+				
 //				System.out.println("Getlist 담김");
 			}
 			

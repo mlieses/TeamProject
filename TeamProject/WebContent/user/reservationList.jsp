@@ -83,7 +83,7 @@ h2{
 // 0 다가올
 // 1 지난
 // 2 취소
-$('#all').click(function () {  
+$('#all2').click(function () {  
 
 	$('.rStatus_0').css("display", "block");
 	$('.rStatus_1').css("display", "block");
@@ -91,21 +91,21 @@ $('#all').click(function () {
 
 });
 
-$('#coming').click(function () {  
+$('#coming2').click(function () {  
 	$('.rStatus_0').css("display", "block");
 	$('.rStatus_1').css("display", "none");
 	$('.rStatus_2').css("display", "none");
 
 });
 
-$('#last').click(function () {  
+$('#last2').click(function () {  
 	$('.rStatus_0').css("display", "none");
 	$('.rStatus_1').css("display", "block");
 	$('.rStatus_2').css("display", "none");
 
 });
 
-$('#cancled').click(function () {  
+$('#cancled2').click(function () {  
 	$('.rStatus_0').css("display", "none");
 	$('.rStatus_1').css("display", "none");
 	$('.rStatus_2').css("display", "block");
