@@ -129,7 +129,7 @@ and h.people = '소';
 								+"and b.book_check = 0 "
 								+"group by b.room_no) c "
 								+"on h.room_no = c.room_no "
-								+"where c.ch != 12 "
+								+"where (c.ch != 12 or c.ch is null)"
 								+"and h.room_type = ? "
 								+"and a.a_address like '%"+location+"?%' "
 								+"and h.people = ? ";
