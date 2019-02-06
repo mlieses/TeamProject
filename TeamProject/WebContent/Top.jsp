@@ -16,10 +16,13 @@
 	String path2 = "user/";
 	
 	if(st.countTokens()>=2){
-		path="./";
-		if(st.nextToken().equals("user")){			
+		
+		if(st.nextToken().equals("user")){	
+			System.out.println("user 들어왔음");
 			path="../";
 			path2="";
+		}else{
+			path="./";
 		}
 	}
 	/*
