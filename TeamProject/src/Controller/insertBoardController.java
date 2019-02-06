@@ -55,15 +55,13 @@ public class insertBoardController extends HttpServlet {
 		String etcAddress ="";
 		String wdo ="";
 		String kdo = "";
-		String from = "";
-		String to = "";
 		String content="";
 		String img="";
 		String img1="";
 		String img2="";
 		String img3="";
 		String etc ="";
-		String host_id="a@naver.com";
+		String host_id="";
 		int weekday = 0;
 		int holiday = 0;
 		int parking = 0;
@@ -87,22 +85,7 @@ public class insertBoardController extends HttpServlet {
 						
 			Enumeration formNames = multi.getFileNames(); 
 			
-			String at11 =multi.getParameter("at11");
-			String at12 =multi.getParameter("at12");
-			String at13 =multi.getParameter("at13");
-			String at14 =multi.getParameter("at14");
-			String at15 =multi.getParameter("at15");
-			String at16 =multi.getParameter("at16");
-			String at17 =multi.getParameter("at17");
-			String at18 =multi.getParameter("at18");
-			String at19 =multi.getParameter("at19");
-			String at20 =multi.getParameter("at20");
-			String at21 =multi.getParameter("at21");
-			String at22 =multi.getParameter("at22");
-			String at23 =multi.getParameter("at23");
-			String at = at11 +at12 +at13+ at14+ at15+ at16+ at17+ at18+ at19+ at20+ at21+ at22+at23;
-			
-			
+			host_id = multi.getParameter("HostId");
 			subject = multi.getParameter("subject");
 			room = multi.getParameter("room");
 			people = multi.getParameter("people");
@@ -112,8 +95,6 @@ public class insertBoardController extends HttpServlet {
 			etcAddress = multi.getParameter("etcAddress");
 			wdo = multi.getParameter("Wdo");
 			kdo = multi.getParameter("Kdo");			
-			from = multi.getParameter("from");
-			to = multi.getParameter("to");
 			content = multi.getParameter("content");
 			etc = multi.getParameter("etc");
 			weekday =  Integer.parseInt(multi.getParameter("weekday"));
@@ -144,7 +125,7 @@ public class insertBoardController extends HttpServlet {
 			
 			if (fileName == null) { 		
 				
-				System.out.println("�뙆�씪�씠由� �뾾�쓬");
+				System.out.println("파일 이름이 없습니다.");
 				
 			} 
 			
@@ -170,9 +151,6 @@ public class insertBoardController extends HttpServlet {
 			dto.setContent(content);
 			dto.setRoom(room);
 			dto.setSubject(subject);
-			dto.setFrom(from);
-			dto.setTo(to);
-			dto.setaTime(at);
 			dto.setAirconditioner(airconditioner);
 			dto.setDrink(drink);
 			dto.setElevator(elevator);
@@ -181,8 +159,6 @@ public class insertBoardController extends HttpServlet {
 			dto.setHost_id(host_id);
 			dto.setSocket(socket);
 			dto.setToilet(toilet);
-			
-			
 			
 			
 			//HostingBill
@@ -220,9 +196,8 @@ public class insertBoardController extends HttpServlet {
 			DAO dao = new DAO();
 			dao.insert(dto,dto1,dto2,dto3,dto4);
 			
-			
 		RequestDispatcher dis =		
-					request.getRequestDispatcher("Jong/detail.jsp");
+					request.getRequestDispatcher("index.jsp");
 		
 		dis.forward(request, response);
 			

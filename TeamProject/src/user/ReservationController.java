@@ -1,6 +1,7 @@
 package user;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.servlet.RequestDispatcher;
@@ -23,7 +24,9 @@ public class ReservationController extends HttpServlet {
 		System.out.println(id);
 		ReservListDAO dao = new ReservListDAO();
 		
-		Vector<ReservListDTO> rList = dao.getList(id);
+//		Vector<ReservListDTO> rList = dao.getList(id);
+		
+		ArrayList<ReservListDTO> rList = dao.getList(id);
 		
 		request.setAttribute("rList", rList);
 		System.out.println("Getlist 담김2");

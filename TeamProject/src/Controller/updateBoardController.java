@@ -42,13 +42,10 @@ public class updateBoardController extends HttpServlet {
 		
 		SelectDTO dto =	dao.UserRoomSelect(room_no);
 		
-		
-		
 
 		request.setAttribute("dto", dto);
 		
 		
-		//SelectDTO�쓽 request媛믪쓣 updateboard2.jsp濡� �쟾�떖�븯�뿬 dto媛� 洹몃�濡� �굹���굹寃� �븿.
 		RequestDispatcher dis = 
 					request.getRequestDispatcher("Jong/updateBoard2.jsp");
 		

@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
-<link rel="stylesheet" href="insertBoard.css">
+<link rel="stylesheet" href="Jong/insertBoard.css">
 
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=55bb85418a60e0c25e4702007dc138fe&libraries=services"></script>
@@ -38,191 +38,6 @@
 
 <script>
 
-
-
-$(function() {	
-	
-	
-	var b1 , b2, b3,b4,b5,b6,b7,b8,b9,b10,b11,b12,b13 ;
-	
-	b1 = 0; b2= 0; b3= 0; b4= 0; b5=0; b6=0; b7=0; b8=0; b9=0; b10=0; b11=0; b12=0; b13=0;
-	
-	
-	
-	$('.Tbutton').click(function(){
-		
-		
-		if($(this).val() === '11:00'){
-			if(b1 == 0){
-				$(this).css('backgroundColor','#FFDCFF');
-				b1++;
-				document.getElementById('at11').value ='11:00';
-
-			}else{
-				$(this).css('backgroundColor','white');
-				b1--;
-				document.getElementById('at11').value ='';
-
-			}	
-			
-		}else if($(this).val() === '12:00'){
-			if(b2 == 0){
-				$(this).css('backgroundColor','#FFDCFF');
-				b2++;
-				document.getElementById('at12').value ='12:00';
-
-			}else{
-				$(this).css('backgroundColor','white');
-				b2--;
-				document.getElementById('at12').value ='';
-
-			}	
-		}else if($(this).val() === '13:00'){
-			if(b3 == 0){
-				$(this).css('backgroundColor','#FFDCFF');
-				b3++;
-				document.getElementById('at13').value ='13:00';
-
-
-			}else{
-				$(this).css('backgroundColor','white');
-				b3--;
-				document.getElementById('at13').value ='';
-
-			}	
-		}else if($(this).val() === '14:00'){
-			if(b4 == 0){
-				$(this).css('backgroundColor','#FFDCFF');
-				b4++;
-				document.getElementById('at14').value ='14:00';
-
-			}else{
-				$(this).css('backgroundColor','white');
-				b4--;
-				document.getElementById('at14').value ='';
-
-			}	
-		}else if($(this).val() === '15:00'){
-			if(b5 == 0){
-				$(this).css('backgroundColor','#FFDCFF');
-				b5++;
-				document.getElementById('at15').value ='15:00';
-
-
-			}else{
-				$(this).css('backgroundColor','white');
-				b5--;
-				document.getElementById('at15').value ='';
-
-			}	
-		}else if($(this).val() === '16:00'){
-			if(b6 == 0){
-				$(this).css('backgroundColor','#FFDCFF');
-				b6++;
-				document.getElementById('at16').value ='16:00';
-
-
-			}else{
-				$(this).css('backgroundColor','white');
-				b6--;
-				document.getElementById('at16').value ='';
-
-			}	
-		}else if($(this).val() === '17:00'){
-			if(b7 == 0){
-				$(this).css('backgroundColor','#FFDCFF');
-				b7++;
-				document.getElementById('at17').value ='17:00';
-
-
-			}else{
-				$(this).css('backgroundColor','white');
-				b7--;
-				document.getElementById('at17').value ='';
-
-			}	
-		}else if($(this).val() === '18:00'){
-			if(b8 == 0){
-				$(this).css('backgroundColor','#FFDCFF');
-				b8++;
-				document.getElementById('at18').value ='18:00';
-
-
-			}else{
-				$(this).css('backgroundColor','white');
-				b8--;
-				document.getElementById('at18').value ='';
-
-				
-			}	
-		}else if($(this).val() === '19:00'){
-			if(b9 == 0){
-				$(this).css('backgroundColor','#FFDCFF');
-				b9++;
-				document.getElementById('at19').value ='19:00';
-
-			}else{
-				$(this).css('backgroundColor','white');
-				b9--;
-				document.getElementById('at19').value ='';
-
-			}	
-		}else if($(this).val() === '20:00'){
-			if(b10 == 0){
-				$(this).css('backgroundColor','#FFDCFF');
-				b10++;
-				document.getElementById('at20').value ='20:00';
-
-
-			}else{
-				$(this).css('backgroundColor','white');
-				b10--;
-				document.getElementById('at20').value ='';
-
-			}	
-		}else if($(this).val() === '21:00'){
-			if(b11 == 0){
-				$(this).css('backgroundColor','#FFDCFF');
-				b11++;
-				document.getElementById('at21').value ='21:00';
-
-			}else{
-				$(this).css('backgroundColor','white');
-				b11--;
-				document.getElementById('at21').value ='';
-
-			}	
-		}else if($(this).val() === '22:00'){
-			if(b12 == 0){
-				$(this).css('backgroundColor','#FFDCFF');
-				b12++;
-				document.getElementById('at22').value ='22:00';
-
-			}else{
-				$(this).css('backgroundColor','white');
-				b12--;
-				document.getElementById('at22').value ='';
-
-			}	
-		}else if($(this).val() === '23:00'){
-			if(b13 == 0){	
-				$(this).css('backgroundColor','#FFDCFF');
-				b13++;
-				document.getElementById('at23').value ='23:00';
-
-
-			}else{
-				$(this).css('backgroundColor','white');
-				b13--;
-				document.getElementById('at23').value ='';
-
-			}	
-		}
-		 
-	
-	});	
-});
-	
 	
 $( function() {
     var dateFormat = "mm/dd/yy",
@@ -420,13 +235,18 @@ $( function() {
 </head>
 <body>
 
-<div class="container">
+  <jsp:include page="../Top.jsp" flush="false"/>
 
-  <form action="http://localhost:8080/TeamProject/insertBoardController.do" enctype="multipart/form-data" method="post" name="f">
+<div class="container" style="width: 60%; margin: auto; margin-top: 60px;">
+
+  <form action="./insertBoardController.do" enctype="multipart/form-data" method="post" name="f">
   
   <input type="hidden" id="wdo" value="" name="Wdo">
   <input type="hidden" id="kdo" value="" name="Kdo">
    
+   <input type="hidden" value="${param.HostId}" name="HostId">  
+  
+  
   
   <div class="row">
     <div class="col-10">
@@ -435,7 +255,7 @@ $( function() {
     <div class="col-90">
       <input type="text" id="subject" name="subject" placeholder="Title">
     </div>
-  </div>
+  </div>  
   
   <div class="row">
     <div class="col-10">
@@ -444,8 +264,9 @@ $( function() {
     <div class="col-90">
       <select name="room">
       	<option value="카페">카페</option>
+      	<option value="스터디룸">스터디룸</option>
       	<option value="강의실">강의실</option>
-      	<option value="룸">룸</option>
+      	<option value="야외">야외</option>
       </select>      
     </div>
   </div>
@@ -586,53 +407,6 @@ $( function() {
 		</table>
   	</div>  
   </div>
-  
-   <div class="row">
-  	<div class="col-10">날짜 선택</div>
-  	<div class="col-10">	  		
-		<input type="text" id="from" name="from" placeholder="from" readonly="readonly">				  		  	
-  	</div> 
-  	<div class="col-10">
-  		<input type="text" id="to" name="to" placeholder="to" readonly="readonly">
-  	</div> 
-   </div>
-   
- <div class="row">
-  	<div class="col-10">이용시간</div>
-  	<div class="col-90">	 
-  		<input type="hidden" name="at11" id="at11" value="">
-  		<input type="hidden" name="at12" id="at12" value="">
-  		<input type="hidden" name="at13" id="at13" value="">
-  		<input type="hidden" name="at14" id="at14" value="">
-  		<input type="hidden" name="at15" id="at15" value="">
-  		<input type="hidden" name="at16" id="at16" value="">
-  		<input type="hidden" name="at17" id="at17" value="">
-  		<input type="hidden" name="at18" id="at18" value="">
-  		<input type="hidden" name="at19" id="at19" value="">
-  		<input type="hidden" name="at20" id="at20" value="">
-  		<input type="hidden" name="at21" id="at21" value="">
-  		<input type="hidden" name="at22" id="at22" value="">
-  		<input type="hidden" name="at23" id="at23" value="">
-  	 		
-		
-		<input type="button" class="Tbutton" value="11:00" >
-		<input type="button" class="Tbutton" value="12:00" >
-		<input type="button" class="Tbutton" value="13:00" >
-		<input type="button" class="Tbutton" value="14:00" >
-		<input type="button" class="Tbutton" value="15:00" >
-		<input type="button" class="Tbutton" value="16:00" >
-		<input type="button" class="Tbutton" value="17:00" >
-		<input type="button" class="Tbutton" value="18:00" >
-		<input type="button" class="Tbutton" value="19:00" >
-		<input type="button" class="Tbutton" value="20:00" >
-		<input type="button" class="Tbutton" value="21:00" >
-		<input type="button" class="Tbutton" value="22:00" >
-		<input type="button" class="Tbutton" value="23:00" >
-		
-			
-  	</div> 
-  	
- </div>
   
   
   <div class="row">

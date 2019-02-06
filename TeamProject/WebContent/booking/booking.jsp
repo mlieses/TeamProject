@@ -58,15 +58,16 @@ small{
 }
 </style>
 <script type="text/javascript">
-	$(document).ready(function(){
-		var parking = "${boodto.parking}";
-		var wifi = "${boodto.wifi}";
-		var projector = "${boodto.projector}";
-		var laptop = "${boodto.laptop}";
-		var cabinet = "${boodto.cabinet}";
-		
-		
-		
+	// 유료옵션들을 변수에 담는다.	
+	var parking =  parseInt("${boodto.parking}");
+	var wifi =  parseInt("${boodto.wifi}");
+	var projector =  parseInt("${boodto.projector}");
+	var laptop =  parseInt("${boodto.laptop}");
+	var cabinet =  parseInt("${boodto.cabinet}");
+	var totalPay = parseInt("${allPrice}");
+	
+	$(document).ready(function(){	
+		/* 등록된 공간의 유료옵션 유무 */
 		if(parking == 0){
 			$("#chk_1").attr("disabled", true );
 		}
@@ -81,59 +82,65 @@ small{
 		}
 		if(cabinet == 0){
 			$("#chk_5").attr("disabled", true );
-		}
-		
-		
-		
-		
+		}	
+		/* 유료옵션 클릭시 결제 정보에 가격 추가 */
 		$("#chk_1").click(function(){
 			if($("#chk_1").is(":checked")){
 				$("#div_add1").append("<div class='w3-row'><div class='w3-col m6'>	주차 :</div><div class='w3-col m6' align='right'>+"+parking+"</div></div>");	
+				totalPay += parking;
 			}else{
 				$("#div_add1").empty();
-				
+				totalPay -= parking;
 			}
-						
+			$(".price").text(totalPay);			
 		});
 		$("#chk_2").click(function(){
 			if($("#chk_2").is(":checked")){
 				$("#div_add2").append("<div class='w3-row'><div class='w3-col m6'>	무선인터넷 :</div><div class='w3-col m6' align='right'>+"+wifi+"</div></div>");	
+				totalPay += wifi;
 			}else{
 				$("#div_add2").empty();
-				
+				totalPay -= wifi;
 			}
-						
+			$(".price").text(totalPay);			
 		});
 		$("#chk_3").click(function(){
 			if($("#chk_3").is(":checked")){
 				$("#div_add3").append("<div class='w3-row'><div class='w3-col m6'>	빔프로젝트 :</div><div class='w3-col m6' align='right'>+"+projector+"</div></div>");	
+				totalPay += projector;
 			}else{
 				$("#div_add3").empty();
-				
+				totalPay -= projector;
 			}
-						
+			$(".price").text(totalPay);			
 		});
 		$("#chk_4").click(function(){
 			if($("#chk_4").is(":checked")){
 				$("#div_add4").append("<div class='w3-row'><div class='w3-col m6'>	컴퓨터 :</div><div class='w3-col m6' align='right'>+"+laptop+"</div></div>");	
+				totalPay += laptop;
 			}else{
 				$("#div_add4").empty();
-				
+				totalPay -= laptop;
 			}
+			$(".price").text(totalPay);
 						
 		});
 		$("#chk_5").click(function(){
 			if($("#chk_5").is(":checked")){
 				$("#div_add5").append("<div class='w3-row'><div class='w3-col m6'>	사물함 :</div><div class='w3-col m6' align='right'>+"+cabinet+"</div></div>");	
+				totalPay += cabinet;
 			}else{
 				$("#div_add5").empty();
-				
+				totalPay -= cabinet;
 			}
-						
+			$(".price").text(totalPay);	
 		});
-			
+		
+		$(".price").text(totalPay);	
 		
 	});
+	
+	
 	
 </script>
 </head>
@@ -143,35 +150,68 @@ small{
 <jsp:include page="../Top.jsp" flush="false"/>
 <!-- 최상단 네비 바 종료 -->
 <!-- 본문 시작 -->
-	<form action="">		
+	<!-- 일반 유저 / 호스트 구분 시작 -->
+	<c:set var="email" value="${sessionScope.udto.email }"/>
+	<c:set var="point_book" value="${sessionScope.udto.point }"/>    					
+	<c:if test="${email eq null }"> 
+    	<c:set var="email" value="${sessionScope.hdto.email }"/>
+		<c:set var="point_book" value="${sessionScope.point}"/>				
+    </c:if>
+    <!-- 일반 유저 / 호스트 구분  끝-->
+	<form action="./bookingInsertController.do" method="post" name="form_insert">
+		<!-- insert 할 값들을 넘겨 주기 -->
+		<input type="hidden" name="roomNumber" value="${roomNumber }"><!-- 룸넘버 -->
+		<input type="hidden" name="selectDate" value="${selectDate }"><!-- 선택날짜 -->
+		<input type="hidden" name="selectTime" value="${selectTime }"><!-- 선텍시간 -->	
+		<input type="hidden" name="totalPay" value=""><!-- 총금액 -->
+		<input type="hidden" name="startTime" value="${startTime }"><!-- 시작시간 -->
+		<input type="hidden" name="usingTime" value="${time }"><!-- 이용시간 -->
+		<input type="hidden" name="email" value="${email }"><!-- email -->
+		<input type="hidden" name="point" value="${point_book }"><!-- 현재 보유 포인트 -->
+		<!-- 전체 div -->	
 		<div class="w3-row">
+		<!-- div 오른쪽 시작 -->
 			<div class="w3-col m2"><p> </p></div>				
 			<div class="w3-col m5 div_left" align="left">
 				<div class="w3-row">
 					<div class="w3-col m5">		
-						<img alt="" src="../img/room01.jpg" width="270" height="170">
+						<img alt="${boodto.subject }" src="./upload/${boodto.pic1 }" width="270" height="170">
 					</div>
+					<div class="w3-col m1">
+					<p></p>
+					</div>	
 					<div class="w3-col m3">
-						<h2>제 목</h2>
-						<p>11111111111111111</p>
+						<h2>${boodto.subject }</h2>
+						<p>${boodto.content }</p>
 					</div>
 				</div>
-				
 				<hr>
 				<div class="w3-row">
 					<div class="w3-col m5">
-						<h5>예약시간</h5>
+						<h5>시작시간</h5>
+					</div>
+					<div class="w3-col m7">
+						<h5><b>${selectDate }&nbsp;&nbsp;${startTime } 시</b></h5>
+					</div>
+				</div>
+				<hr>
+				<div class="w3-row">
+					<div class="w3-col m5">
+						<h5>총 예약시간</h5>
+					</div>
+					<div class="w3-col m7">
+						<h5><b>${time} 시간</b></h5>
 					</div>
 				</div>
 				<hr>
 				<div class="w3-row">
 					<div class="w3-col m12">
 						<h5>유료 부대시설</h5>
-						<input type="checkbox" id="chk_1" class="w3-check" value="1"><b> 주차</b> &nbsp;&nbsp;&nbsp;&nbsp;
-						<input type="checkbox" id="chk_2" class="w3-check" value="1"><b> 무선 인터넷</b>  &nbsp;&nbsp;&nbsp;&nbsp;
-						<input type="checkbox" id="chk_3" class="w3-check" value="1"><b> 빔 프로젝트</b>  &nbsp;&nbsp;&nbsp;&nbsp;
-						<input type="checkbox" id="chk_4" class="w3-check" value="1"><b> 컴퓨터</b>  &nbsp;&nbsp;&nbsp;&nbsp;
-						<input type="checkbox" id="chk_5" class="w3-check" value="1"><b> 사물함</b>  &nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="checkbox" id="chk_1" name = "parking" class="w3-check" value="${boodto.parking }"><b> 주차</b> &nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="checkbox" id="chk_2" name = "wifi" class="w3-check" value="${boodto.wifi }"><b> 무선 인터넷</b>  &nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="checkbox" id="chk_3" name = "projector" class="w3-check" value="${boodto.projector}"><b> 빔 프로젝트</b>  &nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="checkbox" id="chk_4" name = "laptop" class="w3-check" value="${boodto.laptop }"><b> 컴퓨터</b>  &nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="checkbox" id="chk_5" name = "cabinet" class="w3-check" value="${boodto.cabinet }"><b> 사물함</b>  &nbsp;&nbsp;&nbsp;&nbsp;
 						<p class="w3-margin-top">각 유료 부대시설은 각각의 요금이 다르며 해당 가격 표는 아래와 같습니다.</p>
 						<p>주차 : ${boodto.parking }원</p>
 						<p>무선 인터넷 : ${boodto.wifi }원</p>
@@ -216,11 +256,11 @@ small{
 				<div class="w3-row">
 					<h5>필수 입력사항</h5>
 					<div class="w3-row  w3-margin-top">
-						<div class="w3-col m2">
+						<div class="w3-col m2"> 
 							<p>이메일</p>
 						</div>
-						<div class="w3-col m4">
-							<input type="text" class="w3-input" placeholder="예약자 이메일" name="email" value="${sessionScope.udto.email }" disabled="disabled">
+						<div class="w3-col m4">						    					
+    						<input type="text" class="w3-input" placeholder="예약자 이메일" name="email" value="${email }" disabled="disabled">												
 						</div>
 					</div>
 					<div class="w3-row w3-margin-top">
@@ -228,9 +268,9 @@ small{
 							<p>휴대 전화</p>
 						</div>
 						<div class="w3-col m4">
-							<input type="password" class="w3-input" placeholder="예약자 전화번호" name="book_phone" value="">
+							<input type="text" class="w3-input" placeholder="예약자 전화번호" name="book_phone" maxlength="11">
 						</div>
-						<div class="w3-col m3" align="right">
+						<div class="w3-col m3" align="center">
 							<button type="button" class="w3-button w3-white w3-border w3-border-red w3-round-large" id="phone_check">인증번호 전송</button>
 						</div>
 					</div>
@@ -247,10 +287,10 @@ small{
 							<p> </p>
 						</div>
 						<div class="w3-col m4">
-							<input type="password" class="w3-input" placeholder="인증번호" name="book_phone" value="">
+							<input type="text" class="w3-input" placeholder="인증번호" name="book_phone_2">
 						</div>
-						<div class="w3-col m2" align="right">
-							<button type="button" class="w3-button w3-white w3-border w3-border-red w3-round-large" id="phone_check">확인</button>
+						<div class="w3-col m3" align="center">
+							<button type="button" class="w3-button w3-white w3-border w3-border-red w3-round-large" id="phone_check">인증번호 확인</button>
 						</div>
 					</div>
 				</div>
@@ -264,6 +304,8 @@ small{
 				</div>
 				<hr>				
 			</div>
+		   <!-- div 오른쪽 끝 -->
+		   <!-- div 왼쪽 고정 바 시작 -->
 			<div class="div_sticky">		
 				<div class="w3-col m3 div_right w3-dark-grey w3-margin-bottom">
 					<div class="w3-row">					
@@ -271,26 +313,31 @@ small{
 							<h5>예약일</h5>
 						</div>	
 						<div class="w3-col m12">
-							<font size="10px"><b>${selectDate}</b></font>
+							<font size="6px"><b>${selectDate}</b></font>
 						</div>							
-						<div class="w3-col m12">
-						<hr>
-						</div>
-						<div class="w3-col m6">
-							예약시간
-						</div>
-						<div class="w3-col m6" align="right">	
-							${time }시간
-						</div>
+						<div class="w3-col m12">						
+						</div>						
 					</div>
 				</div>			
 				<div class="w3-col m3 div_right w3-dark-grey">
 					<div class="w3-row">					
 						<div class="w3-col m6">						
 							예약 인원
-						</div>
-						<div class="w3-col m6" align="right">						
-							${boodto.people}
+						</div>						
+						<div class="w3-col m6" align="right">										
+							<!-- 예약인원 소,중,대 상세표시 -->
+							<c:set var="book_people" value="${boodto.people}"/>					
+							<c:if test="${book_people eq '소' }">
+								<c:set var="book_people" value="${boodto.people}(1~4명)"/>
+							</c:if>
+							<c:if test="${book_people eq '중'}">
+								<c:set var="book_people" value="${boodto.people}(5~10명)"/>
+							</c:if>
+							<c:if test="${book_people eq '대'}">
+								<c:set var="book_people" value="${boodto.people}(10명~20명)"/>
+							</c:if>
+							${book_people}
+							
 						</div>												
 					</div>
 					<hr>
@@ -299,7 +346,7 @@ small{
 						   <h4>보유 포인트</h4> 
 						</div>
 						<div class="w3-col m6" align="right">						
-							<h3>-100000</h3>
+							<h3><font color="yellow">-${point_book }</font></h3>
 						</div>												
 					</div>
 					
@@ -315,36 +362,58 @@ small{
 					<div id="div_add2"></div>
 					<div id="div_add3"></div>
 					<div id="div_add4"></div>
-					<div id="div_add5"></div>									
-					
+					<div id="div_add5"></div>				
 					<hr>
 					<div class="w3-row">					
 						<div class="w3-col m6">						
 							<h3><font color="red">결제금액</font></h3>
 						</div>
 						<div class="w3-col m6" align="right">
-							<h2><font color="red">${allPrice}</font></h2>						
+							<h2><font color="red" class="price"></font></h2>						
 						</div>												
-					</div>
-					
-					
+					</div>					
 				</div>				
 				<div class="w3-col m3">
 					<div class="w3-row">
 						<div class="w3-col m12">						
-							 <input type="button" id="btn_submit" class="w3-button w3-block w3-xlarge w3-red" value="결제하기" onclick="">
+							 <input type="button" id="btn_submit" class="w3-button w3-block w3-xlarge w3-red" value="결제하기" onclick="javascript:func_insert();">
 						</div>
 					</div>
 				</div>				
 				<div class="w3-col m2"><p> </p></div>			
 			</div>
+			<!-- div 왼쪽 고정 바 끝 -->
 		</div>
+		<!-- 전체 div 끝-->
 	</form>	
 <!-- 본문 종료 -->
 
 <!-- 최상단 네비 바 시작 -->
 <jsp:include page="../Footer.jsp" flush="false"/>
 <!-- 최상단 네비 바 종료 -->
+<script type="text/javascript">
+/* 폼전송시 체크 함수 */
+function func_insert(){		
+	var point_book = parseInt("${point_book}");
+	var book_tel = $("input[name='book_phone']").val();
+	// 휴대전화 번호 인증 정규식
+	var regPhone = /^((01[1|6|7|8|9])[1-9]+[0-9]{6,7})|(010[1-9][0-9]{7})$/;	
+	if(!regPhone.test(book_tel)){
+		alert("전화번호 형식에 맞게 입력해 주세요");
+		 $("input[name='book_phone']").focus();
+		return false;
+	}
+	
+	if(totalPay > point_book){			
+		alert("포인트가 부족합니다 충전해 주세요");
+		return false;
+	}
+	// 현재 결제할 총 가격
+	document.form_insert.totalPay.value = totalPay;
+	document.form_insert.submit();
+}
 
+
+</script>
 </body>
 </html>

@@ -6,10 +6,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<!-- id 처리, filter 함수 -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>예약 확인</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 <!-- 복사 1 font -->
 <link href='https://cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css' rel='stylesheet' type='text/css'>
 
@@ -18,7 +18,6 @@
 
 <!-- JQuery -->
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> 
-
 <!-- awsome icon -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" 
 integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -26,12 +25,20 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 <!-- datepicker -->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<title>예약확인</title>
 
 
 <style type="text/css">
+#whole{
+	width: 70%;
+	margin: auto;
+}
+
 body{
 	font-family: "Nanum Barun Gothic"; 
 	letter-spacing: 1px;
+ 	margin-top: 60px !important;
+
 }
 
 h2{
@@ -68,10 +75,7 @@ h2{
 </style>
 
 <script type="text/javascript">
-function tog(show, hide) {
-	document.getElementById(show).style.display='block';
-	document.getElementById(hide).style.display='none';
-}
+
 
 
 
@@ -79,33 +83,39 @@ function tog(show, hide) {
 // 0 다가올
 // 1 지난
 // 2 취소
-$('#all').click(function () {  
+$('#all2').click(function () {  
+
 	$('.rStatus_0').css("display", "block");
 	$('.rStatus_1').css("display", "block");
 	$('.rStatus_2').css("display", "block");
 
 });
 
-$('#coming').click(function () {  
+$('#coming2').click(function () {  
 	$('.rStatus_0').css("display", "block");
 	$('.rStatus_1').css("display", "none");
 	$('.rStatus_2').css("display", "none");
 
 });
 
-$('#last').click(function () {  
+$('#last2').click(function () {  
 	$('.rStatus_0').css("display", "none");
 	$('.rStatus_1').css("display", "block");
 	$('.rStatus_2').css("display", "none");
 
 });
 
-$('#cancled').click(function () {  
+$('#cancled2').click(function () {  
 	$('.rStatus_0').css("display", "none");
 	$('.rStatus_1').css("display", "none");
 	$('.rStatus_2').css("display", "block");
 
 });
+
+function tog(show, hide) {
+	document.getElementById(show).style.display='block';
+	document.getElementById(hide).style.display='none';
+}
 
 
 function limit(no){
@@ -139,8 +149,12 @@ function start(idx, no){
 
 
 </script>
+
 </head>
+<jsp:include page="../Top.jsp" flush="false"/>
+
 <body>
+<div class="w3-container" id="whole">
 <h2 class="w3-left">내 예약 정보<i class="material-icons" style="font-size:60px; vertical-align: middle;">event</i></h2>
 <span class="w3-right">총 ${fn:length(rList)}개의 내역</span>
 <div class="w3-bar w3-green" id="filterbar">
@@ -158,7 +172,8 @@ function start(idx, no){
 <c:forEach var="rList"  items="${requestScope.rList}">
 <div class="rStatus_${rList.rStatus} w3-row w3-border-top w3-border-bottom" style="margin: 10px auto; display: block;'">
   <div class="w3-third w3-container ">
-    <img src="../img/${rList.pic1}" style="width: 100%; height: 100%"/>
+    <img src="img/${rList.pic1}" style="width: 100%; height: 100%"/>
+<%--     <h2>${rList.pic1}</h2> --%>
   </div>
   <div class="w3-rest w3-container ">
     <h5>${rList.subject}<!-- 공간이름 --> </h5>
@@ -270,12 +285,12 @@ function start(idx, no){
     <div>
 	  	<button class="w3-button w3-blue w3-padding-small" onclick="tog('reservContent_${rList.book_no}', 'reviewContent_${rList.book_no}')">예약 보기</button>&nbsp;
 	  	<button class="w3-button w3-blue w3-padding-small" onclick="tog('reviewContent_${rList.book_no}', 'reservContent_${rList.book_no}')">리뷰 보기</button>&nbsp;
-	  	<button class="w3-button w3-blue w3-padding-small" onclick="location.href='../m_detail?num=${rList.room_no}'">다시 예약</button>&nbsp;
+	  	<button class="w3-button w3-blue w3-padding-small" onclick="location.href='m_detail?num=${rList.room_no}'">다시 예약</button>&nbsp;
  	</div>
   </div>
 </div>
 </c:forEach>
 
-
+</div>
 </body>
 </html>

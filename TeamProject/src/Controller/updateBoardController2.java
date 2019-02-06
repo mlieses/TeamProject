@@ -2,6 +2,7 @@ package Controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Enumeration;
 
@@ -11,6 +12,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -21,6 +24,7 @@ import DB.HostingBillDTO;
 import DB.HostingDTO;
 import DB.HostingOptionDTO;
 import DB.HostingPicDTO;
+import user.HostDTO;
 
 
 @WebServlet("/updateBoardController2.do")
@@ -55,8 +59,6 @@ public class updateBoardController2 extends HttpServlet {
 		String etcAddress ="";
 		String wdo ="";
 		String kdo = "";
-		String from = "";
-		String to = "";
 		String content="";
 		String img="";
 		String img1="";
@@ -91,21 +93,6 @@ public class updateBoardController2 extends HttpServlet {
 						
 			Enumeration formNames = multi.getFileNames(); 
 			
-			String at11 =multi.getParameter("at11");
-			String at12 =multi.getParameter("at12");
-			String at13 =multi.getParameter("at13");
-			String at14 =multi.getParameter("at14");
-			String at15 =multi.getParameter("at15");
-			String at16 =multi.getParameter("at16");
-			String at17 =multi.getParameter("at17");
-			String at18 =multi.getParameter("at18");
-			String at19 =multi.getParameter("at19");
-			String at20 =multi.getParameter("at20");
-			String at21 =multi.getParameter("at21");
-			String at22 =multi.getParameter("at22");
-			String at23 =multi.getParameter("at23");
-			String at = at11 +at12 +at13+ at14+ at15+ at16+ at17+ at18+ at19+ at20+ at21+ at22+at23;
-			
 					
 			room_no = multi.getParameter("room_no");
 			subject = multi.getParameter("subject");
@@ -117,8 +104,6 @@ public class updateBoardController2 extends HttpServlet {
 			etcAddress = multi.getParameter("etcAddress");
 			wdo = multi.getParameter("Wdo");
 			kdo = multi.getParameter("Kdo");			
-			from = multi.getParameter("from");
-			to = multi.getParameter("to");
 			content = multi.getParameter("content");
 			etc = multi.getParameter("etc");
 			weekday =  Integer.parseInt(multi.getParameter("weekday"));
@@ -135,8 +120,7 @@ public class updateBoardController2 extends HttpServlet {
 			laptop = Integer.parseInt(multi.getParameter("laptop"));
 			cabinet = Integer.parseInt(multi.getParameter("cabinet"));
 			
-			//origin_img媛� 臾댁“嫄� 4媛� 諛쏆쓬.
-			//request媛� 紐� 諛쏆븘�삤硫� �삤瑜섏깮湲곌린 �븣臾몄뿉 珥덇린�솕
+			
 
 			String alive_img1 = "";
 			String alive_img2 = ""; 
@@ -210,9 +194,7 @@ public class updateBoardController2 extends HttpServlet {
 			}
 						
 			
-			// 泥ル쾲吏� �뾽濡쒕뱶�뙆�씪�쓣 異붽��빐�꽌 �뾽濡쒕뱶 �븯吏� �븡�븯�쓣�븣 update�떆 
-			// 湲곗〈�쓽 �씠誘몄��뙆�씪 �씠由꾩쓣 �쑀吏��븳�떎.
-			// �굹癒몄� �씠誘몄� �뙆�씪���룄 留덉갔媛�吏�.
+		
 			if(img.equals("") || img == null){
 				img = alive_img1;
 			}if(img1.equals("") || img1 == null){
@@ -230,9 +212,6 @@ public class updateBoardController2 extends HttpServlet {
 			dto.setContent(content);
 			dto.setRoom(room);
 			dto.setSubject(subject);
-			dto.setFrom(from);
-			dto.setTo(to);
-			dto.setaTime(at);
 			dto.setAirconditioner(airconditioner);
 			dto.setDrink(drink);
 			dto.setElevator(elevator);
@@ -278,12 +257,17 @@ public class updateBoardController2 extends HttpServlet {
 			DAO dao = new DAO();
 			dao.update(dto,dto1,dto2,dto3,dto4);			
 		
+			HttpSession session = request.getSession();
+			HostDTO hdto =	(HostDTO)session.getAttribute("hdto");
+			String hostId =	hdto.getHost_id();
+
+		
 			
-		RequestDispatcher dis =		
-					request.getRequestDispatcher("Jong/MyPageDetail.jsp");
+			RequestDispatcher dis =		
+					request.getRequestDispatcher("/Jong/MyPageDetail.jsp?HostId="+hostId);
+			
 		
-		
-		dis.forward(request, response);   // <--- �삤瑜�
+		dis.forward(request, response); 
 
 			
 

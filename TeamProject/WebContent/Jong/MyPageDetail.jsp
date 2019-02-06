@@ -10,9 +10,7 @@
 <title>Insert title here</title>
 
 <script
-  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-  integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
-  crossorigin="anonymous"></script>
+  src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
@@ -87,46 +85,43 @@ $(document).ready(function() {
 
 </head>
 <body>
+
+
+<jsp:include page="../Top.jsp" flush="false"/>
+
 		
-	<div style="width:100%;" >		
-			
-				
-			
-	
+	<div style="width:100%; margin-top: 55px;" >		
+		
 				<table width="100%" border="1">
 					<%										
 						DAO dao = new DAO();
 						Vector<SelectDTO> vector = null;
+						String host_id = request.getParameter("HostId");
 						
 						if(request.getAttribute("vector") == null){
 						
-							vector = dao.select("a@naver.com");	//아이디 값 넣어주기
+							vector = dao.select(host_id);	//아이디 값 넣어주기
 						}
 					
 							for(int i=0; i < vector.size() ; i++){
 								if(vector.size() == 0){break;} // 글이 없는 경우 반복문 빠져나가고 콘솔오류 발생 방지
 								SelectDTO dto = vector.get(i);	
-								String aTime = dto.getaTime();
-								
-								//  >=5 조건 안해 놓으면 5칸 이상이 안될 시 범위오류 생김
-								if(aTime.length() >=5){
-								aTime =	aTime.substring(0, 5); //이용시간의 가장 첫 번째 영업시간만 잘라냄.									
-								}
+							
 								
 								
 					%>					
 					<tr align="center" height="100px;">
-						<td width="20%"><div style="width: 90%"><img src="http://localhost:8080/TeamProject/upload/<%=dto.getImg1()%>" width="100%"></div></td>
+						<td width="20%"><div style="width: 90%"><img src="upload/<%=dto.getImg1()%>" width="100%"></div></td>
 						<td width="50%" style="text-align:left; position: relative; padding: 10px;">
 							<span style="font-size: 20px;"><%=dto.getSubject()%></span>
 						</td>	
 						<td width="10%" align="center">
-							<a href="http://localhost:8080/TeamProject/updateBoardController.do?roomNo=<%=dto.getRoom_no()%>"><button class="w3-btn w3-white w3-border w3-border-blue w3-round-large">수정</button></a>
-							<a href="http://localhost:8080/TeamProject/deleteBoardController.do?roomNo=<%=dto.getRoom_no()%>"><button class="w3-btn w3-white w3-border w3-border-blue w3-round-large">삭제</button></a>
+							<a href="updateBoardController.do?roomNo=<%=dto.getRoom_no()%>"><button class="w3-btn w3-white w3-border w3-border-blue w3-round-large">수정</button></a>
+							<a href="deleteBoardController.do?roomNo=<%=dto.getRoom_no()%>"><button class="w3-btn w3-white w3-border w3-border-blue w3-round-large">삭제</button></a>
 						</td>
 					</tr>	
 					<%
-							}		
+						}		
 					
 					%>
 					

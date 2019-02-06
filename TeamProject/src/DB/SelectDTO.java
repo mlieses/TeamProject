@@ -3,7 +3,6 @@ package DB;
 public class SelectDTO {
 	
 	private String subject;
-	private String aTime;
 	private String content;
 	private int weekday;
 	private int holiday;
@@ -32,8 +31,7 @@ public class SelectDTO {
 	private String img2;
 	private String img3;
 	private String img4;
-	private String from;
-	private String to;
+
 	
 	//setter , getter
 
@@ -105,12 +103,6 @@ public class SelectDTO {
 	}
 	public void setSubject(String subject) {
 		this.subject = subject;
-	}
-	public String getaTime() {
-		return aTime;
-	}
-	public void setaTime(String aTime) {
-		this.aTime = aTime;
 	}
 	public String getContent() {
 		return content;
@@ -219,18 +211,6 @@ public class SelectDTO {
 	}
 	public void setImg4(String img4) {
 		this.img4 = img4;
-	}
-	public String getFrom() {
-		return from;
-	}
-	public void setFrom(String from) {
-		this.from = from;
-	}
-	public String getTo() {
-		return to;
-	}
-	public void setTo(String to) {
-		this.to = to;
 	}
 
 	

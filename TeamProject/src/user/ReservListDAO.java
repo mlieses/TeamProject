@@ -100,10 +100,11 @@ public class ReservListDAO {
 	}
 	
 	/**홈에서 선택된 공간 찾기 */
-	public Vector<ReservListDTO> getList(String id){
+	public ArrayList<ReservListDTO> getList(String id){
 		System.out.println("getList요청 들어옴");
 		
-		Vector<ReservListDTO> ReservList = new Vector<ReservListDTO>();
+//		Vector<ReservListDTO> ReservList = new Vector<ReservListDTO>();
+		ArrayList<ReservListDTO> ReservList = new ArrayList<ReservListDTO>();
 		
 		
 		
@@ -125,12 +126,15 @@ public class ReservListDAO {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			System.out.println("Getlist 실행됨");
-		
+
 			rs = pstmt.executeQuery();
 //			System.out.println("P1");
+			
 			while(rs.next()){
-//				System.out.println("P2");
+			
+
 				ReservListDTO dto = new ReservListDTO();
+
 				dto.setBook_no(rs.getInt("book_no")); 
 				dto.setEmail(id);
 				dto.setBook_date(rs.getDate("book_date"));
@@ -138,7 +142,7 @@ public class ReservListDAO {
 				dto.setRoom_no(rs.getInt("room_no"));
 				dto.setSubject(rs.getString("subject"));
 //				dto.setBook_check(rs.getInt("book_check"));
-
+				
 				/**booking_time table 값 받아오기 for*/
 				String prefix = "T";
 				ArrayList timeTb = new ArrayList();
@@ -165,9 +169,10 @@ public class ReservListDAO {
 				dto.setRe_date(rs.getDate("re_date"));
 				dto.setRe_point(rs.getInt("re_point"));
 				dto.setRe_content(rs.getString("re_content"));
-				
+			
 				ReservList.add(dto);
-				System.out.println("Getlist 담김");
+				
+//				System.out.println("Getlist 담김");
 			}
 			
 		
@@ -177,7 +182,7 @@ public class ReservListDAO {
 		} finally {
 			freeResource();
 		}
-		
+		System.out.println("벡터크기는?"+ReservList.size());
 		return ReservList;
 	}
 }

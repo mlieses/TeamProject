@@ -9,12 +9,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
-<script
-  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-  integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
-  crossorigin="anonymous"></script>
+<!-- JQuery -->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> 
+
+<!-- datepicker -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 
 
 <style type="text/css">
@@ -83,6 +86,70 @@ $(document).ready(function() {
 	
 });
 
+//날짜 선택
+$(document).ready(function() {
+	
+    $("#datepicker").datepicker({	
+     onSelect: function(date) {	
+//	        alert(date);
+        myFunction("date_select");
+     },
+     altField : '#date',
+    dateFormat : 'yy년 mm월 dd일'
+  });
+ 
+    
+    
+    
+});
+
+
+//장소, 날짜 등 클릭 시..
+function myFunction(id) {
+	  var x = document.getElementById(id);
+	  var a = document.getElementById("type_select");
+	  var b = document.getElementById("location_select");
+	  var c = document.getElementById("date_select");
+	  var d = document.getElementById("number_select");
+	
+	  
+	  
+	  if (x.className.indexOf("w3-show") == -1) {//처음 클릭했다.
+		  
+		  //우선 전부 안보이게 지우고
+		  a.className = a.className.replace(" w3-show", "");
+		  b.className = b.className.replace(" w3-show", "");
+		  c.className = c.className.replace(" w3-show", "");
+		  d.className = d.className.replace(" w3-show", "");
+	
+		  //내꺼만 다시 보이게
+		  x.className += " w3-show";
+	  } else { // 열려있는 상태에서 클릭했다.
+	    x.className = x.className.replace(" w3-show", "");
+	  }
+	}
+
+
+//값 셋팅
+
+function setValue(obj, target){
+// 	var x = obj.innerHTM;
+	var x = obj.value;
+// 	alert(x);
+	document.getElementById(target).value = x;
+	var a = document.getElementById("type_select");
+	var b = document.getElementById("location_select");
+	var c = document.getElementById("date_select");
+	var d = document.getElementById("number_select");
+	
+	a.className = a.className.replace(" w3-show", "");
+	b.className = b.className.replace(" w3-show", "");
+	c.className = c.className.replace(" w3-show", "");
+	d.className = d.className.replace(" w3-show", "");
+
+}
+
+
 </script>
 
 </head>
@@ -93,12 +160,123 @@ $(document).ready(function() {
 				<jsp:include page="../Top.jsp" flush="false"/>
 				<div class="w3-bar" style="margin-top: 55px; position: fixed; z-index: 1">
 				  <div class="w3-bar w3-green">
-				  	<div class="w3-bar-item" style="height: 55px;">검색조건 예정</div></div>
+				  	<div class="w3-bar-item" style="height: 55px;">
+						<!-- 상세 조건  -->
+						<form action="search.do" method="post">
+						  <div class="w3-container">
+						     <!-- 첫 row -->
+						      <div class="w3-row w3-round-large w3-white w3-hide-small" style=" box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+						       display: inline-block; vertical-align: top; height: 40px;">
+						      <div id="new" style="position:relative;">
+						        
+						        <div class="w3-col l2 m2 w3-padding">
+						           <button type="button" onclick="myFunction('type_select')" style="border: none; padding:0px; background-color: white;">
+						          	<input type="text" id="type" name="type" placeholder ="공간" readonly="readonly" class="w3-input w3-border-0"   style = "text-align:center; font-size:1.5em; font-weight:bold; color:rgb(118,118,118); height: 30px;" >
+						          </button>
+						        </div>
+						        
+						        <div class="w3-col l4 m4 w3-border-left w3-padding" style="height: 40px;">
+						           <button type="button" onclick="myFunction('location_select')" style="border: none; padding:0px; background-color: white;">
+						          	<input type="text" id="location" name="location" placeholder="지역" readonly="readonly" class="w3-input w3-border-0" style = "text-align:center; font-size:1.5em; font-weight:bold; color:rgb(118,118,118); height: 30px;" >
+						          </button>
+						        </div>
+						          
+						        <div class="w3-col l4 m4 w3-border-left w3-padding" style="height: 40px;">
+						          <button type="button" onclick="myFunction('date_select')" style="border: none; padding:0px; background-color: white;">
+						          	<input type="text" id="datepicker" name="date" placeholder ="날짜" readonly="readonly" class="w3-input w3-border-0"  style = "text-align:center; font-size:1.5em; font-weight:bold; color:rgb(118,118,118); height: 30px;  ">
+						          </button>
+						        </div>
+						        
+						        <div class="w3-col l2 m2 w3-border-left w3-padding" style="height: 40px;">
+						          <button type="button" onclick="myFunction('number_select')" style="border: none; padding:0px; background-color: white;">
+						          	<input type="text" id="number" name="number" placeholder="인원" readonly="readonly" class="w3-input w3-border-0" style = "text-align:center; font-size:1.5em; font-weight:bold; color:rgb(118,118,118); height: 30px; ">
+						          </button>
+						        </div>
+						        	
+						      </div><!--row -->
+						       
+						       <div style="position: absolute; right: 23px; top: 10px;">
+						   	 	 <button class="w3-btn w3-round" onclick="submit()" style="background-color:rgb(252,247,52); color:rgb(11,11,11); width:150px;">
+						   			<b>검색</b>
+						   	  	</button>
+						      </div>
+						   </div>   
+						   
+						   <!-- 선택 row -->   
+								<div class="w3-row w3-hide " style="position: fixed;" id="type_select">
+							        <div class="w3-col l2 m2 w3-padding w3-white w3-round" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); width: 100%;">
+							  			<input type="button" value="카페" onclick="setValue(this, 'type')" style="border: none; padding:0px; background-color: white;"><br/>
+							  			<input type="button" value="스터디룸" onclick="setValue(this, 'type')" style="border: none; padding:0px; background-color: white;"><br/> 
+							  			<input type="button" value="강의실" onclick="setValue(this, 'type')" style="border: none; padding:0px; background-color: white;"><br/>
+							  			<input type="button" value="야외" onclick="setValue(this, 'type')" style="border: none; padding:0px; background-color: white;"><br/>  
+							        </div>
+							        <div class="w3-col l10 m10 w3-padding"></div>
+						        </div>
+						        
+						       	<div class="w3-row w3-hide" style="position: fixed;" id="location_select">
+							        <div class="w3-col l2 w3-padding"></div>
+							        <div class="w3-col l5 w3-padding w3-white w3-round" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); width: 100%; margin-left: 200px;">
+							  			<table width="100%">
+							  				<tr height="1.5em">
+							  					<td><input type="button" value="강서구" onclick="setValue(this, 'location')" style="border: none; padding:0px; background-color: white;"><br/></td>
+							  					<td><input type="button" value="금정구" onclick="setValue(this, 'location')" style="border: none; padding:0px; background-color: white;"><br/></td>
+							  					<td><input type="button" value="기장구" onclick="setValue(this, 'location')" style="border: none; padding:0px; background-color: white;"><br/></td>
+							  					<td><input type="button" value="남구" onclick="setValue(this, 'location')" style="border: none; padding:0px; background-color: white;"><br/></td>
+							  				</tr>
+							  				<tr>
+							  					<td><input type="button" value="동구" onclick="setValue(this, 'location')" style="border: none; padding:0px; background-color: white;"><br/></td>
+							  					<td><input type="button" value="동래구" onclick="setValue(this, 'location')" style="border: none; padding:0px; background-color: white;"><br/></td>
+							  					<td><input type="button" value="부산진구" onclick="setValue(this, 'location')" style="border: none; padding:0px; background-color: white;"><br/></td>
+							  					<td><input type="button" value="북구" onclick="setValue(this, 'location')" style="border: none; padding:0px; background-color: white;"><br/></td>
+							  				</tr>
+							  				<tr>
+							  					<td><input type="button" value="사상구" onclick="setValue(this, 'location')" style="border: none; padding:0px; background-color: white;"><br/></td>
+							  					<td><input type="button" value="사하구" onclick="setValue(this, 'location')" style="border: none; padding:0px; background-color: white;"><br/></td>
+							  					<td><input type="button" value="서구" onclick="setValue(this, 'location')" style="border: none; padding:0px; background-color: white;"><br/></td>
+							  					<td><input type="button" value="수영구" onclick="setValue(this, 'location')" style="border: none; padding:0px; background-color: white;"><br/></td>
+							  					
+							  				</tr>
+							  				<tr>
+							  					<td><input type="button" value="연제구" onclick="setValue(this, 'location')" style="border: none; padding:0px; background-color: white;"><br/></td>
+							  					<td><input type="button" value="영도구" onclick="setValue(this, 'location')" style="border: none; padding:0px; background-color: white;"><br/></td>
+							  					<td><input type="button" value="중구" onclick="setValue(this, 'location')" style="border: none; padding:0px; background-color: white;"><br/></td>
+							  					<td><input type="button" value="해운대구" onclick="setValue(this, 'location')" style="border: none; padding:0px; background-color: white;"><br/></td>
+							  				</tr>
+							  			</table>
+							        </div>
+							        <div class="w3-col l5 w3-padding"></div>
+						        </div>
+						        
+						        
+						        <div class="w3-row w3-hide w3-center" style="position: fixed;" id="date_select" >
+							       <!--  <div class="w3-col l6 w3-padding"></div>
+							        <div class="w3-col l4 w3-padding-small w3-white w3-round" id="datepicker"  style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); width: 100%;"></div>
+							        <div class="w3-col l2 w3-padding"></div> -->
+						        </div>	
+						        
+						        
+						        <div class="w3-row w3-hide" style="position: fixed;" id="number_select">
+							        <div class="w3-col l10 w3-padding"></div>
+							        <div class="w3-col l2 w3-padding w3-white w3-round" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-left: 1000px;">
+							  			<input type="button" value="소" onclick="setValue(this, 'number')" style="border: none; padding:0px; background-color: white;"><br/>
+							  			<input type="button" value="중" onclick="setValue(this, 'number')" style="border: none; padding:0px; background-color: white;"><br/> 
+							  			<input type="button" value="대" onclick="setValue(this, 'number')" style="border: none; padding:0px; background-color: white;"><br/>	  			 
+							        </div>        
+						        </div>
+						        
+								
+						      
+						   	 </div> <!-- 검색창  -->
+   	   	   
+	</form>
+					</div>
+				  </div>
 				  <div class="w3-bar w3-white " id="nav2" style="border-bottom:1px solid;">
 				  	<div class="w3-bar-item"><a href="./detailPageController.do?a=1">전체</a></div>
 				  	<div class="w3-bar-item"><a href="./detailPageController.do?a=2">카페</a></div>
-				  	<div class="w3-bar-item"><a href="./detailPageController.do?a=3">강의실</a></div>
-				  	<div class="w3-bar-item"><a href="./detailPageController.do?a=4">룸</a></div>
+				  	<div class="w3-bar-item"><a href="./detailPageController.do?a=3">스터디룸</a></div>
+				  	<div class="w3-bar-item"><a href="./detailPageController.do?a=4">강의실</a></div>
+				  	<div class="w3-bar-item"><a href="./detailPageController.do?a=10">야외</a></div>
 				  </div>
 				</div>	
 				
@@ -125,18 +303,15 @@ $(document).ready(function() {
 							for(int i=0; i < vector.size() ; i++){
 								if(vector.size() == 0){break;} // 글이 없는 경우 반복문 빠져나가고 콘솔오류 발생 방지
 								SelectDTO dto = vector.get(i);	
-								String aTime = dto.getaTime();
 								
-								//  >=5 조건 안해 놓으면 5칸 이상이 안될 시 범위오류 생김
-								if(aTime.length() >=5){
-								aTime =	aTime.substring(0, 5); //이용시간의 가장 첫 번째 영업시간만 잘라냄.
-									
-								}
+					
 								
 								
 					%>					
 					<tr align="center" height="300px;">
-						<td width="40%"><div style="width: 90%"><img src="../upload/<%=dto.getImg1()%>" width="100%"></div></td>
+						<td width="40%"><div style="width: 90%">
+							<a href="detailPageController.do?a=8"><img src="upload/<%=dto.getImg1()%>" width="100%"></a></div>
+						</td>
 						<td width="50%" style="text-align:left; position: relative;">
 							<div style="position: absolute; top: 0px;">
 								<h1 style="margin-bottom: -3px;"><%= dto.getSubject()%></h1>
@@ -155,7 +330,7 @@ $(document).ready(function() {
 								</div>
 							</div>
 							<div style="margin-top: 50px;">	
-								<p style="margin-bottom: 0px"><b>이용시간</b>&nbsp;&nbsp; <%=aTime%>부터 <br> 
+								<p style="margin-bottom: 0px"><b>이용시간</b>&nbsp;&nbsp; <br> 
 									<img alt="예약가" src="re.JPG"> &nbsp;&nbsp;&nbsp;   
 									&nbsp;평일<span style="font-size: 28px;">&nbsp;<%=dto.getWeekday()%></span><b>원</b>
 									&nbsp;주말<span style="font-size: 28px;">&nbsp;<%=dto.getHoliday()%></span><b>원</b>
