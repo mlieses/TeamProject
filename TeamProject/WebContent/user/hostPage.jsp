@@ -21,11 +21,11 @@
 		border: 1px solid white;		
 		margin-top: 75px;						
 	}
-	.w3-row{
+	.hostRow{
 		border: 1px solid white;
 		width: 100%;		
 	}
-	.w3-col{
+	.hostCol{
 		border: 1px solid white;					
 	}
 	.ul_left>li{		
@@ -85,9 +85,9 @@ $(document).ready(function() {
 <jsp:include page="../Top.jsp" flush="false"/>
 <!-- 최상단 네비 바 종료 -->
 <div class="w3-container w3-padding-large con">		
-		<div class="w3-row">
-			<div class="w3-col m2"></div>				
-			<div class="w3-col m2 div_sticky" align="left">
+		<div class="w3-row hostRow">
+			<div class="w3-col m2 hostCol"></div>				
+			<div class="w3-col m2 div_sticky hostCol" align="left">
 				<h1 style="padding-left: 20px;">목록</h1>			
 				<ul class="ul_left">
 					<li><a href="#" class="a_click1">프로필 수정</a></li>
@@ -98,11 +98,13 @@ $(document).ready(function() {
 					<!-- <li><a href="#" class="a_click5"></a></li> -->
 				</ul>			
 			</div>		
-			<div class="w3-col m6" id="contents"></div>
-			<div class="w3-col m2"></div>			
+			<div class="w3-col m6 hostCol" id="contents" style="margin-bottom: 100px;"></div>
+			<div class="w3-col m2 hostCol"></div>			
 		</div>
 </div>
-
+<!-- Footer -->
+	<jsp:include page="../Footer.jsp" flush="false"/>
+<!-- Footer 끝 -->
 
 </body>
 </html>

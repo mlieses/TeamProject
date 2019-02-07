@@ -544,7 +544,7 @@ Vector<homeDTO> popV = (Vector<homeDTO>)request.getAttribute("popularV");
 
  <!-- Slideshow -->
  <div class="w3-container w3-padding-32" id="projects">
-    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">이벤트<a href="event/event.jsp" class="w3-right w3-medium">더보기</a></h3>
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">이벤트<a href="./Event.do" class="w3-right w3-medium">더보기</a></h3>
   </div>
   
   <div class="w3-container">

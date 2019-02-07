@@ -136,7 +136,7 @@
 		</div>		
 	</div>
 	<!-- 정보 수정 시작 -->
-	<form action="../UserProfileUpdateController.do" method="post" name="form_userProfile">	
+	<form action="./UserProfileUpdateController.do" method="post" name="form_userProfile">	
 	<div class="w3-row w3-margin-top" ></div>
 	<div class="w3-row" >								
 		<div class="w3-col m8">
@@ -312,7 +312,7 @@
 					
 				</div><!-- container -->
 				<footer class="w3-white w3-padding">
-					<form action="../RechargeController.do" method="post" onSubmit="return CheckMethod();">
+					<form action="./RechargeController.do" method="post" onSubmit="return CheckMethod();">
 					<input type="hidden" name="email" value="${sessionScope.udto.email }"><!-- jstl di 처리-->					
 						<div id="display">
 							<p align="right"> 

@@ -260,7 +260,7 @@ a{
           <input class="w3-input w3-border" type="password" placeholder="비밀번호" name="pass" required>
           <input class="w3-check w3-margin-top" type="checkbox" id="host_login""> 호스트 로그인
           <button class="w3-button w3-block w3-green w3-section w3-padding" type="button" onclick="login_click()">로그인</button>
-       	  <span class="w3-right w3-padding w3-hide-small">비밀번호를 잊으셨거나 변경이 필요하신가요? <a href="#">비밀번호 재설정</a></span>
+       	  <span class="w3-right w3-padding w3-hide-small">비밀번호를 잊으셨거나 변경이 필요하신가요? <a href="#"><font color="blue">비밀번호 재설정</font></a></span>
         </div>
       </form>
       	<hr>
@@ -274,7 +274,7 @@ a{
       </div>      	
       <div class="w3-container w3-border-top w3-padding-16 w3-teal">
         <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
-        <span class="w3-right w3-padding w3-hide-small">share space의 회원이 아니신가요? <a href="#">회원 가입</a></span>
+        <span class="w3-right w3-padding w3-hide-small">share space의 회원이 아니신가요? <a href="#"><font color="blue">회원 가입</font></a></span>
       </div>
 
     </div>
