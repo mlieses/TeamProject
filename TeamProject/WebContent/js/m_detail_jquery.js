@@ -190,7 +190,7 @@
 	//comment 등록버튼
 	$("#insert_btn").on("click", function(event){
 		var content = $("#c_content").val();
-  
+		$("#c_content").value="";
 		$.ajax({
 	        url:'CommentInsertController',
 	        type:'post',
@@ -211,7 +211,7 @@
         						+'		<img src="img/c1.PNG" class="w3-circle w3-hide-small c-profile-img">'
         						+'	</div>'
         						+'	<div class="w3-bar-item item-div">'
-        						+'		<span>ddd</span><br> <span>(ddd@)</span>'
+        						+'		<span>'+comment+'</span><br> <span>(ddd@)</span>'
         						+'	</div>'
         						+'	<div class="item-content upContent'+comment_no+'">'
         						+'		<span>'+content+'</span>'
@@ -220,7 +220,7 @@
         			
         			//동적 버튼 이벤트 추가해야함
 	        		});	
-	        		/*
+	        		
 	        		$(document).on("click", ".delete"+comment_no, function(event){
 	        			console.log("동적 생성 삭제 버튼 눌러짐");
 	        			del(event);
@@ -229,7 +229,7 @@
 	        			console.log("동적 생성 수정 버튼 눌러짐")
 	        			update(event);
 	        		});
-	        		*/
+	        		
 	        	
 	        }
 		}); 
@@ -305,14 +305,14 @@
         									+'		<span>'+update_content+'</span> '
         									+'	</div>');
 		        		
-		        		/*
+		        		
 		        		$(document).on("click", ".delete"+comment_no, function(event){
 		        			del(event);
 		        		});
 		        		$(document).on("click", ".update"+comment_no, function(event){
 		        			update(event);
 		        		});
-		        		*/
+		        		
 		        	}
 		        }
 			});	
