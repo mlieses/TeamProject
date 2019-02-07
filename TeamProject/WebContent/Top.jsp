@@ -198,7 +198,7 @@ a{
       <c:choose>
       	<%-- 일반 회원이 로그인 됐을 때 --%>
       	<c:when test="${email ne null }">      		 		
-      		<a href="#about" class="w3-bar-item w3-button" onclick="star_click()"><i class="material-icons">stars</i></a>
+      		<a href="#about" class="w3-bar-item w3-button" onclick="stars_click()"><i class="material-icons">stars</i></a>
       		<a href="${path1}./ReservationController.do?userId=${sessionScope.udto.email}" class="w3-bar-item w3-button">내 예약관리</a>
       		<div class="w3-dropdown-click">
       			<button onclick="click_modal()" class="w3-bar-item w3-button w3-dark-grey">${sessionScope.udto.name }</button>
@@ -293,10 +293,10 @@ a{
 } 
 
  // 상단 호스트 별표 클릭시
- function star_click(){	 
+ function stars_click(){	 
 	 if("${sessionScope.udto.host_check}" != 1){		 
 	 	if(confirm("호스트 등록이 되어있지 않습니다. 호스트 가입 하시겠습니까?")){
-			 location.href="${path2}hostSignUp.jsp";
+			 location.href="./HostController.do";
 		}		 
 	 }else{
 		 alert("회원님은 이미 호스트가입이 되어 있습니다. 호스트 로그인 해주십시오.");

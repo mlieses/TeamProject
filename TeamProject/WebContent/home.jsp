@@ -145,7 +145,8 @@ function setValue(obj, target){
 
 // 호스트되기 클릭시
 function star_click(){
-	if("${sessionScope.udto.email}" == null){			
+	
+	if("${sessionScope.udto.email}" == ""){			
 		alert("먼저 로그인 해주세요");
 	}else{
 		 if("${sessionScope.udto.host_check}" != 1){		 
