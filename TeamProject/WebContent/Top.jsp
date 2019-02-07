@@ -120,6 +120,8 @@ $(document).ready(function() {
 			   $("input[name='pass']").attr("placeholder","호스트 비밀번호");
 			   $("input[name='pass']").val("");
 			   login_flag = 1;
+		   }else{
+			   $("#host_login").prop("checked",false);
 		   }
 		   
 	   }else{		   
@@ -162,7 +164,7 @@ function host_click_modal() {
 }
 
 function host_space(){
-	location.href="detailPageController.do?a=7";
+	location.href="./detailPageController.do?a=7";
  }
 </script>
 <style type="text/css">
@@ -175,10 +177,10 @@ a{
   color: #666666;
   font-style: bold;
 }
-#drop>a{
+.user_drop>a{
 	border-bottom: 1px solid #f2f2f2;
 }
-#drop>a:HOVER{
+.user_drop>a:HOVER{
 	border-bottom: 1px solid black;
 }	
 
@@ -202,13 +204,11 @@ a{
       		<a href="${path1}./ReservationController.do?userId=${sessionScope.udto.email}" class="w3-bar-item w3-button">내 예약관리</a>
       		<div class="w3-dropdown-click">
       			<button onclick="click_modal()" class="w3-bar-item w3-button w3-dark-grey">${sessionScope.udto.name }</button>
-      			<div id="drop" class="w3-dropdown-content w3-bar-block w3-card-4  w3-animate-zoom" style="right:0; width: 200px; top:56px;">
+      			<div id="drop" class="w3-dropdown-content w3-bar-block w3-card-4  w3-animate-zoom user_drop" style="right:0; width: 200px; top:56px;">
       				<small>&nbsp;&nbsp;${sessionScope.udto.email} &nbsp;&nbsp;보유 포인트 : </small>    
       				<br><font color="red" class="w3-margin-left">${sessionScope.udto.point} </font> <small>포인트(￦)</small>  				   				
       				<hr>
       				<a href="${path1}./UserPageController.do" class="w3-bar-item w3-button">프로필수정/탈퇴</a>
-      				<a href="${path1}" class="w3-bar-item w3-button">리뷰</a>
-      				<a href="${path1}" class="w3-bar-item w3-button">추천글</a>      				
       				<a href="${path1}./UserLogoutController.do" class="w3-bar-item w3-button">로그아웃</a>      				
     			</div>
       		</div>	
@@ -221,19 +221,17 @@ a{
    			<a href="${path1}./ReservationController.do?userId=${sessionScope.udto.email}" class="w3-bar-item w3-button">내 예약관리</a>
    			<div class="w3-dropdown-click">
    				<button onclick="host_click_modal()" class="w3-bar-item w3-button w3-orange">${sessionScope.hdto.host_nic }</button>
-   				<div id="drop_host" class="w3-dropdown-content w3-bar-block w3-card-4  w3-animate-zoom" style="right:0; width: 200px; top:56px;">
+   				<div id="drop_host" class="w3-dropdown-content w3-bar-block w3-card-4  w3-animate-zoom user_drop" style="right:0; width: 200px; top:56px;">
    						<small>&nbsp;&nbsp;${sessionScope.hdto.email} &nbsp;&nbsp;보유 포인트 : </small>    
       				<br><font color="red" class="w3-margin-left">${sessionScope.point} </font> <small>포인트(￦)</small>	  				   				
       				<hr>
    					<a href="${path1}./HostPageController.do" class="w3-bar-item w3-button">프로필수정/탈퇴</a>
-   					<a href="${path1}" class="w3-bar-item w3-button">리뷰 관리</a>
-					<a href="${path1}" class="w3-bar-item w3-button">추천글 관리</a>   					     				   				
    					<a href="${path1}./HostLogoutController.do" class="w3-bar-item w3-button">로그아웃</a>      				
  				</div>
    			</div>	
       	</c:when>		
       	
-      	<%-- 일반회원 또는 호스트회원 로그인이 둘다 안되있을 떄 --%>
+      	<%-- 일반회원 또는 호스트회원 로그인이 둘다 안되있을 때 --%>
       	<c:otherwise>
       		<a href="${path1}./UserSingUp_authController.do" class="w3-bar-item w3-button">회원가입</a>
       		<a href="#home" class="w3-bar-item w3-button" onclick="document.getElementById('id01').style.display='block'">로그인</a><!-- 로그아웃 -->     	
