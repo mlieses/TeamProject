@@ -132,7 +132,7 @@ $(document).ready(function(){
 			<div class="w3-col m3"><p> </p></div>		
 			<div class="w3-col m6 ">
 				<button class="w3-btn w3-block w3-teal" disabled="disabled" 
-						id="btn-next" onclick="location.href='./userController.do'">다 음</button>
+						id="btn-next" onclick="location.href='./UserController.do'">다 음</button>
 			</div>
 			<div class="w3-col m3"><p> </p></div>
 		</div>

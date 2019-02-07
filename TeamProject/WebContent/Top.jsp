@@ -235,7 +235,7 @@ a{
       	
       	<%-- 일반회원 또는 호스트회원 로그인이 둘다 안되있을 떄 --%>
       	<c:otherwise>
-      		<a href="${path1}./userSingUp_authController.do" class="w3-bar-item w3-button">회원가입</a>
+      		<a href="${path1}./UserSingUp_authController.do" class="w3-bar-item w3-button">회원가입</a>
       		<a href="#home" class="w3-bar-item w3-button" onclick="document.getElementById('id01').style.display='block'">로그인</a><!-- 로그아웃 -->     	
       	</c:otherwise>	
       </c:choose>            
