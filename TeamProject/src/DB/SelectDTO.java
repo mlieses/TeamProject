@@ -31,15 +31,29 @@ public class SelectDTO {
 	private String img2;
 	private String img3;
 	private String img4;
+	private int reviewPoint;
+	private int reviewNumber;
+	
 
 	
 	//setter , getter
 
 	
 	
-	
 	public String getSubject() {
 		return subject;
+	}
+	public int getReviewPoint() {
+		return reviewPoint;
+	}
+	public void setReviewPoint(int reviewPoint) {
+		this.reviewPoint = reviewPoint;
+	}
+	public int getReviewNumber() {
+		return reviewNumber;
+	}
+	public void setReviewNumber(int reviewNumber) {
+		this.reviewNumber = reviewNumber;
 	}
 	public String getWdo() {
 		return wdo;

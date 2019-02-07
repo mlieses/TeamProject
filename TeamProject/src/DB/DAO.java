@@ -305,7 +305,11 @@ public class DAO {
 						dto.setWeekday(rs.getInt("weekday"));
 						dto.setHoliday(rs.getInt("holiday"));
 						dto.setRoom_no(rs.getInt("room_no")); 
-						//이미지명, 제목 , room_no만 필요
+						dto.setRoom(rs.getString("room_type"));
+						dto.setPeople(rs.getString("people"));
+						dto.setImg2(rs.getString("pic2"));
+						dto.setImg3(rs.getString("pic3"));
+						dto.setImg4(rs.getString("pic4"));
 						
 						vector.add(dto);	
 																		
@@ -413,13 +417,9 @@ public class DAO {
 		
 		try {
 			
-				String sql = "delete from hosting where room_no =?";
-																		
-				pstmt =	con.prepareStatement(sql);
-				pstmt.setInt(1, dto.getRoom_no());	
-				pstmt.executeUpdate();
+			
 				
-				sql = "delete from hosting_address where room_no =?";
+	String		sql = "delete from hosting_address where room_no =?";
 				
 				pstmt =	con.prepareStatement(sql);
 				pstmt.setInt(1, dto.getRoom_no());	
@@ -443,6 +443,11 @@ public class DAO {
 				pstmt.setInt(1, dto.getRoom_no());	
 				pstmt.executeUpdate();
 				
+				sql = "delete from hosting where room_no =?";
+				
+				pstmt =	con.prepareStatement(sql);
+				pstmt.setInt(1, dto.getRoom_no());	
+				pstmt.executeUpdate();
 				
 				
 		} catch (Exception e) {
@@ -586,6 +591,50 @@ public class DAO {
 		}
 		
 		
+	}
+	
+	
+	public SelectDTO selectReview(int room_no) {
+		
+		
+		getCon();
+		SelectDTO dto = new SelectDTO();
+		
+		try {
+			String sql ="select count(room_no) room_Number , round(avg(re_point) , 0) rank from review where room_no = ? ";
+						 
+						
+			
+			pstmt =	con.prepareStatement(sql);
+			pstmt.setInt(1, room_no);
+			
+			rs = pstmt.executeQuery();
+			rs.next();
+			
+			
+			dto.setReviewNumber(rs.getInt("room_Number"));
+			dto.setReviewPoint(rs.getInt("rank"));
+			
+			
+		} catch (Exception e) {
+			System.out.println("selectReview에서 오류 " + e );
+		} finally {
+			try {
+				if(pstmt !=null){
+					pstmt.close();					
+				}
+				
+				if(con != null){
+					con.close();
+				}if(rs != null){
+					rs.close();
+				}
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		
+		return dto;
 	}
 	
 	
