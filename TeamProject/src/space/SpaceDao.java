@@ -185,8 +185,10 @@ public class SpaceDao {
 			try{
 				Date date = Date.valueOf(LocalDate.now().plusDays(i));
 				System.out.println(date);
-				SimpleDateFormat fo = new SimpleDateFormat("yyyy-M-dd");
-				
+				SimpleDateFormat fo = new SimpleDateFormat("yyyy-M-d");
+//				System.out.println("날짜 포맷");
+//				String dd ="2019-12-01";
+//				System.out.println(fo.format(Date.valueOf(dd)));
 					con = ds.getConnection();
 					String sql = "select sum(bt.t10), sum(bt.t11), sum(bt.t12), sum(bt.t13), "
 								+"sum(bt.t14),sum(bt.t15), sum(bt.t16), sum(bt.t17), "
@@ -203,12 +205,12 @@ public class SpaceDao {
 					rs = pstmt.executeQuery();
 					if(rs.next()){
 						for(int j=1;j<13;j++){
-							System.out.println("rs.get()"+j+"번째 값: "+rs.getInt(j));
+//							System.out.println("rs.get()"+j+"번째 값: "+rs.getInt(j));
 							if(rs.getInt(j)==0){
 								break;
 							}
 							if(j==12){
-								System.out.println("예약이 다찬 날짜 : "+date);
+								System.out.println("예약이 다찬 날짜 : "+fo.format(date));
 								noList.add(fo.format(date));
 								
 							}
@@ -320,7 +322,8 @@ public class SpaceDao {
 			 			+ "from review r "
 			 			+ "join user u "
 			 			+ "on r.email = u.email "
-			 			+ "where r.room_no = ?";
+			 			+ "where r.room_no = ? "
+			 			+ "order by r.re_date desc;";
 			 pstmt = con.prepareStatement(sql);
 			 pstmt.setInt(1, num);
 			 rs =pstmt.executeQuery();
@@ -343,11 +346,27 @@ public class SpaceDao {
 		 }catch(Exception e){
 			 System.out.println("getReviewList에서 에러"+e);
 			 
+		 }finally{
+			 freeResource();
 		 }
 		return reviewList;
 	}
-	
-	
+
+	public int getReviewCount(){
+		int count=0;
+		try{
+			con = ds.getConnection();
+			String sql = "select count(*) from review ";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				count = rs.getInt(1);
+			}
+		}catch(Exception e){
+			System.out.println("getReviewCount에서 오류"+e);
+		}
+		return count;
+	}
 		
 		
 

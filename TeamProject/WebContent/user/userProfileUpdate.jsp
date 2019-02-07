@@ -12,7 +12,7 @@
 <link href='https://cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css' rel='stylesheet' type='text/css'>
 <!-- JQuery -->
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<link href="../css/recharge.css" rel="stylesheet">
+<link href="css/recharge.css" rel="stylesheet">
 <style type="text/css"></style> 
 <script type="text/javascript">	
 	var flag=0;
@@ -136,7 +136,7 @@
 		</div>		
 	</div>
 	<!-- 정보 수정 시작 -->
-	<form action="../UserProfileUpdateController.do" method="post" name="form_userProfile">	
+	<form action="./UserProfileUpdateController.do" method="post" name="form_userProfile">	
 	<div class="w3-row w3-margin-top" ></div>
 	<div class="w3-row" >								
 		<div class="w3-col m8">
@@ -312,7 +312,7 @@
 					
 				</div><!-- container -->
 				<footer class="w3-white w3-padding">
-					<form action="../RechargeController.do" method="post" onSubmit="return CheckMethod();">
+					<form action="./RechargeController.do" method="post" onSubmit="return CheckMethod();">
 					<input type="hidden" name="email" value="${sessionScope.udto.email }"><!-- jstl di 처리-->					
 						<div id="display">
 							<p align="right"> 

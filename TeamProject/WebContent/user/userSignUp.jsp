@@ -16,7 +16,7 @@
 <jsp:include page="../Top.jsp" flush="false"/>
 <!-- 최상단 네비 바 종료 -->
 <!-- 본문 시작 -->
- <form action="../UserSignUpController.do" method="post">
+ <form action="./UserSignUpController.do" method="post">
 	<div class="w3-container w3-margin-top">
 		<div class="w3-row w3-margin-top"></div>
 		<div class="w3-row w3-margin-top"></div>

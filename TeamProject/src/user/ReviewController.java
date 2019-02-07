@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,8 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/reviewController.do")
-public class reviewController extends HttpServlet {
+@WebServlet("/ReviewController.do")
+public class ReviewController extends HttpServlet {
     
    
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -38,9 +39,9 @@ public class reviewController extends HttpServlet {
 		ReviewDAO dao = new ReviewDAO();
 		
 		int result = dao.addReview(book_no, room_no, email, re_point, re_content);
-		
+		System.out.println("reveiw controller: "+result);
 		if(result ==1){
-			//성공
+			response.sendRedirect("ReservationController.do?userId="+email);
 		}
 		
 		

@@ -144,15 +144,20 @@ function setValue(obj, target){
 
 
 // 호스트되기 클릭시
-function star_click(){	 
-	 if("${sessionScope.udto.host_check}" != 1){		 
-	 	if(confirm("호스트 등록이 되어있지 않습니다. 호스트 가입 하시겠습니까?")){
-			 location.href="user/hostSignUp.jsp";
-		}		 
-	 }else{
-		 alert("회원님은 이미 호스트가입이 되어 있습니다. 호스트 로그인 해주십시오.");
-		 
-	 }	
+function star_click(){
+	
+	if("${sessionScope.udto.email}" == ""){			
+		alert("먼저 로그인 해주세요");
+	}else{
+		 if("${sessionScope.udto.host_check}" != 1){		 
+		 	if(confirm("호스트 등록이 되어있지 않습니다. 호스트 가입 하시겠습니까?")){
+				 location.href="./HostController.do";
+			}		 
+		 }else{
+			 alert("회원님은 이미 호스트가입이 되어 있습니다. 호스트 로그인 해주십시오.");
+			 
+		 }	
+	}
 }
 
 	
@@ -332,7 +337,7 @@ letter-spacing: 1px;
   	</div>
   	
   	<div class="w3-quarter w3-center">
-  	<a href="#" style="text-decoration: none;">
+  	<a href="./ReservationController.do?userId=${sessionScope.udto.email}" style="text-decoration: none;">
   	<i class="material-icons" style="font-size:80px;color:#333;">event</i>
   	<p style="margin:2px;">예약내역</p>
   	</a>
@@ -383,7 +388,7 @@ letter-spacing: 1px;
   	</div>   
   	
   	<div class="w3-col w3-center" style="width:20%;">
-  	<a href="#" style="text-decoration: none;">
+  	<a href="./ReservationController.do?userId=${sessionScope.udto.email}" style="text-decoration: none;">
   	<i class="material-icons" style="font-size:80px;color:#333;">event</i>
   	<p style="margin:2px;">예약내역</p>
   	</a>
@@ -539,7 +544,7 @@ Vector<homeDTO> popV = (Vector<homeDTO>)request.getAttribute("popularV");
 
  <!-- Slideshow -->
  <div class="w3-container w3-padding-32" id="projects">
-    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">이벤트<a href="event/event.jsp" class="w3-right w3-medium">더보기</a></h3>
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">이벤트<a href="./Event.do" class="w3-right w3-medium">더보기</a></h3>
   </div>
   
   <div class="w3-container">

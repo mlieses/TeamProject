@@ -21,11 +21,11 @@
 		border: 1px solid white;		
 		margin-top: 75px;						
 	}
-	.w3-row{
+	.hostRow{
 		border: 1px solid white;
 		width: 100%;		
 	}
-	.w3-col{
+	.hostCol{
 		border: 1px solid white;					
 	}
 	.ul_left>li{		
@@ -47,7 +47,7 @@
 <script type="text/javascript">
 $(document).ready(function() {	
 		$(".a_click1").css("color","black");
-		$("#contents").load("hostProfileUpdate.jsp");
+		$("#contents").load("user/hostProfileUpdate.jsp");
 		/* 
 		// home에서 공간관리 누르면 파라메타값으로 1을 넘겨받고 맞을시 클릭2번 선택한것처럼 보임.
 		if($("#MyPage").attr('value') == 1)
@@ -62,7 +62,7 @@ $(document).ready(function() {
 		//alert("클릭");
 		$(".a_click1").css("color","black");
 		$(".a_click2").css("color","grey");		
-		$("#contents").load("hostProfileUpdate.jsp");
+		$("#contents").load("user/hostProfileUpdate.jsp");
 	});
 	/* 호스트 탈퇴시 */
 	$(".a_click2").click(function(){
@@ -85,9 +85,9 @@ $(document).ready(function() {
 <jsp:include page="../Top.jsp" flush="false"/>
 <!-- 최상단 네비 바 종료 -->
 <div class="w3-container w3-padding-large con">		
-		<div class="w3-row">
-			<div class="w3-col m2"></div>				
-			<div class="w3-col m2 div_sticky" align="left">
+		<div class="w3-row hostRow">
+			<div class="w3-col m2 hostCol"></div>				
+			<div class="w3-col m2 div_sticky hostCol" align="left">
 				<h1 style="padding-left: 20px;">목록</h1>			
 				<ul class="ul_left">
 					<li><a href="#" class="a_click1">프로필 수정</a></li>
@@ -98,11 +98,13 @@ $(document).ready(function() {
 					<!-- <li><a href="#" class="a_click5"></a></li> -->
 				</ul>			
 			</div>		
-			<div class="w3-col m6" id="contents"></div>
-			<div class="w3-col m2"></div>			
+			<div class="w3-col m6 hostCol" id="contents" style="margin-bottom: 100px;"></div>
+			<div class="w3-col m2 hostCol"></div>			
 		</div>
 </div>
-
+<!-- Footer -->
+	<jsp:include page="../Footer.jsp" flush="false"/>
+<!-- Footer 끝 -->
 
 </body>
 </html>

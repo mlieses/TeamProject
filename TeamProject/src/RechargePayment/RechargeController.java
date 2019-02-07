@@ -48,7 +48,7 @@ public class RechargeController extends HttpServlet {
 				PrintWriter printWriter = response.getWriter();
 				printWriter.println("<script>");
 				printWriter.println("alert('충전 완료')");
-				printWriter.println("location.href='user/userPage.jsp'");//마이페이지로 수정
+				printWriter.println("location.href='./UserPageController.do'");//마이페이지로 수정
 				printWriter.println("</script>");
 			}else{
 				user.HostDTO hdto = (user.HostDTO)session.getAttribute("hdto");
@@ -62,7 +62,7 @@ public class RechargeController extends HttpServlet {
 				PrintWriter printWriter = response.getWriter();
 				printWriter.println("<script>");
 				printWriter.println("alert('충전 완료')");
-				printWriter.println("location.href='user/hostPage.jsp'");//마이페이지로 수정
+				printWriter.println("location.href='./HostPageController.do'");//마이페이지로 수정
 				printWriter.println("</script>");
 				
 			}
@@ -73,7 +73,7 @@ public class RechargeController extends HttpServlet {
 			PrintWriter printWriter = response.getWriter();
 			printWriter.println("<script>");
 			printWriter.println("alert('재 확인 필요')");
-			printWriter.println("location.href='user/userPage.jsp'");//마이페이지로 수정
+			printWriter.println("location.href='./UserPageController.do'");//마이페이지로 수정
 			printWriter.println("</script>");
 		}
 		

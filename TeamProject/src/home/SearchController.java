@@ -33,7 +33,7 @@ public class SearchController extends HttpServlet {
 
 		SearchDAO dao = new SearchDAO();
 		Vector<SearchDTO> FindV = dao.FindSpace(type, location, date, number);
-		
+		System.out.println("공간 갯수"+FindV.size());
 		request.setAttribute("FindV", FindV );
 				
 		RequestDispatcher dis = request.getRequestDispatcher("Jong/detail2.jsp?dateValue="+date);

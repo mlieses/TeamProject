@@ -56,9 +56,9 @@ $(document).ready(function(){
 	   }
    });
    
-	$( "#target1" ).load( "agreetext_service.txt" );
-	$( "#target2" ).load( "agreetext_privacy.txt" );
-	$( "#target3" ).load( "agreetext_location.txt" );  
+	$( "#target1" ).load( "user/agreetext_service.txt" );
+	$( "#target2" ).load( "user/agreetext_privacy.txt" );
+	$( "#target3" ).load( "user/agreetext_location.txt" );  
     
 });
 </script>
@@ -132,7 +132,7 @@ $(document).ready(function(){
 			<div class="w3-col m3"><p> </p></div>		
 			<div class="w3-col m6 ">
 				<button class="w3-btn w3-block w3-teal" disabled="disabled" 
-						id="btn-next" onclick="location.href='userSignUp.jsp'">다 음</button>
+						id="btn-next" onclick="location.href='./UserController.do'">다 음</button>
 			</div>
 			<div class="w3-col m3"><p> </p></div>
 		</div>

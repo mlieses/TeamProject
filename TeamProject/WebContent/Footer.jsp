@@ -1,26 +1,24 @@
+<%@page import="java.util.StringTokenizer"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	/* <jsp:include page="../Top.jsp" flush="false"/>
-		동적 페이지 폴더 변경 */
-		String servlet = request.getServletPath();
-		// 이미지 동적경로 지정시
-		String path = "../";
-		// 컨트롤러 동적경로 지정시
-		String path1 = ".";
-		// 페이지 동적경로 지정시
-		String path2 = "../user/";
-		System.out.println(servlet);
-		if(servlet.equals("/home.jsp") || servlet.equals("/Top.jsp") ||servlet.equals("/m_detail.jsp") || servlet.equals("/booking/booking.jsp")){
-			
-			path="";
-			path1="";
-			path2 = "user/";
-		}
-		request.setAttribute("path", path);
-		request.setAttribute("path1", path1);
-		request.setAttribute("path2", path2);
+		동적 페이지 폴더 변경 */		
+	String servlet = request.getServletPath();
+	StringTokenizer st = new StringTokenizer(servlet,"/");
+		
+	System.out.println(servlet+" : "+st.countTokens());
+	
+	// 홈화면버튼 동적경로 지정
+	String path="";
+	String path1="";
+	String path2 = "user/";
+	
+	
+	request.setAttribute("path", path);
+	request.setAttribute("path1", path1);
+	request.setAttribute("path2", path2);
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -69,7 +67,7 @@ p{
 	<div class="w3-container w3-blue-grey w3-center"> <br>	
 			<div class="row">
 				<div  class="w3-col m2" style="text-align: right;">
-					<a href="${path2 }index.jsp"><img src="${path }footer/footer_img.jpg"></a>
+					<a href="${path1}index.jsp"><img src="${path }footer/footer_img.jpg"></a>
 				</div>
 				<div class="w3-col m8" style="text-align: left;">
 					<h5>Copyright&copy; Share Space</h5>

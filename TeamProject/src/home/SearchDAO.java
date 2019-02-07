@@ -122,6 +122,11 @@ and h.people = '소';
 								+ "(select book_date , sum(t10 + t11 + t12 + t13 + t14 +t15 +t16 +t17+t18+t19+t20+t21) Sum "
 								+ "from booking_time group by book_date) b where a.book_date = ? and sum < 12)b ON a.room_no = b.room_no"; 
 							
+						
+						
+						
+						
+
 						pstmt = con.prepareStatement(sql);
 						
 					

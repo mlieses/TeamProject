@@ -41,11 +41,7 @@
 <c:set var="noList" value="${noList}"></c:set>
 <c:set var="reviewList" value="${reviewList}"/>
 <c:set var="session" value="${sessionScope.udto}"/>
-<script>
-	
-	console.log("noList는");
-	console.log('${noList[3]}');
-</script>
+
 <jsp:include page="Top.jsp"/>
 
 
@@ -179,7 +175,7 @@
 					<i class="material-icons">group</i>
 				</div>
 				<div style="margin-right:20px;">
-					&nbsp;<b>${hosting.people}명</b>
+					&nbsp;<b>${hosting.people}</b>
 				</div>
 				<div>	
 					<i class="material-icons">local_drink</i>
@@ -254,24 +250,29 @@
 	<table class="w3-table-all w3-hoverable">
 	
     <thead>
-      <tr class="w3-light-grey">
-        <th width="5%">no</th>
-        <th width="10%">작성자</th>
-        <th width="5%">별점</th>
-        <th width="70%">글내용</th>
-        <th width="10%">날짜</th>
-      </tr>
+		<tr class="w3-light-grey">
+			<th width="5%">no</th>
+			<th width="auto">작성자</th>
+			<th width="10%">별점</th>
+			<th width="60%">글내용</th>
+			<th width="15%">날짜</th>
+		</tr>
     </thead>
     <c:forEach var="review" items="${reviewList}">
-	    <tr>
-	      <td>${review.review_no}</td>
-	      <td>${review.nic_name}<br>(${review.email})</td>
-	      <td>${review.re_point}</td>
-	      <td>${review.re_content}</td>
-	      <td>${review.re_date}</td>
-	    </tr>
+		<tr class="review_content">
+	    	<td>${review.review_no}</td>
+	    	<td>${review.nic_name}<br>(${review.email})</td>
+	    	<td>${review.re_point}</td>
+	    	<td>${review.re_content}</td>
+	    	<td>${review.re_date}</td>
+		</tr>
     </c:forEach>
-  </table>
+    	<tr>
+    		<td colspan="5" class="w3-center">
+    			<button class="review_more_btn">더보기</button>
+    		</td>
+    	</tr>
+	</table>
 </div>
 
 <!-- review bbs ----------------------------------------------------->
@@ -292,17 +293,16 @@
 			        	<button class="w3-button w3-grey" id="insert_btn">등록</button>
 			      	</div>
 				</li>
-				<!-- session 으로 email을 들고와서 비교 
- 						<c:if test="${comment.email eq sessionEmail }" ></c:if>
- 						 --> 
+
 				<c:forEach var="comment" items="${commentList}">
 					
 					<li class="w3-bar">
-						
+						<c:if test="${comment.email == session.email}'">
 						<button class="w3-right w3-white w3-border-0 c-btn ${comment.comment_no}" id="${comment.comment_no }">x</button>
 						<button class="w3-white w3-right w3-border-0 u-btn ${comment.comment_no}" id="${comment.comment_no}">
 							<img src="https://img.icons8.com/metro/26/000000/edit.png">
 						</button>
+						</c:if>
 						<div class="w3-bar-item item-img-div">
 							<img src="img/c1.PNG" class="w3-circle w3-hide-small c-profile-img">
 						</div>
@@ -391,19 +391,24 @@
 	var sun_price = parseInt(${bill.holiday} );	//주말 요금
 	
 	
-
-
+	var allCount = "${allCount}";	//review 총글개수
+	
+	
 // 	var hosting = new Array();
 // 	hosting = ${hosting};
 // 	console.log(hosting.elevator);
 
-
 	
+	var email = "${session.email}";				//세션영역의 email값
+	if(email=="" || email==null){
+		$("#insert_btn").addClass("w3-disabled");	//
+	}
 	
 	
 	
 </script>
 <script src="js/m_detail_jquery.js"></script>
+<script src="js/m_detail_review.js"></script>
 
 </body>
 </html>

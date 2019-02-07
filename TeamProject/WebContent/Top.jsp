@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <%
 	/* <jsp:include page="../Top.jsp" flush="false"/>
 		동적 페이지 폴더 변경 */		
@@ -9,20 +10,22 @@
 	StringTokenizer st = new StringTokenizer(servlet,"/");
 		
 	System.out.println(servlet+" : "+st.countTokens());
+	String folder = st.nextToken();
 	
 	// 홈화면버튼 동적경로 지정
 	String path="";
 	String path1="";
 	String path2 = "user/";
 	
-	if(st.countTokens()>=2){
-		path="./";
-		if(st.nextToken().equals("user")){			
+	/* if(st.countTokens()>=2 || folder.equals("user")){
+			System.out.println("user 들어왔음");			
 			path="../";
 			path1=".";					
-			path2="";
-		}
+			path2="";		
 	}
+	 */
+	
+	
 	/*
 	// 이미지,홈화면 동적경로 지정시
 	String path = "../";
@@ -117,6 +120,8 @@ $(document).ready(function() {
 			   $("input[name='pass']").attr("placeholder","호스트 비밀번호");
 			   $("input[name='pass']").val("");
 			   login_flag = 1;
+		   }else{
+			   $("#host_login").prop("checked",false);
 		   }
 		   
 	   }else{		   
@@ -159,7 +164,7 @@ function host_click_modal() {
 }
 
 function host_space(){
-	location.href="detailPageController.do?a=7";
+	location.href="./detailPageController.do?a=7";
  }
 </script>
 <style type="text/css">
@@ -172,10 +177,10 @@ a{
   color: #666666;
   font-style: bold;
 }
-#drop>a{
+.user_drop>a{
 	border-bottom: 1px solid #f2f2f2;
 }
-#drop>a:HOVER{
+.user_drop>a:HOVER{
 	border-bottom: 1px solid black;
 }	
 
@@ -195,17 +200,15 @@ a{
       <c:choose>
       	<%-- 일반 회원이 로그인 됐을 때 --%>
       	<c:when test="${email ne null }">      		 		
-      		<a href="#about" class="w3-bar-item w3-button" onclick="star_click()"><i class="material-icons">stars</i></a>
-      		<a href="#" class="w3-bar-item w3-button">내 예약관리</a>
+      		<a href="#about" class="w3-bar-item w3-button" onclick="stars_click()"><i class="material-icons">stars</i></a>
+      		<a href="${path1}./ReservationController.do?userId=${sessionScope.udto.email}" class="w3-bar-item w3-button">내 예약관리</a>
       		<div class="w3-dropdown-click">
       			<button onclick="click_modal()" class="w3-bar-item w3-button w3-dark-grey">${sessionScope.udto.name }</button>
-      			<div id="drop" class="w3-dropdown-content w3-bar-block w3-card-4  w3-animate-zoom" style="right:0; width: 200px; top:56px;">
+      			<div id="drop" class="w3-dropdown-content w3-bar-block w3-card-4  w3-animate-zoom user_drop" style="right:0; width: 200px; top:56px;">
       				<small>&nbsp;&nbsp;${sessionScope.udto.email} &nbsp;&nbsp;보유 포인트 : </small>    
-      				<br><font color="red" class="w3-margin-left">${sessionScope.udto.point} </font> 포인트(￦)  				   				
+      				<br><font color="red" class="w3-margin-left">${sessionScope.udto.point} </font> <small>포인트(￦)</small>  				   				
       				<hr>
-      				<a href="${path2}userPage.jsp" class="w3-bar-item w3-button">프로필수정/탈퇴</a>
-      				<a href="${path1}" class="w3-bar-item w3-button">리뷰</a>
-      				<a href="${path1}" class="w3-bar-item w3-button">추천글</a>      				
+      				<a href="${path1}./UserPageController.do" class="w3-bar-item w3-button">프로필수정/탈퇴</a>
       				<a href="${path1}./UserLogoutController.do" class="w3-bar-item w3-button">로그아웃</a>      				
     			</div>
       		</div>	
@@ -215,24 +218,22 @@ a{
       	<%-- 호스트 회원이 로그인 됐을 때 --%>	
       	<c:when test="${host_id ne null }">	      		
    			<a href="#about" class="w3-bar-item w3-button" onclick="host_space()"><i class="material-icons">stars</i></a>  			
-   			<a href="#" class="w3-bar-item w3-button">내 예약관리</a>
+   			<a href="${path1}./ReservationController.do?userId=${sessionScope.udto.email}" class="w3-bar-item w3-button">내 예약관리</a>
    			<div class="w3-dropdown-click">
    				<button onclick="host_click_modal()" class="w3-bar-item w3-button w3-orange">${sessionScope.hdto.host_nic }</button>
-   				<div id="drop_host" class="w3-dropdown-content w3-bar-block w3-card-4  w3-animate-zoom" style="right:0; width: 200px; top:56px;">
+   				<div id="drop_host" class="w3-dropdown-content w3-bar-block w3-card-4  w3-animate-zoom user_drop" style="right:0; width: 200px; top:56px;">
    						<small>&nbsp;&nbsp;${sessionScope.hdto.email} &nbsp;&nbsp;보유 포인트 : </small>    
-      				<br><font color="red" class="w3-margin-left">${sessionScope.point} </font> 포인트(￦)  				   				
+      				<br><font color="red" class="w3-margin-left">${sessionScope.point} </font> <small>포인트(￦)</small>	  				   				
       				<hr>
-   					<a href="${path2}hostPage.jsp" class="w3-bar-item w3-button">프로필수정/탈퇴</a>
-   					<a href="${path2}" class="w3-bar-item w3-button">리뷰 관리</a>
-					<a href="${path2}" class="w3-bar-item w3-button">추천글 관리</a>   					     				   				
+   					<a href="${path1}./HostPageController.do" class="w3-bar-item w3-button">프로필수정/탈퇴</a>
    					<a href="${path1}./HostLogoutController.do" class="w3-bar-item w3-button">로그아웃</a>      				
  				</div>
    			</div>	
       	</c:when>		
       	
-      	<%-- 일반회원 또는 호스트회원 로그인이 둘다 안되있을 떄 --%>
+      	<%-- 일반회원 또는 호스트회원 로그인이 둘다 안되있을 때 --%>
       	<c:otherwise>
-      		<a href="${path2}userSingUp_auth.jsp" class="w3-bar-item w3-button">회원가입</a>
+      		<a href="${path1}./UserSingUp_authController.do" class="w3-bar-item w3-button">회원가입</a>
       		<a href="#home" class="w3-bar-item w3-button" onclick="document.getElementById('id01').style.display='block'">로그인</a><!-- 로그아웃 -->     	
       	</c:otherwise>	
       </c:choose>            
@@ -257,7 +258,7 @@ a{
           <input class="w3-input w3-border" type="password" placeholder="비밀번호" name="pass" required>
           <input class="w3-check w3-margin-top" type="checkbox" id="host_login""> 호스트 로그인
           <button class="w3-button w3-block w3-green w3-section w3-padding" type="button" onclick="login_click()">로그인</button>
-       	  <span class="w3-right w3-padding w3-hide-small">비밀번호를 잊으셨거나 변경이 필요하신가요? <a href="#">비밀번호 재설정</a></span>
+       	  <span class="w3-right w3-padding w3-hide-small">비밀번호를 잊으셨거나 변경이 필요하신가요? <a href="#"><font color="blue">비밀번호 재설정</font></a></span>
         </div>
       </form>
       	<hr>
@@ -271,7 +272,7 @@ a{
       </div>      	
       <div class="w3-container w3-border-top w3-padding-16 w3-teal">
         <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
-        <span class="w3-right w3-padding w3-hide-small">share space의 회원이 아니신가요? <a href="#">회원 가입</a></span>
+        <span class="w3-right w3-padding w3-hide-small">share space의 회원이 아니신가요? <a href="#"><font color="blue">회원 가입</font></a></span>
       </div>
 
     </div>
@@ -290,10 +291,10 @@ a{
 } 
 
  // 상단 호스트 별표 클릭시
- function star_click(){	 
+ function stars_click(){	 
 	 if("${sessionScope.udto.host_check}" != 1){		 
 	 	if(confirm("호스트 등록이 되어있지 않습니다. 호스트 가입 하시겠습니까?")){
-			 location.href="${path2}hostSignUp.jsp";
+			 location.href="./HostController.do";
 		}		 
 	 }else{
 		 alert("회원님은 이미 호스트가입이 되어 있습니다. 호스트 로그인 해주십시오.");

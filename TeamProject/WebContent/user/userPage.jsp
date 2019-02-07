@@ -20,11 +20,11 @@
 		border: 1px solid white;		
 		margin-top: 75px;						
 	}
-	.w3-row{
+	.userRow{
 		border: 1px solid white;
 		width: 100%;		
 	}
-	.w3-col{
+	.userCol{
 		border: 1px solid white;					
 	}
 	.ul_left>li{		
@@ -43,14 +43,14 @@
 $(document).ready(function() {
 		
 	$(".a_click1").css("color","black");
-	$("#contents").load("userProfileUpdate.jsp");
+	$("#contents").load("user/userProfileUpdate.jsp");
 	var id = $("#email").val();
 	
 	$(".a_click1").click(function(){
 		//alert("클릭");
 		$(".a_click1").css("color","black");
 		$(".a_click2").css("color","grey");
-		$("#contents").load("userProfileUpdate.jsp");
+		$("#contents").load("user/userProfileUpdate.jsp");
 	});
 	$(".a_click2").click(function(){
 		//alert("클릭");
@@ -71,9 +71,9 @@ $(document).ready(function() {
 <jsp:include page="../Top.jsp" flush="false"/>
 <!-- 최상단 네비 바 종료 -->
 <div class="w3-container w3-padding-large con">		
-		<div class="w3-row">
-			<div class="w3-col m2"></div>				
-			<div class="w3-col m2" align="left">
+		<div class="w3-row userRow">
+			<div class="w3-col m2 userCol"></div>				
+			<div class="w3-col m2 userCol" align="left">
 				<h1 style="padding-left: 20px;">목록</h1>			
 				<ul class="ul_left">
 					<li><a href="#" class="a_click1">프로필 수정</a></li>
@@ -84,11 +84,14 @@ $(document).ready(function() {
 					<li><a href="#" class="a_click5">결제 정보</a></li> -->
 				</ul>			
 			</div>		
-			<div class="w3-col m6" id="contents" ></div>
-			<div class="w3-col m2"></div>			
+			<div class="w3-col m6 userCol" id="contents" style="margin-bottom: 100px;"></div>
+			<div class="w3-col m2 userCol"></div>			
 		</div>
 </div>
 
+<!-- Footer -->
+	<jsp:include page="../Footer.jsp" flush="false"/>
+<!-- Footer 끝 -->
 
 </body>
 </html>

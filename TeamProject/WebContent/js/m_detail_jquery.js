@@ -1,4 +1,4 @@
-// 	var disabledDays = ["2019-1-24","2019-1-25"];ddasdasd
+// 	var disabledDays = ["2019-2-2","2019-1-3"];
 	$(".t_btn").attr("disabled",true);	//날짜를 선택하기전 시간 버튼 disabled
 //	$(".price").html(a_price);			//처음부터 아무것도 선택되지 않을때 0표시
 	
@@ -6,9 +6,11 @@
 	
 	//예약 불가능한 날짜 체크
 	function disableAllTheseDays(date) {
+		
 	    var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
 	    for (i = 0; i < disabledDays.length; i++) {
 	        if($.inArray(y + '-' +(m+1) + '-' + d,disabledDays) != -1) {
+	        	console.log("예약불가능한 날짜는 : "+disabledDays);
 	            return [false];
 	        }
 	    }
@@ -31,7 +33,7 @@
 	        	
 // 	        	$(".t_btn").attr("disabled",false);
 	        	for(var i=0;i<12;i++){
-	        		console.log("j i : "+json[i]);
+//	        		console.log("j i : "+json[i]);
 	        		if(json[i]==1){
 	        			$(".t_btn").eq(i).attr("disabled",true);
 	        		}
@@ -56,17 +58,62 @@
 
 		});
 
-	 //
-	 /*시간 버튼 클릭 했을때 값 추출*/
+	 
+	 var firstTarget;//첫번째로 클릭한 이벤트타켓
+	 
 	$(".t_btn").on("click", function(event){
-		var f_date = [];
+		var f_date = [];				//선택한 날짜
 		f_date = s_date.split(" ");
 // 		alert(f_date[1]);
-		var d_str = f_date[1];
+		var d_str = f_date[1];			//선택한 날짜의 요일 추출
 		var target = $(event.target);
 		
+						
 		var test = 1;
 		
+		if(!firstTarget){//값이 비어 있을때
+			target.addClass("w3-grey");
+			firstTarget = target;
+		}else{
+			var firstNumber = parseInt(firstTarget.attr("id"));
+			var secondNumber = parseInt(target.attr("id"));
+			console.log("첫 :"+firstNumber+"two : "+secondNumber);
+			list = new Array();
+			if(firstNumber<secondNumber){
+				
+				alert("여기dy");
+				$(".t_btn:gt("+firstNumber+")").removeClass("w3-grey");
+				for(i=firstNumber;i<=secondNumber;i++){
+					if($(".t_btn").eq(i-1).attr("disabled")){
+						
+						list.splice(0, list.length);
+						alert("잘못누르셨습니다 다시 눌러주세요");
+						break;
+					}
+					console.log("i : "+i);
+					$(".t_btn").eq(i-1).addClass("w3-grey");
+					list.push($(".t_btn").eq(i-1).attr("id"));
+				}
+			}else if(firstNumber == secondNumber){
+				alert("같은곳");
+				list.splice(0, list.length);
+				firstTarget.removeClass("w3-grey");
+				firstTarget=null;
+			}else if(firstNumber > secondNumber){
+				alert("여기");
+				list.splice(0, list.length);
+				$(".t_btn:gt("+(firstNumber-2)+")").removeClass("w3-grey");
+				target.addClass("w3-grey");
+				firstTarget = target;
+			}
+		}
+		
+		
+		
+		
+		
+		
+		/*
 		if(target.hasClass("w3-grey")){
 			var num = list.indexOf(target.attr("id"));
 			list.pop(num);
@@ -75,7 +122,7 @@
 			target.addClass("w3-grey");
 		 	list.push(target.attr("id"));
 		}
-		
+		*/
 		if(d_str=="Sat" || d_str=="Sun"){
 			var price = day_price;
 			var timeNum = list.length;
@@ -93,7 +140,7 @@
 			console.log(element);
 		});
 	})
-	
+
 	//예약하기 버튼 누르면 값넣고 form 동작
 	$("#req-btn").on("click", function(){
 		$("#selectDate").attr("value", s_date);
@@ -148,7 +195,7 @@
 	        url:'CommentInsertController',
 	        type:'post',
 	        //session의 email받아서 넣어야함
-	        data:{"content":content, "room_no":num},
+	        data:{"content":content, "room_no":num, "email":email},
 	        success : function(data){
 	        	console.log(data);
 	        	var comment_no = parseInt(data)
