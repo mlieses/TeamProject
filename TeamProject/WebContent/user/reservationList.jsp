@@ -41,7 +41,7 @@ body{
 
 }
 
-h2{
+#whole>h2{
 	font-weight: bold;
 	color:grey;
 }
