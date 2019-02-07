@@ -3,6 +3,7 @@ package user;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -64,11 +65,30 @@ public class ReviewDAO {
 	public int addReview(String book_no, String room_no, String email, String re_point, String re_content){
 		int result = 0;
 		Date now = new Date();
+		String nowDateS = null;
 		SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd");
 		try {
-			now = fm.parse(fm.format(now));
-		} catch (ParseException e) {
-			System.out.println("addReview의 날짜 오류");
+			nowDateS = fm.format(now);
+//			System.out.println(nowDateS);
+
+			con = ds.getConnection();	
+			System.out.println("연결됨");
+			String sql = "insert into review(book_no, room_no, email, re_date, re_point, re_content) "
+						+"value(?,?,?,?,?,?)";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, Integer.parseInt(book_no));
+			pstmt.setInt(2, Integer.parseInt(room_no));
+			pstmt.setString(3, email);
+			pstmt.setString(4, nowDateS);
+			pstmt.setInt(5, Integer.parseInt(re_point));
+			pstmt.setString(6, re_content);
+			
+			result = pstmt.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			System.out.println("addReview() 연결 오류");
 			e.printStackTrace();
 		} finally {
 			freeResource();

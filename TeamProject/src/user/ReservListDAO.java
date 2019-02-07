@@ -182,7 +182,7 @@ public class ReservListDAO {
 		} finally {
 			freeResource();
 		}
-		System.out.println("벡터크기는?"+ReservList.size());
+//		System.out.println("벡터크기는?"+ReservList.size());
 		return ReservList;
 	}
 }
