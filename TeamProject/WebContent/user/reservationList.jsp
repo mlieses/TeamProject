@@ -263,7 +263,7 @@ function cancleList(){
 							re_point
 							re_content
 						 -->	
-						 <form action="reviewController.do" method="post">
+						 <form action="ReviewController.do" method="post">
 						 	<input type="hidden" name="book_no" value="${rList.book_no}">
 						 	<input type="hidden" name="room_no" value="${rList.room_no}">
 						 	<input type="hidden" name="email" value="${rList.email}">
