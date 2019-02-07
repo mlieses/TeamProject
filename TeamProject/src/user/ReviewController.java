@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/reviewController.do")
-public class reviewController extends HttpServlet {
+@WebServlet("/ReviewController.do")
+public class ReviewController extends HttpServlet {
     
    
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

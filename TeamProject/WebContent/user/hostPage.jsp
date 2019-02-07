@@ -47,7 +47,7 @@
 <script type="text/javascript">
 $(document).ready(function() {	
 		$(".a_click1").css("color","black");
-		$("#contents").load("hostProfileUpdate.jsp");
+		$("#contents").load("user/hostProfileUpdate.jsp");
 		/* 
 		// home에서 공간관리 누르면 파라메타값으로 1을 넘겨받고 맞을시 클릭2번 선택한것처럼 보임.
 		if($("#MyPage").attr('value') == 1)
@@ -62,7 +62,7 @@ $(document).ready(function() {
 		//alert("클릭");
 		$(".a_click1").css("color","black");
 		$(".a_click2").css("color","grey");		
-		$("#contents").load("hostProfileUpdate.jsp");
+		$("#contents").load("user/hostProfileUpdate.jsp");
 	});
 	/* 호스트 탈퇴시 */
 	$(".a_click2").click(function(){

@@ -43,14 +43,14 @@
 $(document).ready(function() {
 		
 	$(".a_click1").css("color","black");
-	$("#contents").load("userProfileUpdate.jsp");
+	$("#contents").load("user/userProfileUpdate.jsp");
 	var id = $("#email").val();
 	
 	$(".a_click1").click(function(){
 		//alert("클릭");
 		$(".a_click1").css("color","black");
 		$(".a_click2").css("color","grey");
-		$("#contents").load("userProfileUpdate.jsp");
+		$("#contents").load("user/userProfileUpdate.jsp");
 	});
 	$(".a_click2").click(function(){
 		//alert("클릭");
