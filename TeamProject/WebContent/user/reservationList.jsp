@@ -32,6 +32,7 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 #whole{
 	width: 60%;
 	margin: auto;
+ 	min-height: 725px;
 }
 
 body{
@@ -321,4 +322,8 @@ function cancleList(){
 
 </div>
 </body>
+<div class="w3-cell-bottom" style="padding-bottom: 0px;">
+<jsp:include page="../Footer.jsp" flush="false"/>
+</div>
+
 </html>
