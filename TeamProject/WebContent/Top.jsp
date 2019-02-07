@@ -10,23 +10,22 @@
 	StringTokenizer st = new StringTokenizer(servlet,"/");
 		
 	System.out.println(servlet+" : "+st.countTokens());
+	String folder = st.nextToken();
 	
 	// 홈화면버튼 동적경로 지정
 	String path="";
 	String path1="";
 	String path2 = "user/";
 	
-	if(st.countTokens()>=2){
-		
-		if(st.nextToken().equals("user")){	
-			System.out.println("user 들어왔음");
+	/* if(st.countTokens()>=2 || folder.equals("user")){
+			System.out.println("user 들어왔음");			
 			path="../";
 			path1=".";					
-			path2="";
-		}else{
-			path="./";
-		}
+			path2="";		
 	}
+	 */
+	
+	
 	/*
 	// 이미지,홈화면 동적경로 지정시
 	String path = "../";
@@ -236,7 +235,7 @@ a{
       	
       	<%-- 일반회원 또는 호스트회원 로그인이 둘다 안되있을 떄 --%>
       	<c:otherwise>
-      		<a href="${path2}userSingUp_auth.jsp" class="w3-bar-item w3-button">회원가입</a>
+      		<a href="${path1}./userSingUp_authController.do" class="w3-bar-item w3-button">회원가입</a>
       		<a href="#home" class="w3-bar-item w3-button" onclick="document.getElementById('id01').style.display='block'">로그인</a><!-- 로그아웃 -->     	
       	</c:otherwise>	
       </c:choose>            
