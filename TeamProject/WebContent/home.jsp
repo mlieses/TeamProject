@@ -337,7 +337,7 @@ letter-spacing: 1px;
   	</div>
   	
   	<div class="w3-quarter w3-center">
-  	<a href="#" style="text-decoration: none;">
+  	<a href="/user/ReservationController.do?userId=${sessionScope.udto.email}" style="text-decoration: none;">
   	<i class="material-icons" style="font-size:80px;color:#333;">event</i>
   	<p style="margin:2px;">예약내역</p>
   	</a>
@@ -388,7 +388,7 @@ letter-spacing: 1px;
   	</div>   
   	
   	<div class="w3-col w3-center" style="width:20%;">
-  	<a href="#" style="text-decoration: none;">
+  	<a href="/user/ReservationController.do?userId=${sessionScope.udto.email}" style="text-decoration: none;">
   	<i class="material-icons" style="font-size:80px;color:#333;">event</i>
   	<p style="margin:2px;">예약내역</p>
   	</a>

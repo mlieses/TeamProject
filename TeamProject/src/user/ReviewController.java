@@ -41,7 +41,7 @@ public class ReviewController extends HttpServlet {
 		int result = dao.addReview(book_no, room_no, email, re_point, re_content);
 		System.out.println("reveiw controller: "+result);
 		if(result ==1){
-			response.sendRedirect("/ReservationController.do?userId="+email);
+			response.sendRedirect("ReservationController.do?userId="+email);
 		}
 		
 		
