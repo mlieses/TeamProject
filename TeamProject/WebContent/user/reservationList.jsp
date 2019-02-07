@@ -30,7 +30,7 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 
 <style type="text/css">
 #whole{
-	width: 70%;
+	width: 60%;
 	margin: auto;
 }
 
@@ -76,47 +76,10 @@ h2{
 
 <script type="text/javascript">
 
-
-
-
-
-// 0 다가올
-// 1 지난
-// 2 취소
-$('#all2').click(function () {  
-
-	$('.rStatus_0').css("display", "block");
-	$('.rStatus_1').css("display", "block");
-	$('.rStatus_2').css("display", "block");
-
-});
-
-$('#coming2').click(function () {  
-	$('.rStatus_0').css("display", "block");
-	$('.rStatus_1').css("display", "none");
-	$('.rStatus_2').css("display", "none");
-
-});
-
-$('#last2').click(function () {  
-	$('.rStatus_0').css("display", "none");
-	$('.rStatus_1').css("display", "block");
-	$('.rStatus_2').css("display", "none");
-
-});
-
-$('#cancled2').click(function () {  
-	$('.rStatus_0').css("display", "none");
-	$('.rStatus_1').css("display", "none");
-	$('.rStatus_2').css("display", "block");
-
-});
-
 function tog(show, hide) {
 	document.getElementById(show).style.display='block';
 	document.getElementById(hide).style.display='none';
 }
-
 
 function limit(no){
 // 	alert("글자수는 10자로 이내로 제한됩니다.");
@@ -148,6 +111,71 @@ function start(idx, no){
 }
 
 
+// 0 다가올
+// 1 지난
+// 2 취소
+// $('#all2').click(function(){  
+
+// 	$('.rStatus_0').css("display", "block");
+// 	$('.rStatus_1').css("display", "block");
+// 	$('.rStatus_2').css("display", "block");
+
+// });
+
+// $('#coming2').click(function(){  
+// 	$('.rStatus_0').css("display", "block");
+// 	$('.rStatus_1').css("display", "none");
+// 	$('.rStatus_2').css("display", "none");
+
+// });
+
+// $('#last2').click(function(){  
+// 	$('.rStatus_0').css("display", "none");
+// 	$('.rStatus_1').css("display", "block");
+// 	$('.rStatus_2').css("display", "none");
+
+// });
+
+// $('#cancled2').click(function(){  
+// 	$('.rStatus_0').css("display", "none");
+// 	$('.rStatus_1').css("display", "none");
+// 	$('.rStatus_2').css("display", "block");
+
+// });
+
+
+function allList(){  
+
+	$('.rStatus_0').css("display", "block");
+	$('.rStatus_1').css("display", "block");
+	$('.rStatus_2').css("display", "block");
+
+}
+
+function commingList(){
+	
+	$('.rStatus_0').css("display", "block");
+	$('.rStatus_1').css("display", "none");
+	$('.rStatus_2').css("display", "none");
+
+}
+
+function lastList(){  
+	$('.rStatus_0').css("display", "none");
+	$('.rStatus_1').css("display", "block");
+	$('.rStatus_2').css("display", "none");
+
+}
+
+function cancleList(){  
+	$('.rStatus_0').css("display", "none");
+	$('.rStatus_1').css("display", "none");
+	$('.rStatus_2').css("display", "block");
+
+}
+
+
+
 </script>
 
 </head>
@@ -158,10 +186,10 @@ function start(idx, no){
 <h2 class="w3-left">내 예약 정보<i class="material-icons" style="font-size:60px; vertical-align: middle;">event</i></h2>
 <span class="w3-right">총 ${fn:length(rList)}개의 내역</span>
 <div class="w3-bar w3-green" id="filterbar">
-  <a class="w3-bar-item w3-hover-white w3-padding" id="all">전체보기</a>
-  <a class="w3-bar-item w3-hover-white w3-padding" id="last">지난 예약</a>
-  <a class="w3-bar-item w3-hover-white w3-padding" id="coming">다가올 예약</a>
-  <a class="w3-bar-item w3-hover-white w3-padding" id="cancled">취소 내역</a>
+  <a class="w3-bar-item w3-hover-white w3-padding" id="all2" onclick="allList()">전체보기</a>  
+  <a class="w3-bar-item w3-hover-white w3-padding" id="last2" onclick="lastList()">지난 예약</a>
+  <a class="w3-bar-item w3-hover-white w3-padding" id="coming2" onclick="commingList()">다가올 예약</a>
+  <a class="w3-bar-item w3-hover-white w3-padding" id="cancled2" onclick="cancleList()">취소 내역</a>
  
 </div>
 <c:set var="size" value="${fn:length(rList)}"/>
@@ -219,7 +247,7 @@ function start(idx, no){
 						<span style="color: grey;">작성된 리뷰가 없습니다</span>
 <%-- 						<a onclick="writingForm(${rList.book_no})">리뷰 작성</a> --%>
 						
-						<a onclick="document.getElementById('writingForm_${rList.book_no}').style.display='block'">리뷰 작성</a>
+						<a onclick="document.getElementById('writingForm_${rList.book_no}').style.display='block'" style="color: blue">리뷰 작성</a>
 					</div>
 					<!-- 여기서부터 모달 -->
 					
@@ -234,7 +262,7 @@ function start(idx, no){
 							re_point
 							re_content
 						 -->	
-						 <form action="../reviewController.do" method="post">
+						 <form action="reviewController.do" method="post">
 						 	<input type="hidden" name="book_no" value="${rList.book_no}">
 						 	<input type="hidden" name="room_no" value="${rList.room_no}">
 						 	<input type="hidden" name="email" value="${rList.email}">
@@ -246,7 +274,7 @@ function start(idx, no){
 								<a href="javascript:start(3, ${rList.book_no})"><span id="star3_${rList.book_no}" class="fa fa-star checked"></span></a>
 								<a href="javascript:start(4, ${rList.book_no})"><span id="star4_${rList.book_no}" class="fa fa-star checked"></span></a>
 								<a href="javascript:start(5, ${rList.book_no})"><span id="star5_${rList.book_no}" class="fa fa-star"></span></a>
-								<input type="hidden" name="re_point" value=" " id="starVal${rList.book_no}">
+								<input type="hidden" name="re_point" value="4" id="starVal${rList.book_no}">
 							
 							</div>
 				
