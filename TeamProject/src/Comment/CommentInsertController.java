@@ -17,10 +17,11 @@ public class CommentInsertController extends HttpServlet {
 		System.out.println("CommentInsertController 들어옴");
 		String content = request.getParameter("content");
 		int room_no = Integer.parseInt(request.getParameter("room_no"));
+		String email = request.getParameter("email");
 		//email받아오기
 		//String email = request.getParameter("email");
 		CommentDao cDao = new CommentDao();
-		int commentNo = cDao.insertComment(room_no, content);
+		int commentNo = cDao.insertComment(room_no, content, email);
 //		int result = cDao.insertComment(room_no, email, content);
 		request.setAttribute("commentNo", commentNo);
 		
