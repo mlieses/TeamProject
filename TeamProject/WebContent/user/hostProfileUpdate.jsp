@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <!-- 구글 폰트 -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link href="../css/recharge.css" rel="stylesheet">
+<link href="css/recharge.css" rel="stylesheet">
 <!-- JQuery -->
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <style type="text/css"></style> 
