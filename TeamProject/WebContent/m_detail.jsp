@@ -400,7 +400,7 @@
 
 	
 	var email = "${session.email}";					//세션영역의 email값
-	var nick_name = "${session.}"
+	var nickName = "${session.name}"; 
 	if(email=="" || email==null){
 		$("#insert_btn").addClass("w3-disabled");	//
 	}
