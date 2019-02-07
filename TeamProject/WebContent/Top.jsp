@@ -198,7 +198,7 @@ a{
       <c:choose>
       	<%-- 일반 회원이 로그인 됐을 때 --%>
       	<c:when test="${email ne null }">      		 		
-      		<a href="#about" class="w3-bar-item w3-button" onclick="star_click()"><i class="material-icons">stars</i></a>
+      		<a href="#about" class="w3-bar-item w3-button" onclick="stars_click()"><i class="material-icons">stars</i></a>
       		<a href="${path1}./ReservationController.do?userId=${sessionScope.udto.email}" class="w3-bar-item w3-button">내 예약관리</a>
       		<div class="w3-dropdown-click">
       			<button onclick="click_modal()" class="w3-bar-item w3-button w3-dark-grey">${sessionScope.udto.name }</button>
@@ -206,7 +206,7 @@ a{
       				<small>&nbsp;&nbsp;${sessionScope.udto.email} &nbsp;&nbsp;보유 포인트 : </small>    
       				<br><font color="red" class="w3-margin-left">${sessionScope.udto.point} </font> <small>포인트(￦)</small>  				   				
       				<hr>
-      				<a href="${path2}userPage.jsp" class="w3-bar-item w3-button">프로필수정/탈퇴</a>
+      				<a href="${path1}./UserPageController.do" class="w3-bar-item w3-button">프로필수정/탈퇴</a>
       				<a href="${path1}" class="w3-bar-item w3-button">리뷰</a>
       				<a href="${path1}" class="w3-bar-item w3-button">추천글</a>      				
       				<a href="${path1}./UserLogoutController.do" class="w3-bar-item w3-button">로그아웃</a>      				
@@ -225,9 +225,9 @@ a{
    						<small>&nbsp;&nbsp;${sessionScope.hdto.email} &nbsp;&nbsp;보유 포인트 : </small>    
       				<br><font color="red" class="w3-margin-left">${sessionScope.point} </font> <small>포인트(￦)</small>	  				   				
       				<hr>
-   					<a href="${path2}hostPage.jsp" class="w3-bar-item w3-button">프로필수정/탈퇴</a>
-   					<a href="${path2}" class="w3-bar-item w3-button">리뷰 관리</a>
-					<a href="${path2}" class="w3-bar-item w3-button">추천글 관리</a>   					     				   				
+   					<a href="${path1}./HostPageController.do" class="w3-bar-item w3-button">프로필수정/탈퇴</a>
+   					<a href="${path1}" class="w3-bar-item w3-button">리뷰 관리</a>
+					<a href="${path1}" class="w3-bar-item w3-button">추천글 관리</a>   					     				   				
    					<a href="${path1}./HostLogoutController.do" class="w3-bar-item w3-button">로그아웃</a>      				
  				</div>
    			</div>	
@@ -235,7 +235,7 @@ a{
       	
       	<%-- 일반회원 또는 호스트회원 로그인이 둘다 안되있을 떄 --%>
       	<c:otherwise>
-      		<a href="${path1}./userSingUp_authController.do" class="w3-bar-item w3-button">회원가입</a>
+      		<a href="${path1}./UserSingUp_authController.do" class="w3-bar-item w3-button">회원가입</a>
       		<a href="#home" class="w3-bar-item w3-button" onclick="document.getElementById('id01').style.display='block'">로그인</a><!-- 로그아웃 -->     	
       	</c:otherwise>	
       </c:choose>            
@@ -293,10 +293,10 @@ a{
 } 
 
  // 상단 호스트 별표 클릭시
- function star_click(){	 
+ function stars_click(){	 
 	 if("${sessionScope.udto.host_check}" != 1){		 
 	 	if(confirm("호스트 등록이 되어있지 않습니다. 호스트 가입 하시겠습니까?")){
-			 location.href="${path2}hostSignUp.jsp";
+			 location.href="./HostController.do";
 		}		 
 	 }else{
 		 alert("회원님은 이미 호스트가입이 되어 있습니다. 호스트 로그인 해주십시오.");

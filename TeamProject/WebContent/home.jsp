@@ -144,15 +144,20 @@ function setValue(obj, target){
 
 
 // 호스트되기 클릭시
-function star_click(){	 
-	 if("${sessionScope.udto.host_check}" != 1){		 
-	 	if(confirm("호스트 등록이 되어있지 않습니다. 호스트 가입 하시겠습니까?")){
-			 location.href="user/hostSignUp.jsp";
-		}		 
-	 }else{
-		 alert("회원님은 이미 호스트가입이 되어 있습니다. 호스트 로그인 해주십시오.");
-		 
-	 }	
+function star_click(){
+	
+	if("${sessionScope.udto.email}" == ""){			
+		alert("먼저 로그인 해주세요");
+	}else{
+		 if("${sessionScope.udto.host_check}" != 1){		 
+		 	if(confirm("호스트 등록이 되어있지 않습니다. 호스트 가입 하시겠습니까?")){
+				 location.href="./HostController.do";
+			}		 
+		 }else{
+			 alert("회원님은 이미 호스트가입이 되어 있습니다. 호스트 로그인 해주십시오.");
+			 
+		 }	
+	}
 }
 
 	

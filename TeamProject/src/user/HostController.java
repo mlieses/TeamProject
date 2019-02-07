@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class userSingUp_auth
+ * Servlet implementation class HostController
  */
-@WebServlet("/userSingUp_authController.do")
-public class userSingUp_authController extends HttpServlet {
+@WebServlet("/HostController.do")
+public class HostController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPro(request, response);
 	}
@@ -23,11 +23,9 @@ public class userSingUp_authController extends HttpServlet {
 	}
 	
 	protected void doPro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		RequestDispatcher dis = request.getRequestDispatcher("user/userSingUp_auth.jsp");
+		RequestDispatcher dis = request.getRequestDispatcher("user/hostSignUp.jsp");
 		dis.forward(request, response);
-				
+	
 	}
 
 
