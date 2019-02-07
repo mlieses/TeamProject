@@ -55,7 +55,7 @@ and h.people = '소';
 						ds = (DataSource) init.lookup("java:comp/env/jdbc/sharespace");
 
 					} catch (Exception e) {
-						System.out.println("커넥션풀 가져오기 실패 : " + e);
+						System.out.println("커넥션풀 가져오기 실패 : " + e); 
 						e.printStackTrace();
 					}
 				}
