@@ -106,7 +106,7 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
                 <table id="table" width="95%" height="373" cellpadding="0" cellspacing="1" class="w3-table">
                 	
                   <tr> 
-                    <th width="20%">작성자</th>
+                    <td width="10%">작성자</td>
                     <td style="text-align: left">
                     	<input type="text" name="writer" size="20" class="w3-input"/>
                     </td>
@@ -130,8 +130,8 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
                     </td>
                   </tr>
                   <tr> 
-                    <td bgcolor="#e4e4e4" class="text2">
-                    	<div align="center"><i class="material-icons">sms</i><br/>내 &nbsp;&nbsp; 용</div>
+                    <tdclass="text2">
+                    	<div align="center"><i class="material-icons">sms</i><br/>내용</div>
                     </td>
                     <td colspan="3" style="text-align: left">
                     	<textarea name="content" rows="15" cols="100"></textarea>
