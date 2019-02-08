@@ -327,6 +327,10 @@ function fnRead(val){
  </form>
  <%-- [7]끗 --%>
  	
+ 	
+ 	<div>
+	    <td colspan="5">&nbsp;</td>
+	</div>
 </body>
 </html>
 
