@@ -1,6 +1,7 @@
 package user;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -60,9 +61,10 @@ public class HostingReviewDAO {
 	}// 생성자 끝
 	
 	
-	/**호스트 별 공간 정보_ 기본 정보 + 평점 */
+	/**호스트의 공간 정보_ 기본 정보 */
+	//1. host_id 기준으로 전체 공간 정보를 가져옴
 	public ArrayList<HostingReviewInfoDTO> SpaceList(String host_id){
-		ArrayList<HostingReviewInfoDTO> SList = new ArrayList<HostingReviewInfoDTO>();
+		ArrayList<HostingReviewInfoDTO> sList = new ArrayList<HostingReviewInfoDTO>();
 		
 		try {
 			con = ds.getConnection();	
@@ -70,7 +72,7 @@ public class HostingReviewDAO {
 			String sql = "select * from hosting h join hosting_pic p " 
 						+"on h.room_no = p.room_no "
 						+"where host_id = ? "
-						+"order by h.room_no asc "; 
+						+"order by h.room_no desc"; 
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, host_id);
@@ -87,10 +89,7 @@ public class HostingReviewDAO {
 				dto.setRoom_type(rs.getString("room_type"));
 				dto.setPic1(rs.getString("pic1"));
 				
-			
-				SList.add(dto);
-	
-
+				sList.add(dto);
 			}
 			
 		
@@ -101,13 +100,102 @@ public class HostingReviewDAO {
 			freeResource();
 		}
 		
-		return null;
-	}
-	
-	public ArrayList<HostingReviewDTO> SpaceList(String host_id, String room_no){
-		return null;
+		return sList;
 	}
 	
 	
-	
+
+	public ArrayList<HostingReviewDTO> ReviewList(String host_id) {
+		ArrayList<HostingReviewDTO> rList = new ArrayList<HostingReviewDTO>();
+		
+		try {
+			con = ds.getConnection();	
+			
+			String sql = "select * from review r join hosting p "
+						+"on r.room_no = p.room_no "
+						+"where host_id = ? "
+						+"order by r.review_no desc"; 
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, host_id);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				
+				HostingReviewDTO dto = new HostingReviewDTO();
+				
+				dto.setRoom_no(rs.getInt("room_no"));
+				dto.setHost_id(host_id);
+				dto.setSubject(rs.getString("subject"));
+				dto.setRoom_type(rs.getString("room_type"));
+				dto.setPeople(rs.getString("people"));
+				
+				dto.setReview_no(rs.getInt("review_no"));
+				dto.setBook_no(rs.getInt("book_no"));
+				dto.setEmail(rs.getString("email"));
+				dto.setRe_date(rs.getDate("re_date"));
+				dto.setRe_point(rs.getInt("re_point"));
+				dto.setRe_content(rs.getString("re_content"));
+				 
+				rList.add(dto);
+			}
+			
+		
+		} catch (SQLException e) {
+			System.out.println("ReviewList1 오류"+e);
+			e.printStackTrace();
+		} finally {
+			freeResource();
+		}
+		
+		return rList;
+	}
+
+	public ArrayList<HostingReviewDTO> ReviewList(String host_id, String room_no) {
+ArrayList<HostingReviewDTO> rList = new ArrayList<HostingReviewDTO>();
+		
+		try {
+			con = ds.getConnection();	
+			
+			String sql = "select * from review r join hosting p "
+						+"on r.room_no = p.room_no "
+						+"where host_id = ? "
+						+"and r.room_no = ? "
+						+"order by r.review_no desc"; 
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, host_id);
+			pstmt.setInt(2, Integer.parseInt(room_no));
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				
+				HostingReviewDTO dto = new HostingReviewDTO();
+				
+				dto.setRoom_no(Integer.parseInt(room_no));
+				dto.setHost_id(host_id);
+				dto.setSubject(rs.getString("subject"));
+				dto.setRoom_type(rs.getString("room_type"));
+				dto.setPeople(rs.getString("people"));
+				
+				dto.setReview_no(rs.getInt("review_no"));
+				dto.setBook_no(rs.getInt("book_no"));
+				dto.setEmail(rs.getString("email"));
+				dto.setRe_date(rs.getDate("re_date"));
+				dto.setRe_point(rs.getInt("re_point"));
+				dto.setRe_content(rs.getString("re_content"));
+				 
+				rList.add(dto);
+			}
+			
+		
+		} catch (SQLException e) {
+			System.out.println("ReviewList2 오류"+e);
+			e.printStackTrace();
+		} finally {
+			freeResource();
+		}
+		
+		return rList;
+	}
 }
