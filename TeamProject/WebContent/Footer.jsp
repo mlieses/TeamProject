@@ -90,7 +90,7 @@ p{
 					<div class="list-group">
 						<a href="${path2 }footer/notice.jsp"><button class="w3-button w3-round w3-blue-grey">공지사항</button></a>
 						<a href="${path2 }footer/help.jsp"><button class="w3-button w3-round w3-blue-grey">Q&A</button></a>
-						<a href="${path2 }event/event.jsp"><button class="w3-button w3-round w3-blue-grey">이용약관</button></a>
+						<a href="board.app"><button class="w3-button w3-round w3-blue-grey">커뮤니티</button></a>
 					</div>
 				</div>
 		</div>
