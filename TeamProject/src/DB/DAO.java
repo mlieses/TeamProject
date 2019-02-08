@@ -164,6 +164,7 @@ public class DAO {
 						dto.setSubject(rs.getString("subject"));
 						dto.setWeekday(rs.getInt("weekday"));
 						dto.setHoliday(rs.getInt("holiday"));
+						dto.setRoom_no(rs.getInt("room_no"));
 						vector.add(dto);	
 						
 					}					
@@ -184,6 +185,8 @@ public class DAO {
 						dto.setSubject(rs.getString("subject"));
 						dto.setWeekday(rs.getInt("weekday"));
 						dto.setHoliday(rs.getInt("holiday"));
+						dto.setRoom_no(rs.getInt("room_no"));
+
 						vector.add(dto);	
 							
 					}					
@@ -205,6 +208,8 @@ public class DAO {
 						dto.setSubject(rs.getString("subject"));
 						dto.setWeekday(rs.getInt("weekday"));
 						dto.setHoliday(rs.getInt("holiday"));
+						dto.setRoom_no(rs.getInt("room_no"));
+
 						vector.add(dto);	
 						
 																		
@@ -227,6 +232,8 @@ public class DAO {
 						dto.setSubject(rs.getString("subject"));
 						dto.setWeekday(rs.getInt("weekday"));
 						dto.setHoliday(rs.getInt("holiday"));
+						dto.setRoom_no(rs.getInt("room_no"));
+
 						vector.add(dto);	
 						
 																		
@@ -249,6 +256,8 @@ public class DAO {
 						dto.setSubject(rs.getString("subject"));
 						dto.setWeekday(rs.getInt("weekday"));
 						dto.setHoliday(rs.getInt("holiday"));
+						dto.setRoom_no(rs.getInt("room_no"));
+
 						vector.add(dto);	
 						
 																		
