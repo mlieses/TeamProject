@@ -29,7 +29,7 @@ public class SpaceController extends HttpServlet {
 	protected void doPro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("spacecontroller들어옴");
 		request.setCharacterEncoding("UTF-8");
-		int num =Integer.parseInt(request.getParameter("num"));
+		int num =Integer.parseInt(request.getParameter("room_no"));
 		SpaceDao dao = new SpaceDao();
 		request.removeAttribute("list");
 		request.removeAttribute("commentList");
