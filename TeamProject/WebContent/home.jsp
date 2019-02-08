@@ -541,8 +541,10 @@ Vector<homeDTO> popV = (Vector<homeDTO>)request.getAttribute("popularV");
 
 
 
-
-  <hr>
+  <!-- Project Section 공지사항/이벤트-->
+  <div class="w3-container w3-padding-32" id="projects">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">공지사항/이벤트</h3>
+  </div>  
   <div class= "w3-row">
   	<div class="w3-col m6">
   	 	<div class="w3-row">
@@ -603,8 +605,6 @@ Vector<homeDTO> popV = (Vector<homeDTO>)request.getAttribute("popularV");
 	  </div>
  	</div>
  </div> 
-  <hr/>
-  
 
 
 <!-- End page content -->
