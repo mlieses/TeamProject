@@ -610,9 +610,8 @@ public class DAO {
 		SelectDTO dto = new SelectDTO();
 		
 		try {
-			String sql ="select count(room_no) room_Number , round(avg(re_point) , 0) rank from review where room_no = ? ";
-						 
-						
+			
+			String sql ="select count(room_no) room_Number , round(avg(re_point) , 0) rank from review where room_no = ? ";						 						
 			
 			pstmt =	con.prepareStatement(sql);
 			pstmt.setInt(1, room_no);
