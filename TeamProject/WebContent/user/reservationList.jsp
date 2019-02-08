@@ -314,7 +314,7 @@ function cancleList(){
     <div>
 	  	<button class="w3-button w3-blue w3-padding-small" onclick="tog('reservContent_${rList.book_no}', 'reviewContent_${rList.book_no}')">예약 보기</button>&nbsp;
 	  	<button class="w3-button w3-blue w3-padding-small" onclick="tog('reviewContent_${rList.book_no}', 'reservContent_${rList.book_no}')">리뷰 보기</button>&nbsp;
-	  	<button class="w3-button w3-blue w3-padding-small" onclick="location.href='m_detail?book_no=${rList.room_no}'">다시 예약</button>&nbsp;
+	  	<button class="w3-button w3-blue w3-padding-small" onclick="location.href='m_detail?room_no=${rList.room_no}'">다시 예약</button>&nbsp;
  	</div>
   </div>
 </div>

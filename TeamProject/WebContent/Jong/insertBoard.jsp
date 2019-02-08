@@ -173,8 +173,8 @@ $( function() {
 
                          var result = results[0]; //첫번째 결과의 값을 활용
 
-                       	document.getElementById('wdo').value = result.x; //위도
-                       	document.getElementById('kdo').value = result.y; //경도                                                                       
+                       	document.getElementById('wdo').value = result.y; //위도
+                       	document.getElementById('kdo').value = result.x; //경도                                                                       
                         
                         
                      }
