@@ -1,5 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+<%
+	/* <jsp:include page="../Top.jsp" flush="false"/>
+		동적 페이지 폴더 변경 */		
+	String servlet = request.getServletPath();
+	//StringTokenizer st = new StringTokenizer(servlet,"/");
+		
+	//System.out.println(servlet+" : "+st.countTokens());
+	//String folder = st.nextToken();
+	
+	// 홈화면버튼 동적경로 지정
+	String path="";
+	String path1="";
+	String path2 = "user/";
+	
+	
+	request.setAttribute("path", path);
+	request.setAttribute("path1", path1);
+	request.setAttribute("path2", path2);
+%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -29,6 +51,105 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 
 <title>ShareSpace : Card</title>
 <script type="text/javascript">
+//일반회원 0, 호스트회원 1
+var login_flag=0;
+
+
+$(document).ready(function() {	  
+	
+// 	<!-- 구글 로그인 구현 -->
+// 	<!-- 구글 CLIENT_ID : 463533794318-unijrkh4odbf94n2pms494toetghdgir.apps.googleusercontent.com -->
+// 	<!-- 구글 redirect_uri : http://localhost:8080/TeamProj/google-->
+// 	<!-- 구글 client_secret : Vwl1rm1fi2naT41YevXIP7IB -->
+	$("#google-sign").click(function(){	
+		var popUrl ="https://accounts.google.com/o/oauth2/v2/auth?"
+			+"redirect_uri=http://localhost:8181/TeamProject/google&"
+			+"response_type=code&"			
+			+"client_id=463533794318-unijrkh4odbf94n2pms494toetghdgir.apps.googleusercontent.com&"
+			+"scope=openid%20email&"
+			+"access_type=offline";	
+			//팝업창에 출력될 페이지 URL
+	
+	var popOption = "width=400, height=500, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
+	
+	var win = window.open(popUrl,"",popOption);		
+		
+   });
+// 	<!-- Rest API 키  :  7bed2c2cc35da2f635429b5665085d84 -->
+// 	<!-- /PrivateProject1225/kakao -->
+// 	<!-- “https://kauth.kakao.com/oauth/authorize?client_id=7bed2c2cc35da2f635429b5665085d84
+// 	&redirect_uri=http://localhost:8181/TeamProj/kakao&response_type=code” -->	
+	$("#kakao-sign").click(function(){	
+		var popUrl ="https://kauth.kakao.com/oauth/authorize?client_id=7bed2c2cc35da2f635429b5665085d84"
+			+"&redirect_uri=http://localhost:8181/TeamProject/kakao&response_type=code";	
+			//팝업창에 출력될 페이지 URL
+	
+	var popOption = "width=400, height=500, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
+	
+	var win = window.open(popUrl,"",popOption);		
+		
+   });
+   
+   // 로그인 모달 호스트 로그인 체크박스 이벤트
+   $("#host_login").click(function(){
+	   
+	   if($("#host_login").is(":checked")){
+		   
+		   if(confirm("호스트 로그인 하시겠습니까?")){
+			   $(".lbl_email").text("호스트 아이디");
+			   $(".lbl_pass").text("호스트 비밀번호");
+			   $("input[name='email']").attr("placeholder","호스트 아이디");
+			   $("input[name='email']").val("");
+			   $("input[name='pass']").attr("placeholder","호스트 비밀번호");
+			   $("input[name='pass']").val("");
+			   login_flag = 1;
+		   }else{
+			   $("#host_login").prop("checked",false);
+		   }
+		   
+	   }else{		   
+		   $(".lbl_email").text("이메일");
+		   $(".lbl_pass").text("비밀번호");
+		   $("input[name='email']").attr("placeholder","이메일");
+		   $("input[name='email']").val("");
+		   $("input[name='pass']").attr("placeholder","비밀번호");
+		   $("input[name='pass']").val("");
+		   login_flag = 0;
+	   }
+	   
+   });		
+	
+	
+});
+
+// 모달 로그인 버튼 클릭시
+function login_click(){
+	// action="${path1}./UserLoginController.do" 
+	// login_flag == 0 일반회원 로그인
+	// login_flag == 1 호스트회원 로그인
+	if(login_flag == 0 ){
+		document.login_form.action = "${path1}./UserLoginController.do";
+		document.login_form.submit();	
+	}else{		
+		document.login_form.action = "${path1}./HostLoginController.do";
+		document.login_form.submit();		
+	}
+}
+
+function host_click_modal() {
+	
+	 var y = document.getElementById("drop_host");
+	 if (y.className.indexOf("w3-show") == -1) {
+		    y.className += " w3-show";
+		  } else { 
+		    y.className = y.className.replace(" w3-show", "");
+	 }
+}
+
+function host_space(){
+	location.href="./detailPageController.do?a=7";
+ }
+/* ------------------  */
 
 function tog(show, hide) {
 	document.getElementById(show).style.display='block';
@@ -66,36 +187,6 @@ function start(idx, no){
 
 
 // 0 다가올
-// 1 지난
-// 2 취소
-// $('#all2').click(function(){  
-
-// 	$('.rStatus_0').css("display", "block");
-// 	$('.rStatus_1').css("display", "block");
-// 	$('.rStatus_2').css("display", "block");
-
-// });
-
-// $('#coming2').click(function(){  
-// 	$('.rStatus_0').css("display", "block");
-// 	$('.rStatus_1').css("display", "none");
-// 	$('.rStatus_2').css("display", "none");
-
-// });
-
-// $('#last2').click(function(){  
-// 	$('.rStatus_0').css("display", "none");
-// 	$('.rStatus_1').css("display", "block");
-// 	$('.rStatus_2').css("display", "none");
-
-// });
-
-// $('#cancled2').click(function(){  
-// 	$('.rStatus_0').css("display", "none");
-// 	$('.rStatus_1').css("display", "none");
-// 	$('.rStatus_2').css("display", "block");
-
-// });
 
 
 function allList(){  
@@ -159,18 +250,28 @@ function cancleList(){
     
   <div class="w3-card-4 w3-dropdown-content" style="width:250px;">
     <header id="head" class="w3-container w3-teal">
-      	<h4>님의 카드현황</h4>
+      	<h4>${sessionScope.udto.name }님의 카드현황</h4>
     </header>
 
     <div id="body" class="w3-container w3-sand">
     	<div class="w3-container" id="whole">
-		<h6 class="w3-left">현재 진행중인 예약 현황</h6>
-			<br/>
-<%-- 		<span class="w3-right">총 ${fn:length(rList)}개의 내역</span> --%>
-<%-- 		<c:set var="size" value="${fn:length(rList)}"/> --%>
-			<c:if test="${size == 0}">
-			<p align="center" style="color: grey">예약 내역이 없습니다</p>
-			</c:if>
+    	 <c:choose>
+	    	<%-- 일반 회원이 로그인 됐을 때 --%>
+	      	<c:when test="${email ne null }">
+			<h6 class="w3-left"> ${sessionScope.udto.email} 현재 진행중인 예약 현황</h6>
+				<br/>
+				<span class="w3-right">총 ${fn:length(rList)}개의 내역</span>
+				<c:set var="size" value="${fn:length(rList)}"/> 
+				<c:if test="${size == 0}">
+				<p align="center" style="color: grey">예약 내역이 없습니다</p>
+				</c:if>
+			<%-- 일반회원 또는 호스트회원 로그인이 둘다 안되있을 때 --%>
+	      	<c:otherwise>
+	      		<a href="${path1}./UserSingUp_authController.do" class="w3-bar-item w3-button">회원가입</a>
+	      		<a href="#home" class="w3-bar-item w3-button" onclick="document.getElementById('id01').style.display='block'">로그인</a><!-- 로그아웃 -->     	
+	      	</c:otherwise>	
+			</c:when>
+		</c:choose>
 		</div>
     </div>
 

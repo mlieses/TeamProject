@@ -50,6 +50,7 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 				padding: 10px;			
 				letter-spacing: 1px;
 				}
+	#mm {	padding-top: 10px;}
 	#tt {background-color: white;
 		padding: 20px;
 		border-radius : 0 0 50px 0 ;
@@ -66,7 +67,8 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 	#td{ border: 1px solid gray;
 		}
 	
-	#p{font-family: "Tangerine", cursive, sans-serif;
+	#p{
+		font-family: "Tangerine", cursive, sans-serif;
 		line-height: 10px; 
 		font-size: 64px;
 		text-shadow : 3px 2px 3px gray; 
@@ -89,21 +91,18 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 	<input type="hidden" name="idx" value="<%=idx %>"> <%-- 수정할 글 번호 전달 --%>
 	<input type="hidden" name="nowPage" value="<%=nowPage %>"> <%-- 상세보기 페이지로 오지건의 페이지번호 전달 --%>
 
-	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<!-- mm -->
+	<table width="100%" id="mm">
 	    <td colspan="3">
+	    	<!-- tt -->
 	    	<div id="tt" align="center"> 
 		        <table width="95%" border="0" cellspacing="0" cellpadding="0">
-		        		<tr>
-	     	   				<td colspan="4">&nbsp;</td>
-	        			</tr>
-	        			<tr>
-	     	   				<td colspan="4">&nbsp;</td>
-	        			</tr>
 		        	<p id="p">Modify</p>
 		   			<br/><p>" 글 수정 페이지 입니다 "</p><br/>
 		          <tr> 
 		            <td height="327" colspan="3" valign="top">
 		            	<div align="center"> 
+		            		<!-- table -->
 			                <table id="table" width="95%" height="373">
 			                  <tr> 
 			                    <td width="13%" height="33" bgcolor="#f5f5f5" class="text2">
