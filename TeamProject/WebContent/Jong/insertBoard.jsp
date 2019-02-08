@@ -11,13 +11,11 @@
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=55bb85418a60e0c25e4702007dc138fe&libraries=services"></script>
 
-
-
 <!-- 날짜추가 script -->
  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" /> 
-  <script src="http://code.jquery.com/jquery-1.9.1.js"></script> 
-  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script> 
-  <link rel="stylesheet" href="/resources/demos/style.css"/>
+ <script src="http://code.jquery.com/jquery-1.9.1.js"></script> 
+ <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script> 
+ <link rel="stylesheet" href="/resources/demos/style.css"/>
 <!-- 날짜 끝 --> 
 
 <style type="text/css">
@@ -140,10 +138,9 @@ $( function() {
         	 var input = document.getElementById("plus");
              // input엘리먼트에 disbled="disabled" 속성 추가한다.
              input.setAttribute("disabled", "disabled");        	        	
-        	}
-    	
-    	
+        	}    	    	
     }
+    
     function delete_row() {
     	var mytbody = document.getElementById("mytbody");
         if (mytbody.rows.length < 1) return;
@@ -155,8 +152,7 @@ $( function() {
             // input엘리먼트에 disabled 제거
             input.removeAttribute("disabled");
     		
-    	}
-            
+    	}            
       }
 
     
@@ -194,6 +190,7 @@ $( function() {
 
                 //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
                 if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                	
                     addr = data.roadAddress;
                 } else { // 사용자가 지번 주소를 선택했을 경우(J)
                     addr = data.jibunAddress;
@@ -252,7 +249,7 @@ $( function() {
     <div class="col-10">
       <b><label>제 목</label></b>
     </div>
-    <div class="col-90">
+    <div class="col-20">
       <input type="text" id="subject" name="subject" placeholder="Title">
     </div>
   </div>  
