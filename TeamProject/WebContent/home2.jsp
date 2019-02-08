@@ -151,6 +151,9 @@ letter-spacing: 1px;
 <!-- Navbar 복사4-->
 <jsp:include page="Top.jsp" flush="false"/>
 <!-- 복사4종료  -->
+<!-- Navbar 복사4-->
+<jsp:include page="card/card.jsp" flush="false"/>
+<!-- 복사4종료  -->
 
 <!-- Header시작 -->
 

@@ -132,9 +132,14 @@ function cancleList(){
 
 </script>
 <style type="text/css">
-	
+	#btn { position: fixed;
+			left: 20px;
+			bottom: 20px;}
 	.w3-card-4 { border-radius : 30px;
-			padding: 2px;}
+			padding: 2px;
+			position: fixed;
+			left: 20px;
+			bottom: 20px;}
 	h4{text-align: center;}
 	.w3-container { border-radius : 30px 30px 0 0;}
 	#body{ border-radius : 0 0 0 0;
@@ -150,7 +155,7 @@ function cancleList(){
 <body>
 
 <div class="w3-dropdown-hover">
-  <button class="w3-button w3-black">Hover Over Me!</button>
+  <button id="btn" class="w3-button w3-teal w3-xlarge">+</button>
     
   <div class="w3-card-4 w3-dropdown-content" style="width:250px;">
     <header id="head" class="w3-container w3-teal">
