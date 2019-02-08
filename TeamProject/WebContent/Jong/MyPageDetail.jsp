@@ -148,7 +148,7 @@ $(document).ready(function() {
 <jsp:include page="../Top.jsp" flush="false"/>
 
 		
-	<div style="width:100%; margin-top: 55px;" >		
+	<div style="width:70%; margin: auto; margin-top: 55px;">		
 		
 				<table width="100%" class="w3-table w3-bordered">
 					<%
@@ -190,7 +190,7 @@ $(document).ready(function() {
 									</div>			
 							    <%}else { %>					
 									<div class="w3-third w3-container">
-									  	<div style="width: 90%"><img src="upload/<%=dto.getImg2()%>" width="100%"></div>
+									  	<div style="width: 90%"><img src="upload/<%=dto.getImg2()%>" width="100%"  height="30px;"></div>
 									</div>
 								<%} %>
 								
@@ -201,7 +201,7 @@ $(document).ready(function() {
 									</div>			
 							    <%}else { %>					
 									<div class="w3-third w3-container">
-									  	<div style="width: 90%"><img src="upload/<%=dto.getImg3()%>" width="100%"></div>
+									  	<div style="width: 90%"><img src="upload/<%=dto.getImg3()%>" width="100%" height="30px;"></div>
 									</div>
 								<%} %>
 								
@@ -211,7 +211,7 @@ $(document).ready(function() {
 									</div>			
 							    <%}else { %>					
 									<div class="w3-third w3-container">
-									  	<div style="width: 90%"><img src="upload/<%=dto.getImg4()%>" width="100%"></div>
+									  	<div style="width: 90%"><img src="upload/<%=dto.getImg4()%>" width="100%" height="30px;"></div>
 									</div>
 								<%} %>
 								
