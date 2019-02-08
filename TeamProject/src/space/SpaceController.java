@@ -27,6 +27,7 @@ public class SpaceController extends HttpServlet {
 	}
 
 	protected void doPro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("spacecontroller들어옴");
 		request.setCharacterEncoding("UTF-8");
 		int num =Integer.parseInt(request.getParameter("num"));
 		SpaceDao dao = new SpaceDao();
@@ -47,6 +48,7 @@ public class SpaceController extends HttpServlet {
 		request.setAttribute("commentList", comList);
 		
 		//예약이 다찬 날짜를 가져온다
+		
 		ArrayList<String> noList = dao.getNoDate(num);
 		request.setAttribute("noList", noList);
 		

@@ -46,6 +46,7 @@
 	 $("#datepicker1").datepicker({
 			minDate: 1,
 			maxDate: 7,
+			defaultDate:+2,
 			dateFormat: 'yy-mm-dd D',
 			beforeShowDay: disableAllTheseDays,
 			onSelect: function(date) {
@@ -81,7 +82,7 @@
 			list = new Array();
 			if(firstNumber<secondNumber){
 				
-				alert("여기dy");
+//				alert("여기dy");
 				$(".t_btn:gt("+firstNumber+")").removeClass("w3-grey");
 				for(i=firstNumber;i<=secondNumber;i++){
 					if($(".t_btn").eq(i-1).attr("disabled")){

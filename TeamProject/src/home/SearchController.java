@@ -23,6 +23,9 @@ public class SearchController extends HttpServlet {
 	}
 
 	protected void Process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//검색 기준값
+		//가격, 지역, 날짜, 인원, 옵션 
+		
 		
 		request.setCharacterEncoding("utf-8");
 		String type = request.getParameter("type");//공간 타입
