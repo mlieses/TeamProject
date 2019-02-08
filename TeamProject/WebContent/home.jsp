@@ -542,43 +542,47 @@ Vector<homeDTO> popV = (Vector<homeDTO>)request.getAttribute("popularV");
 
 
 
- <!-- Slideshow -->
- <div class="w3-container w3-padding-32" id="projects">
-    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">이벤트<a href="./Event.do" class="w3-right w3-medium">더보기</a></h3>
-  </div>
-  
-  <div class="w3-container">
-    <div class="w3-display-container mySlides">
-      <img src="img/event02.jpg" style="width:100%; height:30%;">
-      <div class="w3-display-topleft w3-container w3-padding-32">
-        <span class="w3-white w3-padding-large w3-animate-bottom" style="opacity:0.8">Lorem ipsum</span>
-      </div>
-    </div>
-    <div class="w3-display-container mySlides">
-      <img src="img/event02.jpg" style="width:100%; height:30%;">
-      <div class="w3-display-middle w3-container w3-padding-32" >
-        <span class="w3-white w3-padding-large w3-animate-bottom" style="opacity:0.8">Klorim tipsum</span>
-      </div>
-    </div>
-    <div class="w3-display-container mySlides">
-      <img src="img/event02.jpg" style="width:100%; height:30%;">
-      <div class="w3-display-topright w3-container w3-padding-32" style="opacity:0.8">
-        <span class="w3-white w3-padding-large w3-animate-bottom">Blorum pipsum</span>
-      </div>
-    </div>
 
-    <!-- Slideshow next/previous buttons -->
-    <div class="w3-container w3-dark-grey w3-padding w3-xlarge">
-      <div class="w3-left" onclick="plusDivs(-1)"><i class="fa fa-arrow-circle-left w3-hover-text-teal"></i></div>
-      <div class="w3-right" onclick="plusDivs(1)"><i class="fa fa-arrow-circle-right w3-hover-text-teal"></i></div>
-    
-      <div class="w3-center">
-        <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
-        <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
-        <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
-      </div>
-    </div>
-  </div>
+  <div class= "w3-row">
+  	<div class="w3-col m6">
+  		<p></p>
+  	</div>
+  	<!-- Slideshow -->
+	<div class="w3-col m6">  
+	  <div class="w3-container">
+	    <div class="w3-display-container mySlides">
+	      <img src="img/event02.jpg" style="width:100%; height:30%;">
+	      <div class="w3-display-topleft w3-container w3-padding-32">
+	        <span class="w3-white w3-padding-large w3-animate-bottom" style="opacity:0.8">Lorem ipsum</span>
+	      </div>
+	    </div>
+	    <div class="w3-display-container mySlides">
+	      <img src="img/event02.jpg" style="width:100%; height:30%;">
+	      <div class="w3-display-middle w3-container w3-padding-32" >
+	        <span class="w3-white w3-padding-large w3-animate-bottom" style="opacity:0.8">Klorim tipsum</span>
+	      </div>
+	    </div>
+	    <div class="w3-display-container mySlides">
+	      <img src="img/event02.jpg" style="width:100%; height:30%;">
+	      <div class="w3-display-topright w3-container w3-padding-32" style="opacity:0.8">
+	        <span class="w3-white w3-padding-large w3-animate-bottom">Blorum pipsum</span>
+	      </div>
+	    </div>
+	
+	    <!-- Slideshow next/previous buttons -->
+	    <div class="w3-container w3-dark-grey w3-padding w3-xlarge">
+	      <div class="w3-left" onclick="plusDivs(-1)"><i class="fa fa-arrow-circle-left w3-hover-text-teal"></i></div>
+	      <div class="w3-right" onclick="plusDivs(1)"><i class="fa fa-arrow-circle-right w3-hover-text-teal"></i></div>
+	    
+	      <div class="w3-center">
+	        <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+	        <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+	        <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+	      </div>
+	    </div>
+	  </div>
+ 	</div>
+ </div> 
   <hr/>
   
 
