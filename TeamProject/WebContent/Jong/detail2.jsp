@@ -1,3 +1,4 @@
+<%@page import="home.SearchDTO"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="DB.DAO"%>
 <%@page import="DB.SelectDTO"%>
@@ -75,7 +76,8 @@ text-decoration: underline;
 	
 $(document).ready(function() {
 	
-var i = $("#RPoint").val() ; //별점값을 담을 변수 i 선언
+		
+	var i = $("#RPoint").val() ; //별점값을 담을 변수 i 선언
 			
 	
 	if( i == 1){ // i = 1~10 --> 1은 별 0.5개 10은 별 5개
@@ -340,7 +342,6 @@ function setValue(obj, target){
 			<!-- 왼쪽 영역 , 오른쪽 영역 시작 -->
 			<!-- 좌측 영역  -->
 			<div style="float: left; width: 50%; margin-top: 152px">
-			
 		
 		
 				<table width="100%">
@@ -348,31 +349,30 @@ function setValue(obj, target){
 						DecimalFormat formatter = new DecimalFormat("###,###");
 
 						DAO dao = new DAO();
-						Vector<SelectDTO> vector = null;
-						
-						if(request.getAttribute("vector") == null){
-							vector = dao.select(1);	
-						}else if(request.getAttribute("vector") != null){							
-							vector = (Vector<SelectDTO>)request.getAttribute("vector");
+						Vector<SearchDTO> vector = null;
 							
-						}
+						 vector = (Vector<SearchDTO>)request.getAttribute("FindV");
+						
 					
 							for(int i=0; i < vector.size() ; i++){
 								if(vector.size() == 0){break;} // 글이 없는 경우 반복문 빠져나가고 콘솔오류 발생 방지
-								SelectDTO dto = vector.get(i);
+								SearchDTO dto = vector.get(i);	
 								
 								SelectDTO dto1	 = dao.selectReview(dto.getRoom_no()); // 룸 넘버 값 넘겨서 리뷰 글 개수 , 리뷰 점수 리턴.
+					
 								
 								
 					%>					
 					<tr align="center" height="300px;">
 						<td width="40%"><div style="width: 90%">
-						
+							
 							<!-- 리뷰 점수 값 받아오기 -->
 							<input type="hidden" value="<%=dto1.getReviewPoint()%>" id="RPoint">
-						
-							<a href="detailPageController.do?a=8&room_no=<%=dto.getRoom_no()%>"><img src="upload/<%=dto.getImg1()%>" width="100%" height="200px;"></a></div>
+							  
+							<!-- 이미지 클릭시 name = date에 날짜 전송, name=room_no에 방 번호 전송  -->
+							<a href="detailPageController.do?a=8&date<%=request.getParameter("dateValue")%>&room_no=<%=dto.getRoom_no()%>"><img src="upload/<%=dto.getImg1()%>" width="100%" height="200px;"></a></div>
 						</td>
+						
 						<td width="50%" style="text-align:left; position: relative;">
 							<div style="position: absolute; top: 0px;">
 								<h1 style="margin-bottom: -3px;"><%= dto.getSubject()%></h1>
@@ -387,7 +387,7 @@ function setValue(obj, target){
 								  <span class="starR2">별4_오른쪽</span>
 								  <span class="starR1">별5_왼쪽</span>
 								  <span class="starR2">별5_오른쪽</span>
-								  <p style="font-size: 24px; color: gray; display: inline;">&nbsp;&nbsp; 후기 : <%=dto1.getReviewNumber() %>개</p>
+								  <p style="font-size: 24px; color: gray; display: inline;">&nbsp;&nbsp; 후기 :<%=dto1.getReviewNumber()%>개</p>
 								</div>
 							</div>
 							<div>	

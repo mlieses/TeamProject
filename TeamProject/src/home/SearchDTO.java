@@ -35,12 +35,24 @@ public class SearchDTO {
 	private String a_address;
 	private String a_D_address;
 	private String a_etc_address;
+	
+	private String img1;
 
 	private double star;
 
 	
 	
 	
+	
+	
+	public String getImg1() {
+		return img1;
+	}
+
+	public void setImg1(String img1) {
+		this.img1 = img1;
+	}
+
 	public String getContent() {
 		return content;
 	}

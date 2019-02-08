@@ -67,7 +67,7 @@ p{
 	<div class="w3-container w3-blue-grey w3-center"> <br>	
 			<div class="row">
 				<div  class="w3-col m2" style="text-align: right;">
-					<a href="${path2 }index.jsp"><img src="${path }footer/footer_img.jpg"></a>
+					<a href="${path1}index.jsp"><img src="${path }footer/footer_img.jpg"></a>
 				</div>
 				<div class="w3-col m8" style="text-align: left;">
 					<h5>Copyright&copy; Share Space</h5>

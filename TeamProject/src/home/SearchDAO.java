@@ -55,7 +55,7 @@ and h.people = '소';
 						ds = (DataSource) init.lookup("java:comp/env/jdbc/sharespace");
 
 					} catch (Exception e) {
-						System.out.println("커넥션풀 가져오기 실패 : " + e);
+						System.out.println("커넥션풀 가져오기 실패 : " + e); 
 						e.printStackTrace();
 					}
 				}
@@ -113,37 +113,27 @@ and h.people = '소';
 					try {
 						con = ds.getConnection();	
 						System.out.println("연결됨");
-						String sql = "select * from "
-								+"hosting h join hosting_option o "
-								+"on h.room_no = o.room_no "
-								+"join hosting_bill b "
-								+"on h.room_no = b.room_no "
-								+"join hosting_address a "
-								+"on h.room_no = a.room_no "
-								+"left outer join (select room_no, avg(re_point)  as 'star' from review group by room_no ) r "
-								+"on h.room_no = r.room_no "
-								+"left outer join (select room_no, sum(t10 + t11 + t12 + t13 + t14 + t15 + t16 + t17 + t18 + t19 + t20 + t21) as 'ch' "
-								+"from booking b left outer join booking_time t "
-								+"on b.book_no = t.book_no "
-								+"where t.book_date = ? "
-								+"and b.book_check = 0 "
-								+"group by b.room_no) c "
-								+"on h.room_no = c.room_no "
-								+"where (c.ch != 12 or c.ch is null)"
-								+"and h.room_type = ? "
-								+"and a.a_address like '%"+location+"%' "
-								+"and h.people = ? ";
+						String sql =  // 리뷰, 그 방에 대한 리뷰글의 개수 + 리뷰 점수 제외한 메인 검색
+								"SELECT * FROM (select* from hosting c natural join "
+								+ "hosting_address d natural join hosting_bill e natural join hosting_option f "
+								+ "natural join hosting_pic g where d.a_address like '%"+location+ "%'" + " and c.room_type =?"  
+								+"and c.people =?) a LEFT OUTER JOIN  "
+								+ "(select * from booking a natural join "
+								+ "(select book_date , sum(t10 + t11 + t12 + t13 + t14 +t15 +t16 +t17+t18+t19+t20+t21) Sum "
+								+ "from booking_time group by book_date) b where a.book_date = ? and sum < 12)b ON a.room_no = b.room_no"; 
+							
+						
 						
 						
 						
 
 						pstmt = con.prepareStatement(sql);
-
-						pstmt.setString(1, bookDate);// 날짜
-						pstmt.setString(2, type);// 공간 윻ㅇ
-//						pstmt.setString(3, location);// 위치 
-						pstmt.setString(3, number);// 인원 
-
+						
+					
+						//pstmt.setString(1, location);// 위치 
+						pstmt.setString(1, type);// 공간유형
+						pstmt.setString(2, number);// 인원 
+						pstmt.setString(3, bookDate);// 날짜
 					
 						rs = pstmt.executeQuery();
 
@@ -182,10 +172,14 @@ and h.people = '소';
 							dto.setA_D_address(rs.getString("a_D_address"));
 							dto.setA_etc_address(rs.getString("a_etc_address"));
 							
-							dto.setStar(rs.getDouble("star"));
+							dto.setImg1(rs.getString("pic1"));
 							
 							FindV.add(dto);
 						}
+						
+						
+						
+						
 						
 					
 					} catch (SQLException e) {

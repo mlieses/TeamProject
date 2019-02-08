@@ -68,6 +68,13 @@ label {
   margin-top: 6px;
 }
 
+.col-50{
+  float: left;
+  width: 50%;
+  margin-top: 6px;
+	
+}
+
 .col-25 {
   float: left;
   width: 25%;
@@ -121,6 +128,36 @@ label {
 	font-size: 13px;
 	text-decoration: underline;
 }
+
+
+.butn {
+  background: #ffffff;
+  background-image: -webkit-linear-gradient(top, #ffffff, #009dff);
+  background-image: -moz-linear-gradient(top, #ffffff, #009dff);
+  background-image: -ms-linear-gradient(top, #ffffff, #009dff);
+  background-image: -o-linear-gradient(top, #ffffff, #009dff);
+  background-image: linear-gradient(to bottom, #ffffff, #009dff);
+  -webkit-border-radius: 4;
+  -moz-border-radius: 4;
+  border-radius: 4px;
+  font-family: Georgia;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight:bold;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.butn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+
 
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {

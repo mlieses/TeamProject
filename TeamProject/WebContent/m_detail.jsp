@@ -399,7 +399,8 @@
 // 	console.log(hosting.elevator);
 
 	
-	var email = "${session.email}";				//세션영역의 email값
+	var email = "${session.email}";					//세션영역의 email값
+	var nickName = "${session.name}"; 
 	if(email=="" || email==null){
 		$("#insert_btn").addClass("w3-disabled");	//
 	}
