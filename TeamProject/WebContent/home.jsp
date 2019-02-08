@@ -542,28 +542,48 @@ Vector<homeDTO> popV = (Vector<homeDTO>)request.getAttribute("popularV");
 
 
 
-
+  <hr>
   <div class= "w3-row">
   	<div class="w3-col m6">
-  		<p></p>
+  	 	<div class="w3-row">
+  	 		<hr>
+  	 	</div>
+  	 	<div class="w3-row">
+  	 		<hr>
+  	 	</div>
+  	 	<div class="w3-row">
+  	 		<hr>
+  	 	</div>
+  	 	<div class="w3-row">
+  	 		<hr>
+  	 	</div>
+  	 	<div class="w3-row">
+  	 		<hr>
+  	 	</div>
+  	 	<div class="w3-row">
+  	 		<hr>
+  	 	</div>
+  	 	<div class="w3-row">
+  	 		<hr>
+  	 	</div>
   	</div>
   	<!-- Slideshow -->
 	<div class="w3-col m6">  
 	  <div class="w3-container">
 	    <div class="w3-display-container mySlides">
-	      <img src="img/event02.jpg" style="width:100%; height:30%;">
+	      <img src="img/event02.jpg" style="width:100%; height:50%;">
 	      <div class="w3-display-topleft w3-container w3-padding-32">
 	        <span class="w3-white w3-padding-large w3-animate-bottom" style="opacity:0.8">Lorem ipsum</span>
 	      </div>
 	    </div>
 	    <div class="w3-display-container mySlides">
-	      <img src="img/event02.jpg" style="width:100%; height:30%;">
+	      <img src="img/event02.jpg" style="width:100%; height:50%;">
 	      <div class="w3-display-middle w3-container w3-padding-32" >
 	        <span class="w3-white w3-padding-large w3-animate-bottom" style="opacity:0.8">Klorim tipsum</span>
 	      </div>
 	    </div>
 	    <div class="w3-display-container mySlides">
-	      <img src="img/event02.jpg" style="width:100%; height:30%;">
+	      <img src="img/event02.jpg" style="width:100%; height:50%;">
 	      <div class="w3-display-topright w3-container w3-padding-32" style="opacity:0.8">
 	        <span class="w3-white w3-padding-large w3-animate-bottom">Blorum pipsum</span>
 	      </div>
