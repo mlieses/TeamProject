@@ -91,8 +91,7 @@ public class detailPageController extends HttpServlet {
 		//m_detail.jsp로 이동
 		else if(a == 8) {
 			System.out.println("m_detail페이지로 이동");
-			dis = request.getRequestDispatcher("m_detail.jsp");
-			dis.forward(request, response);	
+			response.sendRedirect("m_detail?num="+request.getParameter("room_no"));	
 		}
 		
 		else {
