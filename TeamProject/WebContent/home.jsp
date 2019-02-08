@@ -550,7 +550,7 @@ Vector<homeDTO> popV = (Vector<homeDTO>)request.getAttribute("popularV");
 	    </div>  
   	 	<div class="w3-row" style="margin-bottom: 10px;">
   	 		<div class="w3-col m3" align="center">
-  	 			<small>[ss share space]</small>
+  	 			<small>[SS share space]</small>
   	 		</div>
   	 		<div class="w3-col m6">
   	 			<a href="#">&nbsp;&nbsp;&nbsp;&nbsp;서버 이전작업</a>
@@ -561,7 +561,7 @@ Vector<homeDTO> popV = (Vector<homeDTO>)request.getAttribute("popularV");
   	 	</div>
   	 	<div class="w3-row" style="margin-bottom: 10px;">
   	 		<div class="w3-col m3" align="center">
-  	 			<small>[ss share space]</small>
+  	 			<small>[SS share space]</small>
   	 		</div>
   	 		<div class="w3-col m6">
   	 			<a href="#">&nbsp;&nbsp;&nbsp;&nbsp;서버 이전작업</a>
@@ -572,7 +572,7 @@ Vector<homeDTO> popV = (Vector<homeDTO>)request.getAttribute("popularV");
   	 	</div>
   	 	<div class="w3-row" style="margin-bottom: 10px;">
   	 		<div class="w3-col m3" align="center">
-  	 			<small>[ss share space]</small>
+  	 			<small>[SS share space]</small>
   	 		</div>
   	 		<div class="w3-col m6">
   	 			<a href="#">&nbsp;&nbsp;&nbsp;&nbsp;서버 이전작업</a>
@@ -583,7 +583,7 @@ Vector<homeDTO> popV = (Vector<homeDTO>)request.getAttribute("popularV");
   	 	</div>
   	 	<div class="w3-row" style="margin-bottom: 10px;">
   	 		<div class="w3-col m3" align="center">
-  	 			<small>[ss share space]</small>
+  	 			<small>[SS share space]</small>
   	 		</div>
   	 		<div class="w3-col m6">
   	 			<a href="#">&nbsp;&nbsp;&nbsp;&nbsp;서버 이전작업</a>
