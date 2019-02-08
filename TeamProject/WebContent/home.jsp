@@ -541,36 +541,65 @@ Vector<homeDTO> popV = (Vector<homeDTO>)request.getAttribute("popularV");
 
 
 
-  <!-- Project Section 공지사항/이벤트-->
-  <div class="w3-container w3-padding-32" id="projects">
-    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">공지사항/이벤트</h3>
-  </div>  
-  <div class= "w3-row">
+  
+  <div class= "w3-row" style="margin-bottom:50px;">  
   	<div class="w3-col m6">
-  	 	<div class="w3-row">
-  	 		<hr>
+  		<!-- Project Section 공지사항-->
+	    <div class="w3-container w3-padding-32" id="projects">
+	      <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">공지사항</h3>
+	    </div>  
+  	 	<div class="w3-row" style="margin-bottom: 10px;">
+  	 		<div class="w3-col m3" align="center">
+  	 			<small>[ss share space]</small>
+  	 		</div>
+  	 		<div class="w3-col m6">
+  	 			<a href="#">&nbsp;&nbsp;&nbsp;&nbsp;서버 이전작업</a>
+  	 		</div>
+  	 		<div class="w3-col m3" align="center">
+  	 			<small>2019-02-03</small>
+  	 		</div>  	 		
   	 	</div>
-  	 	<div class="w3-row">
-  	 		<hr>
+  	 	<div class="w3-row" style="margin-bottom: 10px;">
+  	 		<div class="w3-col m3" align="center">
+  	 			<small>[ss share space]</small>
+  	 		</div>
+  	 		<div class="w3-col m6">
+  	 			<a href="#">&nbsp;&nbsp;&nbsp;&nbsp;서버 이전작업</a>
+  	 		</div>
+  	 		<div class="w3-col m3" align="center">
+  	 			<small>2019-02-03</small>
+  	 		</div>  	 		
   	 	</div>
-  	 	<div class="w3-row">
-  	 		<hr>
+  	 	<div class="w3-row" style="margin-bottom: 10px;">
+  	 		<div class="w3-col m3" align="center">
+  	 			<small>[ss share space]</small>
+  	 		</div>
+  	 		<div class="w3-col m6">
+  	 			<a href="#">&nbsp;&nbsp;&nbsp;&nbsp;서버 이전작업</a>
+  	 		</div>
+  	 		<div class="w3-col m3" align="center">
+  	 			<small>2019-02-03</small>
+  	 		</div>  	 		
   	 	</div>
-  	 	<div class="w3-row">
-  	 		<hr>
-  	 	</div>
-  	 	<div class="w3-row">
-  	 		<hr>
-  	 	</div>
-  	 	<div class="w3-row">
-  	 		<hr>
-  	 	</div>
-  	 	<div class="w3-row">
-  	 		<hr>
-  	 	</div>
+  	 	<div class="w3-row" style="margin-bottom: 10px;">
+  	 		<div class="w3-col m3" align="center">
+  	 			<small>[ss share space]</small>
+  	 		</div>
+  	 		<div class="w3-col m6">
+  	 			<a href="#">&nbsp;&nbsp;&nbsp;&nbsp;서버 이전작업</a>
+  	 		</div>
+  	 		<div class="w3-col m3" align="center">
+  	 			<small>2019-02-03</small>
+  	 		</div>  	 		  	 		
+  	 	</div>  
+  	 		 	
   	</div>
   	<!-- Slideshow -->
-	<div class="w3-col m6">  
+	<div class="w3-col m6">
+	 <!-- Project Section 이벤트-->
+	 <div class="w3-container w3-padding-32" id="projects">
+	   <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">이벤트</h3>
+	 </div>  
 	  <div class="w3-container">
 	    <div class="w3-display-container mySlides">
 	      <img src="img/event02.jpg" style="width:100%; height:50%;">
