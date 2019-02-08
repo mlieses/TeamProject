@@ -87,21 +87,21 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 	}
 </script>
 <style>
-
-	#page{	margin: auto;
-			width: 100%;
-			width: 1000px;
-			padding: 10px;			
+	body{background-image: url("board/study1_2.jpg");
 			font-family: "Nanum Barun Gothic"; 
-			letter-spacing: 1px;
-
-			background-image: url("board/study1_2.jpg");
 			background-repeat:no-repeat;
 			background-attachment: fixed;
 			background-position: right top, center center; 
-			background-size: 80%;
-			}
+			background-size: 80%;}
 			
+	#page{	margin: auto;
+			width: 100%;
+			width: 1000px;
+			height: 100%;
+			height: 800px;
+			padding: 10px;			
+			letter-spacing: 1px;}
+
 	.subject, .table, .page, p{ 
 		}
 	
@@ -111,8 +111,8 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 		text-shadow : 3px 2px 3px gray; 
 		text-align: center;}
 	
-	.table{ background-color: white;
-			border: 1px solid #cccccc;
+	.table{ border: 1px solid #cccccc;
+			background-color: white;
 			padding: 50px 80px;
 			paading-top: 20px;
 			margin: 0 auto;
@@ -163,6 +163,12 @@ function fnRead(val){
 
 
 <table width="97%" height="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+	        		<td colspan="4">&nbsp;</td>
+	        	</tr>
+	        	<tr>
+	        		<td colspan="4">&nbsp;</td>
+	        	</tr>
 	<tr> 
 		<td colspan="3">
 			<div align="center">

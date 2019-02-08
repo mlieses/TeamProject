@@ -28,21 +28,21 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 
 <title>ShareSpade : 글쓰기 페이지</title>
 <style>
-	body{	margin: auto;
+	body{ 	background-image: url("board/study1_2.jpg");
+			background-repeat:no-repeat;
+			background-attachment: fixed;
+			background-position: right top, center center; 
+			background-size: 80%;
+			font-family: "Nanum Barun Gothic"; }
+	#page{	margin: auto;
 				width: 100%;
 				width: 1000px;
 				padding: 10px;			
-				font-family: "Nanum Barun Gothic"; 
 				letter-spacing: 1px;
-	
-				background-image: url("board/study1_2.jpg");
-				background-repeat:no-repeat;
-				background-attachment: fixed;
-				background-position: right top, center center; 
-				background-size: 80%;
 				}
 	
-	#table{ margin-top: 30px;
+	#title{ margin-top: 30px;
+		width: 500px;
 		background-color: white;
 		border-radius : 0 0 50px 0 ;
 		border-top: 2px solid #000000;
@@ -50,7 +50,8 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 		border-right: 1px solid #808080;
 		border-spacing: 50px;}
 	
-	#border1 { background-color: white;
+	#table { 
+		background-color: white;
 		}
 	
 	#td{ border: 1px solid gray;
@@ -73,10 +74,21 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 
 </head>
 <body>
+<!-- Navbar 복사4-->
+<jsp:include page="../Top.jsp" flush="false"/>
+<!-- 복사4종료  -->
 <!-- [1] -->
 <form method="post" action="writeConfirm.board" name="frmInsert">
 <!-- [1]끝 -->
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<!-- 페이지 center-->
+<div id="page" width="97%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+	        		<td colspan="4">&nbsp;</td>
+	        	</tr>
+	        	<tr>
+	        		<td colspan="4">&nbsp;</td>
+	        	</tr>
 	  <td colspan="3">
 	   	<div align="center">
 			<p id="p">Writing</p>
@@ -84,37 +96,37 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 	  </td>
 
 	  <tr> 
-	    <td colspan="3">
+	    <td colspan="4">
 	    	<div align="center"> 
-		        <table id="table" width="95%" border="0" cellspacing="0" cellpadding="0">
-		          	<br/><p>" 글쓰기 페이지 입니다 "</p><br/>
-		          <tr> 
-		            <td height="327" colspan="3" valign="top">
-		            	<div align="center"> 
-                <table width="100%" height="373" border="1" cellpadding="0" cellspacing="1" class="border1">
-                
+		        
+		     <br/><p>" 글쓰기 페이지 입니다 "</p><br/>
+		     <tr>
+		     <td height="327" colspan="3" valign="top">
+		        <div align="center"> 
+                <table id="table" width="95%" height="373" cellpadding="0" cellspacing="1" class="w3-table">
+                	
                   <tr> 
-                    <td width="13%" height="29" bgcolor="#e4e4e4" class="text2">
-                    	<div id="width" align="center">작 성 자</div>
+                    <th width="20%">작성자</th>
+                    <td style="text-align: left">
+                    	<input type="text" name="writer" size="20" class="w3-input"/>
                     </td>
-                    <td width="34%" style="text-align: left">
-                    	<input type="text" name="writer" size="20" class="text2" />
-                    </td>
-                    <td width="13%" bgcolor="#e4e4e4">
+                    <td>
                     	<div align="center"> 
-                        	<p class="text2">메일주소</p>
+                        	<label>메일주소</label>
                       	</div>
                     </td>
-                    <td width="40%" style="text-align: left">
-                        <input type="text" name="email" size="40" class="text2" />
+                    <td  style="text-align: left">
+                        <input type="text" name="email" size="40" class="w3-input" />
                     </td>
-                  </tr>             
+                  </tr>      
+                  
+                         
                   <tr> 
-                    <td height="31" bgcolor="#e4e4e4" class="text2">
-                    	<div align="center">제&nbsp;&nbsp;&nbsp;목</div>
+                    <td height="31">
+                    	<label>제목</label>
                     </td>
                     <td colspan="3" style="text-align: left">
-                    	<input type="text" name="title" size="70"/>
+                    	<input type="text" name="title" size="70" class="w3-input" />
                     </td>
                   </tr>
                   <tr> 
@@ -154,11 +166,12 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
             </div>
             </td>
             <td width="42%"></td>
+            
           </tr>
-        </table>
+     
       </div></td>
   </tr>
-</table>
+</div>
 </form>
 </body>
 </html>
