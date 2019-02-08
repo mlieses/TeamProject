@@ -40,33 +40,29 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 
 <title>ShareSpade : 글읽기 페이지</title>
 <style>
-	body{	margin: auto;
+	body{ 	background-image: url("board/study1_2.jpg");
+			background-repeat:no-repeat;
+			background-attachment: fixed;
+			background-position: right top, center center; 
+			background-size: 80%;
+			font-family: "Nanum Barun Gothic"; }
+	#page{	margin: auto;
 				width: 100%;
 				width: 1000px;
 				padding: 10px;			
-				font-family: "Nanum Barun Gothic"; 
 				letter-spacing: 1px;
-	
-				background-image: url("board/study1_2.jpg");
-				background-repeat:no-repeat;
-				background-attachment: fixed;
-				background-position: right top, center center; 
-				background-size: 80%;
 				}
-	
-	#table{ margin-top: 30px;
-		background-color: white;
+	#tt {background-color: white;
+		padding: 20px;
 		border-radius : 0 0 50px 0 ;
 		border-top: 2px solid #000000;
 		border-bottom: 1px solid #808080;
 		border-right: 1px solid #808080;
 		border-spacing: 50px;}
+
+	#table { background-color: white;}
 	
-	#border1 { background-color: white;
-		}
-	
-	#td{ border: 1px solid gray;
-		}
+	#td{ border-bottom: 1px solid #e6e6e6;}
 	
 	#p{font-family: "Tangerine", cursive, sans-serif;
 		line-height: 10px; 
@@ -88,7 +84,18 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 </script>
 </head>
 <body>
-	<table width="100%" border="0" cellspacing="0" cellpadding="0" id="table">
+<!-- Navbar 복사4-->
+<jsp:include page="../Top.jsp" flush="false"/>
+<!-- 복사4종료  -->
+
+<!-- 페이지 center-->
+<table id="page" width="100%" border="0" cellspacing="0" cellpadding="0" id="table">
+				<tr>
+	     	   		<td colspan="4">&nbsp;</td>
+	        	</tr>
+	        	<tr>
+	        		<td colspan="4">&nbsp;</td>
+	        	</tr>
 		<td colspan="3">
 			<div align="center">
 				<p id="p">Reading</p>
@@ -98,24 +105,25 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 		<tr>
 			<td colspan="3">
 				<div align="center">
-					<table width="95%" border="0" cellspacing="0" cellpadding="0">
+					<!-- tt -->
+					<table id="tt" width="95%" border="0" cellspacing="0" cellpadding="0">
 				
-						<tr>
 							<td height="327" colspan="3" valign="top">
 								<div align="center">
-									<table id="border1" width="95%" height="373" border="1" cellpadding="0" cellspacing="1" bordercolor="#cccccc" class="border1">
+									<!-- table -->
+									<table id="table" width="95%" height="373">
 										<tr>
 											<td width="13%" height="33" class="text2" bgcolor="#f5f5f5">
 												<div align="center" >작 성 자</div>
 											</td>
-											<td width="34%" style="text-align: left">
+											<td id="td" width="34%" style="text-align: left">
 												&nbsp;&nbsp;<%=name %>
 											</td>
 											
 											<td width="13%" bgcolor="#f5f5f5" >
 												<div align="center">이메일</div>
 											</td>
-											<td width="40%" style="text-align: left">
+											<td id="td" width="40%" style="text-align: left">
 												&nbsp;&nbsp;<%=email %>
 											</td>
 										</tr>
@@ -124,7 +132,7 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 											<td height="33" class="text2" bgcolor="#f5f5f5" >
 												<div align="center">제&nbsp;&nbsp;&nbsp; &nbsp; 목</div>
 											</td>
-											<td colspan="3"style="text-align: left">
+											<td id="td" colspan="3"style="text-align: left">
 												&nbsp;&nbsp;<%=title %>
 											</td>
 										</tr>
@@ -133,7 +141,7 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 											<td height="245" class="text2" bgcolor="#f5f5f5" >
 												<div align="center">내 &nbsp;&nbsp; 용</div>
 											</td>
-											<td colspan="3" style="text-align: left; vertical-align: top;">
+											<td id="td" colspan="3" style="text-align: left; vertical-align: top;">
 												&nbsp;<%=content %>
 											</td>
 										</tr>
@@ -146,7 +154,7 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 												<form action="delete.board" name="frmDelete" method="post">
 													<input type="hidden" name="idx" value="<%=idx%>"/>
 													<input type="hidden" name="nowPage" value="<%=nowPage%>"/>
-													<input type="password" name="pass" id="pass"/>
+													<input type="password" name="pass" id="pass" maxlength="8"/>
 												</form>
 											</td>
 										</tr>
@@ -154,24 +162,23 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 								</div>
 							</td>
 						</tr>
-						<tr>
-							<td colspan="3">&nbsp;</td>
-						</tr>
+					
+						<!-- 버튼 -->
 						<tr>
 							<td style="width: 48%">
 								<div align="right" style="float: right;">
-									<%-- 글답변 버튼 : 버튼눌럿을때 링크 걸어줌 --%>
+									<%-- 글답변 버튼 : 버튼눌럿을때 링크 걸어줌 
 										<input type="button" class="w3-button w3-border" 
 										onclick="location.href='reply.board?nowPage=<%=nowPage %>&idx=<%=idx %>'" 
-										value="답변"/>
+										value="답변"/> --%>
 									<%-- 글수정 버튼 : BoardController로 수정할 글번호 idx와 현재 상세포기페이지로 오기전의 페이지 번호를 넘겨준다--%>
 									<input type="button" class="w3-button w3-border" 
 										onclick="location.href='modify.board?nowPage=<%=nowPage %>&idx=<%=idx %>'" 
 										value="수정"/>
-									<%-- 1) 글삭제 버튼 눌렀을때--%>
+									<%-- 1) 글삭제 버튼 눌렀을때
 									<input type="button" class="w3-button w3-border" 
 										onclick="fnDelete();"
-										value="삭제"/>
+										value="삭제"/>--%>
 								</div>
 							</td>
 							<td width="10%">
@@ -184,11 +191,11 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 							</td>
 							<td width="42%"></td>
 						</tr>
-					
-					</table>
+						<!-- 버튼 여기까지 -->
+						
+					</table> <!-- table -->
 				</div>
 			</td>
-		</tr>
-	</table>
+	</table> <!-- tt -->
 </body>
 </html>

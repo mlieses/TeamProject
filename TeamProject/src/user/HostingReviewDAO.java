@@ -89,10 +89,7 @@ public class HostingReviewDAO {
 				dto.setRoom_type(rs.getString("room_type"));
 				dto.setPic1(rs.getString("pic1"));
 				
-			
 				sList.add(dto);
-	
-
 			}
 			
 		
@@ -201,7 +198,4 @@ ArrayList<HostingReviewDTO> rList = new ArrayList<HostingReviewDTO>();
 		
 		return rList;
 	}
-	
-	
-	
 }

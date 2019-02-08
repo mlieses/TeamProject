@@ -38,27 +38,27 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 
 <title>Insert title here</title>
 <style>
-	body{	margin: auto;
+	body{ 	background-image: url("board/study1_2.jpg");
+			background-repeat:no-repeat;
+			background-attachment: fixed;
+			background-position: right top, center center; 
+			background-size: 80%;
+			font-family: "Nanum Barun Gothic"; }
+	#page{	margin: auto;
 				width: 100%;
 				width: 1000px;
 				padding: 10px;			
-				font-family: "Nanum Barun Gothic"; 
 				letter-spacing: 1px;
-	
-				background-image: url("board/study1_2.jpg");
-				background-repeat:no-repeat;
-				background-attachment: fixed;
-				background-position: right top, center center; 
-				background-size: 80%;
 				}
-	
-	#table{ margin-top: 30px;
-		background-color: white;
+	#tt {background-color: white;
+		padding: 20px;
 		border-radius : 0 0 50px 0 ;
 		border-top: 2px solid #000000;
 		border-bottom: 1px solid #808080;
 		border-right: 1px solid #808080;
 		border-spacing: 50px;}
+		
+	#table { background-color: white;}
 	
 	#border1 { background-color: white;
 		}
@@ -78,34 +78,46 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 <title>ShareSpade : 수정페이지</title>
 </head>
 <body>
-<form method="post" action="modifyConfirm.board" name="frmModify">
+<!-- Navbar 복사4-->
+<jsp:include page="../Top.jsp" flush="false"/>
+<!-- 복사4종료  -->
 
+<!-- 페이지 center-->
+<div id="page" width="97%" border="0" cellspacing="0" cellpadding="0">
+
+	<form method="post" action="modifyConfirm.board" name="frmModify">
 	<input type="hidden" name="idx" value="<%=idx %>"> <%-- 수정할 글 번호 전달 --%>
 	<input type="hidden" name="nowPage" value="<%=nowPage %>"> <%-- 상세보기 페이지로 오지건의 페이지번호 전달 --%>
 
 	<table width="100%" border="0" cellspacing="0" cellpadding="0">
 	    <td colspan="3">
-	    	<div id="table" align="center"> 
+	    	<div id="tt" align="center"> 
 		        <table width="95%" border="0" cellspacing="0" cellpadding="0">
+		        		<tr>
+	     	   				<td colspan="4">&nbsp;</td>
+	        			</tr>
+	        			<tr>
+	     	   				<td colspan="4">&nbsp;</td>
+	        			</tr>
 		        	<p id="p">Modify</p>
 		   			<br/><p>" 글 수정 페이지 입니다 "</p><br/>
 		          <tr> 
 		            <td height="327" colspan="3" valign="top">
 		            	<div align="center"> 
-			                <table id="border1" width="95%" height="373" border="1" cellpadding="0" cellspacing="1" class="border1">
+			                <table id="table" width="95%" height="373">
 			                  <tr> 
-			                    <td width="13%" height="33" bgcolor="#e4e4e4" class="text2">
+			                    <td width="13%" height="33" bgcolor="#f5f5f5" class="text2">
 			                    	<div id="width" align="center">작 성 자</div>
 			                    </td>
-			                    <td width="34%" style="text-align: left">&nbsp;<%=name %></td>
-			                    <td width="13%" bgcolor="#e4e4e4">
+			                    <td width="34%" style="text-align: left" bgcolor="#ffffe6">&nbsp;<%=name %></td>
+			                    <td width="13%" bgcolor="#f5f5f5">
 			                    	<div align="center"> 
 			                        	<p class="text2">이메일</p>
 			                       </div></td>
-			                    <td width="40%" style="text-align: left">&nbsp;<%=email %></td>
+			                    <td width="40%" style="text-align: left" bgcolor="#ffffe6">&nbsp;<%=email %></td>
 			                  </tr>
 			                  <tr> 
-			                    <td height="33" bgcolor="#e4e4e4" class="text2">
+			                    <td height="33" bgcolor="#f5f5f5" class="text2">
 			                    	<div align="center">제&nbsp;&nbsp; &nbsp; 목 </div>
 			                    </td>
 			                    <td colspan="3" style="text-align: left">
@@ -113,7 +125,7 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 			                    </td>
 			                  </tr>
 			                  <tr> 
-			                    <td height="245" bgcolor="#e4e4e4" class="text2">
+			                    <td height="245" bgcolor="#f5f5f5" class="text2">
 			                    	<div align="center"><i class="material-icons">sms</i><br/>내 &nbsp;&nbsp; 용</div>
 			                    </td>
 			                    <td colspan="3" bgcolor="#f5f5f5" style="text-align: left">
@@ -127,23 +139,27 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 		          <tr> 
 		            <td colspan="3">&nbsp;</td>
 		          </tr>
+		          
+		          <!-- 버튼  -->
+		          <div class="w3-row">
 		          <tr> 
-		            <td width="48%">
-		            	<div align="right">
-		            	<%-- 수정버튼을 눌렀을때, form action="modifyConfirm.board" 요청 --%>
-		                	<input type="button" class="w3-button w3-border w3-white" 
-		                		onclick="document.frmModify.submit();" value="수정">
-		                </div>
-		            </td>
 		            <td width="10%">
-		            	<div align="center">
+		            	<div class="w3-col m1 w3-left">
 		            		<%-- 목록버튼을 눌렀을때, BoardController서블릿으로 list.jsp로 이동하는 요청 함 --%>
 		               		<input type="button" class="w3-button w3-border w3-white" 
 		               			onclick="location.href='list.board?nowPage=<%=nowPage%>'" value="목록">
 		               	</div>
 		            </td>
-		            <td width="42%"></td>
+		            <td width="48%">
+		            	<div class="w3-col m1 w3-right">
+		            	<%-- 수정버튼을 눌렀을때, form action="modifyConfirm.board" 요청 --%>
+		                	<input type="button" class="w3-button w3-border w3-white" 
+		                		onclick="document.frmModify.submit();" value="수정">
+		                </div>
+		            </td>
+		            <td width="42%">&nbsp;</td>
 		          </tr>
+		          <!-- 버튼 -->
 		          	  <td width="13%" height="20" class="text2">
 			                    </td>
 		        </table>

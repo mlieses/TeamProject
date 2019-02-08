@@ -40,7 +40,13 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 				padding: 10px;			
 				letter-spacing: 1px;
 				}
-	
+	#block {background-color: white;
+		padding: 5px;
+		border-radius : 0 0 50px 0 ;
+		border-top: 2px solid #000000;
+		border-bottom: 1px solid #808080;
+		border-right: 1px solid #808080;
+		border-spacing: 50px;}
 	#title{ margin-top: 30px;
 		width: 500px;
 		background-color: white;
@@ -50,7 +56,12 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 		border-right: 1px solid #808080;
 		border-spacing: 50px;}
 	
-	#table { 
+	#table { padding: 5px;
+		border-top: 2px solid #000000;
+		border-bottom: 1px solid #808080;
+		border-right: 1px solid #808080;
+		border-spacing: 50px;
+		
 		background-color: white;
 		}
 	
@@ -94,7 +105,7 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 			<p id="p">Writing</p>
 		</div>
 	  </td>
-
+	
 	  <tr> 
 	    <td colspan="4">
 	    	<div align="center"> 
@@ -103,17 +114,20 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 		     <tr>
 		     <td height="327" colspan="3" valign="top">
 		        <div align="center"> 
-                <table id="table" width="95%" height="373" cellpadding="0" cellspacing="1" class="w3-table">
-                	
+		        
+                <table id="table" width="95%" height="373" class="w3-table">
+                		<tr>
+				        	<td colspan="4">&nbsp;</td>
+				        </tr>
                   <tr> 
-                    <td width="10%">작성자</td>
-                    <td style="text-align: left">
+                    <td>
+                    	<div align="center">작성자</div>
+                    </td>
+                    <td>
                     	<input type="text" name="writer" size="20" class="w3-input"/>
                     </td>
                     <td>
-                    	<div align="center"> 
-                        	<label>메일주소</label>
-                      	</div>
+                    	<div align="center">메일주소</div>
                     </td>
                     <td  style="text-align: left">
                         <input type="text" name="email" size="40" class="w3-input" />
@@ -122,15 +136,15 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
                   
                          
                   <tr> 
-                    <td height="31">
-                    	<label>제목</label>
+                    <td height="31" class="text2">
+                    	<div align="center">제목</div>
                     </td>
                     <td colspan="3" style="text-align: left">
                     	<input type="text" name="title" size="70" class="w3-input" />
                     </td>
                   </tr>
                   <tr> 
-                    <tdclass="text2">
+                    <td class="text2">
                     	<div align="center"><i class="material-icons">sms</i><br/>내용</div>
                     </td>
                     <td colspan="3" style="text-align: left">
@@ -138,36 +152,46 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
                     </td>
                   </tr>
                   <tr> 
-                    <td bgcolor="#e4e4e4" class="text2">
+                    <td>
                     	<div align="center">패스워드</div>
                     </td>
                     <td colspan="3" style="text-align: left">
-                    	<input type="password" name="pass"/>
+                    	<input type="password" name="pass" class="w3-input" maxlength="8" />
                     </td>
+                    	<tr>
+				        	<td colspan="4">&nbsp;</td>
+				        </tr>
                   </tr>
                 </table>
               </div>
               </td>
           </tr>
   
+  			<tr>
+	        	<td colspan="4">&nbsp;</td>
+	        </tr>
+	    
+	    <!-- 버튼 -->
+  		<div class="w3-row">
           <tr> 
             <td width="48%">
-            <div align="right">
+            <div class="w3-col m1 w3-right">
             	<%-- 글 등록 버튼/ [2]:자바스트립트 함수로 form전송 하기 --%>
             	<a href="javascript:fnInsert();">
 					<input type="button" class="w3-button w3-border w3-red" value="등록"></a>
             </div>
             </td>
             <td width="10%">
-            <div align="center">
+            <div class="w3-col m1 w3-left">
             	<%-- 목록 보기 버튼(List.jsp로 이동) <--BoardController에 요청 --%>
             	<a href="list.board">
             		<input type="button" class="w3-button w3-border w3-green" value="목록"></a>
             </div>
             </td>
-            <td width="42%"></td>
-            
+            <td width="42%"></td>            
           </tr>
+     	</div>
+     	<!-- 버튼 여기까지 -->
      
       </div></td>
   </tr>
