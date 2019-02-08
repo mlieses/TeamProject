@@ -65,11 +65,46 @@ body{
 	<h2 class="w3-left">공간 후기 관리</h2>
 	<span class="w3-right"> ${fn:length(rList)}개의 내역</span><br/>
 	<div class="w3-row w3-border">
+		<!-- 그래프 -->
 	  	<div class="w3-container w3-quarter" style="border: 1px solid black">
 	  		<h2>여기1</h2>
 	  	</div>
+	  	
+	  	
+	  	<!-- 공간 + 리뷰 -->
 	  	<div class="w3-container w3-threequarter" style="border: 1px solid blue">
 	  		<h2>여기2</h2>
+	  		
+	  		<!-- 공간 정보 뿌리기 -->
+	  		<div class="w3-row-padding" style="height: 10%; border: 1px solid yellow">
+	  			<div class="w3-col" style="width: 35%; text-align: right"><i class="fa fa-caret-left" aria-hidden="true"></i></div>
+	  			
+	  			<div class="w3-col" style="width: 12%; text-align: center;">
+		  			<img src="../img/room01.jpg" class="w3-circle" name="spacePic" style="width:80px; height:80px;"><br/>
+		  			<small>공간 이름</small>
+	  			</div>
+	  			<div class="w3-col" style="width: 12%; text-align: center;">
+		  			<img src="../img/room01.jpg" class="w3-circle" name="spacePic" style="width:80px; height:80px;"><br/>
+		  			<small>공간 이름</small>
+	  			</div>
+	  			<div class="w3-col" style="width: 12%; text-align: center;">
+		  			<img src="../img/room01.jpg" class="w3-circle" name="spacePic" style="width:80px; height:80px;"><br/>
+		  			<small>공간 이름</small>
+	  			</div>
+	  			<div class="w3-col" style="width: 12%; text-align: center;">
+		  			<img src="../img/room01.jpg" class="w3-circle" name="spacePic" style="width:80px; height:80px;"><br/>
+		  			<small>공간 이름</small>
+	  			</div>
+	  			<div class="w3-col" style="width: 12%; text-align: center;">
+		  			<img src="../img/room01.jpg" class="w3-circle" name="spacePic" style="width:80px; height:80px;"><br/>
+		  			<small>공간 이름</small>
+	  			</div>
+	  			
+	  			
+	  			<div class="w3-col" style="width: 5%; text-align: left"><i class="fa fa-caret-right" aria-hidden="true"></i></div>
+	  		</div>
+	  
+	  
 	  	</div>
   	</div>
 
