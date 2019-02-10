@@ -288,7 +288,7 @@ $( function() {
         	<i class="fa fa-car"></i><b><label>주차</label></b>
          </div><br><br><br>
           <div class="col-50">
-	        <input type="radio" name="parking"  value=1>있음        
+	        <input type="radio" name="parking"  value=1 checked="checked">있음        
 	        <input type="radio" name="parking"  value=2>없음
           </div>
     </div>
@@ -297,7 +297,7 @@ $( function() {
        <i class="fa fa-wifi"></i><b><label>WIFI</label></b>
      </div><br><br><br>
      <div class="col-50">
-        <input type="radio" name="wifi"  value=1>있음      
+        <input type="radio" name="wifi"  value=1 checked="checked">있음      
         <input type="radio" name="wifi"  value=2>없음
      </div>
     </div>
@@ -306,7 +306,7 @@ $( function() {
         <i class="	fas fa-toilet"></i><b><label>화장실</label></b>
      </div> <br><br><br>
       <div class="col-50">
-        <input type="radio" name="toilet"  value=1>있음        
+        <input type="radio" name="toilet"  value=1 checked="checked">있음        
         <input type="radio" name="toilet"  value=2>없음
       </div>
     </div>
@@ -315,7 +315,7 @@ $( function() {
          <i class="fas fa-mug-hot"></i><b><label>음료</label></b>
      </div><br><br><br>
      <div class="col-50">
-        <input type="radio" name="drink"  value=1>있음      
+        <input type="radio" name="drink"  value=1 checked="checked">있음      
         <input type="radio" name="drink"  value=2>없음
      </div>
     </div>    
@@ -329,7 +329,7 @@ $( function() {
 	        <i class="	fas fa-wind"></i><b><label>에어컨</label></b>
 	     </div><br><br><br>
 	     <div class="col-50">
-	        <input type="radio" name="airconditioner"  value=1>있음        
+	        <input type="radio" name="airconditioner"  value=1 checked="checked">있음        
 	        <input type="radio" name="airconditioner"  value=2>없음
 	     </div>
 	    </div>
@@ -338,7 +338,7 @@ $( function() {
 	       <i class="fab fa-hotjar"></i><b> <label>난방</label></b>
 	     </div><br><br><br>
 	     <div class="col-50">
-	        <input type="radio" name="heating"  value=1>있음        
+	        <input type="radio" name="heating"  value=1 checked="checked">있음        
 	        <input type="radio" name="heating"  value=2>없음
 	     </div>
 	    </div>
@@ -347,7 +347,7 @@ $( function() {
 	         <i class="	fa fa-sort"></i><b><label>엘리베이터</label></b>
 	     </div><br><br><br>
 	     <div class="col-50">   
-	        <input type="radio" name="elevator"  value=1>있음        
+	        <input type="radio" name="elevator"  value=1 checked="checked">있음        
 	        <input type="radio" name="elevator"  value=2>없음
 	     </div>
 	    </div>
@@ -356,7 +356,7 @@ $( function() {
 	     <i class="fas fa-ruler-horizontal"></i> <b>  <label>콘센트</label></b>
 	     </div><br><br><br>
 	      <div class="col-50">
-	        <input type="radio" name="socket"  value=1>있음        
+	        <input type="radio" name="socket"  value=1 checked="checked">있음        
 	        <input type="radio" name="socket"  value=2>없음
 	      </div>
 	    </div>   
@@ -370,7 +370,7 @@ $( function() {
 	       <i class="fab fa-first-order-alt"></i><b><label>프로젝트 빔</label></b>
 	     </div><br><br><br>
 	     <div class="col-50">
-	        <input type="radio" name="projector"  value=1>있음        
+	        <input type="radio" name="projector"  value=1 checked="checked">있음        
 	        <input type="radio" name="projector"  value=2>없음
 	     </div>
 	    </div>
@@ -379,7 +379,7 @@ $( function() {
 	     <i class="	fas fa-tv"></i><b>  <label>컴퓨터</label></b>
 	     </div><br><br><br>
 	      <div class="col-50">   
-	        <input type="radio" name="laptop"  value=1>있음       
+	        <input type="radio" name="laptop"  value=1 checked="checked">있음       
 	        <input type="radio" name="laptop"  value=2>없음
 	      </div>
 	    </div>
@@ -388,7 +388,7 @@ $( function() {
 	       <i class="fas fa-box-open"></i><b> <label>캐비넷</label></b>
 	     </div><br><br><br>
 	      <div class="col-50">   
-	        <input type="radio" name="cabinet"  value=1>있음        
+	        <input type="radio" name="cabinet"  value=1 checked="checked">있음        
 	        <input type="radio" name="cabinet"  value=2>없음
 	      </div>
 	    </div>
@@ -469,7 +469,7 @@ $( function() {
     </div>
   </div>
   <div class="row" style="margin-top: 20px;">
-	<input style="color: black;" type="button" id="button1" class="butn" value="등록" onclick="fnElementCheck(this.form)">	
+	<input style="color: black; font-size: 30px;" type="button" id="button1" class="butn" value="등록" onclick="fnElementCheck(this.form)">	
 	
   </div>
   

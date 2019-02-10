@@ -66,55 +66,6 @@ text-decoration: underline;
 
 </style>
 
-<script type="text/javascript">
-	
-$(document).ready(function() {
-	
-		
-	
-	var i = $("#RPoint").val() ; //별점값을 담을 변수 i 선언
-				
-		
-
-	if( i == 1){ // i = 1~10 --> 1은 별 0.5개 10은 별 5개
-			
-		 $('.starRev span:nth-child(2)').parent().children('span').removeClass('on');
-		 $('.starRev span:nth-child(2)').addClass('on').prevAll('span').addClass('on');
-			  return false; 
-		}
-	
-	else if( i == 2){ // i = 1~10 --> 1은 별 0.5개 10은 별 5개
-		
-		 $('.starRev span:nth-child(4)').parent().children('span').removeClass('on');
-		 $('.starRev span:nth-child(4)').addClass('on').prevAll('span').addClass('on');
-			  return false; 
-		}
-	
-	else if( i == 3){ // i = 1~10 --> 1은 별 0.5개 10은 별 5개
-		
-		 $('.starRev span:nth-child(6)').parent().children('span').removeClass('on');
-		 $('.starRev span:nth-child(6)').addClass('on').prevAll('span').addClass('on');
-			  return false; 
-		}
-	
-	else if( i == 4){ // i = 1~10 --> 1은 별 0.5개 10은 별 5개
-		
-		 $('.starRev span:nth-child(8)').parent().children('span').removeClass('on');
-		 $('.starRev span:nth-child(8)').addClass('on').prevAll('span').addClass('on');
-			  return false; 
-		}	
-	else if( i == 5){ // i = 1~10 --> 1은 별 0.5개 10은 별 5개
-		
-		 $('.starRev span:nth-child(10)').parent().children('span').removeClass('on');
-		 $('.starRev span:nth-child(10)').addClass('on').prevAll('span').addClass('on');
-			  return false; 
-		}
-	
-		
-	
-});
-
-</script>
 
 </head>
 <body>
@@ -151,7 +102,7 @@ $(document).ready(function() {
 						<td width="20%" style="position: relative;">
 						
 						<!-- 리뷰 점수 값 받아오기 -->
-							<input type="hidden" value="<%=dto1.getReviewPoint()%>" id="RPoint">
+							<input type="hidden" value="<%=dto1.getReviewPoint()%>" id="RPoint<%=i%>">
 							
 							
 							<div style="width: 100%">
@@ -196,7 +147,7 @@ $(document).ready(function() {
 						<td width="50%" style="text-align:left; position: relative; padding: 20px;">
 							<div style="position: absolute; top: 0px;">
 								<h1 style="margin-bottom: -3px;"><%= dto.getSubject()%></h1>
-								<div class="starRev">
+								<div id="starRev<%=i%>">
 								  <span class="starR1">별1_왼쪽</span>
 								  <span class="starR2">별1_오른쪽</span>
 								  <span class="starR1">별2_왼쪽</span>
@@ -225,7 +176,51 @@ $(document).ready(function() {
 					   					<b> 방 유형 :&nbsp;<%=dto.getRoom()%></b>
 								</p>
 							</div>
-	
+							
+							<script type="text/javascript">
+							
+							$(document).ready(function() {
+								
+							var i = $("#RPoint<%=i%>").val() ; //별점값을 담을 변수 i 선언
+																		
+								if( i == 1){ // i = 1~10 --> 1은 별 0.5개 10은 별 5개
+										
+									 $('#starRev<%=i%> span:nth-child(2)').parent().children('span').removeClass('on');
+									 $('#starRev<%=i%> span:nth-child(2)').addClass('on').prevAll('span').addClass('on');
+										  return false; 
+									}
+								
+								else if( i == 2){ // i = 1~10 --> 1은 별 0.5개 10은 별 5개
+									
+									 $('#starRev<%=i%> span:nth-child(4)').parent().children('span').removeClass('on');
+									 $('#starRev<%=i%> span:nth-child(4)').addClass('on').prevAll('span').addClass('on');
+										  return false; 
+									}
+								
+								else if( i == 3){ // i = 1~10 --> 1은 별 0.5개 10은 별 5개
+									
+									 $('#starRev<%=i%> span:nth-child(6)').parent().children('span').removeClass('on');
+									 $('#starRev<%=i%> span:nth-child(6)').addClass('on').prevAll('span').addClass('on');
+										  return false; 
+									}
+								
+								else if( i == 4){ // i = 1~10 --> 1은 별 0.5개 10은 별 5개
+									 $('#starRev<%=i%> span:nth-child(8)').parent().children('span').removeClass('on');
+									 $('#starRev<%=i%> span:nth-child(8)').addClass('on').prevAll('span').addClass('on');
+										  return false; 
+									}	
+								else if( i == 5){ // i = 1~10 --> 1은 별 0.5개 10은 별 5개
+									
+									 $('#starRev<%=i%> span:nth-child(10)').parent().children('span').removeClass('on');
+									 $('#starRev<%=i%> span:nth-child(10)').addClass('on').prevAll('span').addClass('on');
+										  return false; 
+									}
+								
+								
+							});
+							
+							
+							</script>
 							
 						</td>
 						<td width="10%" style="text-align:center; vertical-align:middle;">
