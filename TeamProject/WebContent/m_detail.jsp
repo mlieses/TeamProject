@@ -50,30 +50,30 @@
 		<div class="w3-row row-container">
 			<div class="w3-col m6 w3-center img" id="img_div1">
 				<div class="scale" id="img_div1-1">
-					<img alt="" src="img/c1.PNG" id="img1" onclick="big(1)">
+					<img alt="" src="upload/${pic.pic1}" id="img1" onclick="big(1)">
 				</div>
 			</div>
 			<div class="w3-col m6 w3-center" id="img_div2">
 				<div class="w3-row row-container" id="row-container2">
 					<div class="w3-col m6 w3-center hidden" >
 						<div class="scale" id="img_div2-1">
-							<img alt="" src="img/c2.PNG" id="img2" onclick="big(2)">
+							<img alt="" src="upload/${pic.pic2}" id="img2" onclick="big(2)">
 						</div>
 					</div>
 					<div class="w3-col m6 w3-center hidden">
 						<div class="scale" id="img_div2-2">
-							<img alt="" src="img/c3.PNG" id="img3" onclick="big(3)">
+							<img alt="" src="upload/${pic.pic3}" id="img3" onclick="big(3)">
 						</div>
 					</div>
 
 					<div class="w3-col m6 w3-center hidden">
 						<div class="scale" id="img_div2-3">
-							<img alt="" src="img/c4.PNG" id="img4" onclick="big(4)">
+							<img alt="" src="upload/${pic.pic4}" id="img4" onclick="big(4)">
 						</div>
 					</div>
 					<div class="w3-col m6 w3-center hidden">
 						<div class="scale" id="img_div2-4">
-							<img alt="" src="img/d1.PNG" id="img5" onclick="big(5)">
+							<img alt="" src="upload/${pic.pic1}" id="img5" onclick="big(5)">
 						</div>
 					</div>
 				</div>

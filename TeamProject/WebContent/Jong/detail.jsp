@@ -4,6 +4,7 @@
 <%@page import="java.util.Vector"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -407,6 +408,7 @@ function setValue(obj, target){
 					<div id="map" style="width:100%; height:100%;"></div>
 					<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=030fe73ff2f443d44661c605e8a0667f"></script>
 						<script>
+						
 						var container = document.getElementById('map');
 						var options = {
 							center: new daum.maps.LatLng(33.450701, 126.570667),
@@ -414,6 +416,47 @@ function setValue(obj, target){
 						};
 				
 						var map = new daum.maps.Map(container, options);
+						
+						// 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+			            // LatLngBounds 객체에 좌표를 추가합니다
+			            var bounds = new daum.maps.LatLngBounds();
+			            
+						<c:forEach var="vec" items="<%=vector%>" begin="0" end="<%=vector.size()%>" step="1">
+
+						displayMarker('${vec.a_wdo}','${vec.a_kdo}', '${vec.room_no}', '${vec.subject}');
+						bounds.extend(new daum.maps.LatLng('${vec.a_wdo}','${vec.a_kdo}'));
+						
+						</c:forEach>
+						// 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+			            map.setBounds(bounds);
+						
+			        	 // 지도에 마커를 표시하는 함수입니다
+			            function displayMarker(lat, lng, room_no, subject) {
+			                
+			                // 마커를 생성하고 지도에 표시합니다
+			                var marker = new daum.maps.Marker({
+			                    map: map,
+			                    position: new daum.maps.LatLng(lat, lng) 
+			                });	
+			                
+			                var iwContent = '<div style="text-align:center;width:150px;"><a href="m_detail?room_no='+room_no+'">'+subject+'</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+			                iwRemoveable = true;
+		                    
+			                var infowindow = new daum.maps.InfoWindow({
+			                    content: iwContent // 인포윈도우에 표시할 내용
+			                });
+			                
+			             	
+			             	
+			                daum.maps.event.addListener(marker, 'click', function() {
+			                	
+			                	infowindow.open(map, marker);
+			                	
+			                    
+			                });
+			                
+			                
+			        	 }
 						</script>		
 			</div>		
 	

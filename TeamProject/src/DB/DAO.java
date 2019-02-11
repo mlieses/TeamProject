@@ -151,22 +151,16 @@ public class DAO {
 					if(num ==1){
 						String sql ="";
 						
-						sql="select * from hosting natural join hosting_bill natural join hosting_pic";
+						sql="select * from hosting natural join hosting_bill natural join hosting_pic natural join hosting_address";
 						
 						pstmt = con.prepareStatement(sql);
 					rs=	pstmt.executeQuery();
 					
 					while(rs.next()) {
-						SelectDTO dto = new SelectDTO();
+						SelectDTO dto;
+						dto = insertDto(rs);
 						
-						dto.setContent(rs.getString("content"));
-						dto.setImg1(rs.getString("pic1"));
-						dto.setSubject(rs.getString("subject"));
-						dto.setWeekday(rs.getInt("weekday"));
-						dto.setHoliday(rs.getInt("holiday"));
-						dto.setRoom_no(rs.getInt("room_no"));
-						vector.add(dto);	
-						
+						vector.add(dto);
 					}					
 					
 					}else if(num ==2){
@@ -178,15 +172,9 @@ public class DAO {
 					rs=	pstmt.executeQuery();
 					
 					while(rs.next()) {
-						SelectDTO dto = new SelectDTO();
+						SelectDTO dto;
+						dto = insertDto(rs);
 						
-						dto.setContent(rs.getString("content"));
-						dto.setImg1(rs.getString("pic1"));
-						dto.setSubject(rs.getString("subject"));
-						dto.setWeekday(rs.getInt("weekday"));
-						dto.setHoliday(rs.getInt("holiday"));
-						dto.setRoom_no(rs.getInt("room_no"));
-
 						vector.add(dto);	
 							
 					}					
@@ -201,15 +189,9 @@ public class DAO {
 					rs=	pstmt.executeQuery();
 					
 					while(rs.next()) {
-						SelectDTO dto = new SelectDTO();
+						SelectDTO dto;
+						dto = insertDto(rs);
 						
-						dto.setContent(rs.getString("content"));
-						dto.setImg1(rs.getString("pic1"));
-						dto.setSubject(rs.getString("subject"));
-						dto.setWeekday(rs.getInt("weekday"));
-						dto.setHoliday(rs.getInt("holiday"));
-						dto.setRoom_no(rs.getInt("room_no"));
-
 						vector.add(dto);	
 						
 																		
@@ -225,14 +207,9 @@ public class DAO {
 					rs=	pstmt.executeQuery();
 					
 					while(rs.next()) {
-						SelectDTO dto = new SelectDTO();
+						SelectDTO dto;
+						dto = insertDto(rs);
 						
-						dto.setContent(rs.getString("content"));
-						dto.setImg1(rs.getString("pic1"));
-						dto.setSubject(rs.getString("subject"));
-						dto.setWeekday(rs.getInt("weekday"));
-						dto.setHoliday(rs.getInt("holiday"));
-						dto.setRoom_no(rs.getInt("room_no"));
 
 						vector.add(dto);	
 						
@@ -249,14 +226,9 @@ public class DAO {
 					rs=	pstmt.executeQuery();
 					
 					while(rs.next()) {
-						SelectDTO dto = new SelectDTO();
+						SelectDTO dto;
+						dto = insertDto(rs);
 						
-						dto.setContent(rs.getString("content"));
-						dto.setImg1(rs.getString("pic1"));
-						dto.setSubject(rs.getString("subject"));
-						dto.setWeekday(rs.getInt("weekday"));
-						dto.setHoliday(rs.getInt("holiday"));
-						dto.setRoom_no(rs.getInt("room_no"));
 
 						vector.add(dto);	
 						
@@ -289,6 +261,23 @@ public class DAO {
 				return vector;
 					
 				}
+	
+	
+	public SelectDTO insertDto(ResultSet rs) throws Exception{
+		SelectDTO dto = new SelectDTO();
+		
+		dto.setContent(rs.getString("content"));
+		dto.setImg1(rs.getString("pic1"));
+		dto.setSubject(rs.getString("subject"));
+		dto.setWeekday(rs.getInt("weekday"));
+		dto.setHoliday(rs.getInt("holiday"));
+		dto.setRoom_no(rs.getInt("room_no"));
+		dto.setWdo(rs.getString("a_wdo"));
+		dto.setKdo(rs.getString("a_kdo"));
+		
+		return dto;
+	}
+	
 	
 	
 	public Vector<SelectDTO> select(String id) {

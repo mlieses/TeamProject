@@ -36,6 +36,8 @@ public class SearchDTO {
 	private String a_D_address;
 	private String a_etc_address;
 	
+	
+	
 	private String img1;
 
 	private double star;

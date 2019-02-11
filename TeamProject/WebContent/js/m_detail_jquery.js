@@ -144,10 +144,15 @@
 
 	//예약하기 버튼 누르면 값넣고 form 동작
 	$("#req-btn").on("click", function(){
-		$("#selectDate").attr("value", s_date);
-		$("#time").attr("value",list);
-		$("#allPrice").attr("value",a_price);
-		$("form").submit();
+		if(email=="" || email==null){
+			alert("로그인해주세요");
+			
+		}else{
+			$("#selectDate").attr("value", s_date);
+			$("#time").attr("value",list);
+			$("#allPrice").attr("value",a_price);
+			$("form").submit();
+		}
 	});
 	
 	

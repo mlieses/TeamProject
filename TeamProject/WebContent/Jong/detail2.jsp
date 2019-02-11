@@ -410,11 +410,7 @@ function setValue(obj, target){
 					<div id="map" style="width:100%; height:100%;"></div>
 					
 					<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=030fe73ff2f443d44661c605e8a0667f"></script>
-						<script>
-						
-
-
-
+					<script>
 						
 						var container = document.getElementById('map');
 						var options = {
