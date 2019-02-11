@@ -147,6 +147,8 @@
 		if(email=="" || email==null){
 			alert("로그인해주세요");
 			
+		}else if(list.length===0){
+			alert("시간을 선택해주세요");
 		}else{
 			$("#selectDate").attr("value", s_date);
 			$("#time").attr("value",list);

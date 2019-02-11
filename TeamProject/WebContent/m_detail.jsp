@@ -325,8 +325,14 @@
 <!-- comment 끝 ------------------------------------------------->	
 
 
-<!-- footer include -->
+<!-- footer include 시작-->
 
+<jsp:include page="Footer.jsp"></jsp:include>
+<div class="empdiv">
+</div>
+
+
+<!-- footer include 끝-->
 <!-- footer content ------------------------------------------------->	
 	
 	<footer class="w3-container w3-dark-gray foot">
