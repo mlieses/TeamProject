@@ -16,7 +16,8 @@
 	String path="";
 	String path1="";
 	String path2 = "user/";
-
+	
+	
 	request.setAttribute("path", path);
 	request.setAttribute("path1", path1);
 	request.setAttribute("path2", path2);
@@ -202,6 +203,7 @@ a{
       				<br><font color="red" class="w3-margin-left">${sessionScope.point} </font> <small>포인트(￦)</small>	  				   				
       				<hr>
    					<a href="${path1}./HostPageController.do" class="w3-bar-item w3-button">프로필수정/탈퇴</a>
+   					<a href="${path1}./ReviewController.do" class="w3-bar-item w3-button">리뷰</a>
    					<a href="${path1}./HostLogoutController.do" class="w3-bar-item w3-button">로그아웃</a>      				
  				</div>
    			</div>	
@@ -248,7 +250,7 @@ a{
       </div>      	
       <div class="w3-container w3-border-top w3-padding-16 w3-teal">
         <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
-        <span class="w3-right w3-padding w3-hide-small">share space의 회원이 아니신가요? <a href="#"><font color="blue">회원 가입</font></a></span>
+        <span class="w3-right w3-padding w3-hide-small">share space의 회원이 아니신가요? <a href="${path1}./UserSingUp_authController.do"><font color="blue">회원 가입</font></a></span>
       </div>
 
     </div>
