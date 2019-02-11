@@ -113,6 +113,10 @@ $(document).ready(function() {
 	   
    });		
 	
+   // 프리미엄 호스트 로그인시
+   if("${sessionScope.hdto.host_level}" == 3 ){
+	   $(".icon_crown").append("<i class='fas fa-crown' style='font-size:20px;color:blue;padding:0;margin:0'></i>");
+   }
 	
 });
 
@@ -197,7 +201,8 @@ a{
    			<a href="#about" class="w3-bar-item w3-button" onclick="host_space()"><i class="material-icons">stars</i></a>  			
    			<a href="${path1}./ReservationController.do?userId=${sessionScope.udto.email}" class="w3-bar-item w3-button">내 예약관리</a>
    			<div class="w3-dropdown-click">
-   				<button onclick="host_click_modal()" class="w3-bar-item w3-button w3-orange">${sessionScope.hdto.host_nic }</button>
+   				<button onclick="host_click_modal()" class="w3-bar-item w3-button w3-orange">
+   					<small class="icon_crown"></small>&nbsp;${sessionScope.hdto.host_nic }</button>
    				<div id="drop_host" class="w3-dropdown-content w3-bar-block w3-card-4  w3-animate-zoom user_drop" style="right:0; width: 200px; top:56px;">
    						<small>&nbsp;&nbsp;${sessionScope.hdto.email} &nbsp;&nbsp;보유 포인트 : </small>    
       				<br><font color="red" class="w3-margin-left">${sessionScope.point} </font> <small>포인트(￦)</small>	  				   				
