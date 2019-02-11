@@ -1,3 +1,4 @@
+<%@page import="home.SearchDTO"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="DB.DAO"%>
 <%@page import="DB.SelectDTO"%>
@@ -298,11 +299,12 @@ function setValue(obj, target){
 							vector = (Vector<SelectDTO>)request.getAttribute("vector");
 							
 						}
-					
+						
+							if(request.getAttribute("FindV") == null){
+						
 							for(int i=0; i < vector.size() ; i++){
 								if(vector.size() == 0){break;} // 글이 없는 경우 반복문 빠져나가고 콘솔오류 발생 방지
-								SelectDTO dto = vector.get(i);
-								
+								SelectDTO dto	 = vector.get(i);								
 								SelectDTO dto1	 = dao.selectReview(dto.getRoom_no()); // 룸 넘버 값 넘겨서 리뷰 글 개수 , 리뷰 점수 리턴.
 								
 								
@@ -395,12 +397,115 @@ function setValue(obj, target){
 						<td width="10%" align="right"></td>
 					</tr>	
 					<%
-							}
-					
+							}//for문끝
+								
+						}//고급검색이 안되었을때.
+						
+						else{//고급검색 일때
+							
+							Vector<SearchDTO> vector1 = null;
+							
+							 vector1 = (Vector<SearchDTO>)request.getAttribute("FindV");
+													
+								for(int i=0; i < vector1.size() ; i++){
+									if(vector1.size() == 0){break;} // 글이 없는 경우 반복문 빠져나가고 콘솔오류 발생 방지
+									SearchDTO dto = vector1.get(i);	
+									
+									SelectDTO dto1	 = dao.selectReview(dto.getRoom_no()); // 룸 넘버 값 넘겨서 리뷰 글 개수 , 리뷰 점수 리턴.	
+							
+							
 					%>
+								<tr align="center" height="300px;">
+						<td width="40%"><div style="width: 90%">
+							
+							<!-- 리뷰 점수 값 받아오기 -->
+							<input type="hidden" value="<%=dto1.getReviewPoint()%>" id="RPoint<%=i%>">
+							  
+							<!-- 이미지 클릭시 name = date에 날짜 전송, name=room_no에 방 번호 전송  -->
+							<a href="detailPageController.do?a=8&date<%=request.getParameter("dateValue")%>&room_no=<%=dto.getRoom_no()%>"><img src="upload/<%=dto.getImg1()%>" width="100%" height="200px;"></a></div>
+						</td>
+						
+						<td width="50%" style="text-align:left; position: relative;">
+							<div style="position: absolute; top: 0px;">
+								<h1 style="margin-bottom: -3px;"><%=dto.getSubject()%></h1>
+								<div id="starRev<%=i%>"> 
+								  <span class="starR1">별1_왼쪽</span>
+								  <span class="starR2">별1_오른쪽</span>
+								  <span class="starR1">별2_왼쪽</span>
+								  <span class="starR2">별2_오른쪽</span>
+								  <span class="starR1">별3_왼쪽</span>
+								  <span class="starR2">별3_오른쪽</span>
+								  <span class="starR1">별4_왼쪽</span>
+								  <span class="starR2">별4_오른쪽</span>
+								  <span class="starR1">별5_왼쪽</span>
+								  <span class="starR2">별5_오른쪽</span>
+								  <p style="font-size: 24px; color: gray; display: inline;">&nbsp;&nbsp; 후기 :<%=dto1.getReviewNumber()%>개</p>
+								</div>
+							</div>
+							<div>	
+								<p>
+									<img alt="예약가" src="re.JPG">
+									&nbsp;<b>평일<span style="font-size: 24px;">&nbsp;<%=formatter.format(dto.getWeekday())%></span>원</b>
+									&nbsp;<b>주말<span style="font-size: 24px;">&nbsp;<%=formatter.format(dto.getHoliday())%></span>원</b>
+								</p>
+							</div>
+							<div>
+								<p><b>참고사항</b></p>
+								<%=dto.getContent()%>
+							</div>							
+								
+							<script type="text/javascript">
+							
+							$(document).ready(function() {
+								
+							var i = $("#RPoint<%=i%>").val() ; //별점값을 담을 변수 i 선언
+																		
+								if( i == 1){ // i = 1~5 --> 1은 별 1개 5는 별 5개
+										
+									 $('#starRev<%=i%> span:nth-child(2)').parent().children('span').removeClass('on');
+									 $('#starRev<%=i%> span:nth-child(2)').addClass('on').prevAll('span').addClass('on');
+										  return false; 
+									}
+								
+								else if( i == 2){ // i = 1~5 --> 1은 별 1개 5는 별 5개
+									
+									 $('#starRev<%=i%> span:nth-child(4)').parent().children('span').removeClass('on');
+									 $('#starRev<%=i%> span:nth-child(4)').addClass('on').prevAll('span').addClass('on');
+										  return false; 
+									}
+								
+								else if( i == 3){ // i = 1~5 --> 1은 별 1개 5는 별 5개
+									
+									 $('#starRev<%=i%> span:nth-child(6)').parent().children('span').removeClass('on');
+									 $('#starRev<%=i%> span:nth-child(6)').addClass('on').prevAll('span').addClass('on');
+										  return false; 
+									}
+								
+								else if( i == 4){ // i = 1~5 --> 1은 별 1개 5는 별 5개
+									 $('#starRev<%=i%> span:nth-child(8)').parent().children('span').removeClass('on');
+									 $('#starRev<%=i%> span:nth-child(8)').addClass('on').prevAll('span').addClass('on');
+										  return false; 
+									}	
+								else if( i == 5){ // i = 1~5 --> 1은 별 1개 5는 별 5개
+									
+									 $('#starRev<%=i%> span:nth-child(10)').parent().children('span').removeClass('on');
+									 $('#starRev<%=i%> span:nth-child(10)').addClass('on').prevAll('span').addClass('on');
+										  return false; 
+									}
+								
+								
+							});
+														
+							</script>
+							
+						</td>
+						<td width="10%" align="right"></td>
+					</tr>		
 					
-				</table>
-			
+					
+					<%	}//for문 끝
+					}//else 끝 %>								
+				</table>			
 			</div>
 			<!-- 오른쪽 영역 시작 -->
 			<div style="width: 50%; position: fixed; right: 0; margin-top: 152px; height:100%">
