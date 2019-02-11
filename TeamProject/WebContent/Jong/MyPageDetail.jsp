@@ -27,23 +27,6 @@ padding: 0px;
 
 }
 
-#nav2 div{
-
-	margin-left: 50px;
-	font-size: 17px;
-}
-
-
-#nav2 div a:link{
-
-text-decoration: none;
-}
-
-#nav2 div a:hover{
-
-text-decoration: underline;
-
-}
 
 .starR1{
     background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat -52px 0;

@@ -351,33 +351,33 @@ function setValue(obj, target){
 								
 							var i = $("#RPoint<%=i%>").val() ; //별점값을 담을 변수 i 선언
 																		
-								if( i == 1){ // i = 1~10 --> 1은 별 0.5개 10은 별 5개
+								if( i == 1){ // i = 1~5 --> 1은 별 1개 5는 별 5개
 										
 									 $('#starRev<%=i%> span:nth-child(2)').parent().children('span').removeClass('on');
 									 $('#starRev<%=i%> span:nth-child(2)').addClass('on').prevAll('span').addClass('on');
 										  return false; 
 									}
 								
-								else if( i == 2){ // i = 1~10 --> 1은 별 0.5개 10은 별 5개
+								else if( i == 2){ // i = 1~5 --> 1은 별 1개 5는 별 5개
 									
 									 $('#starRev<%=i%> span:nth-child(4)').parent().children('span').removeClass('on');
 									 $('#starRev<%=i%> span:nth-child(4)').addClass('on').prevAll('span').addClass('on');
 										  return false; 
 									}
 								
-								else if( i == 3){ // i = 1~10 --> 1은 별 0.5개 10은 별 5개
+								else if( i == 3){ // i = 1~5 --> 1은 별 1개 5는 별 5개
 									
 									 $('#starRev<%=i%> span:nth-child(6)').parent().children('span').removeClass('on');
 									 $('#starRev<%=i%> span:nth-child(6)').addClass('on').prevAll('span').addClass('on');
 										  return false; 
 									}
 								
-								else if( i == 4){ // i = 1~10 --> 1은 별 0.5개 10은 별 5개
+								else if( i == 4){ // i = 1~5 --> 1은 별 1개 5는 별 5개
 									 $('#starRev<%=i%> span:nth-child(8)').parent().children('span').removeClass('on');
 									 $('#starRev<%=i%> span:nth-child(8)').addClass('on').prevAll('span').addClass('on');
 										  return false; 
 									}	
-								else if( i == 5){ // i = 1~10 --> 1은 별 0.5개 10은 별 5개
+								else if( i == 5){ // i = 1~5 --> 1은 별 1개 5는 별 5개
 									
 									 $('#starRev<%=i%> span:nth-child(10)').parent().children('span').removeClass('on');
 									 $('#starRev<%=i%> span:nth-child(10)').addClass('on').prevAll('span').addClass('on');
@@ -412,7 +412,7 @@ function setValue(obj, target){
 					<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=030fe73ff2f443d44661c605e8a0667f"></script>
 					<script>
 						
-						var container = document.getElementById('map');
+						<%-- var container = document.getElementById('map');
 						var options = {
 							center: new daum.maps.LatLng(33.450701, 126.570667),
 							level: 3
@@ -459,7 +459,7 @@ function setValue(obj, target){
 			                });
 			                
 			                
-			        	 }
+			        	 } --%>
 						</script>	
 						
 			</div>		
