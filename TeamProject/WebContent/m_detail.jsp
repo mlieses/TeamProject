@@ -246,7 +246,7 @@
 <!-- option content ------------------------------------------------->
 		
 <!-- review bbs ----------------------------------------------------->
-<div class="w3-content">
+<div class="w3-content content-review">
 	
 	<table class="w3-table-all w3-hoverable">
 	
@@ -335,8 +335,8 @@
 				<div class="w3-col m10 foot-price">
 					<div class="price-div">
 						<div class="price">
-							<span class="w3-tag w3-xxlarge">￦</span>
-							<span class="w3-tag w3-xxlarge">6000</span>
+							<span style="color:red; font-size: 40px; ">￦</span>
+							<span class="price-view" style="color:red; font-size: 40px; ">6000</span>
 						</div>
 					</div>
 				</div>

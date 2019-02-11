@@ -145,10 +145,11 @@
 	height:100%;
 }
 .map{
-	
+	z-index:-9999;
 	height:100%;	
 }
 #map{
+	z-index:-9999;
 	width:100%;
 	height:100%;
 }
@@ -174,6 +175,7 @@
 	margin-top:30px;
 	width: 100%;
 	height: auto;
+	border-bottom: 1px solid #b3b3b3;
 	
 }
 .option{
@@ -213,9 +215,17 @@
 
 
 /* content-option 끝 ----------------------------------------------- */
+/* content-review 시작 ----------------------------------------------- */
+.content-review{
+	margin-top:30px;
+	
+}
+
+
+/* content-review 끝 ----------------------------------------------- */
 /* content-comment 시작----------------------------------------------- */
 .content-comment{
-	
+	margin-top:30px;
 	width:100%;
 	height:auto;
 }
