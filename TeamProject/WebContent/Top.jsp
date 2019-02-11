@@ -145,7 +145,7 @@ function host_click_modal() {
 }
 
 function host_space(){
-	location.href="./detailPageController.do?a=7";
+	location.href="./detailPageController.do?a=7&HostId=${sessionScope.hdto.host_id}";
  }
 </script>
 <style type="text/css">
@@ -207,8 +207,7 @@ a{
    						<small>&nbsp;&nbsp;${sessionScope.hdto.email} &nbsp;&nbsp;보유 포인트 : </small>    
       				<br><font color="red" class="w3-margin-left">${sessionScope.point} </font> <small>포인트(￦)</small>	  				   				
       				<hr>
-   					<a href="${path1}./HostPageController.do" class="w3-bar-item w3-button">프로필수정/탈퇴</a>
-   					<a href="${path1}./ReviewController.do" class="w3-bar-item w3-button">리뷰</a>
+   					<a href="${path1}./HostPageController.do" class="w3-bar-item w3-button">프로필수정/탈퇴</a>  					
    					<a href="${path1}./HostLogoutController.do" class="w3-bar-item w3-button">로그아웃</a>      				
  				</div>
    			</div>	
