@@ -120,8 +120,8 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 				        	<td colspan="4">&nbsp;</td>
 				        </tr>
                   <tr> 
-                    <td>
-                    	<div align="center">작성자</div>
+                    <td width="13%">
+                    	<div id="width" align="center" width="13%">작성자</div>
                     </td>
                     <td>
                     	<input type="text" name="writer" size="20" class="w3-input"/>
