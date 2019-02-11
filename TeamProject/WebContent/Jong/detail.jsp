@@ -150,10 +150,10 @@ function setValue(obj, target){
 	<div style="width:100%;">		
 			
 				<jsp:include page="../Top.jsp" flush="false"/>
-					<div class="w3-bar w3-border-top" style="margin-top: 55px; position: fixed; z-index: 1;">
+					<div class="w3-bar w3-border-top " style="margin-top: 55px; position: fixed; z-index: -9999;">
 				
 				
-				  <div class="w3-bar w3-white " id="nav2" align="center">
+				  <div class="w3-bar w3-lime" id="nav2" align="center">
 				  	<div style="width: 63%">					  	  
 					  	<div class="w3-bar-item"><a href="./detailPageController.do?a=1">전체</a></div>
 					  	<div class="w3-bar-item"><a href="./detailPageController.do?a=2">카페</a></div>
@@ -163,7 +163,7 @@ function setValue(obj, target){
 				    </div>		
 				  </div>
 				  
-				  <div class="w3-bar w3-white">
+				  <div class="w3-bar w3-lime">
 				  	<div class="w3-bar-item" style="height: 55px;">
 						<!-- 상세 조건  -->
 						<form action="search.do" method="post">
@@ -511,7 +511,7 @@ function setValue(obj, target){
 					
 					<div id="map" style="width:100%; height:100%;"></div>
 					<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=030fe73ff2f443d44661c605e8a0667f"></script>
-					<%-- 	<script>
+					<script>
 						
 						var container = document.getElementById('map');
 						var options = {
@@ -561,7 +561,7 @@ function setValue(obj, target){
 			                
 			                
 			        	 }
-						</script>		 --%>
+						</script>
 			</div>		
 	
 		</div>
