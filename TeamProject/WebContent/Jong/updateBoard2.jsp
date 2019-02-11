@@ -239,6 +239,13 @@
   <input type="hidden" id="kdo" value="<%=dto.getKdo() %>" name="Kdo">
    
   
+   <div class="row">
+    <div class="col-100" align="center">
+      <b><label style="font-size: 25px; font-style: italic;">공 간 수 정</label></b>
+    </div>    
+  </div> 
+  
+  
   <div class="row">
     <div class="col-10">
       <b><label>제 목</label></b>
@@ -312,8 +319,8 @@
         <input type="radio" name="drink"  value=1 <%if(dto.getDrink() == 1){%>checked<%}%>>있음        
         <input type="radio" name="drink"  value=2 <%if(dto.getDrink() == 2){%>checked<%}%>>없음
      </div>
-    </div>    
-   
+    </div>        
+       
   </div> 
   
    <div class="row">

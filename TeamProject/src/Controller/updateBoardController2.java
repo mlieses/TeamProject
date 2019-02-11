@@ -260,9 +260,7 @@ public class updateBoardController2 extends HttpServlet {
 			HttpSession session = request.getSession();
 			HostDTO hdto =	(HostDTO)session.getAttribute("hdto");
 			String hostId =	hdto.getHost_id();
-
-		
-			
+				
 			RequestDispatcher dis =		
 					request.getRequestDispatcher("/Jong/MyPageDetail.jsp?HostId="+hostId);
 			

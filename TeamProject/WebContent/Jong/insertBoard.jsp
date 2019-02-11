@@ -244,6 +244,12 @@ $( function() {
    <input type="hidden" value="${param.HostId}" name="HostId">  
   
   
+  <div class="row">
+    <div class="col-100" align="center">
+      <b><label style="font-size: 25px; font-style: italic;">공 간 등 록</label></b>
+    </div>    
+  </div>  
+  
   
   <div class="row">
     <div class="col-10">
@@ -282,7 +288,8 @@ $( function() {
   </div>
   
   <div class="row">
-    <div class="col-10"></div>
+  	<div style="color: red; font-weight: bold;"> [유료옵션] </div>
+    
     <div class="col-20">
     	 <div class="col-50">
         	<i class="fa fa-car"></i><b><label>주차</label></b>
@@ -290,6 +297,7 @@ $( function() {
           <div class="col-50">
 	        <input type="radio" name="parking"  value=1 checked="checked">있음        
 	        <input type="radio" name="parking"  value=2>없음
+	        <input type="text"  name="parkingB" style="font-size: 14px;" placeholder="가격입력" > 
           </div>
     </div>
     <div class="col-20">
@@ -299,31 +307,48 @@ $( function() {
      <div class="col-50">
         <input type="radio" name="wifi"  value=1 checked="checked">있음      
         <input type="radio" name="wifi"  value=2>없음
+		<input type="text"  name="wifiB" style="font-size: 14px;" placeholder="가격입력" >         
      </div>
     </div>
-    <div class="col-20">
-     <div class="col-50">
-        <i class="	fas fa-toilet"></i><b><label>화장실</label></b>
-     </div> <br><br><br>
-      <div class="col-50">
-        <input type="radio" name="toilet"  value=1 checked="checked">있음        
-        <input type="radio" name="toilet"  value=2>없음
-      </div>
-    </div>
-    <div class="col-20">
-     <div class="col-50">
-         <i class="fas fa-mug-hot"></i><b><label>음료</label></b>
-     </div><br><br><br>
-     <div class="col-50">
-        <input type="radio" name="drink"  value=1 checked="checked">있음      
-        <input type="radio" name="drink"  value=2>없음
-     </div>
-    </div>    
-       
+    
+       <div class="col-20">
+	     <div class="col-50">
+	       <i class="fab fa-first-order-alt"></i><b><label>프로젝트 빔</label></b>
+	     </div><br><br><br>
+	     <div class="col-50">
+	        <input type="radio" name="projector"  value=1 checked="checked">있음        
+	        <input type="radio" name="projector"  value=2>없음
+			<input type="text"  name="projectorB" style="font-size: 14px;" placeholder="가격입력" >	        
+	     </div>
+	    </div>
+	    <div class="col-20">
+	     <div class="col-50">
+	     <i class="	fas fa-tv"></i><b>  <label>컴퓨터</label></b>
+	     </div><br><br><br>
+	      <div class="col-50">   
+	        <input type="radio" name="laptop"  value=1 checked="checked">있음       
+	        <input type="radio" name="laptop"  value=2>없음
+	        <input type="text"  name="laptopB" style="font-size: 14px;" placeholder="가격입력" >
+	      </div>
+	    </div>
+	    <div class="col-20">
+	     <div class="col-50">
+	       <i class="fas fa-box-open"></i><b> <label>캐비넷</label></b>
+	     </div><br><br><br>
+	      <div class="col-50">   
+	        <input type="radio" name="cabinet"  value=1 checked="checked">있음        
+	        <input type="radio" name="cabinet"  value=2>없음
+	        <input type="text"  name="cabinetB" style="font-size: 14px;" placeholder="가격입력" >
+	      </div>
+	    </div>
+	    
+    
+    
 	  </div> 
 	  
 	    <div class="row">
-	    <div class="col-10"></div>
+	 	 	<div style="color: green; font-weight: bold;"> [무료옵션]  </div>
+	    	
 	    <div class="col-20">
 	     <div class="col-50">
 	        <i class="	fas fa-wind"></i><b><label>에어컨</label></b>
@@ -360,42 +385,35 @@ $( function() {
 	        <input type="radio" name="socket"  value=2>없음
 	      </div>
 	    </div>   
+	     
+	    <div class="col-20">
+     <div class="col-50">
+        <i class="	fas fa-toilet"></i><b><label>화장실</label></b>
+     </div> <br><br><br>
+      <div class="col-50">
+        <input type="radio" name="toilet"  value=1 checked="checked">있음        
+        <input type="radio" name="toilet"  value=2>없음
+      </div>
+    </div>   
+	       
 	       
 	  </div> 
 	  
 	  <div class="row">
-	    <div class="col-10"></div>
-	    <div class="col-20">
-	     <div class="col-50">
-	       <i class="fab fa-first-order-alt"></i><b><label>프로젝트 빔</label></b>
-	     </div><br><br><br>
-	     <div class="col-50">
-	        <input type="radio" name="projector"  value=1 checked="checked">있음        
-	        <input type="radio" name="projector"  value=2>없음
-	     </div>
-	    </div>
-	    <div class="col-20">
-	     <div class="col-50">
-	     <i class="	fas fa-tv"></i><b>  <label>컴퓨터</label></b>
-	     </div><br><br><br>
-	      <div class="col-50">   
-	        <input type="radio" name="laptop"  value=1 checked="checked">있음       
-	        <input type="radio" name="laptop"  value=2>없음
-	      </div>
-	    </div>
-	    <div class="col-20">
-	     <div class="col-50">
-	       <i class="fas fa-box-open"></i><b> <label>캐비넷</label></b>
-	     </div><br><br><br>
-	      <div class="col-50">   
-	        <input type="radio" name="cabinet"  value=1 checked="checked">있음        
-	        <input type="radio" name="cabinet"  value=2>없음
-	      </div>
-	    </div>
-	    
-	      <div class="col-20">
-	       
-	    	</div>
+	
+		   <div class="col-20">
+		     <div class="col-50">
+		         <i class="fas fa-mug-hot"></i><b><label>음료</label></b>
+		     </div><br><br><br>
+		     <div class="col-50">
+		        <input type="radio" name="drink"  value=1 checked="checked">있음      
+		        <input type="radio" name="drink"  value=2>없음
+		     </div>
+		    </div>    
+	    	      
+		      	<div class="col-20"></div>
+		      	<div class="col-20"></div>
+		      	<div class="col-20"></div>
 	   
 	    <div class="col-20">
 	    	<input type="text" placeholder="옵션 " name="etc">&nbsp;<span id="option">그 외 옵션을 적어주세요.</span>

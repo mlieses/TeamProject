@@ -8,9 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import DB.DAO;
 import DB.HostingDTO;
+import user.HostDTO;
 
 
 @WebServlet("/deleteBoardController.do")
@@ -33,10 +35,15 @@ public class deleteBoardController extends HttpServlet {
 		dto.setRoom_no(room_no);
 		
 		dao.delete(dto);
+				
+		HttpSession session = request.getSession();
+		HostDTO hdto =	(HostDTO)session.getAttribute("hdto");
+		String hostId =	hdto.getHost_id();
+		
 		
 		//작업다 끝낸뒤 detail.jsp로 이동
 		RequestDispatcher dis = 
-					request.getRequestDispatcher("Jong/MyPageDetail.jsp");
+					request.getRequestDispatcher("/Jong/MyPageDetail.jsp?HostId="+hostId);
 		
 		dis.forward(request	,response);
 		
