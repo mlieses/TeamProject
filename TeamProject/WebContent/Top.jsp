@@ -145,7 +145,7 @@ function host_click_modal() {
 }
 
 function host_space(){
-	location.href="./detailPageController.do?a=7";
+	location.href="./detailPageController.do?a=7&HostId=${sessionScope.hdto.host_id}";
  }
 </script>
 <style type="text/css">
@@ -167,6 +167,7 @@ a{
 
 .nav_top{	
 	height: 55px;
+	z-index: 100;
 }
 </style>
 </head>
@@ -177,7 +178,7 @@ a{
     <a href="${path}index.jsp" class="w3-bar-item w3-button"><b>SS</b> share space</a>
     <c:set var="email" value="${sessionScope.udto.email }"/>
     <c:set var="host_id" value="${sessionScope.hdto.host_id }"/>
-    <div class="w3-right w3-hide-small">   		      
+    <div class="w3-right w3-hide-small" ">   		      
       <c:choose>
       	<%-- 일반 회원이 로그인 됐을 때 --%>
       	<c:when test="${email ne null }">      		 		
@@ -185,7 +186,7 @@ a{
       		<a href="${path1}./ReservationController.do?userId=${sessionScope.udto.email}" class="w3-bar-item w3-button">내 예약관리</a>
       		<div class="w3-dropdown-click">
       			<button onclick="click_modal()" class="w3-bar-item w3-button w3-dark-grey">${sessionScope.udto.name }</button>
-      			<div id="drop" class="w3-dropdown-content w3-bar-block w3-card-4  w3-animate-zoom user_drop" style="right:0; width: 200px; top:56px;">
+      			<div id="drop" class="w3-dropdown-content w3-bar-block w3-card-4  w3-animate-zoom user_drop" style="right:0; width: 200px; top:56px; z-index: 9999">
       				<small>&nbsp;&nbsp;${sessionScope.udto.email} &nbsp;&nbsp;보유 포인트 : </small>    
       				<br><font color="red" class="w3-margin-left">${sessionScope.udto.point} </font> <small>포인트(￦)</small>  				   				
       				<hr>
@@ -203,12 +204,11 @@ a{
    			<div class="w3-dropdown-click">
    				<button onclick="host_click_modal()" class="w3-bar-item w3-button w3-orange">
    					<small class="icon_crown"></small>&nbsp;${sessionScope.hdto.host_nic }</button>
-   				<div id="drop_host" class="w3-dropdown-content w3-bar-block w3-card-4  w3-animate-zoom user_drop" style="right:0; width: 200px; top:56px;">
+   				<div id="drop_host" class="w3-dropdown-content w3-bar-block w3-card-4  w3-animate-zoom user_drop" style="right:0; width: 200px; top:56px; z-index: 9999">
    						<small>&nbsp;&nbsp;${sessionScope.hdto.email} &nbsp;&nbsp;보유 포인트 : </small>    
       				<br><font color="red" class="w3-margin-left">${sessionScope.point} </font> <small>포인트(￦)</small>	  				   				
       				<hr>
-   					<a href="${path1}./HostPageController.do" class="w3-bar-item w3-button">프로필수정/탈퇴</a>
-   					<a href="${path1}./ReviewController.do" class="w3-bar-item w3-button">리뷰</a>
+   					<a href="${path1}./HostPageController.do" class="w3-bar-item w3-button">프로필수정/탈퇴</a>  					
    					<a href="${path1}./HostLogoutController.do" class="w3-bar-item w3-button">로그아웃</a>      				
  				</div>
    			</div>	
