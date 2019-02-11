@@ -1,7 +1,7 @@
 var reviewNum = 1;
 var reviewCount = $(".review_content").length;
 
-if(allCount==5){
+if(allCount<=5){
 	
 	$(".review_more_btn").addClass("w3-disabled");
 }else if(allCount>5){

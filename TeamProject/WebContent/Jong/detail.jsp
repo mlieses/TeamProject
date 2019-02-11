@@ -409,7 +409,7 @@ function setValue(obj, target){
 					<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=030fe73ff2f443d44661c605e8a0667f"></script>
 						<script>
 						
-					<%-- 	var container = document.getElementById('map');
+					 	var container = document.getElementById('map');
 						var options = {
 							center: new daum.maps.LatLng(33.450701, 126.570667),
 							level: 3
@@ -452,11 +452,10 @@ function setValue(obj, target){
 			                	
 			                	infowindow.open(map, marker);
 			                	
-			                    
 			                });
 			                
 			                
-			        	 } --%>
+			        	 }
 						</script>		
 			</div>		
 	

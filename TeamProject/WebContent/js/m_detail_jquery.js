@@ -1,6 +1,6 @@
 // 	var disabledDays = ["2019-2-2","2019-1-3"];
 	$(".t_btn").attr("disabled",true);	//날짜를 선택하기전 시간 버튼 disabled
-//	$(".price").html(a_price);			//처음부터 아무것도 선택되지 않을때 0표시
+	$(".price-view").html(a_price);			//처음부터 아무것도 선택되지 않을때 0표시
 	
 	
 	
@@ -133,7 +133,7 @@
 			var timeNum = list.length;
 			a_price = String(price*timeNum);
 		}
-		$(".price").html(a_price);
+		$(".price-view").html(a_price);
 		console.log("start");
 // 		 console.log(list.length);
 		

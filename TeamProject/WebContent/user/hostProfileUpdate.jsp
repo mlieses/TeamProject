@@ -53,7 +53,7 @@
 			//ID정규표현식을 이용하여 입력한 ID값이 맞을 경우(통과)
 			$.ajax({
 				type : "POST",
-				url  : "../HostIdCheck.do",
+				url  : "./HostIdCheck.do",
 				data: {"host_id": host_id}, //{parameterName, data} 형식
 				success: function(result){					
 					flag = result;		  	
@@ -83,6 +83,19 @@
 			 $("input[name='passwd_check']").attr("disabled",false);
 			 flag=1;
 		 });
+		var level="";
+		if("${sessionScope.hdto.host_level}" == 3){
+			level="프리미엄 등급";
+			$(".icon_crown2").append("<i class='fas fa-crown' style='font-size:20px;color:blue;padding:0;margin:0'></i>");
+			document.form_hostProfile.host_level.value=level;
+		}else if("${sessionScope.hdto.host_level}" == 2){
+			level="우수 등급";
+			document.form_hostProfile.host_level.value=level;
+		}else{
+			level="일반 등급";
+			document.form_hostProfile.host_level.value=level;
+		}
+		
 		
 	}); /*  ready 종료 */	
 	
@@ -124,7 +137,40 @@
 		document.form_hostProfile.submit();
 		
 	}
+	// 등급 구매 창
+	function addLevel(){
 		
+		if(confirm("30000포인트가 차감됩니다. 프리미엄 등급을 구매 하시겠습니까? ")){
+			
+			if("${sessionScope.hdto.host_level}"==3){
+				alert("이미 프리미엄 등급이십니다.");
+			}else if(Number("${sessionScope.point}") < 30000){
+				alert("포인트가 부족 합니다.");
+			}else{
+				
+				$.ajax({
+					type : "POST",
+					url  : "./AddLevelController.do",
+					data: {"email": "${sessionScope.hdto.email}"}, //{parameterName, data} 형식
+					success: function(result){					
+						
+						if(result==1){
+							alert("구매 완료");
+							$("input[name='host_level']").val("프리미엄 등급");
+							$("input[name='point']").val("${sessionScope.point}");
+						}else{
+							alert("실패");
+						}
+						
+					}
+				});// ajax 끝	
+				
+				
+				
+			}
+			
+		}
+	}
 	
 	
 </script>
@@ -141,6 +187,27 @@
 	<div class="w3-row w3-margin-top" ></div>
 	<div class="w3-row" >								
 		<div class="w3-col m8">
+			호스트 등급
+		</div>
+		<div class="w3-col m4"></div>
+	</div>
+	<div class="w3-row" >										
+		<div class="w3-col m6">			
+			<input type="text" id="host_level" class="w3-input" placeholder="email" name="host_level" disabled="disabled">
+		</div>
+		<div class="w3-col m2">
+			<button type="button" class="w3-button w3-white w3-border w3-border-red w3-round-large"onclick="addLevel();">등급 구매하기</button>
+		</div>				
+		<div class="w3-col m4"></div>
+	</div>
+	<div class="w3-row">								
+		<div class="w3-col m8">
+			<small>● 호스트 등급을 구매 가능합니다. </small>
+		</div>	
+		<div class="w3-col m4"></div>
+	</div>
+	<div class="w3-row" >								
+		<div class="w3-col m8 w3-margin-top">
 			호스트 아이디
 		</div>
 		<div class="w3-col m4"></div>

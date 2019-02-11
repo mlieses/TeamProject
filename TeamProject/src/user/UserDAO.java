@@ -469,4 +469,39 @@ public class UserDAO {
 		return result;
 		
 	}
+	// 프리미엄 등급 구매시 ajax
+	public int upadateLevel(String email) {
+		// TODO Auto-generated method stub
+		int check=0;
+		
+		try {
+			
+			con = ds.getConnection();
+			
+			String sql = "UPDATE host SET host_level = 3 WHERE email = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, email);
+			
+			pstmt.executeUpdate();
+			
+			sql = "UPDATE user SET point = point-30000 WHERE email = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, email);
+			
+			
+			check = pstmt.executeUpdate();
+			
+			return check;
+		} catch (Exception e) {
+			System.out.println("upadateLevel() 메서드에서 "+e);
+		} finally {
+			freeResource();
+		}
+		
+		return 0;
+	}
 }
