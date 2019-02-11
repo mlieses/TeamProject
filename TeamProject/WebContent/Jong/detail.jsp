@@ -33,7 +33,8 @@ padding: 0px;
 }
 
 #nav2 div{
-	margin-left: 10px;
+
+	margin-left: 50px;
 	font-size: 17px;
 }
 
@@ -71,7 +72,74 @@ text-decoration: underline;
 </style>
 
 <script type="text/javascript">
-
+	
+$(document).ready(function() {
+	
+var i = $("#RPoint").val() ; //별점값을 담을 변수 i 선언
+			
+	
+	if( i == 1){ // i = 1~10 --> 1은 별 0.5개 10은 별 5개
+		
+		 $('.starRev span:nth-child(1)').parent().children('span').removeClass('on');
+		 $('.starRev span:nth-child(1)').addClass('on').prevAll('span').addClass('on');
+			  return false; 
+		}
+	else if( i == 2){ // i = 1~10 --> 1은 별 0.5개 10은 별 5개
+			
+		 $('.starRev span:nth-child(2)').parent().children('span').removeClass('on');
+		 $('.starRev span:nth-child(2)').addClass('on').prevAll('span').addClass('on');
+			  return false; 
+		}
+	else if( i == 3){ // i = 1~10 --> 1은 별 0.5개 10은 별 5개
+		
+		 $('.starRev span:nth-child(3)').parent().children('span').removeClass('on');
+		 $('.starRev span:nth-child(3)').addClass('on').prevAll('span').addClass('on');
+			  return false; 
+		}
+	else if( i == 4){ // i = 1~10 --> 1은 별 0.5개 10은 별 5개
+		
+		 $('.starRev span:nth-child(4)').parent().children('span').removeClass('on');
+		 $('.starRev span:nth-child(4)').addClass('on').prevAll('span').addClass('on');
+			  return false; 
+		}
+	else if( i == 5){ // i = 1~10 --> 1은 별 0.5개 10은 별 5개
+		
+		 $('.starRev span:nth-child(5)').parent().children('span').removeClass('on');
+		 $('.starRev span:nth-child(5)').addClass('on').prevAll('span').addClass('on');
+			  return false; 
+		}
+	else if( i == 6){ // i = 1~10 --> 1은 별 0.5개 10은 별 5개
+		
+		 $('.starRev span:nth-child(6)').parent().children('span').removeClass('on');
+		 $('.starRev span:nth-child(6)').addClass('on').prevAll('span').addClass('on');
+			  return false; 
+		}
+	else if( i == 7){ // i = 1~10 --> 1은 별 0.5개 10은 별 5개
+		
+		 $('.starRev span:nth-child(7)').parent().children('span').removeClass('on');
+		 $('.starRev span:nth-child(7)').addClass('on').prevAll('span').addClass('on');
+			  return false; 
+		}
+	else if( i == 8){ // i = 1~10 --> 1은 별 0.5개 10은 별 5개
+		
+		 $('.starRev span:nth-child(8)').parent().children('span').removeClass('on');
+		 $('.starRev span:nth-child(8)').addClass('on').prevAll('span').addClass('on');
+			  return false; 
+		}
+	else if( i == 9){ // i = 1~10 --> 1은 별 0.5개 10은 별 5개
+		
+		 $('.starRev span:nth-child(9)').parent().children('span').removeClass('on');
+		 $('.starRev span:nth-child(9)').addClass('on').prevAll('span').addClass('on');
+			  return false; 
+		}
+	else if( i == 10){ // i = 1~10 --> 1은 별 0.5개 10은 별 5개
+		
+		 $('.starRev span:nth-child(10)').parent().children('span').removeClass('on');
+		 $('.starRev span:nth-child(10)').addClass('on').prevAll('span').addClass('on');
+			  return false; 
+		}
+	
+});
 
 //날짜 선택
 $(document).ready(function() {
@@ -82,9 +150,7 @@ $(document).ready(function() {
         myFunction("date_select");
      },
      altField : '#date',
-    dateFormat : 'yy년 mm월 dd일',
-    maxDate:6,
- 	minDate:0
+    dateFormat : 'yy년 mm월 dd일'
   });
  
     
@@ -147,28 +213,16 @@ function setValue(obj, target){
 	<div style="width:100%;">		
 			
 				<jsp:include page="../Top.jsp" flush="false"/>
-				
-				<div class="w3-bar w3-border-top" style="margin-top: 55px; position: fixed; z-index: 1;">
-				
-				
-				  <div class="w3-bar w3-white " id="nav2" align="center">
-				  	<div style="width: 63%">					  	  
-					  	<div class="w3-bar-item"><a href="./detailPageController.do?a=1">전체</a></div>
-					  	<div class="w3-bar-item"><a href="./detailPageController.do?a=2">카페</a></div>
-					  	<div class="w3-bar-item"><a href="./detailPageController.do?a=3">스터디룸</a></div>
-					  	<div class="w3-bar-item"><a href="./detailPageController.do?a=4">강의실</a></div>
-					  	<div class="w3-bar-item"><a href="./detailPageController.do?a=10">야외</a></div>
-				    </div>		
-				  </div>
-				  
-				  <div class="w3-bar w3-white">
+				<div class="w3-bar" style="margin-top: 55px; position: fixed; z-index: 1">
+				  <div class="w3-bar w3-green">
 				  	<div class="w3-bar-item" style="height: 55px;">
 						<!-- 상세 조건  -->
 						<form action="search.do" method="post">
 						  <div class="w3-container">
 						     <!-- 첫 row -->
 						      <div class="w3-row w3-round-large w3-white w3-hide-small" style=" box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-						       display: inline-block; vertical-align: top; height: 38px; margin-left: 340px; width: 60%; margin-top: -5px;">
+						       display: inline-block; vertical-align: top; height: 40px;">
+						      <div id="new" style="position:relative;">
 						        
 						        <div class="w3-col l2 m2 w3-padding">
 						           <button type="button" onclick="myFunction('type_select')" style="border: none; padding:0px; background-color: white;">
@@ -176,13 +230,13 @@ function setValue(obj, target){
 						          </button>
 						        </div>
 						        
-						        <div class="w3-col l3 m3 w3-border-left w3-padding" style="height: 40px;">
+						        <div class="w3-col l4 m4 w3-border-left w3-padding" style="height: 40px;">
 						           <button type="button" onclick="myFunction('location_select')" style="border: none; padding:0px; background-color: white;">
 						          	<input type="text" id="location" name="location" placeholder="지역" readonly="readonly" class="w3-input w3-border-0" style = "text-align:center; font-size:1.5em; font-weight:bold; color:rgb(118,118,118); height: 30px;" >
 						          </button>
 						        </div>
 						          
-						        <div class="w3-col l3 m3 w3-border-left w3-padding" style="height: 40px;">
+						        <div class="w3-col l4 m4 w3-border-left w3-padding" style="height: 40px;">
 						          <button type="button" onclick="myFunction('date_select')" style="border: none; padding:0px; background-color: white;">
 						          	<input type="text" id="datepicker" name="date" placeholder ="날짜" readonly="readonly" class="w3-input w3-border-0"  style = "text-align:center; font-size:1.5em; font-weight:bold; color:rgb(118,118,118); height: 30px;  ">
 						          </button>
@@ -193,20 +247,19 @@ function setValue(obj, target){
 						          	<input type="text" id="number" name="number" placeholder="인원" readonly="readonly" class="w3-input w3-border-0" style = "text-align:center; font-size:1.5em; font-weight:bold; color:rgb(118,118,118); height: 30px; ">
 						          </button>
 						        </div>
-						        
-						         <button class="w3-col w3-btn w3-round l2 m2 w3-padding" onclick="submit()" style="background-color:rgb(252,247,52); color:rgb(11,11,11); width:171px;">
-						   			<b>검색</b>
-						   	  	 </button>
 						        	
 						      </div><!--row -->
 						       
-						
-						 
+						       <div style="position: absolute; right: 23px; top: 10px;">
+						   	 	 <button class="w3-btn w3-round" onclick="submit()" style="background-color:rgb(252,247,52); color:rgb(11,11,11); width:150px;">
+						   			<b>검색</b>
+						   	  	</button>
+						      </div>
+						   </div>   
 						   
 						   <!-- 선택 row -->   
 								<div class="w3-row w3-hide " style="position: fixed;" id="type_select">
-								 <div class="w3-col l10 w3-padding"></div>				
-							        <div class="w3-col l2 m2 w3-padding w3-white w3-round" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); width: 30%; margin-left: 350px;">
+							        <div class="w3-col l2 m2 w3-padding w3-white w3-round" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); width: 100%;">
 							  			<input type="button" value="카페" onclick="setValue(this, 'type')" style="border: none; padding:0px; background-color: white;"><br/>
 							  			<input type="button" value="스터디룸" onclick="setValue(this, 'type')" style="border: none; padding:0px; background-color: white;"><br/> 
 							  			<input type="button" value="강의실" onclick="setValue(this, 'type')" style="border: none; padding:0px; background-color: white;"><br/>
@@ -217,7 +270,7 @@ function setValue(obj, target){
 						        
 						       	<div class="w3-row w3-hide" style="position: fixed;" id="location_select">
 							        <div class="w3-col l2 w3-padding"></div>
-							        <div class="w3-col l5 w3-padding w3-white w3-round" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); width: 50%; margin-left: 520px; ">
+							        <div class="w3-col l5 w3-padding w3-white w3-round" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); width: 100%; margin-left: 200px;">
 							  			<table width="100%">
 							  				<tr height="1.5em">
 							  					<td><input type="button" value="강서구" onclick="setValue(this, 'location')" style="border: none; padding:0px; background-color: white;"><br/></td>
@@ -259,7 +312,7 @@ function setValue(obj, target){
 						        
 						        <div class="w3-row w3-hide" style="position: fixed;" id="number_select">
 							        <div class="w3-col l10 w3-padding"></div>
-							        <div class="w3-col l2 w3-padding w3-white w3-round" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-left: 1040px; width: 10%">
+							        <div class="w3-col l2 w3-padding w3-white w3-round" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-left: 1000px;">
 							  			<input type="button" value="소" onclick="setValue(this, 'number')" style="border: none; padding:0px; background-color: white;"><br/>
 							  			<input type="button" value="중" onclick="setValue(this, 'number')" style="border: none; padding:0px; background-color: white;"><br/> 
 							  			<input type="button" value="대" onclick="setValue(this, 'number')" style="border: none; padding:0px; background-color: white;"><br/>	  			 
@@ -273,7 +326,13 @@ function setValue(obj, target){
 						</form>
 					</div>
 				  </div>
-				 
+				  <div class="w3-bar w3-white " id="nav2" style="border-bottom:1px solid;">
+				  	<div class="w3-bar-item"><a href="./detailPageController.do?a=1">전체</a></div>
+				  	<div class="w3-bar-item"><a href="./detailPageController.do?a=2">카페</a></div>
+				  	<div class="w3-bar-item"><a href="./detailPageController.do?a=3">스터디룸</a></div>
+				  	<div class="w3-bar-item"><a href="./detailPageController.do?a=4">강의실</a></div>
+				  	<div class="w3-bar-item"><a href="./detailPageController.do?a=10">야외</a></div>
+				  </div>
 				</div>	
 				
 				
@@ -310,14 +369,14 @@ function setValue(obj, target){
 						<td width="40%"><div style="width: 90%">
 						
 							<!-- 리뷰 점수 값 받아오기 -->
-							<input type="hidden" value="<%=dto1.getReviewPoint()%>" id="RPoint<%=i%>">
+							<input type="hidden" value="<%=dto1.getReviewPoint()%>" id="RPoint">
 						
 							<a href="detailPageController.do?a=8&room_no=<%=dto.getRoom_no()%>"><img src="upload/<%=dto.getImg1()%>" width="100%" height="200px;"></a></div>
 						</td>
 						<td width="50%" style="text-align:left; position: relative;">
 							<div style="position: absolute; top: 0px;">
 								<h1 style="margin-bottom: -3px;"><%= dto.getSubject()%></h1>
-								<div id="starRev<%=i%>">
+								<div class="starRev">
 								  <span class="starR1">별1_왼쪽</span>
 								  <span class="starR2">별1_오른쪽</span>
 								  <span class="starR1">별2_왼쪽</span>
@@ -343,55 +402,8 @@ function setValue(obj, target){
 								<%=dto.getContent() %>
 							</div>
 							
-							<script type="text/javascript">
-							
-							$(document).ready(function() {
-								
-							var i = $("#RPoint<%=i%>").val() ; //별점값을 담을 변수 i 선언
-																		
-								if( i == 1){ // i = 1~10 --> 1은 별 0.5개 10은 별 5개
-										
-									 $('#starRev<%=i%> span:nth-child(2)').parent().children('span').removeClass('on');
-									 $('#starRev<%=i%> span:nth-child(2)').addClass('on').prevAll('span').addClass('on');
-										  return false; 
-									}
-								
-								else if( i == 2){ // i = 1~10 --> 1은 별 0.5개 10은 별 5개
-									
-									 $('#starRev<%=i%> span:nth-child(4)').parent().children('span').removeClass('on');
-									 $('#starRev<%=i%> span:nth-child(4)').addClass('on').prevAll('span').addClass('on');
-										  return false; 
-									}
-								
-								else if( i == 3){ // i = 1~10 --> 1은 별 0.5개 10은 별 5개
-									
-									 $('#starRev<%=i%> span:nth-child(6)').parent().children('span').removeClass('on');
-									 $('#starRev<%=i%> span:nth-child(6)').addClass('on').prevAll('span').addClass('on');
-										  return false; 
-									}
-								
-								else if( i == 4){ // i = 1~10 --> 1은 별 0.5개 10은 별 5개
-									 $('#starRev<%=i%> span:nth-child(8)').parent().children('span').removeClass('on');
-									 $('#starRev<%=i%> span:nth-child(8)').addClass('on').prevAll('span').addClass('on');
-										  return false; 
-									}	
-								else if( i == 5){ // i = 1~10 --> 1은 별 0.5개 10은 별 5개
-									
-									 $('#starRev<%=i%> span:nth-child(10)').parent().children('span').removeClass('on');
-									 $('#starRev<%=i%> span:nth-child(10)').addClass('on').prevAll('span').addClass('on');
-										  return false; 
-									}
-								
-								
-							});
-							
-							
-							</script>
-							
 						</td>
 						<td width="10%" align="right"></td>
-						
-						
 					</tr>	
 					<%
 							}
