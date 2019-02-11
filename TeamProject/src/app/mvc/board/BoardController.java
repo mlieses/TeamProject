@@ -26,6 +26,8 @@ public class BoardController extends HttpServlet{
 	//	요청을 받을 하나의 임의의 메소드 만들기
 	private void doService(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {		
 			
+		req.setCharacterEncoding("UTF-8");
+		
 			/* 어떤 페이지에서 요청이 들어왔는지 사용자 요청 주소 알아내기 작업 */
 			
 			//사용자의 요청 전제추소인!! 프로젝트명을 포함한 전제 주소 알아오기

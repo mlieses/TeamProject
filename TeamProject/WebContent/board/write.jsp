@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,10 +11,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
-<!-- ∫πªÁ 1 font -->
+<!-- Î≥µÏÇ¨ 1 font -->
 <link href='https://cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css' rel='stylesheet' type='text/css'>
 
-<!-- ∫πªÁ2 google icon -->
+<!-- Î≥µÏÇ¨2 google icon -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 <!-- JQuery -->
@@ -26,7 +27,7 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>  
 
-<title>ShareSpade : ±€æ≤±‚ ∆‰¿Ã¡ˆ</title>
+<title>ShareSpade : Í∏ÄÏì∞Í∏∞ ÌéòÏù¥ÏßÄ</title>
 <style>
 	body{ 	background-image: url("board/study1_2.jpg");
 			background-repeat:no-repeat;
@@ -77,22 +78,26 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 </style>
 
 <script type="text/javascript">
-	//[3] BoardController∑Œ ±€æ≤±‚ ≥ªøÎ ¿¸º€
+	//[3] BoardControllerÎ°ú Í∏ÄÏì∞Í∏∞ ÎÇ¥Ïö© Ï†ÑÏÜ°
 	function fnInsert(){
 		document.frmInsert.submit();
 	}
+	
+var writer =  parseInt("${board.name}");
+var email =  parseInt("${board.email}");
 </script>
 
 </head>
 <body>
-<!-- Navbar ∫πªÁ4-->
+<!-- Navbar Î≥µÏÇ¨4-->
 <jsp:include page="../Top.jsp" flush="false"/>
-<!-- ∫πªÁ4¡æ∑·  -->
+<!-- Î≥µÏÇ¨4Ï¢ÖÎ£å  -->
 <!-- [1] -->
 <form method="post" action="writeConfirm.board" name="frmInsert">
-<!-- [1]≥° -->
+<!-- [1]ÎÅù -->
 
-<!-- ∆‰¿Ã¡ˆ center-->
+
+<!-- ÌéòÏù¥ÏßÄ center-->
 <div id="page" width="97%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
 	        		<td colspan="4">&nbsp;</td>
@@ -110,7 +115,7 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 	    <td colspan="4">
 	    	<div align="center"> 
 		        
-		     <br/><p>" ±€æ≤±‚ ∆‰¿Ã¡ˆ ¿‘¥œ¥Ÿ "</p><br/>
+		     <br/><p>" Í∏ÄÏì∞Í∏∞ ÌéòÏù¥ÏßÄ ÏûÖÎãàÎã§ "</p><br/>
 		     <tr>
 		     <td height="327" colspan="3" valign="top">
 		        <div align="center"> 
@@ -121,23 +126,23 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 				        </tr>
                   <tr> 
                     <td width="13%">
-                    	<div id="width" align="center" width="13%">¿€º∫¿⁄</div>
+                    	<div id="width" align="center" width="13%">ÏûëÏÑ±Ïûê</div>
                     </td>
                     <td>
-                    	<input type="text" name="writer" size="20" class="w3-input"/>
+                    	<input type="text" name="writer" size="20" class="text2" />
                     </td>
                     <td>
-                    	<div align="center">∏ﬁ¿œ¡÷º“</div>
+                    	<div align="center">Î©îÏùºÏ£ºÏÜå</div>
                     </td>
                     <td  style="text-align: left">
-                        <input type="text" name="email" size="40" class="w3-input" />
+                        <input type="text" name="email" size="20" class="text2" />
                     </td>
                   </tr>      
                   
                          
                   <tr> 
                     <td height="31" class="text2">
-                    	<div align="center">¡¶∏Ò</div>
+                    	<div align="center">Ï†úÎ™©</div>
                     </td>
                     <td colspan="3" style="text-align: left">
                     	<input type="text" name="title" size="70" class="w3-input" />
@@ -145,7 +150,7 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
                   </tr>
                   <tr> 
                     <td class="text2">
-                    	<div align="center"><i class="material-icons">sms</i><br/>≥ªøÎ</div>
+                    	<div align="center"><i class="material-icons">sms</i><br/>ÎÇ¥Ïö©</div>
                     </td>
                     <td colspan="3" style="text-align: left">
                     	<textarea name="content" rows="15" cols="100"></textarea>
@@ -153,7 +158,7 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
                   </tr>
                   <tr> 
                     <td>
-                    	<div align="center">∆–Ω∫øˆµÂ</div>
+                    	<div align="center">Ìå®Ïä§ÏõåÎìú</div>
                     </td>
                     <td colspan="3" style="text-align: left">
                     	<input type="password" name="pass" class="w3-input" maxlength="8" />
@@ -171,27 +176,27 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 	        	<td colspan="4">&nbsp;</td>
 	        </tr>
 	    
-	    <!-- πˆ∆∞ -->
+	    <!-- Î≤ÑÌäº -->
   		<div class="w3-row">
           <tr> 
             <td width="48%">
             <div class="w3-col m1 w3-right">
-            	<%-- ±€ µÓ∑œ πˆ∆∞/ [2]:¿⁄πŸΩ∫∆Æ∏≥∆Æ «‘ºˆ∑Œ form¿¸º€ «œ±‚ --%>
+            	<%-- Í∏Ä Îì±Î°ù Î≤ÑÌäº/ [2]:ÏûêÎ∞îÏä§Ìä∏Î¶ΩÌä∏ Ìï®ÏàòÎ°ú formÏ†ÑÏÜ° ÌïòÍ∏∞ --%>
             	<a href="javascript:fnInsert();">
-					<input type="button" class="w3-button w3-border w3-red" value="µÓ∑œ"></a>
+					<input type="button" class="w3-button w3-border w3-red" value="Îì±Î°ù"></a>
             </div>
             </td>
             <td width="10%">
             <div class="w3-col m1 w3-left">
-            	<%-- ∏Ò∑œ ∫∏±‚ πˆ∆∞(List.jsp∑Œ ¿Ãµø) <--BoardControllerø° ø‰√ª --%>
+            	<%-- Î™©Î°ù Î≥¥Í∏∞ Î≤ÑÌäº(List.jspÎ°ú Ïù¥Îèô) <--BoardControllerÏóê ÏöîÏ≤≠ --%>
             	<a href="list.board">
-            		<input type="button" class="w3-button w3-border w3-green" value="∏Ò∑œ"></a>
+            		<input type="button" class="w3-button w3-border w3-green" value="Î™©Î°ù"></a>
             </div>
             </td>
             <td width="42%"></td>            
           </tr>
      	</div>
-     	<!-- πˆ∆∞ ø©±‚±Ó¡ˆ -->
+     	<!-- Î≤ÑÌäº Ïó¨Í∏∞ÍπåÏßÄ -->
      
       </div></td>
   </tr>
