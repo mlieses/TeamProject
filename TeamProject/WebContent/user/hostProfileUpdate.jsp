@@ -155,7 +155,9 @@
 					success: function(result){					
 						
 						if(result==1){
-							alert("구매 완료")
+							alert("구매 완료");
+							$("input[name='host_level']").val("프리미엄 등급");
+							$("input[name='point']").val("${sessionScope.point}");
 						}else{
 							alert("실패");
 						}
