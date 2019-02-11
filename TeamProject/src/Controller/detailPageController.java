@@ -49,17 +49,13 @@ public class detailPageController extends HttpServlet {
 		}
 		//스터디룸
 		else if(a == 3) {
-			
-
-				
+							
 			Vector<SelectDTO> vector =	dao.select(3);
 			request.setAttribute("vector", vector);
 			dis.forward(request, response);
 		}
 		//강의실
-		else if (a == 4) {
-			
-			
+		else if (a == 4) {						
 			Vector<SelectDTO> vector =	dao.select(4);
 			request.setAttribute("vector", vector);
 			dis.forward(request, response);

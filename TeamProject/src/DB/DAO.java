@@ -166,7 +166,7 @@ public class DAO {
 					}else if(num ==2){
 						String sql ="";
 						
-						sql="select * from hosting natural join hosting_bill natural join hosting_pic where room_type = '카페' ";
+						sql="select * from hosting natural join hosting_bill natural join hosting_pic natural join hosting_address where room_type = '카페' ";
 						
 						pstmt = con.prepareStatement(sql);
 					rs=	pstmt.executeQuery();
@@ -183,7 +183,7 @@ public class DAO {
 					}else if(num == 3){
 						String sql ="";
 						
-						sql="select * from hosting natural join hosting_bill natural join hosting_pic where room_type = '스터디룸' ";
+						sql="select * from hosting natural join hosting_bill natural join hosting_pic natural join hosting_address where room_type = '스터디룸' ";
 						
 						pstmt = con.prepareStatement(sql);
 					rs=	pstmt.executeQuery();
@@ -201,7 +201,7 @@ public class DAO {
 					}else if(num ==4){
 						String sql ="";
 						
-						sql="select * from hosting natural join hosting_bill natural join hosting_pic where room_type = '강의실' ";
+						sql="select * from hosting natural join hosting_bill natural join hosting_pic natural join hosting_address where room_type = '강의실' ";
 						
 						pstmt = con.prepareStatement(sql);
 					rs=	pstmt.executeQuery();
@@ -220,7 +220,7 @@ public class DAO {
 					}else if(num == 10){
 						String sql ="";
 						
-						sql="select * from hosting natural join hosting_bill natural join hosting_pic where room_type = '야외' ";
+						sql="select * from hosting natural join hosting_bill natural join hosting_pic natural join hosting_address where room_type = '야외' ";
 						
 						pstmt = con.prepareStatement(sql);
 					rs=	pstmt.executeQuery();
@@ -331,8 +331,7 @@ public class DAO {
 							}
 						} catch (Exception e2) {
 							// TODO: handle exception
-						}
-						
+						}						
 					}
 				return vector;
 					
