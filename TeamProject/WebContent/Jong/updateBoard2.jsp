@@ -57,6 +57,9 @@
     	var cnt = f.elements.length;
     	//var cnt = document.forms[1].elements.length;
     	
+       	var fileCount = 0;
+       	var mytbody = document.getElementById("mytbody");	
+    	
     	// 누락된 파일 업로드 위치를 나타낼 변수
     	var filecnt=1;
     	/* 
@@ -73,6 +76,10 @@
     	for(i=0;i<cnt;i++){
     		// 조건 만약에 2번 form내부에 있는 <input>태그의 유형(type)이 file과 같고
     		if(f.elements[i].type == "file"){
+      			//타입이 file 일때 fileCount 1 올라감
+    			fileCount ++;
+    			
+    			
     			// 조건 : 업로드할 파일을 선택하지 않은 경우?
     				if(f.elements[i].value == ""){
     					
@@ -86,9 +93,14 @@
     				} //안쪽 if
     				// <input>태그의 type속성값이 file일때만 filecnt값을 1씩 증가
     				filecnt++;
-    		}//바깥 if
-    		
+    		}//바깥 if    		
     	}//for
+    	
+    	//수정 시! 기존 이미지도 없고 , 추가된 file타입의 input도 없을 때 
+    	if(fileCount == 0 && (mytbody.rows.length == 0)	){
+			alert("이미지를 등록해주세요.");
+			return false;
+		}
 
     f.submit();
     	

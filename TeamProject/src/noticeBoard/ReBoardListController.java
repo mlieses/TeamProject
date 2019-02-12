@@ -77,7 +77,7 @@ public class ReBoardListController extends HttpServlet {
 			request.setAttribute("startPage", startPage);
 			request.setAttribute("endPage", endPage);
 			// �씠�룞   reBoard.jsp
-			RequestDispatcher dis = request.getRequestDispatcher("board/reBoard.jsp");
+			RequestDispatcher dis = request.getRequestDispatcher("noticeBoard/reBoard.jsp");
 			System.out.println("�뵒�뒪�뙣爾�");
 			dis.forward(request, response);
 			

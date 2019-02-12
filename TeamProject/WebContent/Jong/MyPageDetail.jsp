@@ -57,7 +57,9 @@ padding: 0px;
 
 		
 	<div style="width:70%; margin: auto; margin-top: 55px;">		
-		
+		<div>
+			<h1 align="center" style="border: groove; background-color: #cddc39" >공간 관리</h1>
+		</div>
 				<table width="100%" class="w3-table w3-bordered">
 					<%
 						DecimalFormat formatter = new DecimalFormat("###,###");

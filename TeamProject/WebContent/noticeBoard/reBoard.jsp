@@ -96,12 +96,14 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 			<tr height="40">
 				<th width="50"> NO </th>
 				<th width="300"> CONTENT </th>
+				<th width="100"> DATE </th>
 				<th width="100"> NAME </th>				
 			</tr>
 			<c:forEach var="v" items="${boardList }">
 				<tr height="40">
 					<td id="no">${v.host_id }</td>
 					<td id="ctt"><li></li>${v.subject }</td>
+					<td>date?</td> <!-- 날짜값 못가져오겠음 -->
 					<td id="id">${v.host_id }</td>
 				</tr>	 
 			</c:forEach>
