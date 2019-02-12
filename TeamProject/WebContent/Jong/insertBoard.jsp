@@ -121,6 +121,10 @@ $( function() {
     	var cnt = f.elements.length;
     	//var cnt = document.forms[1].elements.length;
     	
+    	
+    	
+    	var fileCount = 0;
+    	
     	// 누락된 파일 업로드 위치를 나타낼 변수
     	var filecnt=1;
     	/* 
@@ -137,8 +141,11 @@ $( function() {
     	for(i=0;i<cnt;i++){
     		// 조건 만약에 2번 form내부에 있는 <input>태그의 유형(type)이 file과 같고
     		if(f.elements[i].type == "file"){
+    			//타입이 file 일때 fileCount 1 올라감
+    			fileCount ++;
+    			
     			// 조건 : 업로드할 파일을 선택하지 않은 경우?
-    				if(f.elements[i].value == ""){
+    				if(f.elements[i].value == "" ){
     					
     					//x번째 <input type="file">내용이 비었습니다 경고메세지!
     					var msg = filecnt + "번째 파일 정보가 누락 되었습니다. \n 올바른 선택을 해주세요";
@@ -150,10 +157,16 @@ $( function() {
     				} //안쪽 if
     				// <input>태그의 type속성값이 file일때만 filecnt값을 1씩 증가
     				filecnt++;
-    		}//바깥 if
-    		
+    		}//바깥 if    		
     	}//for
-
+    	
+    	//fileCount == 0 이면 이미지 등록이 안됐다.
+    	if(fileCount == 0){
+			alert("이미지를 등록해주세요.");
+			return false;
+		}
+    	    	
+    	
     f.submit();
     	
     }
@@ -493,6 +506,7 @@ $( function() {
   		<input type="text" id="sample6_extraAddress" placeholder="참고항목" name="etcAddress">
   	</div>  	      	    
   </div>
+  
   
   <div class="row">
   	<div class="col-10"><b>이미지 첨부</b></div>
