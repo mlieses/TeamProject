@@ -528,25 +528,22 @@ function setValue(obj, target){
 			            var bounds = new daum.maps.LatLngBounds();
 			            
 						<%
-							if(vector!=null){
-						%>		
-							
-			            	alert("vector에 들어옴");
+						if(vector1==null){
+						%>
 							<c:forEach var="vec" items="<%=vector%>" begin="0" end="<%=vector.size()%>" step="1">
 								displayMarker('${vec.wdo}','${vec.kdo}', '${vec.room_no}', '${vec.subject}');
 								bounds.extend(new daum.maps.LatLng('${vec.wdo}','${vec.kdo}'));
 							</c:forEach>
+						
 						<%
-							}else if(vector1!=null){
+						}else if(vector1!=null){
 						%>
-
-							alert("vector1에 들어옴");
 							<c:forEach var="vec" items="<%=vector1%>" begin="0" end="<%=vector1.size()%>" step="1">
 								displayMarker('${vec.a_wdo}','${vec.a_kdo}', '${vec.room_no}', '${vec.subject}');
 								bounds.extend(new daum.maps.LatLng('${vec.a_wdo}','${vec.a_kdo}'));
 							</c:forEach>
 						<%
-							}
+						}
 						%>
 						
 						// 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
