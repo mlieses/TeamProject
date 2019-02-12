@@ -27,6 +27,10 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <title>공간 리뷰 확인</title>
 
+<!-- bxslider -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 
 <style type="text/css">
 #whole{
@@ -52,7 +56,9 @@ body{
 </style>
 
 <script type="text/javascript">
-
+$(document).ready(function(){
+    $('.slider').bxSlider();
+  });
 
 </script>
 
@@ -68,6 +74,10 @@ body{
 		<!-- 그래프 -->
 	  	<div class="w3-container w3-quarter" style="border: 1px solid black">
 	  		<h2>여기1</h2>
+	  		 <div class="slider">
+    			<div>I am a slide.</div>
+    			<div>I am another slide.</div>
+  			</div>
 	  	</div>
 	  	
 	  	
@@ -112,7 +122,7 @@ body{
 </div>
 </body>
 <div class="w3-cell-bottom" style="padding-bottom: 0px;">
-<jsp:include page="../Footer.jsp" flush="false"/>
+<%-- <jsp:include page="../Footer.jsp" flush="false"/> --%>
 </div>
 
 </html>
