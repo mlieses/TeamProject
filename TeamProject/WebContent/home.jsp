@@ -29,14 +29,10 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 
 <!-- bxslider -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 
 <script type="text/javascript">
-
-/**bxSlier*/
-$(document).ready(function(){
- $('#bxslider').bxSlider();
-});
 
   
   $(document).ready(function() {
@@ -602,24 +598,23 @@ Vector<homeDTO> popV = (Vector<homeDTO>)request.getAttribute("popularV");
 	 </div>  
 	  <div class="w3-container">
 	    <div class="w3-display-container mySlides">
-	      <a href="./Event.do"><img src="img/event02.jpg" style="width:100%; height:50%;"></a>
+	      <a href="./Event.do"><img src="event/mainevent1.jpg" style="width:100%; height:50%;"></a>
 	      <div class="w3-display-topleft w3-container w3-padding-32">
-	        <span class="w3-white w3-padding-large w3-animate-bottom" style="opacity:0.8">Lorem ipsum</span>
+	        <!-- <span class="w3-white w3-padding-large 3-animate-bottom" style="opacity:0.8">Lorem ipsum</span> -->
 	      </div>
 	    </div>
 	    <div class="w3-display-container mySlides">
-	      <a href="./Event.do"><img src="img/event02.jpg" style="width:100%; height:50%;"></a>
+	      <a href="./Event.do"><img src="event/mainevent2.jpg" style="width:100%; height:50%;"></a>
 	      <div class="w3-display-middle w3-container w3-padding-32" >
-	        <span class="w3-white w3-padding-large w3-animate-bottom" style="opacity:0.8">Klorim tipsum</span>
+	        <!-- <span class="w3-white w3-padding-large w3-animate-bottom" style="opacity:0.8">Klorim tipsum</span> -->
 	      </div>
 	    </div>
 	    <div class="w3-display-container mySlides">
 	      <a href="./Event.do"><img src="img/event02.jpg" style="width:100%; height:50%;"></a>
 	      <div class="w3-display-topright w3-container w3-padding-32" style="opacity:0.8">
-	        <span class="w3-white w3-padding-large w3-animate-bottom">Blorum pipsum</span>
+	        <!-- <span class="w3-white w3-padding-large w3-animate-bottom">Blorum pipsum</span> -->
 	      </div>
-	    </div>
-	
+	    </div>	
 	    <!-- Slideshow next/previous buttons -->
 	    <div class="w3-container w3-dark-grey w3-padding w3-xlarge">
 	      <div class="w3-left" onclick="plusDivs(-1)"><i class="fa fa-arrow-circle-left w3-hover-text-teal"></i></div>

@@ -56,7 +56,7 @@ $(document).ready(function() {
 		//alert("클릭");
 		$(".a_click1").css("color","grey");
 		$(".a_click2").css("color","black");
-		("#contents").load("");
+		$("#contents").load("user/userDelete.jsp");
 
 	});
 	

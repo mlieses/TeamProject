@@ -27,6 +27,10 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <title>공간 리뷰 확인</title>
 
+<!-- bxslider -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 
 <style type="text/css">
 #whole{
@@ -48,11 +52,25 @@ body{
 	color:grey;
 }
 
+.bx-wrapper{
+	margin-left: 45%;
+	border: 0;
+}
 
 </style>
 
 <script type="text/javascript">
-
+  
+$(function(){
+	  $('.spaceList').bxSlider({
+	    mode: 'horizontal',
+	    slideWidth: 100,
+	    minSlides: 1,
+	    maxSlides: 5,
+	    pager: false
+	  });
+	});
+  
 
 </script>
 
@@ -68,6 +86,7 @@ body{
 		<!-- 그래프 -->
 	  	<div class="w3-container w3-quarter" style="border: 1px solid black">
 	  		<h2>여기1</h2>
+	  		
 	  	</div>
 	  	
 	  	
@@ -75,34 +94,35 @@ body{
 	  	<div class="w3-container w3-threequarter" style="border: 1px solid blue">
 	  		<h2>여기2</h2>
 	  		
-	  		<!-- 공간 정보 뿌리기 -->
-	  		<div class="w3-row-padding" style="height: 10%; border: 1px solid yellow">
-	  			<div class="w3-col" style="width: 35%; text-align: right"><i class="fa fa-caret-left" aria-hidden="true"></i></div>
+	  		 		
+	  		
+	  		<!-- 공간 정보 뿌리기1 -->
+	  		<div class="spaceList" ">
+	  			<div style=" text-align: center;">
+		  			<img src="img/room01.jpg" class="w3-circle" name="spacePic" style="width:80px; height:80px; margin:0 auto;">
+		  			<small>공간 이름1</small>
+	  			</div>
+	  			<div style=" text-align: center;">
+		  			<img src="img/room01.jpg" class="w3-circle" name="spacePic" style="width:80px; height:80px; margin:0 auto;">
+		  			<small>공간 이름2</small>
+	  			</div>
+	  			<div style="text-align: center;">
+		  			<img src="img/room01.jpg" class="w3-circle" name="spacePic" style="width:80px; height:80px; margin:0 auto;">
+		  			<small>공간 이름3</small>
+	  			</div>
+	  			<div style=" text-align: center;">
+		  			<img src="img/room01.jpg" class="w3-circle" name="spacePic" style="width:80px; height:80px; margin:0 auto;">
+		  			<small>공간 이름4</small>
+	  			</div>
+	  			<div style="text-align: center;">
+		  			<img src="img/room01.jpg" class="w3-circle" name="spacePic" style="width:80px; height:80px; margin:0 auto;">
+		  			<small>공간 이름5</small>
+	  			</div>
 	  			
-	  			<div class="w3-col" style="width: 12%; text-align: center;">
-		  			<img src="../img/room01.jpg" class="w3-circle" name="spacePic" style="width:80px; height:80px;"><br/>
-		  			<small>공간 이름</small>
-	  			</div>
-	  			<div class="w3-col" style="width: 12%; text-align: center;">
-		  			<img src="../img/room01.jpg" class="w3-circle" name="spacePic" style="width:80px; height:80px;"><br/>
-		  			<small>공간 이름</small>
-	  			</div>
-	  			<div class="w3-col" style="width: 12%; text-align: center;">
-		  			<img src="../img/room01.jpg" class="w3-circle" name="spacePic" style="width:80px; height:80px;"><br/>
-		  			<small>공간 이름</small>
-	  			</div>
-	  			<div class="w3-col" style="width: 12%; text-align: center;">
-		  			<img src="../img/room01.jpg" class="w3-circle" name="spacePic" style="width:80px; height:80px;"><br/>
-		  			<small>공간 이름</small>
-	  			</div>
-	  			<div class="w3-col" style="width: 12%; text-align: center;">
-		  			<img src="../img/room01.jpg" class="w3-circle" name="spacePic" style="width:80px; height:80px;"><br/>
-		  			<small>공간 이름</small>
-	  			</div>
 	  			
-	  			
-	  			<div class="w3-col" style="width: 5%; text-align: left"><i class="fa fa-caret-right" aria-hidden="true"></i></div>
-	  		</div>
+	  		</div><!-- 공간 정보 뿌리기1 end-->
+	  		
+	  		
 	  
 	  
 	  	</div>
@@ -112,7 +132,7 @@ body{
 </div>
 </body>
 <div class="w3-cell-bottom" style="padding-bottom: 0px;">
-<jsp:include page="../Footer.jsp" flush="false"/>
+<%-- <jsp:include page="../Footer.jsp" flush="false"/> --%>
 </div>
 
 </html>

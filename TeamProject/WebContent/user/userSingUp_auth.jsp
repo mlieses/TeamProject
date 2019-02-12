@@ -140,6 +140,8 @@ $(document).ready(function(){
 		<div class="w3-row w3-margin-bottom"></div>
 		<div class="w3-row w3-margin-bottom"></div>
 	</div>
-	
+	<!-- 푸터 영역 -->
+	<jsp:include page="../Footer.jsp"/>
+	<!-- 푸터 영역 -->
 </body>
 </html>
