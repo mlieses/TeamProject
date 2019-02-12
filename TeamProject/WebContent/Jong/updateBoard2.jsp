@@ -94,6 +94,42 @@
     	
     }
 
+    function optionShow(value) {
+		
+		if(value ==1)
+		  {document.getElementById("parkingB").style.visibility = "visible";}
+		else if(value == 2)
+		  {document.getElementById("wifiB").style.visibility = "visible";}
+		else if(value == 3)
+		  {document.getElementById("projectorB").style.visibility = "visible";}
+		else if(value == 4)
+		  {document.getElementById("laptopB").style.visibility = "visible";}
+		else if(value == 5)
+		  {document.getElementById("cabinetB").style.visibility = "visible";}
+				
+	}
+	
+	function optionHide(value) {
+		
+		if(value ==1)
+		  {document.getElementById("parkingB").style.visibility = "hidden";
+		   document.getElementById("parkingB").value ="0";} // hidden 후 , multiparameter 때문에 디폴트 값 0
+		else if(value == 2)
+		  {document.getElementById("wifiB").style.visibility = "hidden";
+		   document.getElementById("wifiB").value ="0"; }
+		else if(value == 3)
+		  {document.getElementById("projectorB").style.visibility = "hidden";
+		   document.getElementById("projectorB").value ="0";}
+		else if(value == 4)
+		  {document.getElementById("laptopB").style.visibility = "hidden";
+		   document.getElementById("laptopB").value ="0";}
+		else if(value == 5)
+		  {document.getElementById("cabinetB").style.visibility = "hidden";
+		   document.getElementById("cabinetB").value ="0";}
+		
+	}
+    
+    
 
 
     function add_row() {
@@ -283,14 +319,16 @@
   </div>
   
   <div class="row">
-     <div class="col-10"></div>
+  	<div style="color: red; font-weight: bold;"> [유료옵션] </div>  	  	
     <div class="col-20">
     	 <div class="col-50">
         	<i class="fa fa-car"></i><b><label>주차</label></b>
          </div><br><br><br>
           <div class="col-50">
-		      <input type="radio" name="parking"  value=1 <%if(dto.getParking() == 1){%>checked<%}%>>있음        
-	          <input type="radio" name="parking"  value=2 <%if(dto.getParking() == 2){%>checked<%}%>>없음
+		      <input type="radio" name="parking"  value=1	onclick="optionShow(1)"  <%if(dto.getParking() == 1 || dto.getParking() >2){%>checked<%}%>>있음        
+	          <input type="radio" name="parking"  value=2   onclick="optionHide(1)" <%if(dto.getParking() == 2){%>checked<%}%>>없음
+			  <input type="text"  name="parkingB" id="parkingB"  placeholder="가격입력"   
+			  <%if(dto.getParking() > 2){%>value="<%=dto.getParking()%>"<%}else{%> style="visibility: hidden;" value="0"<%}%>>          
           </div>
     </div>
     <div class="col-20">
@@ -298,33 +336,51 @@
        <i class="fa fa-wifi"></i><b><label>WIFI</label></b>
      </div><br><br><br>
      <div class="col-50">       
-		<input type="radio" name="wifi"  value=1 <%if(dto.getWifi() == 1){%>checked<%}%>>있음        
-        <input type="radio" name="wifi"  value=2 <%if(dto.getWifi() == 2){%>checked<%}%>>없음
+		<input type="radio" name="wifi"  value=1 onclick="optionShow(2)" <%if(dto.getWifi() == 1 || dto.getWifi() > 2){%>checked<%}%>>있음        
+        <input type="radio" name="wifi"  value=2 onclick="optionHide(2)" <%if(dto.getWifi() == 2){%>checked<%}%>>없음
+		<input type="text"  name="wifiB" id="wifiB"  placeholder="가격입력"   
+			  <%if(dto.getWifi() > 2){%>value="<%=dto.getWifi()%>"<%}else{%> style="visibility: hidden;" value="0"<%}%>>                   
      </div>
     </div>
-    <div class="col-20">
-     <div class="col-50">
-        <i class="	fas fa-toilet"></i><b><label>화장실</label></b>
-     </div> <br><br><br>
-      <div class="col-50">
-        <input type="radio" name="toilet"  value=1 <%if(dto.getToilet() == 1){%>checked<%}%>>있음        
-        <input type="radio" name="toilet"  value=2 <%if(dto.getToilet() == 2){%>checked<%}%>>없음
-      </div>
-    </div>
-    <div class="col-20">
-     <div class="col-50">
-         <i class="fas fa-mug-hot"></i><b><label>음료</label></b>
-     </div><br><br><br>
-     <div class="col-50">
-        <input type="radio" name="drink"  value=1 <%if(dto.getDrink() == 1){%>checked<%}%>>있음        
-        <input type="radio" name="drink"  value=2 <%if(dto.getDrink() == 2){%>checked<%}%>>없음
-     </div>
-    </div>        
-       
+    
+     <div class="col-20">
+	     <div class="col-50">
+	       <i class="fab fa-first-order-alt"></i><b><label>프로젝트 빔</label></b>
+	     </div><br><br><br>
+	     <div class="col-50">
+	       <input type="radio" name="projector"  value=1  onclick="optionShow(3)"<%if(dto.getProjector() == 1 || dto.getProjector() > 2){%>checked<%}%>>있음        
+	       <input type="radio" name="projector"  value=2  onclick="optionHide(3)"<%if(dto.getProjector() == 2){%>checked<%}%>>없음
+		   <input type="text"  name="projectorB" id="projectorB"  placeholder="가격입력"   
+			  <%if(dto.getProjector() > 2){%>value="<%=dto.getProjector()%>"<%}else{%> style="visibility: hidden;" value="0"<%}%>>          	        	       
+	     </div>
+	    </div>
+	    <div class="col-20">
+	     <div class="col-50">
+	     <i class="	fas fa-tv"></i><b>  <label>컴퓨터</label></b>
+	     </div><br><br><br>
+	      <div class="col-50">   
+	       <input type="radio" name="laptop"  value=1  onclick="optionShow(4)"<%if(dto.getLaptop() == 1 || dto.getLaptop() > 2){%>checked<%}%>>있음        
+	       <input type="radio" name="laptop"  value=2  onclick="optionHide(4)"<%if(dto.getLaptop() == 2){%>checked<%}%>>없음
+	        <input type="text"  name="laptopB" id="laptopB"  placeholder="가격입력"   
+			  <%if(dto.getLaptop() > 2){%>value="<%=dto.getLaptop()%>"<%}else{%> style="visibility: hidden;" value="0"<%}%>>          
+	      </div>
+	    </div>
+	    <div class="col-20">
+	     <div class="col-50">
+	       <i class="fas fa-box-open"></i><b> <label>캐비넷</label></b>
+	     </div><br><br><br>
+	      <div class="col-50">   
+	        <input type="radio" name="cabinet"  value=1 onclick="optionShow(5)" <%if(dto.getCabinet() == 1 || dto.getCabinet() > 2){%>checked<%}%>>있음        
+	        <input type="radio" name="cabinet"  value=2 onclick="optionHide(5)"<%if(dto.getCabinet() == 2){%>checked<%}%>>없음
+	        <input type="text"  name="cabinetB" id="cabinetB"  placeholder="가격입력"   
+			  <%if(dto.getCabinet() > 2){%>value="<%=dto.getCabinet()%>"<%}else{%> style="visibility: hidden;" value="0"<%}%>>          
+	      </div>
+	    </div>       
   </div> 
   
    <div class="row">
-	     <div class="col-10"></div>
+  	 	<div style="color: green; font-weight: bold;"> [무료옵션]  </div>
+  
 	    <div class="col-20">
 	     <div class="col-50">
 	        <i class="	fas fa-wind"></i><b><label>에어컨</label></b>
@@ -360,42 +416,34 @@
 	        <input type="radio" name="socket"  value=1 <%if(dto.getSocket() == 1){%>checked<%}%>>있음        
 	        <input type="radio" name="socket"  value=2 <%if(dto.getSocket() == 2){%>checked<%}%>>없음
 	      </div>
-	    </div>   
+	    </div>  
+	    
+	     <div class="col-20">
+     <div class="col-50">
+        <i class="	fas fa-toilet"></i><b><label>화장실</label></b>
+     </div> <br><br><br>
+      <div class="col-50">
+        <input type="radio" name="toilet"  value=1 <%if(dto.getToilet() == 1){%>checked<%}%>>있음        
+        <input type="radio" name="toilet"  value=2 <%if(dto.getToilet() == 2){%>checked<%}%>>없음
+      </div>
+    </div> 
 	         
 	  </div> 
 	  
 	  <div class="row">
-	    <div class="col-10"></div>
 	    <div class="col-20">
-	     <div class="col-50">
-	       <i class="fab fa-first-order-alt"></i><b><label>프로젝트 빔</label></b>
-	     </div><br><br><br>
-	     <div class="col-50">
-	       <input type="radio" name="projector"  value=1 <%if(dto.getProjector() == 1){%>checked<%}%>>있음        
-	       <input type="radio" name="projector"  value=2 <%if(dto.getProjector() == 2){%>checked<%}%>>없음
-	     </div>
-	    </div>
-	    <div class="col-20">
-	     <div class="col-50">
-	     <i class="	fas fa-tv"></i><b>  <label>컴퓨터</label></b>
-	     </div><br><br><br>
-	      <div class="col-50">   
-	       <input type="radio" name="laptop"  value=1 <%if(dto.getLaptop() == 1){%>checked<%}%>>있음        
-	       <input type="radio" name="laptop"  value=2 <%if(dto.getLaptop() == 2){%>checked<%}%>>없음
-	      </div>
-	    </div>
-	    <div class="col-20">
-	     <div class="col-50">
-	       <i class="fas fa-box-open"></i><b> <label>캐비넷</label></b>
-	     </div><br><br><br>
-	      <div class="col-50">   
-	        <input type="radio" name="cabinet"  value=1 <%if(dto.getCabinet() == 1){%>checked<%}%>>있음        
-	        <input type="radio" name="cabinet"  value=2 <%if(dto.getCabinet() == 2){%>checked<%}%>>없음
-	      </div>
-	    </div>
+     <div class="col-50">
+         <i class="fas fa-mug-hot"></i><b><label>음료</label></b>
+     </div><br><br><br>
+     <div class="col-50">
+        <input type="radio" name="drink"  value=1 <%if(dto.getDrink() == 1){%>checked<%}%>>있음        
+        <input type="radio" name="drink"  value=2 <%if(dto.getDrink() == 2){%>checked<%}%>>없음
+     </div>
+    </div>   
 	    
-	      <div class="col-20">
-	    	</div>
+	      <div class="col-20"></div>
+	      <div class="col-20"></div>
+	      <div class="col-20"></div>
 	   
 	    <div class="col-20">
 	    	<input type="text" placeholder="옵션 " name="etc">&nbsp;<span id="option">그 외 옵션을 적어주세요.</span>

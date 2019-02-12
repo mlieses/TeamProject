@@ -83,6 +83,12 @@ public class updateBoardController2 extends HttpServlet {
 		int cabinet = 0;
 		int projector = 0;
 		int laptop = 0;
+		int parkingPrice = 0;
+		int wifiPrice = 0;
+		int cabinetPrice = 0;
+		int projectorPrice = 0;		
+		int laptopPrice = 0 ;
+
 
 
 		try {
@@ -119,6 +125,25 @@ public class updateBoardController2 extends HttpServlet {
 			projector = Integer.parseInt(multi.getParameter("projector"));
 			laptop = Integer.parseInt(multi.getParameter("laptop"));
 			cabinet = Integer.parseInt(multi.getParameter("cabinet"));
+			
+			parkingPrice = Integer.parseInt(multi.getParameter("parkingB"));
+			wifiPrice = Integer.parseInt(multi.getParameter("wifiB"));
+			cabinetPrice = Integer.parseInt(multi.getParameter("cabinetB"));
+			projectorPrice = Integer.parseInt(multi.getParameter("projectorB"));
+			laptopPrice = Integer.parseInt(multi.getParameter("laptopB"));
+			
+			
+
+			if(parking == 1)
+			{parking = parkingPrice;}
+			if(wifi == 1)
+			{wifi = wifiPrice;}
+			if(projector == 1)
+			{projector = projectorPrice;}
+			if(cabinet ==1)
+			{cabinet = cabinetPrice;}
+			if(laptop == 1)
+			{laptop = laptopPrice;}
 			
 			
 

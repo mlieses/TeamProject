@@ -65,7 +65,9 @@ public class insertBoardController extends HttpServlet {
 		int weekday = 0;
 		int holiday = 0;
 		int parking = 0;
+		int parkingPrice = 0;
 		int wifi = 0; 
+		int wifiPrice = 0;
 		int toilet = 0;
 		int drink = 0;
 		int airconditioner = 0;
@@ -73,8 +75,11 @@ public class insertBoardController extends HttpServlet {
 		int heating =0;
 		int socket = 0;
 		int cabinet = 0;
+		int cabinetPrice = 0;
 		int projector = 0;
+		int projectorPrice = 0;		
 		int laptop = 0;
+		int laptopPrice = 0 ;
 
 
 		try {
@@ -110,9 +115,26 @@ public class insertBoardController extends HttpServlet {
 			projector = Integer.parseInt(multi.getParameter("projector"));
 			laptop = Integer.parseInt(multi.getParameter("laptop"));
 			cabinet = Integer.parseInt(multi.getParameter("cabinet"));
+					
+			
+			parkingPrice = Integer.parseInt(multi.getParameter("parkingB"));
+			wifiPrice = Integer.parseInt(multi.getParameter("wifiB"));
+			cabinetPrice = Integer.parseInt(multi.getParameter("cabinetB"));
+			projectorPrice = Integer.parseInt(multi.getParameter("projectorB"));
+			laptopPrice = Integer.parseInt(multi.getParameter("laptopB"));
 
-
-								
+			if(parking == 1)
+			{parking = parkingPrice;}
+			if(wifi == 1)
+			{wifi = wifiPrice;}
+			if(projector == 1)
+			{projector = projectorPrice;}
+			if(cabinet ==1)
+			{cabinet = cabinetPrice;}
+			if(laptop == 1)
+			{laptop = laptopPrice;}
+			
+				
 			while(formNames.hasMoreElements()){
 				
 				String formName = (String) formNames.nextElement(); 
@@ -205,8 +227,8 @@ public class insertBoardController extends HttpServlet {
 			
 
 		} catch (Exception e) {
-/* 			
-*/			} //catch		
+		System.out.println("insertboardController에서 오류" + e);
+			} //catch		
 
 	
 	}
