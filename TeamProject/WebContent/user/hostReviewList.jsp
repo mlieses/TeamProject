@@ -52,13 +52,25 @@ body{
 	color:grey;
 }
 
+.bx-wrapper{
+	margin-left: 45%;
+	border: 0;
+}
 
 </style>
 
 <script type="text/javascript">
-$(document).ready(function(){
-    $('.slider').bxSlider();
-  });
+  
+$(function(){
+	  $('.spaceList').bxSlider({
+	    mode: 'horizontal',
+	    slideWidth: 100,
+	    minSlides: 1,
+	    maxSlides: 5,
+	    pager: false
+	  });
+	});
+  
 
 </script>
 
@@ -74,10 +86,7 @@ $(document).ready(function(){
 		<!-- 그래프 -->
 	  	<div class="w3-container w3-quarter" style="border: 1px solid black">
 	  		<h2>여기1</h2>
-	  		 <div class="slider">
-    			<div>I am a slide.</div>
-    			<div>I am another slide.</div>
-  			</div>
+	  		
 	  	</div>
 	  	
 	  	
@@ -85,34 +94,35 @@ $(document).ready(function(){
 	  	<div class="w3-container w3-threequarter" style="border: 1px solid blue">
 	  		<h2>여기2</h2>
 	  		
-	  		<!-- 공간 정보 뿌리기 -->
-	  		<div class="w3-row-padding" style="height: 10%; border: 1px solid yellow">
-	  			<div class="w3-col" style="width: 35%; text-align: right"><i class="fa fa-caret-left" aria-hidden="true"></i></div>
+	  		 		
+	  		
+	  		<!-- 공간 정보 뿌리기1 -->
+	  		<div class="spaceList" ">
+	  			<div style=" text-align: center;">
+		  			<img src="img/room01.jpg" class="w3-circle" name="spacePic" style="width:80px; height:80px; margin:0 auto;">
+		  			<small>공간 이름1</small>
+	  			</div>
+	  			<div style=" text-align: center;">
+		  			<img src="img/room01.jpg" class="w3-circle" name="spacePic" style="width:80px; height:80px; margin:0 auto;">
+		  			<small>공간 이름2</small>
+	  			</div>
+	  			<div style="text-align: center;">
+		  			<img src="img/room01.jpg" class="w3-circle" name="spacePic" style="width:80px; height:80px; margin:0 auto;">
+		  			<small>공간 이름3</small>
+	  			</div>
+	  			<div style=" text-align: center;">
+		  			<img src="img/room01.jpg" class="w3-circle" name="spacePic" style="width:80px; height:80px; margin:0 auto;">
+		  			<small>공간 이름4</small>
+	  			</div>
+	  			<div style="text-align: center;">
+		  			<img src="img/room01.jpg" class="w3-circle" name="spacePic" style="width:80px; height:80px; margin:0 auto;">
+		  			<small>공간 이름5</small>
+	  			</div>
 	  			
-	  			<div class="w3-col" style="width: 12%; text-align: center;">
-		  			<img src="../img/room01.jpg" class="w3-circle" name="spacePic" style="width:80px; height:80px;"><br/>
-		  			<small>공간 이름</small>
-	  			</div>
-	  			<div class="w3-col" style="width: 12%; text-align: center;">
-		  			<img src="../img/room01.jpg" class="w3-circle" name="spacePic" style="width:80px; height:80px;"><br/>
-		  			<small>공간 이름</small>
-	  			</div>
-	  			<div class="w3-col" style="width: 12%; text-align: center;">
-		  			<img src="../img/room01.jpg" class="w3-circle" name="spacePic" style="width:80px; height:80px;"><br/>
-		  			<small>공간 이름</small>
-	  			</div>
-	  			<div class="w3-col" style="width: 12%; text-align: center;">
-		  			<img src="../img/room01.jpg" class="w3-circle" name="spacePic" style="width:80px; height:80px;"><br/>
-		  			<small>공간 이름</small>
-	  			</div>
-	  			<div class="w3-col" style="width: 12%; text-align: center;">
-		  			<img src="../img/room01.jpg" class="w3-circle" name="spacePic" style="width:80px; height:80px;"><br/>
-		  			<small>공간 이름</small>
-	  			</div>
 	  			
-	  			
-	  			<div class="w3-col" style="width: 5%; text-align: left"><i class="fa fa-caret-right" aria-hidden="true"></i></div>
-	  		</div>
+	  		</div><!-- 공간 정보 뿌리기1 end-->
+	  		
+	  		
 	  
 	  
 	  	</div>
