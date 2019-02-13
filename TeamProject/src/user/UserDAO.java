@@ -546,6 +546,34 @@ public class UserDAO {
 		
 		return 0;
 	}// userDelete() 끝
+
+	public int hostDelete(String host_id) {
+		
+		try {
+			
+			con = ds.getConnection();
+			
+			String sql = "DELETE FROM host WHERE host_id=?";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, host_id);
+			
+			int result = pstmt.executeUpdate();
+			
+			return result;
+			
+		} catch (Exception e) {
+			System.out.println("hostDelete() 메서드에서 "+e);
+		} finally{
+			freeResource();
+		}
+		
+		
+		
+		return 0;
+	}
+
 	
 	
 	

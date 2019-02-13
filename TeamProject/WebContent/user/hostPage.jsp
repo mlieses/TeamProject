@@ -47,16 +47,7 @@
 <script type="text/javascript">
 $(document).ready(function() {	
 		$(".a_click1").css("color","black");
-		$("#contents").load("user/hostProfileUpdate.jsp");
-		/* 
-		// home에서 공간관리 누르면 파라메타값으로 1을 넘겨받고 맞을시 클릭2번 선택한것처럼 보임.
-		if($("#MyPage").attr('value') == 1)
-		{$(".a_click1").css("color","grey");
-		$(".a_click2").css("color","black");
-		$(".a_click3").css("color","grey");
-		$(".a_click4").css("color","grey");	
-		$(".a_click5").css("color","grey");
-		$("#contents").load("../detailPageController.do?a=7");} */
+		$("#contents").load("user/hostProfileUpdate.jsp");		
 		
 	$(".a_click1").click(function(){
 		//alert("클릭");
@@ -69,8 +60,7 @@ $(document).ready(function() {
 		//alert("클릭");
 		$(".a_click1").css("color","grey");
 		$(".a_click2").css("color","black");
-		$("#contents").load("");
-		/* $("#contents").load("../detailPageController.do?a=7"); */
+		$("#contents").load("user/hostDelete.jsp");	
 
 	});
 		
