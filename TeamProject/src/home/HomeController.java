@@ -32,15 +32,18 @@ public class HomeController extends HttpServlet {
 		
 		Vector<homeDTO> popularV = new Vector<homeDTO>();
 		Vector<homeDTO> recommendV = new Vector<homeDTO>();
+		// 공지사항 
 		ArrayList<NoticeDTO> noticeArr = new ArrayList<NoticeDTO>();		
 		
 		popularV = dao.popularSpace();
 		recommendV = dao.RecommendSpace();
+		// 공지사항 
 		noticeArr = dao.noticeSelect();
 		
 		request.setAttribute("popularV", popularV);
 		request.setAttribute("recommendV", recommendV);
-		request.setAttribute("noticeArr", noticeArr);
+		// 공지사항 
+		request.setAttribute("noticeArr", noticeArr);		
 		
 		RequestDispatcher dis = request.getRequestDispatcher("home.jsp");
 		dis.forward(request, response);

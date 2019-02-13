@@ -167,6 +167,11 @@ letter-spacing: 1px;
  
 }
 
+.div_subject{
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  white-space: nowrap;  
+}
 </style>
 
 
@@ -542,25 +547,54 @@ Vector<homeDTO> popV = (Vector<homeDTO>)request.getAttribute("popularV");
   	<div class="w3-col m6">
   		<!-- Project Section 공지사항-->
 	    <div class="w3-container w3-padding-32" id="projects">
-	      <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">공지사항</h3>
-	    </div>  
-  	 	<div class="w3-row" style="margin-bottom: 10px;">
-  	 		<div class="w3-col m3" align="center">
-  	 			<small>[SS share space]</small>
-  	 		</div>
-  	 		<div class="w3-col m6">
-  	 			<a href="#">&nbsp;&nbsp;&nbsp;&nbsp;서버 이전작업</a>
-  	 		</div>
-  	 		<div class="w3-col m3" align="center">
-  	 			<small>2019-02-03</small>
-  	 		</div>  	 		
-  	 	</div>  	 		 	
+	    	<div class="w3-row w3-border-bottom w3-border-light-grey w3-padding-16">	    			      
+	    		<div class="w3-col m10">
+	    			<h3>공지사항</h3>
+	    		</div>
+	    		<div class="w3-col m2" style="padding: 17px;">	
+	    			<small><a href="">+ 더보기</a></small>
+				</div>   				    		 		
+	      	</div>
+	    </div>
+	    <!-- 공지사항 유무 -->
+	    <c:choose>  
+		    <c:when test="${noticeArr eq null}">
+		  	 	<div class="w3-row" style="margin-bottom: 10px;">
+		  	 		<div class="w3-col m3" align="center">
+		  	 			<small>[SS share space]</small>
+		  	 		</div>
+		  	 		<div class="w3-col m6">
+		  	 			<a href="#">&nbsp;&nbsp;&nbsp;&nbsp;공지사항이 존재 하지 않습니다.</a>
+		  	 		</div>
+		  	 		<div class="w3-col m3" align="center">
+		  	 			<small>2019-02-03</small>
+		  	 		</div>  	 		
+		  	 	</div>
+	  	 	</c:when>
+	  	 	<c:otherwise>
+	  	 		<c:forEach var="i" begin="0" end="${noticeArr.size()-1}" step="1" >
+			  	 	<div class="w3-row" style="margin-bottom: 10px;">
+			  	 		<div class="w3-col m3" align="center">
+			  	 			<small>[SS share space]</small>
+			  	 		</div>
+			  	 		<div class="w3-col m6 div_subject">
+			  	 			<a href="#">&nbsp;&nbsp;&nbsp;&nbsp;${noticeArr.get(i).notice_subject}</a>
+			  	 		</div>
+			  	 		<div class="w3-col m3" align="center">
+			  	 			<small>${noticeArr.get(i).notice_date}</small>
+			  	 		</div>  	 		
+			  	 	</div>
+			  	 </c:forEach>
+	  		</c:otherwise>
+  	</c:choose> 	  	 		 	
   	</div>
   	<!-- Slideshow -->
 	<div class="w3-col m6">
 	 <!-- Project Section 이벤트-->
 	 <div class="w3-container w3-padding-32" id="projects">
-	   <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">이벤트</h3>
+	 	<div class="w3-row w3-border-bottom w3-border-light-grey w3-padding-16">
+	 	  <h3>이벤트</h3>
+	 	</div> 
 	 </div>  
 	  <div class="w3-container">
 	    <div class="w3-display-container mySlides">

@@ -7,7 +7,7 @@ public class NoticeDTO {
     private String admin; 
     private String notice_subject; 
     private String notice_content; 
-    private Timestamp notice_date; 
+    private String notice_date; 
     private int notice_hit;
     
     // setter, getter
@@ -35,10 +35,10 @@ public class NoticeDTO {
 	public void setNotice_content(String notice_content) {
 		this.notice_content = notice_content;
 	}
-	public Timestamp getNotice_date() {
+	public String getNotice_date() {
 		return notice_date;
 	}
-	public void setNotice_date(Timestamp notice_date) {
+	public void setNotice_date(String notice_date) {
 		this.notice_date = notice_date;
 	}
 	public int getNotice_hit() {
