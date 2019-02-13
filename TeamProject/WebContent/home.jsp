@@ -598,19 +598,19 @@ Vector<homeDTO> popV = (Vector<homeDTO>)request.getAttribute("popularV");
 	 </div>  
 	  <div class="w3-container">
 	    <div class="w3-display-container mySlides">
-	      <a href="./Event.do"><img src="event/mainevent1.jpg" style="width:100%; height:50%;"></a>
+	      <a href="./Event.do"><img src="event/mainevent1.jpg" style="width:100%; height:270px;"></a>
 	      <div class="w3-display-topleft w3-container w3-padding-32">
 	        <!-- <span class="w3-white w3-padding-large 3-animate-bottom" style="opacity:0.8">Lorem ipsum</span> -->
 	      </div>
 	    </div>
 	    <div class="w3-display-container mySlides">
-	      <a href="./Event.do"><img src="event/mainevent2.jpg" style="width:100%; height:50%;"></a>
+	      <a href="./Event.do"><img src="event/mainevent2.jpg" style="width:100%; height:270px;"></a>
 	      <div class="w3-display-middle w3-container w3-padding-32" >
 	        <!-- <span class="w3-white w3-padding-large w3-animate-bottom" style="opacity:0.8">Klorim tipsum</span> -->
 	      </div>
 	    </div>
 	    <div class="w3-display-container mySlides">
-	      <a href="./Event.do"><img src="img/event02.jpg" style="width:100%; height:50%;"></a>
+	      <a href="./Event.do"><img src="img/event02.jpg" style="width:100%; height:270px;"></a>
 	      <div class="w3-display-topright w3-container w3-padding-32" style="opacity:0.8">
 	        <!-- <span class="w3-white w3-padding-large w3-animate-bottom">Blorum pipsum</span> -->
 	      </div>
