@@ -19,9 +19,16 @@ public class Event extends HttpServlet {
 	}
 	
 	protected void doPro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dis = request.getRequestDispatcher("event/event.jsp");
+		String flag = request.getParameter("flag");
+		String forward_page = "event/event.jsp";
+		System.out.println("flag : "+flag);		
+		
+		if(flag !=null){
+			forward_page = "event/ePage1.jsp";
+		}
+		RequestDispatcher dis = request.getRequestDispatcher(forward_page);
 		dis.forward(request, response);
-	
+		
 	}
 
 
