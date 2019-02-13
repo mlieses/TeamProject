@@ -552,7 +552,7 @@ Vector<homeDTO> popV = (Vector<homeDTO>)request.getAttribute("popularV");
 	    			<h3>공지사항</h3>
 	    		</div>
 	    		<div class="w3-col m2" style="padding: 17px;">	
-	    			<small><a href="">+ 더보기</a></small>
+	    			<small><a href="ReBoardListController.do">+ 더보기</a></small>
 				</div>   				    		 		
 	      	</div>
 	    </div>
