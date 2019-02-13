@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.naming.Context;
@@ -179,6 +180,41 @@ public class homeDAO {
 				
 				return recommendV;
 			}
+			
+			// 홈 화면 공지사항 
+			public ArrayList<NoticeDTO> noticeSelect() {
+				
+				ArrayList<NoticeDTO> noticeSelect = new ArrayList<NoticeDTO>();
+				NoticeDTO ndto = new NoticeDTO();
+				
+				try {
+					
+					con = ds.getConnection();
+					
+					String sql = "SELECT * FROM notice";
+					
+					rs = pstmt.executeQuery();
+					
+					while(rs.next()){
+						
+						ndto.setNotice_no(rs.getInt("notice_no"));
+						ndto.setAdmin(rs.getString("admin"));
+						ndto.setNotice_subject(rs.getString("notice_subject"));
+						ndto.setNotice_content(rs.getString("notice_content"));
+						ndto.setNotice_date(rs.getTimestamp("notice_date"));
+						ndto.setNotice_hit(rs.getInt("notice_hit"));
+						noticeSelect.add(ndto);						
+					}
+					return noticeSelect;
+					
+				} catch (Exception e) {
+					System.out.println("noticeSelect() 메서드에서 "+ e);
+				} finally {
+					freeResource();
+				}				
+				
+				return null;
+			}// noticeSelect() 끝
 			
 
 }

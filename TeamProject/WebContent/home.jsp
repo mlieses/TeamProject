@@ -554,41 +554,7 @@ Vector<homeDTO> popV = (Vector<homeDTO>)request.getAttribute("popularV");
   	 		<div class="w3-col m3" align="center">
   	 			<small>2019-02-03</small>
   	 		</div>  	 		
-  	 	</div>
-  	 	<div class="w3-row" style="margin-bottom: 10px;">
-  	 		<div class="w3-col m3" align="center">
-  	 			<small>[SS share space]</small>
-  	 		</div>
-  	 		<div class="w3-col m6">
-  	 			<a href="#">&nbsp;&nbsp;&nbsp;&nbsp;서버 이전작업</a>
-  	 		</div>
-  	 		<div class="w3-col m3" align="center">
-  	 			<small>2019-02-03</small>
-  	 		</div>  	 		
-  	 	</div>
-  	 	<div class="w3-row" style="margin-bottom: 10px;">
-  	 		<div class="w3-col m3" align="center">
-  	 			<small>[SS share space]</small>
-  	 		</div>
-  	 		<div class="w3-col m6">
-  	 			<a href="#">&nbsp;&nbsp;&nbsp;&nbsp;서버 이전작업</a>
-  	 		</div>
-  	 		<div class="w3-col m3" align="center">
-  	 			<small>2019-02-03</small>
-  	 		</div>  	 		
-  	 	</div>
-  	 	<div class="w3-row" style="margin-bottom: 10px;">
-  	 		<div class="w3-col m3" align="center">
-  	 			<small>[SS share space]</small>
-  	 		</div>
-  	 		<div class="w3-col m6">
-  	 			<a href="#">&nbsp;&nbsp;&nbsp;&nbsp;서버 이전작업</a>
-  	 		</div>
-  	 		<div class="w3-col m3" align="center">
-  	 			<small>2019-02-03</small>
-  	 		</div>  	 		  	 		
-  	 	</div>  
-  	 		 	
+  	 	</div>  	 		 	
   	</div>
   	<!-- Slideshow -->
 	<div class="w3-col m6">
