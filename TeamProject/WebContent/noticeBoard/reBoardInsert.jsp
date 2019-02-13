@@ -78,56 +78,29 @@
 	<center>
 	<p>	
 		<p id="subject" width="1000">NOTICE</p>
-		<table width="1000">
-			<tr>
-				<td width="100"> NO </td>
-				<td> ${notice.notice_no} </td>
-			</tr>
-			<tr>
-				<td width="100"> ADMIN </td>
-				<td> ${notice.admin } </td>
-			</tr>
-			<tr>
-				<td width="100"> DATE </td>
-				<td> ${notice.notice_date} </td>
-			</tr>
-			<tr>
-				<td width="100"> HIT </td>
-				<td> ${notice.notice_hit} </td>
-			</tr>
-			<tr>
-				<td width="100"> SUBJECT </td>
-				<td> ${notice.notice_subject } </td>
-			</tr>
-			<tr>
-				<td width="100"> CONTENT </td>
-				<td> ${notice.notice_content} </td>
-			</tr>
-			<c:if test="${sessionScope.udto.email eq 'admin'}">
-			<tr>
-				<td colspan="2" align="right">
-					<button class="w3-button w3-blue" 
-					onclick="location.href='./ReBoardUpdateController.do?notice_no=${notice.notice_no}'">
-						수정
-					</button>
-					<button class="w3-button w3-blue" onclick="deletebtn()">삭제</button>
-					</form>
-					
-					
-				</td>
-			</tr>
-			</c:if>
-		</table>
+		<form action="../ReBoardInsertController.do" method="post">
+			<table width="1000">
+				<tr>
+					<th width="100"> SUBJECT </th>
+					<td width="900px"><input type="text" name="notice_subject" style="width:100%;"></td>
+				</tr>
+				<tr>
+					<th width="100"> CONTENT </th>
+					<td width="900px"><textarea name="notice_content" rows="25" style="width:100%;"></textarea></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<button class="w3-button w3-blue" type="submit">등록</button>
+						<button class="w3-button w3-blue" type="reset">취소</button>
+					</td>
+				</tr>
+			</table>
+		</form>
 	<p>
+
+	
 </center>
-<script>
-	function deletebtn(){
-		if(confirm("정말 삭제하시겠습니까??")){
-			location.href="./ReBoardDeleteController.do?notice_no=${notice.notice_no}";
-		}else{
-			return;
-		}
-	}
-</script>
+ 
 </body>
 </html>

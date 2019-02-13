@@ -29,6 +29,7 @@ public class ReBoardListController extends HttpServlet {
 			ReBoardDAO bdao = new ReBoardDAO();			
 			// int count =  메서드호출  getBoardCount()   count(*)
 			int count=bdao.getBoardCount();
+			System.out.println("count : "+count);
 			// 게시판 가져오기  2페이지 10개 => 시작행 끝행
 			// 한페이지에 5개 글을 가져오도록 설정
 			int pageSize=10;

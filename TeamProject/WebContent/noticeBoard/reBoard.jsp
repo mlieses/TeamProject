@@ -92,8 +92,8 @@
 			<!-- 게시글이 없을 경우   -->
 			<c:if test="${count <= 0 }">
 					<tr height="60">
-						<td align="center"> 게시글이 없습니다.</td>
-					
+						<td colspan="5" align="center"> 게시글이 없습니다.</td>
+					</tr>
 			</c:if>
 			<!-- 게시글이 1개라도 있을 경우   -->
 			<c:if test="${count > 0}">	
@@ -110,8 +110,12 @@
 			
 				<tr>
 					<td colspan="4"></td>
-					<c:if test="${session.email} == 'admin' }">
-						<td><a href="./ReBoardInsertController.do">글쓰기</a></td>
+					<c:if test="${sessionScope.udto.email eq 'admin'}">
+						<td>
+							<button class="w3-button w3-blue" onclick="location.href='noticeBoard/reBoardInsert.jsp'">
+								글쓰기
+							</button>
+						</td>
 					</c:if>
 				</tr>
 			
