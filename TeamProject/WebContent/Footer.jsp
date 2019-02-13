@@ -76,16 +76,16 @@ p{
 				</div>
 				<div class="w3-col m1"><h6 style="text-align: center;">SNS</h6>
 					<div class="list-group">
-						<a href="${path2 }event/event.jsp"><button class="w3-button w3-round w3-blue-grey">페이스북</button></a>
-						<a href="${path2 }event/event.jsp"><button class="w3-button w3-round w3-blue-grey">인스타</button></a>
-						<a href="${path2 }event/event.jsp"><button class="w3-button w3-round w3-blue-grey">유튜브</button></a>
+						<a href="https://ko-kr.facebook.com/" target="_blank"><button class="w3-button w3-round w3-blue-grey">페이스북</button></a>
+						<a href="https://www.instagram.com/?hl=ko" target="_blank"><button class="w3-button w3-round w3-blue-grey">인스타</button></a>
+						<a href="https://www.youtube.com/" target="_blank"><button class="w3-button w3-round w3-blue-grey">유튜브</button></a>
 					</div>
 				</div>
 				<div class="w3-col m1"><h6 style="text-align: center;">NOTICE</h6>
 					<div class="list-group">
-						<a href="${path2 }footer/notice.jsp"><button class="w3-button w3-round w3-blue-grey">공지사항</button></a>
-						<a href="${path2 }footer/help.jsp"><button class="w3-button w3-round w3-blue-grey">Q&A</button></a>
-						<a href="board.app"><button class="w3-button w3-round w3-blue-grey">커뮤니티</button></a>
+						<a href="#"><button class="w3-button w3-round w3-blue-grey">공지사항</button></a>
+						<a href="#"><button class="w3-button w3-round w3-blue-grey">Q&A</button></a>
+						<a href="#"><button class="w3-button w3-round w3-blue-grey">커뮤니티</button></a>
 					</div>
 				</div>
 			</div> <!-- row -->

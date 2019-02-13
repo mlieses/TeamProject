@@ -234,7 +234,7 @@
 					<div id="cabinet">
 						<img src="https://img.icons8.com/metro/26/000000/filing-cabinet.png">
 						사물함
-					</div>
+					</div>`
 					<div id="parking">
 						<img src="https://img.icons8.com/metro/26/000000/parking.png">
 						주차

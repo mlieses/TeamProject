@@ -23,6 +23,7 @@
 
 
 
+
 <style type="text/css">
 *{
 	box-sizing: border-box;
@@ -291,6 +292,7 @@ function setValue(obj, target){
 
 						DAO dao = new DAO();
 						Vector<SelectDTO> vector = null;
+						Vector<SearchDTO> vector1 = null;
 						
 						if(request.getAttribute("vector") == null){
 							vector = dao.select(1);	
@@ -402,7 +404,7 @@ function setValue(obj, target){
 						
 						else{//고급검색 일때
 							
-							Vector<SearchDTO> vector1 = null;
+							
 							
 							 vector1 = (Vector<SearchDTO>)request.getAttribute("FindV");
 													
@@ -510,7 +512,7 @@ function setValue(obj, target){
 			<div style="width: 50%; position: fixed; right: 0; margin-top: 152px; height:100%">
 					
 					<div id="map" style="width:100%; height:100%;"></div>
-					<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=030fe73ff2f443d44661c605e8a0667f"></script>
+					<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8b1dfa990d9dfd48543e0889cfa06ab9"></script>
 					<script>
 						
 						var container = document.getElementById('map');
@@ -525,12 +527,25 @@ function setValue(obj, target){
 			            // LatLngBounds 객체에 좌표를 추가합니다
 			            var bounds = new daum.maps.LatLngBounds();
 			            
-						<c:forEach var="vec" items="<%=vector%>" begin="0" end="<%=vector.size()%>" step="1">
-
-						displayMarker('${vec.wdo}','${vec.kdo}', '${vec.room_no}', '${vec.subject}');
-						bounds.extend(new daum.maps.LatLng('${vec.wdo}','${vec.kdo}'));
+						<%
+						if(vector1==null){
+						%>
+							<c:forEach var="vec" items="<%=vector%>" begin="0" end="<%=vector.size()%>" step="1">
+								displayMarker('${vec.wdo}','${vec.kdo}', '${vec.room_no}', '${vec.subject}');
+								bounds.extend(new daum.maps.LatLng('${vec.wdo}','${vec.kdo}'));
+							</c:forEach>
 						
-						</c:forEach>
+						<%
+						}else if(vector1!=null){
+						%>
+							<c:forEach var="vec" items="<%=vector1%>" begin="0" end="<%=vector1.size()%>" step="1">
+								displayMarker('${vec.a_wdo}','${vec.a_kdo}', '${vec.room_no}', '${vec.subject}');
+								bounds.extend(new daum.maps.LatLng('${vec.a_wdo}','${vec.a_kdo}'));
+							</c:forEach>
+						<%
+						}
+						%>
+						
 						// 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
 			            map.setBounds(bounds);
 						
