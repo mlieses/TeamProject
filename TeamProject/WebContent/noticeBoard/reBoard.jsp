@@ -39,7 +39,7 @@
 		float: left;}
 		table tr #ctt:HOVER { height: 2px; 
 			background-color: #ffffe6;}
-		center{position: fixed; float: inherit;}
+
 		#subject { width: 1100px; 
 		background-color:white;
 		padding: 10px;
@@ -91,15 +91,13 @@
 			</tr>
 			<!-- 게시글이 없을 경우   -->
 			<c:if test="${count <= 0 }">
-				<table width="1000" bgcolor="#88ffff" border="1">	
 					<tr height="60">
 						<td align="center"> 게시글이 없습니다.</td>
-					</tr>	
-				</table>
+					
 			</c:if>
 			<!-- 게시글이 1개라도 있을 경우   -->
 			<c:if test="${count > 0}">
-				<table width="1000" bgcolor="#88ffff" border="1">
+				
 				<c:forEach var="v" items="${boardList }">
 					<tr height="40">
 						<td>${v.notice_no}</td>
@@ -109,7 +107,7 @@
 						<td>${v.notice_hit}</td>
 					</tr>
 				</c:forEach>
-				</table>
+				
 			</c:if>
 		</table>
 	<p>
