@@ -56,7 +56,7 @@ padding: 0px;
 <jsp:include page="../Top.jsp" flush="false"/>
 
 		
-	<div style="width:70%; margin: auto; margin-top: 55px;">		
+	<div style="width:70%; margin: auto; margin-top: 95px;">		
 		<div>
 			<h1 align="center" style="border: groove; background-color: #cddc39" >공간 관리</h1>
 		</div>
