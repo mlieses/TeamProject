@@ -99,8 +99,8 @@
 			</c:if>
 			<!-- 게시글이 1개라도 있을 경우   -->
 			<c:if test="${count > 0}">
-				<c:forEach var="v" items="${boardList }">
 				<table width="1000" bgcolor="#88ffff" border="1">
+				<c:forEach var="v" items="${boardList }">
 					<tr height="40">
 						<td>${v.notice_no}</td>
 						<td>${v.admin }</td>
@@ -108,8 +108,8 @@
 						<td>${v.notice_date}</td>
 						<td>${v.notice_hit}</td>
 					</tr>
-				</table>
 				</c:forEach>
+				</table>
 			</c:if>
 		</table>
 	<p>
