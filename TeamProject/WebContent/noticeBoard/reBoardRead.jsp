@@ -64,9 +64,7 @@
 	
 </head>
 <body>
-<!-- Navbar 복사4-->
-<!-- jsp:include page="Top.jsp" flush="false"/> -->
-<!-- 복사4종료  -->
+
 
 <!-- 페이지 center-->
 <div class="w3-content w3-padding" style="max-width:1250px">
@@ -82,54 +80,39 @@
 	<p>	
 		<p id="subject" width="1000">NOTICE</p>
 		<table width="1000">
-			<tr height="40">
-				<th width="50"> NO </th>
-				<th width="100"> ADMIN </th>
-				<th width="200"> SUBJECT </th>
-				<th width="100"> DATE </th>
-				<th width="50"> HIT </th>			
+			<tr>
+				<td width="100"> NO </td>
+				<td> ${notice.notice_no} </td>
 			</tr>
-			<!-- 게시글이 없을 경우   -->
-			<c:if test="${count <= 0 }">
-				<table width="1000" bgcolor="#88ffff" border="1">	
-					<tr height="60">
-						<td align="center"> 게시글이 없습니다.</td>
-					</tr>	
-				</table>
-			</c:if>
-			<!-- 게시글이 1개라도 있을 경우   -->
-			<c:if test="${count > 0}">
-				<c:forEach var="v" items="${boardList }">
-					<tr height="40">
-						<td>${v.notice_no}</td>
-						<td>${v.admin }</td>
-						<td><a href="../ReBoardReadController.do?notice_no=${v.notice_no}">${v.notice_subject}</a></td>
-						<td>${v.notice_date}</td>
-						<td>${v.notice_hit}</td>
-					</tr>	 
-				</c:forEach>
-			</c:if>
+			<tr>
+				<td width="100"> ADMIN </td>
+				<td> ${notice.admin } </td>
+			</tr>
+			<tr>
+				<td width="100"> DATE </td>
+				<td> ${notice.notice_date} </td>
+			</tr>
+			<tr>
+				<td width="100"> HIT </td>
+				<td> ${notice.notice_hit} </td>
+			</tr>
+			<tr>
+				<td width="100"> SUBJECT </td>
+				<td> ${notice.notice_subject } </td>
+			</tr>
+			<tr>
+				<td width="100"> CONTENT </td>
+				<td> ${notice.notice_content} </td>
+			</tr>
+			
+				
+				
+				
+			
 		</table>
 	<p>
 
-	<!-- 페이지 카운터링  -->
-	<c:if test="${count >0 }" >
-
-	<!-- 이전이라는 링크를 걸어줄지 파악 -->
-	<c:if test="${startPage > 10 }">
-	<a href="/TeamProject/ReBoardListController.do?pageNum=${startPage-10 }"> [이전] </a>	
-	</c:if>
 	
-	<!-- 페이징 처리 [1] [2] [3] .. -->
-	<c:forEach var="i" begin="${startPage }" end="${endPage }">
-	<a href="../ReBoardListController.do?pageNum=${i}"> [${i}]</a>	
-	</c:forEach>
-	
-	<!-- 다음이라는 링크를 걸어줄지 파악 -->
-	<c:if test="${endPage < pageCount }">
-	<a href="../ReBoardListController.do?pageNum=${startPage+10 }"> [다음] </a>	
-	</c:if>
-	</c:if>	
 </center>
  
 </body>

@@ -12,9 +12,7 @@ public class ReviewDTO {
 	private Date re_date;
 	private int re_point;
 	private String re_content;
-	private String re_host_reply;
-	private Date re_reply_date;
-	
+
 	
 	
 	public int getReview_no() {
@@ -66,18 +64,7 @@ public class ReviewDTO {
 	public void setRe_content(String re_content) {
 		this.re_content = re_content;
 	}
-	public String getRe_host_reply() {
-		return re_host_reply;
-	}
-	public void setRe_host_reply(String re_host_reply) {
-		this.re_host_reply = re_host_reply;
-	}
-	public Date getRe_reply_date() {
-		return re_reply_date;
-	}
-	public void setRe_reply_date(Date re_reply_date) {
-		this.re_reply_date = re_reply_date;
-	}
+	
 	
 
 }

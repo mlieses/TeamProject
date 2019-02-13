@@ -57,23 +57,43 @@
 				<div class="w3-row row-container" id="row-container2">
 					<div class="w3-col m6 w3-center hidden" >
 						<div class="scale" id="img_div2-1">
+							<c:if test="${empty pic.pic2}">
+							<img alt="" src="img/noimage.jpg" id="img2" onclick="big(2)">
+							</c:if>
+							<c:if test="${not empty pic.pic2}">
 							<img alt="" src="upload/${pic.pic2}" id="img2" onclick="big(2)">
+							</c:if>
 						</div>
 					</div>
 					<div class="w3-col m6 w3-center hidden">
 						<div class="scale" id="img_div2-2">
+							<c:if test="${empty pic.pic3}">
+							<img alt="" src="img/noimage.jpg" id="img3" onclick="big(3)">
+							</c:if>
+							<c:if test="${not empty pic.pic3}">
 							<img alt="" src="upload/${pic.pic3}" id="img3" onclick="big(3)">
+							</c:if>
 						</div>
 					</div>
 
 					<div class="w3-col m6 w3-center hidden">
 						<div class="scale" id="img_div2-3">
+							<c:if test="${empty pic.pic4}">
+							<img alt="" src="img/noimage.jpg" id="img4" onclick="big(4)">
+							</c:if>
+							<c:if test="${not empty pic.pic4}">
 							<img alt="" src="upload/${pic.pic4}" id="img4" onclick="big(4)">
+							</c:if>
 						</div>
 					</div>
 					<div class="w3-col m6 w3-center hidden">
 						<div class="scale" id="img_div2-4">
-							<img alt="" src="upload/${pic.pic1}" id="img5" onclick="big(5)">
+							<c:if test="${empty pic.pic5}">
+							<img alt="" src="img/noimage.jpg" id="img5" onclick="big(5)">
+							</c:if>
+							<c:if test="${not empty pic.pic5}">
+							<img alt="" src="upload/${pic.pic5}" id="img5" onclick="big(5)">
+							</c:if>
 						</div>
 					</div>
 				</div>
@@ -266,14 +286,7 @@
 	    	<td>${review.re_point}</td>
 	    	<td>${review.re_content}</td>
 	    	<td>${review.re_date}</td>
-	    	<c:if test="${review.host_reply}!=null">
-	    	<td><img src="https://img.icons8.com/ios/50/000000/forward.png"></td>
-	    	<td>${host.nic}<br>(${host.id})</td>
-	    	<td colspan="2">${review.host_reply}</td>
-	    	<td>${review.reply_date}</td>
-	    	</c:if>
-	    	
-		</tr>
+	    </tr>
     </c:forEach>
     	<tr>
     		<td colspan="5" class="w3-center">
