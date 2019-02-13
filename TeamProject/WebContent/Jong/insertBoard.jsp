@@ -298,7 +298,7 @@ $( function() {
   
   
   <div class="row">
-    <div class="col-100" align="center">
+    <div class="col-100" align="center" style="background-color: #cddc39">
       <b><label style="font-size: 25px; font-style: italic;">공 간 등 록</label></b>
     </div>    
   </div>  
