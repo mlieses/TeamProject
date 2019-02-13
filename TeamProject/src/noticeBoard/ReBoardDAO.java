@@ -70,7 +70,7 @@ public class ReBoardDAO {
 				//1,2 디비연결  메서드호출
 				con = ds.getConnection();
 				//3 sql count(*)
-				sql="select count(*) from hosting";
+				sql="select count(*) from notice";
 				pstmt=con.prepareStatement(sql);
 				//4 rs = 실행 저장
 				rs=pstmt.executeQuery();
@@ -94,10 +94,7 @@ public class ReBoardDAO {
 				//1,2 디비연결
 				con= ds.getConnection();
 				//3 sql 전체 board 글가져오기  
-				//정렬 최근글 맨처음 re_ref내림차순 답글순서 re_seq 오름차순
-				// limit 시작행-1 , 몇개 
-				/*sql="select * from board2 order by re_ref desc, re_seq asc limit ?,?";*/
-				sql = "SELECT * FROM notice order by notice_date limit ?,?";
+				sql = "SELECT * FROM notice order by notice_date desc limit ?,?";
 				pstmt=con.prepareStatement(sql);				
 				pstmt.setInt(1, startRow-1);
 				pstmt.setInt(2, pageSize);
@@ -161,5 +158,58 @@ public class ReBoardDAO {
 				freeResource();
 			}
 			return rb;
+		}
+
+		public void insertNotice(String subject, String content) {
+			try{
+				con = ds.getConnection();
+				String sql = "insert into notice values(0, 'admin', ?, ?, now(), 0) ";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, subject);
+				pstmt.setString(2, content);
+				pstmt.executeUpdate();
+				
+			}catch(Exception e){
+				System.out.println("insertNotice에서 오류"+e);
+			}finally{
+				freeResource();
+			}
+			
+		}
+
+		public ReBoardDTO updateNotice(int notice_no, String subject, String content) {
+			ReBoardDTO rb = new ReBoardDTO();
+			try{
+				con = ds.getConnection();
+				String sql = "update notice set notice_subject=?, notice_content=? where notice_no=? ";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, subject);
+				pstmt.setString(2, content);
+				pstmt.setInt(3, notice_no);
+				pstmt.executeUpdate();
+				
+				freeResource();
+				
+				con = ds.getConnection();
+				sql = "select * from notice where notice_no=? ";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, notice_no);
+				rs = pstmt.executeQuery();
+				if(rs.next()){
+					rb.setNotice_no(rs.getInt(1));
+					rb.setAdmin(rs.getString(2));
+					rb.setNotice_subject(rs.getString(3));
+					rb.setNotice_content(rs.getString(4));
+					rb.setNotice_date(rs.getDate(5));
+					rb.setNotice_hit(rs.getInt(6));
+				}
+				
+				
+			}catch(Exception e){
+				System.out.println("insertNotice에서 오류"+e);
+			}finally{
+				freeResource();
+			}
+		return rb;	
 		}
 }
