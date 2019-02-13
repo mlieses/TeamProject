@@ -100,13 +100,15 @@
 			<!-- 게시글이 1개라도 있을 경우   -->
 			<c:if test="${count > 0}">
 				<c:forEach var="v" items="${boardList }">
+				<table width="1000" bgcolor="#88ffff" border="1">
 					<tr height="40">
 						<td>${v.notice_no}</td>
 						<td>${v.admin }</td>
 						<td><a href="../ReBoardReadController.do?notice_no=${v.notice_no}">${v.notice_subject}</a></td>
 						<td>${v.notice_date}</td>
 						<td>${v.notice_hit}</td>
-					</tr>	 
+					</tr>
+				</table>
 				</c:forEach>
 			</c:if>
 		</table>
