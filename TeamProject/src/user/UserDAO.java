@@ -504,4 +504,49 @@ public class UserDAO {
 		
 		return 0;
 	}
-}
+	
+	// 회원 탈퇴 메서드
+	public int userDelete(String email, String host_check) {
+		// TODO Auto-generated method stub
+		
+		try {
+			
+			con = ds.getConnection();			
+			
+			if(host_check.equals(1)){
+				String sql = "DELETE FROM host WHERE email = ?";
+				
+				pstmt = con.prepareStatement(sql);
+				
+				pstmt.setString(1, email);
+				
+				pstmt.executeUpdate();
+				
+			}
+			
+			
+			String sql = "DELETE FROM user WHERE email = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, email);
+			
+			// 성공하면 row수를 반환, 실패 0
+			int result = pstmt.executeUpdate();
+			
+			return result;
+			
+		} catch (Exception e) {
+			System.out.println("userDelete() 메서드에서 "+ e);
+			
+		} finally {
+			
+			freeResource();
+		}		
+		
+		return 0;
+	}// userDelete() 끝
+	
+	
+	
+}// DAO끝

@@ -16,9 +16,19 @@
 <script type="text/javascript">
 
 	function delete_check(){
-		if(confirm("탈퇴 하시겠습니까?")){
-			document.form_user_delete.submit();				
+		var str = "";
+		if("${sessionScope.udto.host_check}" == 1){
+			str = "호스트회원 등록이 존재 합니다. 호스트 회원 까지 탈퇴 하시겠습니까?";
+			if(confirm(str)){
+				document.form_user_delete.submit();
+			}
+		}else{
+			str = "탈퇴 하시겠습니까?";
+			if(confirm(str)){
+				document.form_user_delete.submit();				
+			}			
 		}
+		
 	}
 	
 	$("#auth_check").click(function(){		
@@ -37,6 +47,7 @@
 <body>
 <form action="./UserDelete.do" method="post" name="form_user_delete">
 	<input type="hidden" name="email" value="${sessionScope.udto.email }">
+	<input type="hidden" name="host_check" value="${sessionScope.udto.host_check }">
 	<div class="w3-row">					
 		<div class="w3-col m8 w3-dark-grey w3-left">
 			<p>&nbsp;&nbsp;&nbsp;<i class="w3-xxlarge fa fa-user"></i>&nbsp;&nbsp;&nbsp;회원 탈퇴</p> 
@@ -66,16 +77,19 @@
 	<div class="w3-row">								
 		<div class="w3-col m8">
 			유의 사항
+			<hr>
 			 <ul>	 			 		
-	 			<li><font color="red">탈퇴 시 30일간 재가입이 불가능</font>하며, 제재 중 탈퇴 시에는 이력에 따라 최대 1년간 재가입이 제한될 수 있습니다.</li>				
+	 			<li><font color="red">탈퇴 시 30일간 재가입이 불가능</font>하며, 제재 중 탈퇴 시에는 이력에 따라 최대 1년간 재가입이 제한될 수 있습니다.</li>
+	 			<li>탈퇴시 만약 호스트회원 등록이 존재할 경우 호스트회원 정보 또한 삭제 됩니다.</li>				
 				<li>회원님께서 작성하신 게시물의 작성자 정보는 탈퇴 시 <font color="red">[*비회원*]으로 자동전환</font> 됩니다.</li> 
 				<li>삭제를 원하는 게시물이 있다면 탈퇴 전 삭제하시기 바랍니다.</li>
 				<li><font color="red">탈퇴 시 보유하신 포인트는 소멸 됩니다.</font> 포인트는 미리 회수 바랍니다.</li>
 				<li>탈퇴 후에는 회원정보가 삭제되어 본인 여부를 확인할 수 있는 방법이 없기 때문에 삭제 요청을 주셔도 임의로 삭제 처리가 불가능 합니다.</li>				
 				<li>탈퇴 후 재가입 시 <font color="red">기존 계정 정보는 복구되지 않습니다.</font></li> 
 				<li>회원탈퇴 후에는 회원정보가 삭제되어 정보가 복구되지 않으니 신중하게 탈퇴를 고려해주시기 바랍니다.</li> 
-				<li>탈퇴 후 재가입 시 회원님께서 사용하시던 아이디를 타인이 선점할 경우 재사용하실 수 없습니다.</li> 				
-			</ul>			
+				<li>탈퇴 후 재가입 시 회원님께서 사용하시던 아이디를 타인이 선점할 경우 재사용하실 수 없습니다.</li>								
+			</ul>
+			<hr>			
 		</div>	
 		<div class="w3-col m4"></div>
 	</div>
@@ -91,7 +105,8 @@
 	</div>
 	<div class="w3-row w3-margin-top" ></div>
 	<div class="w3-row">								
-		<div class="w3-col m8">			
+		<div class="w3-col m8">	
+			<hr>		
 			<input type="button" id="btn_submit" class="w3-button w3-block w3-red" value="탈  퇴" onclick="delete_check()" disabled="disabled">
 		</div>
 		<div class="w3-col m4">
