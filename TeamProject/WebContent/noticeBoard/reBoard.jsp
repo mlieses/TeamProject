@@ -96,19 +96,25 @@
 					
 			</c:if>
 			<!-- 게시글이 1개라도 있을 경우   -->
-			<c:if test="${count > 0}">
-				
+			<c:if test="${count > 0}">	
 				<c:forEach var="v" items="${boardList }">
 					<tr height="40">
 						<td>${v.notice_no}</td>
 						<td>${v.admin }</td>
-						<td><a href="../ReBoardReadController.do?notice_no=${v.notice_no}">${v.notice_subject}</a></td>
+						<td><a href="./ReBoardReadController.do?notice_no=${v.notice_no}">${v.notice_subject}</a></td>
 						<td>${v.notice_date}</td>
 						<td>${v.notice_hit}</td>
 					</tr>
 				</c:forEach>
-				
 			</c:if>
+			
+				<tr>
+					<td colspan="4"></td>
+					<c:if test="${session.email} == 'admin' }">
+						<td><a href="./ReBoardInsertController.do">글쓰기</a></td>
+					</c:if>
+				</tr>
+			
 		</table>
 	<p>
 
@@ -117,17 +123,17 @@
 
 	<!-- 이전이라는 링크를 걸어줄지 파악 -->
 	<c:if test="${startPage > 10 }">
-	<a href="/TeamProject/ReBoardListController.do?pageNum=${startPage-10 }"> [이전] </a>	
+	<a href="./ReBoardListController.do?pageNum=${startPage-10 }"> [이전] </a>	
 	</c:if>
 	
 	<!-- 페이징 처리 [1] [2] [3] .. -->
 	<c:forEach var="i" begin="${startPage }" end="${endPage }">
-	<a href="../ReBoardListController.do?pageNum=${i}"> [${i}]</a>	
+	<a href="./ReBoardListController.do?pageNum=${i}"> [${i}]</a>	
 	</c:forEach>
 	
 	<!-- 다음이라는 링크를 걸어줄지 파악 -->
 	<c:if test="${endPage < pageCount }">
-	<a href="../ReBoardListController.do?pageNum=${startPage+10 }"> [다음] </a>	
+	<a href="./ReBoardListController.do?pageNum=${startPage+10 }"> [다음] </a>	
 	</c:if>
 	</c:if>	
 </center>
