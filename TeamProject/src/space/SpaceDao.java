@@ -145,9 +145,9 @@ public class SpaceDao {
 				hpDto.setPic4(rs.getString("pic4"));
 				hpDto.setPic5(rs.getString("pic5"));
 				list.add(hpDto);
-				
-				
 			}
+			freeResource();
+			
 			con = ds.getConnection();
 			sql="select * "
 			  + "from host "
@@ -318,7 +318,7 @@ public class SpaceDao {
 		 try{
 			 con = ds.getConnection();
 			 String sql = "select r.review_no, r.book_no, r.room_no, "
-			 			+ "u.email, u.name, r.re_date, r.re_point, r.re_content "
+			 			+ "u.email, u.name, r.re_date, r.re_point, r.re_content, r.re_host_reply, r.re_reply_date "
 			 			+ "from review r "
 			 			+ "join user u "
 			 			+ "on r.email = u.email "
@@ -335,9 +335,10 @@ public class SpaceDao {
 				 reviewDto.setEmail(rs.getString(4));
 				 reviewDto.setNic_name(rs.getString(5));
 				 reviewDto.setRe_date(rs.getDate(6));
-				 System.out.println("date : "+rs.getDate(6));
 				 reviewDto.setRe_point(rs.getInt(7));
 				 reviewDto.setRe_content(rs.getString(8));
+				 reviewDto.setRe_host_reply(rs.getString(9));
+				 reviewDto.setRe_reply_date(rs.getDate(10));
 				 
 				 reviewList.add(reviewDto);
 				 

@@ -423,7 +423,7 @@ function setValue(obj, target){
 							<input type="hidden" value="<%=dto1.getReviewPoint()%>" id="RPoint<%=i%>">
 							  
 							<!-- 이미지 클릭시 name = date에 날짜 전송, name=room_no에 방 번호 전송  -->
-							<a href="detailPageController.do?a=8&date<%=request.getParameter("dateValue")%>&room_no=<%=dto.getRoom_no()%>"><img src="upload/<%=dto.getImg1()%>" width="100%" height="200px;"></a></div>
+							<a href="detailPageController.do?a=8&room_no=<%=dto.getRoom_no()%>"><img src="upload/<%=dto.getImg1()%>" width="100%" height="200px;"></a></div>
 						</td>
 						
 						<td width="50%" style="text-align:left; position: relative;">

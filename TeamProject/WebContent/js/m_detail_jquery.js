@@ -46,7 +46,7 @@
 	 $("#datepicker1").datepicker({
 			minDate: 1,
 			maxDate: 7,
-			defaultDate:+2,
+			defaultDate:+1,
 			dateFormat: 'yy-mm-dd D',
 			beforeShowDay: disableAllTheseDays,
 			onSelect: function(date) {
@@ -98,6 +98,7 @@
 			}else if(firstNumber == secondNumber){
 				alert("같은곳");
 				list.splice(0, list.length);
+				$(".t_btn:gt("+(secondNumber-2)+")").removeClass("w3-grey");
 				firstTarget.removeClass("w3-grey");
 				firstTarget=null;
 			}else if(firstNumber > secondNumber){

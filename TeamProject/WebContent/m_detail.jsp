@@ -26,7 +26,7 @@
 </style>
 
 <!-- 카카오 맵 script -->
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=030fe73ff2f443d44661c605e8a0667f"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8b1dfa990d9dfd48543e0889cfa06ab9"></script>
 <!-- jstl -->
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix='fn' %>
@@ -266,6 +266,13 @@
 	    	<td>${review.re_point}</td>
 	    	<td>${review.re_content}</td>
 	    	<td>${review.re_date}</td>
+	    	<c:if test="${review.host_reply}!=null">
+	    	<td><img src="https://img.icons8.com/ios/50/000000/forward.png"></td>
+	    	<td>${host.nic}<br>(${host.id})</td>
+	    	<td colspan="2">${review.host_reply}</td>
+	    	<td>${review.reply_date}</td>
+	    	</c:if>
+	    	
 		</tr>
     </c:forEach>
     	<tr>
