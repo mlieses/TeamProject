@@ -11,8 +11,32 @@
 <link href='https://cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css' rel='stylesheet' type='text/css'>
 <!-- JQuery -->
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<link href="css/recharge.css" rel="stylesheet">
+<style type="text/css"></style> 
+<script type="text/javascript">
+
+	function delete_check(){
+		if(confirm("탈퇴 하시겠습니까?")){
+			document.form_user_delete.submit();				
+		}
+	}
+	
+	$("#auth_check").click(function(){		
+		
+		if($("#auth_check").is(":checked")==true){
+			$("#btn_submit").prop("disabled",false);
+		}else{
+			$("#btn_submit").prop("disabled",true);
+		}
+		
+		
+	});
+
+</script>
 </head>
-<body>	
+<body>
+<form action="./UserDelete.do" method="post" name="form_user_delete">
+	<input type="hidden" name="email" value="${sessionScope.udto.email }">
 	<div class="w3-row">					
 		<div class="w3-col m8 w3-dark-grey w3-left">
 			<p>&nbsp;&nbsp;&nbsp;<i class="w3-xxlarge fa fa-user"></i>&nbsp;&nbsp;&nbsp;회원 탈퇴</p> 
@@ -68,10 +92,11 @@
 	<div class="w3-row w3-margin-top" ></div>
 	<div class="w3-row">								
 		<div class="w3-col m8">			
-			<input type="button" id="btn_submit" class="w3-button w3-block w3-red" value="탈퇴" onclick="delete_check()">
+			<input type="button" id="btn_submit" class="w3-button w3-block w3-red" value="탈  퇴" onclick="delete_check()" disabled="disabled">
 		</div>
 		<div class="w3-col m4">
 		</div>
 	</div>
+</form>
 </body>
 </html>
