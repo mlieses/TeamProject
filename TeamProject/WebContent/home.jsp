@@ -571,7 +571,7 @@ Vector<homeDTO> popV = (Vector<homeDTO>)request.getAttribute("popularV");
 		  	 		</div>  	 		
 		  	 	</div>
 	  	 	</c:when>
-	  	 	<c:otherwise>
+	  	 	<c:otherwise>	  	 		
 	  	 		<c:forEach var="i" begin="0" end="${noticeArr.size()-1}" step="1" >
 			  	 	<div class="w3-row" style="margin-bottom: 10px;">
 			  	 		<div class="w3-col m3" align="center">
