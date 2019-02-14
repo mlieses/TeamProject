@@ -63,8 +63,7 @@
 	});
 	
 	function host_signup() {
-		//action="../HostSignUpController.do"
-		alert("클릭");
+		//action="../HostSignUpController.do"		
 		
 		var pass = $("input[name='host_pass']").val();
 		var pass_ck = $("input[name='host_pass_ck']").val(); 
@@ -101,7 +100,7 @@
 		}		
 		
 		
-		document.host_form.action = "../HostSignUpController.do";
+		document.host_form.action = "./HostSignUpController.do";
 		document.host_form.submit();	
 		
 	}
