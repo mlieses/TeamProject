@@ -39,7 +39,7 @@
 		float: left;}
 		table tr #ctt:HOVER { height: 2px; 
 			background-color: #ffffe6;}
-		center{position: fixed; float: inherit;}
+
 		#subject { width: 1100px; 
 		background-color:white;
 		padding: 10px;
@@ -91,15 +91,12 @@
 			</tr>
 			<!-- 게시글이 없을 경우   -->
 			<c:if test="${count <= 0 }">
-				<table width="1000" bgcolor="#88ffff" border="1">	
 					<tr height="60">
-						<td align="center"> 게시글이 없습니다.</td>
-					</tr>	
-				</table>
+						<td colspan="5" align="center"> 게시글이 없습니다.</td>
+					</tr>
 			</c:if>
 			<!-- 게시글이 1개라도 있을 경우   -->
-			<c:if test="${count > 0}">
-				<table width="1000" bgcolor="#88ffff" border="1">
+			<c:if test="${count > 0}">	
 				<c:forEach var="v" items="${boardList }">
 					<tr height="40">
 						<td>${v.notice_no}</td>
@@ -109,8 +106,19 @@
 						<td>${v.notice_hit}</td>
 					</tr>
 				</c:forEach>
-				</table>
 			</c:if>
+			
+				<tr>
+					<td colspan="4"></td>
+					<c:if test="${sessionScope.udto.email eq 'admin'}">
+						<td>
+							<button class="w3-button w3-blue" onclick="location.href='noticeBoard/reBoardInsert.jsp'">
+								글쓰기
+							</button>
+						</td>
+					</c:if>
+				</tr>
+			
 		</table>
 	<p>
 
@@ -119,17 +127,17 @@
 
 	<!-- 이전이라는 링크를 걸어줄지 파악 -->
 	<c:if test="${startPage > 10 }">
-	<a href="/TeamProject/ReBoardListController.do?pageNum=${startPage-10 }"> [이전] </a>	
+	<a href="./ReBoardListController.do?pageNum=${startPage-10 }"> [이전] </a>	
 	</c:if>
 	
 	<!-- 페이징 처리 [1] [2] [3] .. -->
 	<c:forEach var="i" begin="${startPage }" end="${endPage }">
-	<a href="../ReBoardListController.do?pageNum=${i}"> [${i}]</a>	
+	<a href="./ReBoardListController.do?pageNum=${i}"> [${i}]</a>	
 	</c:forEach>
 	
 	<!-- 다음이라는 링크를 걸어줄지 파악 -->
 	<c:if test="${endPage < pageCount }">
-	<a href="../ReBoardListController.do?pageNum=${startPage+10 }"> [다음] </a>	
+	<a href="./ReBoardListController.do?pageNum=${startPage+10 }"> [다음] </a>	
 	</c:if>
 	</c:if>	
 </center>
