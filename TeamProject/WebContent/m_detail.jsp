@@ -88,12 +88,7 @@
 					</div>
 					<div class="w3-col m6 w3-center hidden">
 						<div class="scale" id="img_div2-4">
-							<c:if test="${empty pic.pic5}">
-							<img alt="" src="img/noimage.jpg" id="img5" onclick="big(5)">
-							</c:if>
-							<c:if test="${not empty pic.pic5}">
-							<img alt="" src="upload/${pic.pic5}" id="img5" onclick="big(5)">
-							</c:if>
+							<img alt="" src="upload/${pic.pic1}" id="img1" onclick="big(5)">
 						</div>
 					</div>
 				</div>

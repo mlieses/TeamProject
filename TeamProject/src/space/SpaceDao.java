@@ -143,7 +143,6 @@ public class SpaceDao {
 				hpDto.setPic2(rs.getString("pic2"));
 				hpDto.setPic3(rs.getString("pic3"));
 				hpDto.setPic4(rs.getString("pic4"));
-				hpDto.setPic5(rs.getString("pic5"));
 				list.add(hpDto);
 			}
 			freeResource();

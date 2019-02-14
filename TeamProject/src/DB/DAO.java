@@ -90,7 +90,7 @@ public class DAO {
 			System.out.println("hosting_option테이블 insert완료");
 			
 			//Hosting_pic 테이블
-			sql ="insert into hosting_pic values("+room_no+",?,?,?,?,null)";
+			sql ="insert into hosting_pic values("+room_no+",?,?,?,?)";
 			
 			pstmt = con.prepareStatement(sql);
 			

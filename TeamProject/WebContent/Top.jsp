@@ -315,11 +315,11 @@ a{
 </script>
 <script>
 $(document).click(function(e){
-	
-    if (!$(e.target).is('#allAlert')) {
+// 	alert(e.target.html());
+//     if ($(e.target).is('#allAlert')) {
 //     	alert("다른곳 버튼 클릭");
-		$(".myAlertDown").removeClass("w3-show");
-    }
+// 		$(".myAlertDown").removeClass("w3-show");
+   
 });
 </script>
 
