@@ -108,11 +108,26 @@
 <!-- 캐러셀 시작------------------------------------------------- -->
 	<div class="w3-container main-slide" style="padding:0;">
 		<div class="w3-content w3-display-container" style="width: 100%;height:100%;">
-			<img class="mySlides" src="img/c1.PNG" style="width: 100%;height:100%;">
-			<img class="mySlides" src="img/c2.PNG" style="width: 100%;height:100%;">
-			<img class="mySlides" src="img/c3.PNG" style="width: 100%;height:100%;">
-			<img class="mySlides" src="img/c4.PNG" style="width: 100%;height:100%;">
-			<img class="mySlides" src="img/d1.PNG" style="width: 100%;height:100%;">
+			<img class="mySlides" src="upload/${pic.pic1}" style="width: 100%;height:100%;">
+			<c:if test="${empty pic.pic2}">
+				<img class="mySlides" src="img/noimage.jpg" style="width: 100%;height:100%;">
+			</c:if>
+			<c:if test="${not empty pic.pic2}">
+				<img class="mySlides" src="upload/${pic.pic2}" style="width: 100%;height:100%;">
+			</c:if>
+			<c:if test="${empty pic.pic3}">
+				<img class="mySlides" src="img/noimage.jpg" style="width: 100%;height:100%;">
+			</c:if>
+			<c:if test="${not empty pic.pic3}">
+				<img class="mySlides" src="upload/${pic.pic3}" style="width: 100%;height:100%;">
+			</c:if>
+			<c:if test="${empty pic.pic4}">
+				<img class="mySlides" src="img/noimage.jpg" style="width: 100%;height:100%;">
+			</c:if>
+			<c:if test="${not empty pic.pic4}">
+			<img class="mySlides" src="upload/${pic.pic4}" style="width: 100%;height:100%;">
+			</c:if>
+			<img class="mySlides" src="upload/${pic.pic1}" style="width: 100%;height:100%;">
 			<div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width: 100%">
 				<div class="w3-display-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
 				<div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
@@ -420,10 +435,12 @@
 // 	hosting = ${hosting};
 // 	console.log(hosting.elevator);
 
+
+	var email = "${sessionScope.udto.email}";//세션영역의 email값
+	var host_id = "${sessionScope.hdto.host_id }";//세션영역의 호스트 아이디
 	
-	var email = "${session.email}";					//세션영역의 email값
-	var nickName = "${session.name}"; 
-	if(email=="" || email==null){
+	var nickName = "${session.udto.name}"; 
+	if(host_id==null || email==null){
 		$("#insert_btn").addClass("w3-disabled");	//
 	}
 	

@@ -190,7 +190,7 @@ a{
       	<%-- 일반 회원이 로그인 됐을 때 --%>
       	<c:when test="${email ne null }">      		 
       		<div class="w3-dropdown-click" id="allAlert">
-      			<button onclick="myAlert()" class="w3-button w3-white">
+      			<button onclick="myAlert()" class="w3-button w3-white userAlertBtn">
       				<img src="https://img.icons8.com/metro/50/000000/appointment-reminders.png" style="width:25px;">
       				<span class="w3-badge w3-red">8</span>
       			</button>
@@ -291,7 +291,7 @@ a{
 } 
  function myAlert() {
 	  var x = document.getElementById("myAlertDown");
-	  alert("버튼클릭");
+// 	  alert("버튼클릭");
 	  if (x.className.indexOf("w3-show") == -1) {
 	    x.className += " w3-show";
 	  } else { 
@@ -315,11 +315,10 @@ a{
 </script>
 <script>
 $(document).click(function(e){
-// 	alert(e.target.html());
-//     if ($(e.target).is('#allAlert')) {
-//     	alert("다른곳 버튼 클릭");
-// 		$(".myAlertDown").removeClass("w3-show");
-   
+	
+    if (!($(e.target).is('.userAlertBtn') || $(e.target).is('#myAlertDown'))) {
+		$(".myAlertDown").removeClass("w3-show");
+    }
 });
 </script>
 
