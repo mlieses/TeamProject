@@ -57,10 +57,21 @@ padding: 0px;
 
 		
 	<div style="width:70%; margin: auto; margin-top: 95px;">		
-		<div>
-			<h1 align="center" style="border: groove; background-color: #cddc39" >공간 관리</h1>
+		<div class="w3-row" style="border: groove; background-color: #cddc39" >
+			<div class="w3-col m12">
+				<h1 align="center">공간 관리</h1>
+			</div>				
 		</div>
-				<table width="100%" class="w3-table w3-bordered">
+		<div class="w3-row" style="margin-top: 20px; ">
+			<div class="w3-col m8" align="right">
+				<p></p>
+			</div>		
+			<div class="w3-col m4" align="right">
+				★나의 공간을 등록 해보세요!&nbsp;&nbsp;&nbsp;<a href="detailPageController.do?a=6&HostId=${sessionScope.hdto.host_id}"><font color="blue">공간 등록하러 가기</font></a>				
+			</div>					
+		</div>
+		<hr>
+				<table width="100%" class="w3-table w3-bordered w3-margin-top">
 					<%
 						DecimalFormat formatter = new DecimalFormat("###,###");
 					
