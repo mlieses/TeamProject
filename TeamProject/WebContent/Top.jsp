@@ -188,7 +188,16 @@ a{
     <div class="w3-right w3-hide-small">   		      
       <c:choose>
       	<%-- 일반 회원이 로그인 됐을 때 --%>
-      	<c:when test="${email ne null }">      		 		
+      	<c:when test="${email ne null }">      		 
+      		<div class="w3-dropdown-click">
+      			<button onclick="myAlert()" class="w3-button w3-white">
+      				<img src="https://img.icons8.com/metro/50/000000/appointment-reminders.png" style="width:25px;">
+      				<span class="w3-badge w3-red">8</span>
+      			</button>
+      			<div id="myAlertDown" class="w3-dropdown-content w3-bar-block w3-border">
+      				hihi
+      			</div>
+      		</div>		
       		<a href="#about" class="w3-bar-item w3-button" onclick="stars_click()"><i class="material-icons">stars</i></a>
       		<a href="${path1}./ReservationController.do?userId=${sessionScope.udto.email}" class="w3-bar-item w3-button">내 예약관리</a>
       		<div class="w3-dropdown-click">
@@ -280,7 +289,14 @@ a{
     x.className = x.className.replace(" w3-show", "");
   }  
 } 
-
+ function myAlert() {
+	  var x = document.getElementById("myAlertDown");  
+	  if (x.className.indexOf("w3-show") == -1) {
+	    x.className += " w3-show";
+	  } else { 
+	    x.className = x.className.replace(" w3-show", "");
+	  }  
+	} 
  // 상단 호스트 별표 클릭시
  function stars_click(){	 
 	 if("${sessionScope.udto.host_check}" != 1){		 

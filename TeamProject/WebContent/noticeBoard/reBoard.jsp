@@ -118,7 +118,7 @@
 					<td colspan="4"></td>
 					<c:if test="${sessionScope.udto.email eq 'admin'}">
 						<td>
-							<button class="w3-button w3-blue" onclick="location.href='noticeBoard/reBoardInsert.jsp'">
+							<button class="w3-button w3-blue" onclick="location.href='./ReBoardInsertController.do'">
 								글쓰기
 							</button>
 						</td>
