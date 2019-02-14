@@ -189,12 +189,12 @@ a{
       <c:choose>
       	<%-- 일반 회원이 로그인 됐을 때 --%>
       	<c:when test="${email ne null }">      		 
-      		<div class="w3-dropdown-click">
+      		<div class="w3-dropdown-click" id="allAlert">
       			<button onclick="myAlert()" class="w3-button w3-white">
       				<img src="https://img.icons8.com/metro/50/000000/appointment-reminders.png" style="width:25px;">
       				<span class="w3-badge w3-red">8</span>
       			</button>
-      			<div id="myAlertDown" class="w3-dropdown-content w3-bar-block w3-border">
+      			<div id="myAlertDown" class="w3-dropdown-content w3-bar-block w3-border myAlertDown">
       				hihi
       			</div>
       		</div>		
@@ -290,7 +290,8 @@ a{
   }  
 } 
  function myAlert() {
-	  var x = document.getElementById("myAlertDown");  
+	  var x = document.getElementById("myAlertDown");
+	  alert("버튼클릭");
 	  if (x.className.indexOf("w3-show") == -1) {
 	    x.className += " w3-show";
 	  } else { 
@@ -309,7 +310,17 @@ a{
 	 }	
  }
  
-
+ 
+ 
+</script>
+<script>
+$(document).click(function(e){
+	
+    if (!$(e.target).is('#allAlert')) {
+//     	alert("다른곳 버튼 클릭");
+		$(".myAlertDown").removeClass("w3-show");
+    }
+});
 </script>
 
 </body>

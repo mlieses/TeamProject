@@ -119,6 +119,7 @@
 			</tr>
 			</c:if>
 		</table>
+				<button class="w3-button w3-blue" onclick="location.href='./ReBoardListController.do'">목록</button>
 	<p>
 </center>
 </div>
