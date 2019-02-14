@@ -64,6 +64,7 @@
 </head>
 <body>
 
+<jsp:include page="../Top.jsp"></jsp:include>
 
 <!-- 페이지 center-->
 <div class="w3-content w3-padding" style="max-width:1250px">
@@ -120,6 +121,9 @@
 		</table>
 	<p>
 </center>
+</div>
+<!-- footer -->
+<jsp:include page="../Footer.jsp"></jsp:include>
 <script>
 	function deletebtn(){
 		if(confirm("정말 삭제하시겠습니까??")){

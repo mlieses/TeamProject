@@ -64,7 +64,7 @@
 </head>
 <body>
 
-
+<jsp:include page="../Top.jsp"></jsp:include>
 <!-- 페이지 center-->
 <div class="w3-content w3-padding" style="max-width:1250px">
 
@@ -101,6 +101,9 @@
 
 	
 </center>
+</div>
+ <!-- footer -->
+ <jsp:include page="../Footer.jsp"></jsp:include>
  
 </body>
 </html>
