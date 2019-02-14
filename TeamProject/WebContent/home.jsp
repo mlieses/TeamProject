@@ -578,7 +578,7 @@ Vector<homeDTO> popV = (Vector<homeDTO>)request.getAttribute("popularV");
 			  	 			<small>[SS share space]</small>
 			  	 		</div>
 			  	 		<div class="w3-col m6 div_subject">
-			  	 			<a href="#">&nbsp;&nbsp;&nbsp;&nbsp;${noticeArr.get(i).notice_subject}</a>
+			  	 			<a href="./ReBoardReadController.do?notice_no=${noticeArr.get(i).notice_no}">&nbsp;&nbsp;&nbsp;&nbsp;${noticeArr.get(i).notice_subject}</a>
 			  	 		</div>
 			  	 		<div class="w3-col m3" align="center">
 			  	 			<small>${noticeArr.get(i).notice_date}</small>
