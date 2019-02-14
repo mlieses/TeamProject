@@ -212,4 +212,19 @@ public class ReBoardDAO {
 			}
 		return rb;	
 		}
+
+		public void deleteNotice(int notice_no) {
+			try{
+				con = ds.getConnection();
+				String sql = "delete from notice where notice_no=? ";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, notice_no);
+				pstmt.executeUpdate();
+				
+			}catch(Exception e){
+				System.out.println("deleteNotice에서 오류"+e);
+			}finally{
+				freeResource();
+			}
+		}
 }

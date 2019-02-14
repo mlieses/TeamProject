@@ -14,6 +14,15 @@ import javax.servlet.http.HttpServletResponse;
 public class ReBoardReadController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doPro(request, response);
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doPro(request, response);
+	}
+	
+	protected void doPro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int notice_no = Integer.parseInt(request.getParameter("notice_no"));
 		ReBoardDAO rdao = new ReBoardDAO();
 		rdao.updateHit(notice_no);
@@ -22,7 +31,7 @@ public class ReBoardReadController extends HttpServlet {
 		request.setAttribute("notice", rDTO);
 		RequestDispatcher dis = request.getRequestDispatcher("noticeBoard/reBoardRead.jsp");
 		dis.forward(request, response);
-		
 	}
+	
 	
 }

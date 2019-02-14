@@ -60,6 +60,12 @@
 		#OS{font-family: ''Open Sans', sans-serif;
 			font-size: 42px;}
 		
+		.notice_subject{
+		
+			overflow: hidden; 
+			text-overflow: ellipsis;
+			white-space: nowrap;  
+		}
 	</style>
 	
 </head>
@@ -101,7 +107,7 @@
 					<tr height="40">
 						<td>${v.notice_no}</td>
 						<td>${v.admin }</td>
-						<td><a href="./ReBoardReadController.do?notice_no=${v.notice_no}">${v.notice_subject}</a></td>
+						<td class="notice_subject"><a href="./ReBoardReadController.do?notice_no=${v.notice_no}">${v.notice_subject}</a></td>
 						<td>${v.notice_date}</td>
 						<td>${v.notice_hit}</td>
 					</tr>
