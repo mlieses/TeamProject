@@ -194,7 +194,7 @@ a{
       		<div class="w3-dropdown-click">
       			<button onclick="click_modal()" class="w3-bar-item w3-button w3-dark-grey">${sessionScope.udto.name }</button>
       			<div id="drop" class="w3-dropdown-content w3-bar-block w3-card-4  w3-animate-zoom user_drop" style="right:0; width: 200px; top:56px; z-index: 9999">
-      				<small>&nbsp;&nbsp;${sessionScope.udto.email} &nbsp;&nbsp;보유 포인트 : </small>    
+      				<small>&nbsp;&nbsp;${sessionScope.udto.email}<br> &nbsp;&nbsp;보유 포인트 : </small>    
       				<br><font color="red" class="w3-margin-left">${sessionScope.udto.point} </font> <small>포인트(￦)</small>  				   				
       				<hr>
       				<a href="${path1}./UserPageController.do" class="w3-bar-item w3-button">프로필수정/탈퇴</a>
@@ -212,7 +212,7 @@ a{
    				<button onclick="host_click_modal()" class="w3-bar-item w3-button w3-orange">
    					<small class="icon_crown"></small>&nbsp;${sessionScope.hdto.host_nic }</button>
    				<div id="drop_host" class="w3-dropdown-content w3-bar-block w3-card-4  w3-animate-zoom user_drop" style="right:0; width: 200px; top:56px; z-index: 9999">
-   						<small>&nbsp;&nbsp;${sessionScope.hdto.email} &nbsp;&nbsp;보유 포인트 : </small>    
+   						<small>&nbsp;&nbsp;${sessionScope.hdto.email}<br> &nbsp;&nbsp;보유 포인트 : </small>    
       				<br><font color="red" class="w3-margin-left">${sessionScope.point} </font> <small>포인트(￦)</small>	  				   				
       				<hr>
    					<a href="${path1}./HostPageController.do" class="w3-bar-item w3-button">프로필수정/탈퇴</a>
