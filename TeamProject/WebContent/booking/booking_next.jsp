@@ -42,7 +42,7 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 					<p></p>
 				</div>
 				<div class="w3-col m6" align="center">
-					 <h1 style="margin-bottom: 160px;"> 예약이 완료 되었습니다.</h1>						
+					 <h1 style="margin-bottom: 180px;"> 예약이 완료 되었습니다.</h1>						
 					 <input type="submit"  class="w3-button w3-block w3-xlarge w3-red w3-margin-top" value="내 예약 확인하러 가기" >
 				</div>
 				<div class="w3-col m3">
