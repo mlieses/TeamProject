@@ -439,9 +439,9 @@
 	var email = "${sessionScope.udto.email}";//세션영역의 email값
 	var host_id = "${sessionScope.hdto.host_id }";//세션영역의 호스트 아이디
 	
-	var nickName = "${session.udto.name}"; 
+	var nickName = "${sessionScope.udto.name}"; 
 	if(host_id==null || email==null){
-		$("#insert_btn").addClass("w3-disabled");	//
+		$("#insert_btn").addClass("w3-disabled");	
 	}
 	
 	
