@@ -78,7 +78,7 @@
 	<center>
 	<p>	
 		<p id="subject" width="1000">NOTICE</p>
-		<form action="../ReBoardInsertController.do" method="post">
+		<form action="../ReBoardInsertProController.do" method="post">
 			<table width="1000">
 				<tr>
 					<th width="100"> SUBJECT </th>
