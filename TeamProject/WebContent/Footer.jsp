@@ -83,7 +83,7 @@ p{
 				</div>
 				<div class="w3-col m1"><h6 style="text-align: center;">NOTICE</h6>
 					<div class="list-group">
-						<a href="#"><button class="w3-button w3-round w3-blue-grey">공지사항</button></a>
+						<a href="./ReBoardListController.do"><button class="w3-button w3-round w3-blue-grey">공지사항</button></a>
 						<a href="#"><button class="w3-button w3-round w3-blue-grey">Q&A</button></a>
 						<a href="#"><button class="w3-button w3-round w3-blue-grey">커뮤니티</button></a>
 					</div>

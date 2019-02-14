@@ -586,15 +586,20 @@ Vector<homeDTO> popV = (Vector<homeDTO>)request.getAttribute("popularV");
 			  	 	</div>
 			  	 </c:forEach>
 	  		</c:otherwise>
-  	</c:choose> 	  	 		 	
+  		</c:choose> 	  	 		 	
   	</div>
   	<!-- Slideshow -->
 	<div class="w3-col m6">
 	 <!-- Project Section 이벤트-->
 	 <div class="w3-container w3-padding-32" id="projects">
 	 	<div class="w3-row w3-border-bottom w3-border-light-grey w3-padding-16">
-	 	  <h3>이벤트</h3>
-	 	</div> 
+	 	  	<div class="w3-col m10">
+	    		<h3>이벤트</h3>
+	    	</div>
+	    	<div class="w3-col m2" style="padding: 17px;">	
+	    		<small><a href="./Event.do">+ 더보기</a></small>
+			</div>
+		</div> 
 	 </div>  
 	  <div class="w3-container">
 	    <div class="w3-display-container mySlides">
