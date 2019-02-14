@@ -62,11 +62,8 @@ padding: 0px;
 				<h1 align="center">공간 관리</h1>
 			</div>				
 		</div>
-		<div class="w3-row" style="margin-top: 20px; ">
-			<div class="w3-col m8" align="right">
-				<p></p>
-			</div>		
-			<div class="w3-col m4" align="right">
+		<div class="w3-row" style="margin-top: 20px; ">					
+			<div class="w3-col m12" align="right">
 				★나의 공간을 등록 해보세요!&nbsp;&nbsp;&nbsp;<a href="detailPageController.do?a=6&HostId=${sessionScope.hdto.host_id}"><font color="blue">공간 등록하러 가기</font></a>				
 			</div>					
 		</div>
