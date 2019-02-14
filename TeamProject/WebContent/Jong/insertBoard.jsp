@@ -308,7 +308,7 @@ $( function() {
     <div class="col-10">
       <b><label>제 목</label></b>
     </div>
-    <div class="col-20">
+    <div class="col-25">
       <input type="text" id="subject" name="subject" placeholder="Title">
     </div>
   </div>  
