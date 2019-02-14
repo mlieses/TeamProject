@@ -185,7 +185,7 @@ a{
     <a href="${path}index.jsp" class="w3-bar-item w3-button"><b>SS</b> share space</a>
     <c:set var="email" value="${sessionScope.udto.email }"/>
     <c:set var="host_id" value="${sessionScope.hdto.host_id }"/>
-    <div class="w3-right w3-hide-small" ">   		      
+    <div class="w3-right w3-hide-small">   		      
       <c:choose>
       	<%-- 일반 회원이 로그인 됐을 때 --%>
       	<c:when test="${email ne null }">      		 		
