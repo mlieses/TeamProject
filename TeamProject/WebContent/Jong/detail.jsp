@@ -151,7 +151,7 @@ function setValue(obj, target){
 	<div style="width:100%;">		
 			
 				<jsp:include page="../Top.jsp" flush="false"/>
-					<div class="w3-bar w3-border-top " style="margin-top: 55px; position: fixed; z-index: 0;">
+					<div class="w3-bar w3-border-top " style="margin-top: 55px; position: fixed; z-index: 1;">
 				
 				
 				  <div class="w3-bar w3-lime" id="nav2" align="center">
@@ -207,7 +207,7 @@ function setValue(obj, target){
 						 
 						   
 						   <!-- 선택 row -->   
-								<div class="w3-row w3-hide " style="position: fixed;" id="type_select">
+								<div class="w3-row w3-hide " style="position: fixed; z-index: 1;" id="type_select">
 								 <div class="w3-col l10 w3-padding"></div>				
 							        <div class="w3-col l2 m2 w3-padding w3-white w3-round" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); width: 30%; margin-left: 350px;">
 							  			<input type="button" value="카페" onclick="setValue(this, 'type')" style="border: none; padding:0px; background-color: white;"><br/>
@@ -310,8 +310,8 @@ function setValue(obj, target){
 								
 								
 					%>					
-					<tr align="center" height="300px;">
-						<td width="40%"><div style="width: 90%">
+					<tr align="center" height="300px;" style="z-index: -9997;">
+						<td width="40%"><div style="width: 90%;">
 						
 							<!-- 리뷰 점수 값 받아오기 -->
 							<input type="hidden" value="<%=dto1.getReviewPoint()%>" id="RPoint<%=i%>">
@@ -319,8 +319,8 @@ function setValue(obj, target){
 							<a href="detailPageController.do?a=8&room_no=<%=dto.getRoom_no()%>"><img src="upload/<%=dto.getImg1()%>" width="100%" height="200px;"></a></div>
 						</td>
 						<td width="50%" style="text-align:left; position: relative; z-index: -9999;">
-							<div style="position: absolute; top: 0px;">
-								<h1 style="margin-bottom: -3px;"><%= dto.getSubject()%></h1>
+							<div style="position: absolute; top: 0px; z-index: -9999;">
+								<h1 style="margin-bottom: -3px;z-index: -9999;"><%= dto.getSubject()%></h1>
 								<div id="starRev<%=i%>">
 								  <span class="starR1">별1_왼쪽</span>
 								  <span class="starR2">별1_오른쪽</span>
