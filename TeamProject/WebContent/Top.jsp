@@ -216,7 +216,7 @@ a{
       	<%-- 호스트 회원이 로그인 됐을 때 --%>	
       	<c:when test="${host_id ne null }">	      		
    			<a href="#about" class="w3-bar-item w3-button" onclick="host_space()"><i class="material-icons">stars</i></a>  			
-   			<a href="${path1}./ReservationController.do?userId=${sessionScope.udto.email}" class="w3-bar-item w3-button">내 예약관리</a>
+   			<a href="${path1}./ReservationController.do?userId=${sessionScope.hdto.email}" class="w3-bar-item w3-button">내 예약관리</a>
    			<div class="w3-dropdown-click">
    				<button onclick="host_click_modal()" class="w3-bar-item w3-button w3-orange">
    					<small class="icon_crown"></small>&nbsp;${sessionScope.hdto.host_nic }</button>

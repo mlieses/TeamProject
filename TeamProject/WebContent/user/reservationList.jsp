@@ -342,7 +342,7 @@ function cancleList(){
 			if(confirm("등록된 예약을 취소 하시겠습니까?")){
 				// 해당 로그인된 이메일 정보와 예약 번호, 포인트를 넘겨 주어야한다.
 				var email = "${sessionScope.udto.email}";			
-				if(email==null){
+				if(email==""){
 					email= "${sessionScope.hdto.email}";
 				}				
 				location.href="./BookingCancelController.do?book_no="+book_no+"&email="+email+"&total_price="+total_price;
