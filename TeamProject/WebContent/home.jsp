@@ -155,7 +155,10 @@ function star_click(){
 		 }	
 	}
 }
-
+// 로그인 하지않은 회원이 예약내역 버튼 클릭시
+function func_reserve(){
+	alert("회원이 아니십니다. 로그인 해주십시오.");
+}
 	
 </script>
 
@@ -338,7 +341,7 @@ letter-spacing: 1px;
   	</div>
   	
   	<div class="w3-quarter w3-center">
-  	<a href="./ReservationController.do?userId=${sessionScope.udto.email}" style="text-decoration: none;">
+  	<a href="#" onclick="func_reserve()" style="text-decoration: none;">
   	<i class="material-icons" style="font-size:80px;color:#333;">event</i>
   	<p style="margin:2px;">예약내역</p>
   	</a>
