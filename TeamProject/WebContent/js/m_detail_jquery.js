@@ -145,7 +145,7 @@
 
 	//예약하기 버튼 누르면 값넣고 form 동작
 	$("#req-btn").on("click", function(){
-		if(email==null && host_id==null){
+		if(email=="" && host_id==""){
 			alert("로그인해주세요");
 			
 		}else if(list.length===0){

@@ -314,12 +314,69 @@ a{
  
 </script>
 <script>
-$(document).click(function(e){
+
+	function myAlert() {
+		
+		var x = $("#myAlertDown");
+
+		if (!x.hasClass("w3-show")) {
+			x.addClass("w3-show");
+		} else { 
+			x.removeClass("w3-show");
+		}
+		
+		if(${email ne null} ){
+			var email = '${email}';
+			alertUserAjax(email);
+		}else if(${host_id ne null}){
+			alert("host 들어옴");
+// 			alertHostAjax(${host_id});
+		}
+		
+		  
+	} 
 	
-    if (!($(e.target).is('.userAlertBtn') || $(e.target).is('#myAlertDown'))) {
-		$(".myAlertDown").removeClass("w3-show");
-    }
-});
+	$(document).click(function(e){
+	    if (!($(e.target).is('.userAlertBtn') || $(e.target).is('#myAlertDown'))) {
+			$(".myAlertDown").removeClass("w3-show");
+	    }
+	});
+
+	function alertInsert(js){
+		var dto = js[0];
+		var nextNum=js[1];
+		alert("insert들어옴");
+		alert(dto[0]);
+		
+		var html = 	 '<a href="#" class="w3-bar-item w3-button">'
+					+'	오늘 예약<br> '
+					+'  예약번호'+dto.book_no+' '+dto.room_type+' '
+					+'	예약번호 1 안락한 방 카페 14시 ' 
+					+'</a>'
+					+'<a href="#" class="w3-bar-item w3-button">'
+					+'	내일 예약</a>'
+					+nextNum;
+					
+		$("#myAlertDown").append(html);
+		
+	}
+	
+	function alertUserAjax(email){
+		
+		$.ajax({
+			url:'AlertUserController.do',
+			type:'post',
+			datatype:"json",
+			data:{"email":email},
+			success : function(data){
+				var js = $.parseJSON(data);
+				
+				alertInsert(js);
+			}
+		});
+		
+	}
+
 </script>
 
 </body>
