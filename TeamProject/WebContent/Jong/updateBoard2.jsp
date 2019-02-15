@@ -159,7 +159,7 @@
         	//4개일때 더이상 사용하지 못하게 disabled
         	if(mytbody.rows.length == 4){
         		
-            	alert("4개 까지만 등록이 있음합니다.");
+            	alert("참고: 이미지는 4개까지 등록 가능합니다");
             	
             	 var input = document.getElementById("plus");
                  // input엘리먼트에 disbled="disabled" 속성 추가한다.
