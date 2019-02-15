@@ -315,6 +315,7 @@ function cancleList(){
 	  	<button class="w3-button w3-blue w3-padding-small" onclick="tog('reservContent_${rList.book_no}', 'reviewContent_${rList.book_no}')">예약 보기</button>&nbsp;
 	  	<button class="w3-button w3-blue w3-padding-small" onclick="tog('reviewContent_${rList.book_no}', 'reservContent_${rList.book_no}')">리뷰 보기</button>&nbsp;
 	  	<button class="w3-button w3-blue w3-padding-small" onclick="location.href='m_detail?room_no=${rList.room_no}'">다시 예약</button>&nbsp;
+ 		<button class="w3-button w3-blue w3-padding-small" onclick="reserve_delete('${rList.book_no }','${rList.rStatus }','${rList.total_price }');">예약 취소</button>&nbsp;
  	</div>
   </div>
 </div>
@@ -325,5 +326,30 @@ function cancleList(){
 <div class="w3-cell-bottom" style="padding-bottom: 0px;">
 <jsp:include page="../Footer.jsp" flush="false"/>
 </div>
+<script type="text/javascript">
+	// 예약 취소 버튼 클릭시 이벤트
+	/**예약 상태 추출 메소드
+	 * 0: 사용 전 예약
+	 * 1. 지난 예약
+	 * 2. 취소된 예약*/
+	function reserve_delete(book_no, status, total_price){
+		// status 상태값 체크
+		if(status=="1"){
+			alert("예약일자가 지났습니다. 취소가 불가능 합니다.");
+		}else if(status=="2"){
+			alert("이미 취소된 예약 입니다.");
+		}else{
+			if(confirm("등록된 예약을 취소 하시겠습니까?")){
+				// 해당 로그인된 이메일 정보와 예약 번호, 포인트를 넘겨 주어야한다.
+				var email = "${sessionScope.udto.email}";			
+				if(email==null){
+					email= "${sessionScope.hdto.email}";
+				}				
+				location.href="./BookingCancelController.do?book_no="+book_no+"&email="+email+"&total_price="+total_price;
+			}
+		}
+		
+	}
+</script>
 
 </html>

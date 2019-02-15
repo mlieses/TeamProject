@@ -253,8 +253,41 @@ public class BookingDAO {
 			
 			
 		}// setUserPointUpdate() 메서드 끝
-	
-	
+
+		// 예약 취소 메서드
+		public int setBookingCancel(String email, String book_no, int total_price) {
+			
+			int result = 0;
+			
+			try {
+				con = ds.getConnection();
+				
+				// Booking테이블의 book_no에 해당하는 book_check 컬럼을 1로 변경
+				String sql = "UPDATE booking SET book_check = 1 WHERE book_no = ?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, book_no);
+				result = pstmt.executeUpdate();
+				
+				// 포인트 회수 
+				sql = "UPDATE user SET point = point + ? WHERE email = ?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, total_price);
+				pstmt.setString(2, email);
+				pstmt.executeUpdate();
+				
+				return result;
+			} catch (Exception e) {
+				System.out.println("setBookingCancel() 메서드에서 "+e);
+			} finally {
+				freeResource();
+			}
+			
+			return 0;
+		}// setBookingCancel() 메서드 끝
+		
+		
 		
 		
 		
