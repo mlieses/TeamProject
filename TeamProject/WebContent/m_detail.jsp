@@ -274,10 +274,12 @@
 		</div>
 		
 <!-- option content ------------------------------------------------->
-		
+	
 <!-- review bbs ----------------------------------------------------->
 <div class="w3-content content-review">
-	
+	<div class="w3-container w3-padding-32">
+    	<h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">리뷰 평가</h3>
+	</div>	
 	<table class="w3-table-all w3-hoverable">
 	
     <thead>
@@ -311,6 +313,9 @@
 
 <!-- comment시작 ---------------------------------------------------->
 		<div class="w3-content content-comment">
+			<div class="w3-container w3-padding-32">
+    			<h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">코멘트</h3>
+			</div>
 			<ul class="w3-ul w3-card-4">
 				<li class="w3-bar w3-light-grey">
 					<div class="w3-bar-item item-img-div">

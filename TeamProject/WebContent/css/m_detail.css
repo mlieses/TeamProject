@@ -217,7 +217,7 @@
 /* content-option 끝 ----------------------------------------------- */
 /* content-review 시작 ----------------------------------------------- */
 .content-review{
-	margin-top:70px;
+	/* margin-top:70px; */
 	
 }
 
@@ -225,7 +225,7 @@
 /* content-review 끝 ----------------------------------------------- */
 /* content-comment 시작----------------------------------------------- */
 .content-comment{
-	margin-top:70px;
+	/* margin-top:70px; */
 	width:100%;
 	height:auto;
 	margin-bottom:70px;
