@@ -509,7 +509,7 @@ function setValue(obj, target){
 				</table>			
 			</div>
 			<!-- 오른쪽 영역 시작 -->
-			<div style="width: 50%; position: fixed; right: 0; margin-top: 152px; height:100%">
+			<div style="width: 50%; position: fixed; right: 0; margin-top: 152px; height:100%;z-index: -9999">
 					
 					<div id="map" style="width:100%; height:100%;"></div>
 					<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8b1dfa990d9dfd48543e0889cfa06ab9"></script>
