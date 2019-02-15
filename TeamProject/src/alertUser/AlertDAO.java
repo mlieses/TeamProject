@@ -1,5 +1,6 @@
 package alertUser;
 
+import java.net.URLEncoder;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -77,11 +78,11 @@ public class AlertDAO {
 						+"from booking b " 
 						+"join hosting h "
 						+"on b.room_no = h.room_no "
-						+"where book_date='2019-02-16' and book_time>? and email=?" ;
+						+"where book_date=? and book_time>? and email=?" ;
 			pstmt = con.prepareStatement(sql);
-//			pstmt.setDate(1, date);
-			pstmt.setInt(1, hour);
-			pstmt.setString(2, email);
+			pstmt.setDate(1, date);
+			pstmt.setInt(2, hour);
+			pstmt.setString(3, email);
 			rs = pstmt.executeQuery();
 			while(rs.next()){
 				jdto = new JSONObject();
@@ -96,7 +97,7 @@ public class AlertDAO {
 				jarray.add(jdto);
 			}
 			
-			
+			System.out.println(jarray.size());
 		}catch(Exception e){
 			System.out.println("getTodayBook에서 에러"+e);
 		}finally{
@@ -114,6 +115,70 @@ public class AlertDAO {
 			con = ds.getConnection();
 			String sql = "select count(*) from booking "
 						+"where email=? and book_date =?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, email);
+			pstmt.setDate(2, date);
+			rs = pstmt.executeQuery();
+		
+			if(rs.next()){
+				return rs.getInt(1);
+			}
+		}catch(Exception e){
+			System.out.println("getNextDayBook에서 오류"+e);
+		}finally{
+			freeResource();
+		}
+			return 0;
+	}
+
+	public JSONArray getTodayRoomBook(String host_id) {
+		JSONArray todayBook = new JSONArray();
+		Date date = Date.valueOf(LocalDate.now());
+		int hour = LocalDateTime.now().getHour();
+		JSONObject jdto;
+		try{
+			con = ds.getConnection();
+			String sql = "select b.book_no, b.room_no, b.book_time, b.book_hour, b.total_price, h.subject "
+						+"from booking b "
+						+"join hosting h "
+						+"on b.room_no = h.room_no "
+						+"where book_date=? and book_time>? and host_id=? "
+						+"order by book_time ";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setDate(1, date);
+			pstmt.setInt(2, hour);
+			pstmt.setString(3, host_id);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				jdto = new JSONObject();
+				jdto.put("book_no", rs.getInt("book_no"));
+				jdto.put("room_no", rs.getInt("room_no"));
+				jdto.put("book_time", rs.getInt("book_time"));
+				jdto.put("book_hour", rs.getInt("book_hour"));
+				jdto.put("total_price", rs.getInt("total_price"));
+				jdto.put("subject", rs.getString("subject"));
+				
+				todayBook.add(jdto);
+			}
+
+		}catch(Exception e){
+			System.out.println("getNextDayBook에서 오류"+e);
+		}finally{
+			freeResource();
+		}
+
+
+
+		return todayBook;
+	}
+
+	public int getNextRoomBook(String host_id) {
+Date date = Date.valueOf(LocalDate.now().plusDays(1));
+		
+		try{
+			con = ds.getConnection();
+			String sql = "select count(*) from booking "
+						+"where =? and book_date =?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, email);
 			pstmt.setDate(2, date);
