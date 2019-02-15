@@ -159,7 +159,7 @@ public class ReservListDAO {
 				dto.setEndT(EndTime); // 예약 마감 시간
 				
 				
-				dto.setPic1(rs.getString("pic1"));
+				dto.setPic1(rs.getString("pic1"));				
 				dto.setRoom_type(rs.getString("room_type"));
 				
 				// 예약 상태 (지난 예약, 취소 예약, 다가 올 예약 받는 함수)
