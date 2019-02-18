@@ -389,7 +389,7 @@ letter-spacing: 1px;
   	</div>   
   	
   	<div class="w3-col w3-center" style="width:20%;">
-  	<a href="./ReservationController.do?userId=${sessionScope.udto.email}" style="text-decoration: none;">
+  	<a href="./ReservationController.do?userId=${sessionScope.hdto.email}" style="text-decoration: none;">
   	<i class="material-icons" style="font-size:80px;color:#333;">event</i>
   	<p style="margin:2px;">예약내역</p>
   	</a>

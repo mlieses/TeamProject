@@ -189,7 +189,7 @@ $(function(){
 	  	<c:forEach var="sList"  items="${requestScope.sList}">
 	  		<div style=" text-align: center;">
 	  			<a href="./HostingReviewController.do?host_id=${sessionScope.hdto.host_id}&room_no=${sList.room_no}">
-		  		<img src="img/${sList.pic1}" alt="${sList.subject}" class="w3-circle"  name="spacePic" style="width:70px; height:70px; margin:0 auto;">
+		  		<img src="upload/${sList.pic1}" alt="${sList.subject}" class="w3-circle"  name="spacePic" style="width:70px; height:70px; margin:0 auto;">
 		  		<small>${sList.subject}</small>
 		  		</a>
 	  		</div>
@@ -346,7 +346,7 @@ $(function(){
 </c:if>
 </body>
 <div class="w3-cell-bottom" style="padding-bottom: 0px;">
-<%-- <jsp:include page="../Footer.jsp" flush="false"/> --%>
+<jsp:include page="../Footer.jsp" flush="false"/>
 </div>
 
 </html>

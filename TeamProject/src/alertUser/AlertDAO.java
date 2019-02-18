@@ -178,9 +178,9 @@ Date date = Date.valueOf(LocalDate.now().plusDays(1));
 		try{
 			con = ds.getConnection();
 			String sql = "select count(*) from booking "
-						+"where =? and book_date =?";
+						+"where host_id=? and book_date =?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, email);
+			pstmt.setString(1, host_id);
 			pstmt.setDate(2, date);
 			rs = pstmt.executeQuery();
 		
