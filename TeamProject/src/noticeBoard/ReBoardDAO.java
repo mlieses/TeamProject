@@ -94,7 +94,7 @@ public class ReBoardDAO {
 				//1,2 디비연결
 				con= ds.getConnection();
 				//3 sql 전체 board 글가져오기  
-				sql = "SELECT * FROM notice order by notice_date desc limit ?,?";
+				sql = "SELECT * FROM notice order by notice_date desc, notice_no desc limit ?,?";
 				pstmt=con.prepareStatement(sql);				
 				pstmt.setInt(1, startRow-1);
 				pstmt.setInt(2, pageSize);
