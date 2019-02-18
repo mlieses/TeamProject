@@ -28,7 +28,7 @@
 			margin-bottom: 70px;
 			border-top: 2px solid #000000;
 			background-color:#f2f2f2;}
-		td{	border-top: 1px solid #cccccc;}
+		td{	border-top: 1px solid #cccccc; white-space: pre;}
 		th{ color: #007acc;}
 		#no{color: #808080; font-size: 12px;
 			text-align: center;}
