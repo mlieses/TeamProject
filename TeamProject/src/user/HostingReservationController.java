@@ -49,7 +49,7 @@ public class HostingReservationController extends HttpServlet {
 			
 		}else if(room_no != null){
 			SpaceList = dao.SpaceList(host_id);
-			ReservList = rdao.getListHost(host_id);
+			ReservList = rdao.getListHost2(host_id, room_no);
 			req.setAttribute("check", 1);
 			
 		}
