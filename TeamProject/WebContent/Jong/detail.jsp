@@ -151,7 +151,7 @@ function setValue(obj, target){
 	<div style="width:100%;">		
 			
 				<jsp:include page="../Top.jsp" flush="false"/>
-					<div class="w3-bar w3-border-top " style="margin-top: 55px; position: fixed; z-index: 1;">
+					<div class="w3-bar w3-border-top " style="margin-top: 55px; position: fixed; z-index: 0;">
 				
 				
 				  <div class="w3-bar w3-lime" id="nav2" align="center">
