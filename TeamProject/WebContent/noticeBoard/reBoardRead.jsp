@@ -55,17 +55,19 @@
 				<td width="100"> CONTENT </td>
 				<td  style="white-space: pre;"> ${notice.notice_content} </td>
 			</tr>
-			<c:if test="${sessionScope.udto.email eq 'admin'}">
+			
 			<tr>
-				<td  colspan="2" align="right">				
-					<button class="w3-button w3-blue" style="margin: 0;"
-					onclick="location.href='./ReBoardUpdateController.do?notice_no=${notice.notice_no}'">
-						수정	
-					</button>					
-					<button class="w3-button w3-blue" onclick="deletebtn()">삭제</button>			    				
+				<td  colspan="2" align="right">
+					<c:if test="${sessionScope.udto.email eq 'admin'}">				
+						<button class="w3-button w3-blue" style="margin: 0;"
+						onclick="location.href='./ReBoardUpdateController.do?notice_no=${notice.notice_no}'">
+							수정	
+						</button>					
+						<button class="w3-button w3-blue" onclick="deletebtn()">삭제</button>
+					</c:if>			    				
 				</td>
 			</tr>
-			</c:if>
+			
 		</table>
 				<button class="w3-button w3-blue" onclick="location.href='./ReBoardListController.do'">목록</button>
 	<p>
