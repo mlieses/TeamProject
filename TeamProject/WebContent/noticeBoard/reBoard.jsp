@@ -52,11 +52,11 @@
 			<c:if test="${count > 0}">	
 				<c:forEach var="v" items="${boardList }">
 					<tr height="40">
-						<td>${v.notice_no}</td>
-						<td>${v.admin }</td>
+						<td align="center">${v.notice_no}</td>
+						<td align="center">${v.admin }</td>
 						<td class="notice_subject"><a href="./ReBoardReadController.do?notice_no=${v.notice_no}">${v.notice_subject}</a></td>
-						<td>${v.notice_date}</td>
-						<td>${v.notice_hit}</td>
+						<td align="center">${v.notice_date}</td>
+						<td align="center">${v.notice_hit}</td>
 					</tr>
 				</c:forEach>
 			</c:if>
