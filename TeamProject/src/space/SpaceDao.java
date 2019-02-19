@@ -178,57 +178,56 @@ public class SpaceDao {
 		return list;
 	}
 
-	public ArrayList<String> getNoDate(int num) {
-		ArrayList<String> noList = new ArrayList<String>();
-		for(int i=0;i<7;i++){
-			try{
-				Date date = Date.valueOf(LocalDate.now().plusDays(i));
-				System.out.println(date);
-				SimpleDateFormat fo = new SimpleDateFormat("yyyy-M-d");
+	public String getNoDate(int num, int plusday) {
+		
+		try{
+			Date date = Date.valueOf(LocalDate.now().plusDays(plusday));
+//			System.out.println(date);
+			SimpleDateFormat fo = new SimpleDateFormat("yyyy-M-d");
 //				System.out.println("날짜 포맷");
 //				String dd ="2019-12-01";
 //				System.out.println(fo.format(Date.valueOf(dd)));
-					con = ds.getConnection();
-					String sql = "select sum(bt.t10), sum(bt.t11), sum(bt.t12), sum(bt.t13), "
-								+"sum(bt.t14),sum(bt.t15), sum(bt.t16), sum(bt.t17), "
-								+"sum(bt.t18), sum(bt.t19), sum(bt.t20), sum(bt.t21) "
-								+ "from (select * "
-								+ 		"from booking "
-								+ 		"where book_check=0 and book_date=? and room_no=?) b " 
-								+"join booking_time bt "
-								+"on b.book_no = bt.book_no "
-								+"and b.book_date = bt.book_date";
-					pstmt = con.prepareStatement(sql);
-					pstmt.setDate(1, date);
-					pstmt.setInt(2, num);
-					rs = pstmt.executeQuery();
-					if(rs.next()){
-						for(int j=1;j<13;j++){
+				con = ds.getConnection();
+				String sql = "select sum(bt.t10), sum(bt.t11), sum(bt.t12), sum(bt.t13), "
+							+"sum(bt.t14),sum(bt.t15), sum(bt.t16), sum(bt.t17), "
+							+"sum(bt.t18), sum(bt.t19), sum(bt.t20), sum(bt.t21) "
+							+ "from (select * "
+							+ 		"from booking "
+							+ 		"where book_check=0 and book_date=? and room_no=?) b " 
+							+"join booking_time bt "
+							+"on b.book_no = bt.book_no "
+							+"and b.book_date = bt.book_date";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setDate(1, date);
+				pstmt.setInt(2, num);
+				rs = pstmt.executeQuery();
+				if(rs.next()){
+					for(int j=1;j<13;j++){
 //							System.out.println("rs.get()"+j+"번째 값: "+rs.getInt(j));
-							if(rs.getInt(j)==0){
-								break;
-							}
-							if(j==12){
-								System.out.println("예약이 다찬 날짜 : "+fo.format(date));
-								noList.add(fo.format(date));
-								
-							}
+						if(rs.getInt(j)==0){
+							break;
 						}
-						
+						if(j==12){
+							System.out.println("예약이 다찬 날짜 : "+fo.format(date));
+							return fo.format(date);
+							
+						}
+					}
+					
 //						SimpleDateFormat ne_format = new SimpleDateFormat("yyyy-M-dd");
 //						String dd = ne_format.format(rs.getDate(1));
 //						noList.add(dd);
-			//			System.out.println(dd);
-					}
-					
-			
-			}catch(Exception e){
-				System.out.println("getNoDate에서 에러"+e);
-			}finally{
-				freeResource();
-			}
+		//			System.out.println(dd);
+				}
+				
+		
+		}catch(Exception e){
+			System.out.println("getNoDate에서 에러"+e);
+		}finally{
+			freeResource();
 		}
-		return noList;
+		
+		return null;
 	}
 
 	public JSONArray getTime(String selectDate, int roomNo) {

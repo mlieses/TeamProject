@@ -45,6 +45,7 @@
 <c:set var="noList" value="${noList}"></c:set>
 <c:set var="reviewList" value="${reviewList}"/>
 <c:set var="session" value="${sessionScope.udto}"/>
+<c:set var="hostSession" value="${sessionScope.hdto}"/>
 
 <jsp:include page="Top.jsp"/>
 
@@ -331,7 +332,9 @@
 					</div>
 					<div class="item-input">
 			        	<input type="text" class="w3-input" id="c_content" style="width:590px; display:inline-block;" />
+			        	<c:if test="${session ne null || hostSession ne null}">
 			        	<button class="w3-button w3-grey" id="insert_btn">등록</button>
+			        	</c:if>
 			      	</div>
 				</li>
 
