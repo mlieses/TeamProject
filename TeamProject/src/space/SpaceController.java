@@ -46,7 +46,7 @@ public class SpaceController extends HttpServlet {
 		ArrayList<CommentDTO> comList = new ArrayList<CommentDTO>();
 		comList = dao.getCommentList(num);
 		request.setAttribute("commentList", comList);
-		
+		System.out.println("커멘드 사이즈:"+comList.size());
 		//예약이 다찬 날짜를 가져온다
 		
 		ArrayList<String> noList = dao.getNoDate(num);

@@ -412,7 +412,7 @@ a{
 		var dto = js[2];
 		var nextNum=js[3];
 		
-		var html= '<a href="${path1}./ReservationController.do?userId=${sessionScope.udto.email}" class="w3-bar-item w3-button" style="color:red;">';
+		var html= '<a href="HostingReservationController.do?host_id=${host_id}" class="w3-bar-item w3-button" style="color:red;">';
 		
 		var sumNumber = dto.length+nextSpaceNum+dto.length+nextNum;
 		$("#showAlertNum").html(sumNumber);
@@ -425,7 +425,7 @@ a{
 		}
 		html +=  '</a>'
 			+'<hr style="margin:0;">'
-			+'<a href="#" class="w3-bar-item w3-button">'
+			+'<a href="HostingReservationController.do?host_id=${host_id}" class="w3-bar-item w3-button">'
 			+'	내일 예약 <br>'
 			+'&nbsp;&nbsp;'+nextSpaceNum+'건이 있습니다'
 			+'</a>'

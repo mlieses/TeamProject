@@ -457,7 +457,7 @@
 	<c:forEach items="${reviewList}" var="review">
 		var reviewPoint = "${review.re_point}";
 		
-		alert(reviewPoint);
+		
 		for(i=0;i<reviewPoint;i++){
 			addStar += '<i class="fa fa-star"></i>';
 		}
