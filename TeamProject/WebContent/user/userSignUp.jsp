@@ -26,7 +26,7 @@ $(document).ready(function() {
 			 return false;
 		}	
 		
-		//ID정규표현식을 이용하여 입력한 ID값이 맞을 경우(통과)
+		//ID정규표현식을 이용하여 입력한 email값이 맞을 경우(통과)
 		$.ajax({
 			type : "POST",
 			url  : "./HostIdCheck.do",
