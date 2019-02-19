@@ -37,7 +37,7 @@ public class AlertHostController extends HttpServlet {
 		
 		//자기 공간에 등록된 예약
 		JSONArray todayBook = dao.getTodayRoomBook(host_id);
-//		int nextRoomBookNum = dao.getNextRoomBook(host_id);
+		int nextRoomBookNum = dao.getNextRoomBook(host_id);
 		
 		//host가 예약한 공간
 		JSONArray todayBookList = dao.getTodayBook(email);
@@ -45,8 +45,8 @@ public class AlertHostController extends HttpServlet {
 		
 		
 		hostList.add(todayBook);
-//		hostList.add(nextRoomBookNum);
-		hostList.add("0");
+		hostList.add(nextRoomBookNum);
+//		hostList.add("0");
 		hostList.add(todayBookList);
 		hostList.add(nextDayCount);
 		

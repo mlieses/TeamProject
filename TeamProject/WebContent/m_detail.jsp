@@ -19,6 +19,9 @@
 <!-- JQuery UI Datepicker -->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
+<!-- 별표  -->
+
+
 <style type="text/css">
 .w3-ul li{
 	padding:0;
@@ -296,7 +299,7 @@
 	    	<td>${review.review_no}</td>
 	    	<td>${review.nic_name}<br>(${review.email})</td>
 	    	<td id="reviewPoint">
-	    		${review.re_point}
+	    		
 	    	</td>
 	    	<td>${review.re_content}</td>
 	    	<td>${review.re_date}</td>
@@ -450,12 +453,18 @@
 	if(host_id==null || email==null){
 		$("#insert_btn").addClass("w3-disabled");	
 	}
-	
-	var reviewPoint = '${review.re_point}';
-	var addStar
-	for(i=0;i<reviewPoint;i++){
-		addStar += '<span class="fa fa-star checked"></span>';
-	}
+	var addStar='';
+	<c:forEach items="${reviewList}" var="review">
+		var reviewPoint = "${review.re_point}";
+		
+		alert(reviewPoint);
+		for(i=0;i<reviewPoint;i++){
+			addStar += '<i class="fa fa-star"></i>';
+		}
+		for(j=5-reviewPoint;j>0;j--){
+			addStar += '<i class="fa fa-star-o"></i>';
+		}
+	</c:forEach>
 	$("#reviewPoint").append(addStar);
 </script>
 <script src="js/m_detail_jquery.js"></script>

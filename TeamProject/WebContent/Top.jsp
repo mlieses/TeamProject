@@ -357,7 +357,7 @@ a{
 			x.addClass("w3-show");
 			
 		} else { 
-			alert("show 삭제");
+			
 			x.removeClass("w3-show");
 		}  
 	} 
@@ -414,7 +414,8 @@ a{
 		
 		var html= '<a href="${path1}./ReservationController.do?userId=${sessionScope.udto.email}" class="w3-bar-item w3-button" style="color:red;">';
 		
-		$("#showAlertNum").html(dto.length+nextNum);
+		var sumNumber = dto.length+nextSpaceNum+dto.length+nextNum;
+		$("#showAlertNum").html(sumNumber);
 		if(spacedto.length==0){
 			html+= '오늘 예약된 공간이 없습니다'
 		}else{
@@ -426,7 +427,7 @@ a{
 			+'<hr style="margin:0;">'
 			+'<a href="#" class="w3-bar-item w3-button">'
 			+'	내일 예약 <br>'
-			+'&nbsp;&nbsp;'+nextNum+'건이 있습니다'
+			+'&nbsp;&nbsp;'+nextSpaceNum+'건이 있습니다'
 			+'</a>'
 			+'<hr style="margin:0; height: 3px;">'
 			+'<a href="${path1}./ReservationController.do?userId=${sessionScope.hdto.email}" class="w3-bar-item w3-button">';
@@ -436,7 +437,7 @@ a{
 		}else{
 			for(var i=0; i<dto.length;i++){
 				
-				html+= 	 '	오늘 예약<br> '
+				html+= 	 '	오늘 예약한 공간<br> '
 						+'&nbsp;'+dto[i].subject+'&nbsp;'+dto[i].room_type+'&nbsp;'+dto[i].book_time+'시 '
 						+'&nbsp;&nbsp;￦'+dto[i].total_price;
 				
