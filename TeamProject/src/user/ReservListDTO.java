@@ -9,6 +9,7 @@ public class ReservListDTO {
 	private Date book_date;
 	private int total_price;
 	private int room_no;
+	private String book_phone;
 
 	/**계산에 사용되나 담을 필요 없는 값들*/
 //	private int book_check;
@@ -41,6 +42,14 @@ public class ReservListDTO {
 	
 	
 	
+	
+	
+	public String getBook_phone() {
+		return book_phone;
+	}
+	public void setBook_phone(String book_phone) {
+		this.book_phone = book_phone;
+	}
 	public String getRoom_type() {
 		return room_type;
 	}

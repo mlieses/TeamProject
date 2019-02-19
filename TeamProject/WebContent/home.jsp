@@ -389,7 +389,7 @@ letter-spacing: 1px;
   	</div>   
   	
   	<div class="w3-col w3-center" style="width:20%;">
-  	<a href="./ReservationController.do?userId=${sessionScope.udto.email}" style="text-decoration: none;">
+  	<a href="HostingReservationController.do?host_id=${sessionScope.hdto.host_id}" style="text-decoration: none;">
   	<i class="material-icons" style="font-size:80px;color:#333;">event</i>
   	<p style="margin:2px;">예약내역</p>
   	</a>
@@ -459,7 +459,7 @@ Vector<homeDTO> recV = (Vector<homeDTO>)request.getAttribute("recommendV");
 		   		<small style="color: rgb(28,123,127); font-weight: bold;"><%=recDTO.getRoom_type()%> 평점:<%=(Math.round(recDTO.getStar()*10)/10.0)%></small>
       			<p style="font-weight:bold;"><%=recDTO.getSubject()%></p>
 		    </div>
-		    <img src="upload/<%=recDTO.getPic1()%>" alt="House" style="width:100%">
+		    <img src="upload/<%=recDTO.getPic1()%>" alt="House" style="width:100%; height: 350px;" >
 	      </div>
       </a>
       </div>
@@ -528,7 +528,7 @@ Vector<homeDTO> popV = (Vector<homeDTO>)request.getAttribute("popularV");
 		   		<small style="color: rgb(28,123,127); font-weight: bold;"><%=popDTO.getRoom_type()%> 예약수:<%=popDTO.getCount()%> 평점:<%=(Math.round(popDTO.getStar()*10)/10.0)%></small>
       			<p style="font-weight:bold;"><%=popDTO.getSubject()%></p>
 		    </div>
-		    <img src="upload/<%=popDTO.getPic1()%>" alt="House" style="width:100%">
+		    <img src="upload/<%=popDTO.getPic1()%>" alt="House" style="width:100%; height: 350px;">
 <!-- 		    <img src="img/room03.jpg" alt="House" style="width:100%"> -->
 	      </div>
       </a>

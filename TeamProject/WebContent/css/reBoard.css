@@ -1,0 +1,50 @@
+@CHARSET "UTF-8";
+
+	table{ 	border: 1px solid #cccccc;
+			border-radius : 0 50px 0 50px; 
+			border-spacing: 10px;
+			padding: 80px;
+			margin: 0 auto;
+			margin-bottom: 70px;
+			border-top: 2px solid #000000;
+			background-color:#f2f2f2;}
+		td{	border-top: 1px solid #cccccc;}
+		th{ color: #007acc;}
+		#no{color: #808080; font-size: 12px;
+			text-align: center;}
+		#id{color: #808080; font-size: 12px;
+			text-align: center;}
+		li{	color: #ff6600;;
+		list-style:square;
+		float: left;}
+		table tr #ctt:HOVER { height: 2px; 
+			background-color: #ffffe6;}
+
+		#subject { width: 1100px; 
+		background-color:white;
+		padding: 10px;
+		margin: 95px auto;
+		border-bottom : 1px solid grey;
+		text-align: center;
+		font-family: sans-serif;
+		color: black;
+		font-size: 42px;}
+		
+		.class{border: 3px solid #f00;
+			background-color: #ffffe6;
+			/* background-image: url("boardImg1.jpg");*/
+			width: 500px;  height: 300px;
+			overflow: visible; }
+		.button {}
+		.paging{border: 1px solid red;
+				margin: 0 auto;}
+		#OS{font-family: ''Open Sans', sans-serif;
+			font-size: 42px;}
+		
+		.notice_subject{
+		
+			overflow: hidden; 
+			text-overflow: ellipsis;
+			white-space: nowrap;  
+		}
+	

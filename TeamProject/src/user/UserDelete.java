@@ -35,7 +35,7 @@ public class UserDelete extends HttpServlet {
 			
 			out.println("<script>");
 			out.println("alert('탈퇴 되었습니다.')");
-			out.println("location.href('index.jsp')");
+			out.println("location.href='index.jsp'");
 			out.println("</script>");
 			
 			

@@ -180,10 +180,12 @@ public class AlertDAO {
 		try{
 			
 			con = ds.getConnection();
+
 			String sql = "select count(*) from booking b"
 						+"join hosting h "
 						+"on b.room_no = h.room_no "
 						+"where h.host_id=? and b.book_date =? ";
+
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, host_id);
 			pstmt.setDate(2, date);

@@ -394,6 +394,42 @@ public class UserDAO {
 			
 		return result;	
 	}
+	
+	// 유저등록 이메일 중복체크 버튼 ajax
+		public int userIdCheck(String email) {
+			int result=-1;		
+			try {
+				
+				con = ds.getConnection();
+				
+				String sql = "SELECT * FROM user WHERE email = ?";			
+				
+				pstmt = con.prepareStatement(sql);
+				
+				pstmt.setString(1, email);
+				
+				rs = pstmt.executeQuery();	
+				
+				if(rs.next()){
+					result = 0;
+				}
+				
+				System.out.println("패스워드 체크 다오  : "+ rs.getString("email"));
+							
+				
+				return result;
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+				System.out.println("userIdCheck() 메서드에서 "+e);
+			} finally {
+				freeResource();
+			}
+			
+				
+			return result;	
+		}
+	
 
 	public void hostProfileUpdate(String host_id, HostDTO hdto) {
 		// TODO Auto-generated method stub		

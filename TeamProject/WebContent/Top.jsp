@@ -234,7 +234,8 @@ a{
       				<br><font color="red" class="w3-margin-left">${sessionScope.point} </font> <small>포인트(￦)</small>	  				   				
       				<hr>
    					<a href="${path1}./HostPageController.do" class="w3-bar-item w3-button">프로필수정/탈퇴</a>
-   					<a href="${path1}./HostingReviewController.do?host_id=${sessionScope.hdto.host_id}" class="w3-bar-item w3-button">리뷰</a>  					
+   					<a href="${path1}./HostingReservationController.do?host_id=${sessionScope.hdto.host_id}" class="w3-bar-item w3-button">예약 확인</a>
+   					<a href="${path1}./HostingReviewController.do?host_id=${sessionScope.hdto.host_id}" class="w3-bar-item w3-button">사용자 후기</a>  					
    					<a href="${path1}./HostLogoutController.do" class="w3-bar-item w3-button">로그아웃</a>      				
  				</div>
    			</div>	

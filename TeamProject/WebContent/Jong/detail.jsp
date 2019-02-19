@@ -21,9 +21,6 @@
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-
-
-
 <style type="text/css">
 *{
 	box-sizing: border-box;
@@ -60,6 +57,7 @@ text-decoration: underline;
     height: 30px;
     float:left;
     text-indent: -9999px;
+    z-index: -9999;
 }
 .starR2{
     background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat right 0;
@@ -68,6 +66,7 @@ text-decoration: underline;
     height: 30px;
     float:left;
     text-indent: -9999px;
+    z-index: -9999;
 }
 .starR1.on{background-position:0 0;}
 .starR2.on{background-position:-15px 0;}
@@ -151,7 +150,7 @@ function setValue(obj, target){
 	<div style="width:100%;">		
 			
 				<jsp:include page="../Top.jsp" flush="false"/>
-					<div class="w3-bar w3-border-top " style="margin-top: 55px; position: fixed; z-index: 1;">
+					<div class="w3-bar w3-border-top " style="margin-top: 55px; position: fixed; z-index: 0;">
 				
 				
 				  <div class="w3-bar w3-lime" id="nav2" align="center">
@@ -282,7 +281,7 @@ function setValue(obj, target){
 				
 			<!-- 왼쪽 영역 , 오른쪽 영역 시작 -->
 			<!-- 좌측 영역  -->
-			<div style="float: left; width: 50%; margin-top: 152px;">
+			<div style="float: left; width: 50%; margin-top: 152px; z-index: -999">
 			
 		
 		
@@ -302,12 +301,23 @@ function setValue(obj, target){
 						}
 						
 							if(request.getAttribute("FindV") == null){
-						
-							for(int i=0; i < vector.size() ; i++){
-								if(vector.size() == 0){break;} // 글이 없는 경우 반복문 빠져나가고 콘솔오류 발생 방지
-								SelectDTO dto	 = vector.get(i);								
-								SelectDTO dto1	 = dao.selectReview(dto.getRoom_no()); // 룸 넘버 값 넘겨서 리뷰 글 개수 , 리뷰 점수 리턴.
+								// 글이 없는 경우 반복문 빠져나가고 콘솔오류 발생 방지
+								 if(vector.size() == 0){
+										%>
+											<tr>
+												<td align="left">
+													<h1><font color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;검색 결과가 존재하지 않습니다.</font></h1>
+												</td>
+											</tr>
+										
+										<%				
+										
+									return;} 
+								for(int i=0; i < vector.size() ; i++){
 								
+								
+								SelectDTO dto	 = vector.get(i);								
+								SelectDTO dto1	 = dao.selectReview(dto.getRoom_no()); // 룸 넘버 값 넘겨서 리뷰 글 개수 , 리뷰 점수 리턴.								
 								
 					%>					
 					<tr align="center" height="300px;" style="z-index: -9997;">
@@ -402,14 +412,26 @@ function setValue(obj, target){
 								
 						}//고급검색이 안되었을때.
 						
-						else{//고급검색 일때
-							
-							
-							
+						else{//고급검색 일때							
+				
 							 vector1 = (Vector<SearchDTO>)request.getAttribute("FindV");
-													
-								for(int i=0; i < vector1.size() ; i++){
-									if(vector1.size() == 0){break;} // 글이 없는 경우 반복문 빠져나가고 콘솔오류 발생 방지
+							
+							// 글이 없는 경우 반복문 빠져나가고 콘솔오류 발생 방지
+							 if(vector1.size() == 0){
+									%>
+										<tr>
+											<td align="left">
+												<h1><font color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;검색 결과가 존재하지 않습니다.</font></h1>
+											</td>
+										</tr>
+									
+									<%				
+									
+									return;} 
+						
+								for(int i=0; i < vector1.size() ; i++){								
+									
+							
 									SearchDTO dto = vector1.get(i);	
 									
 									SelectDTO dto1	 = dao.selectReview(dto.getRoom_no()); // 룸 넘버 값 넘겨서 리뷰 글 개수 , 리뷰 점수 리턴.	
@@ -417,7 +439,7 @@ function setValue(obj, target){
 							
 					%>
 								<tr align="center" height="300px;">
-						<td width="40%"><div style="width: 90%">
+						<td width="40%"><div style="width: 90%;z-index: -9999;">
 							
 							<!-- 리뷰 점수 값 받아오기 -->
 							<input type="hidden" value="<%=dto1.getReviewPoint()%>" id="RPoint<%=i%>">
@@ -426,7 +448,7 @@ function setValue(obj, target){
 							<a href="detailPageController.do?a=8&room_no=<%=dto.getRoom_no()%>"><img src="upload/<%=dto.getImg1()%>" width="100%" height="200px;"></a></div>
 						</td>
 						
-						<td width="50%" style="text-align:left; position: relative;">
+						<td width="50%" style="text-align:left; position: relative; z-index: -9999;">
 							<div style="position: absolute; top: 0px;">
 								<h1 style="margin-bottom: -3px;"><%=dto.getSubject()%></h1>
 								<div id="starRev<%=i%>"> 

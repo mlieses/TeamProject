@@ -185,6 +185,190 @@ public class ReservListDAO {
 //		System.out.println("벡터크기는?"+ReservList.size());
 		return ReservList;
 	}
+	
+	
+	/**호스트용*/
+	public ArrayList<ReservListDTO> getListHost(String host_id){
+		System.out.println("getList요청 들어옴");
+		
+//		Vector<ReservListDTO> ReservList = new Vector<ReservListDTO>();
+		ArrayList<ReservListDTO> ReservList = new ArrayList<ReservListDTO>();
+		
+		
+		
+		try {
+			con = ds.getConnection();	
+			System.out.println("연결됨");
+			String sql = "select * from " 
+						+"booking b join booking_time t " 
+						+"on b.book_no = t.book_no "
+						+"left outer join review r "
+						+"on b.book_no = r.book_no "
+						+"join hosting h "
+						+"on b.room_no = h.room_no "
+						+"join hosting_pic p "
+						+"on b.room_no = p.room_no "
+						+"where host_id = ? "
+						+"order by b.book_no desc";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, host_id);
+			System.out.println("Getlist 실행됨");
+
+			rs = pstmt.executeQuery();
+//			System.out.println("P1");
+			
+			while(rs.next()){
+			
+
+				ReservListDTO dto = new ReservListDTO();
+
+				dto.setBook_no(rs.getInt("book_no")); 
+				dto.setEmail(host_id);
+				dto.setBook_date(rs.getDate("book_date"));
+				dto.setTotal_price(rs.getInt("total_price"));
+				dto.setRoom_no(rs.getInt("room_no"));
+				dto.setSubject(rs.getString("subject"));
+				dto.setEmail(rs.getString("email"));
+				dto.setBook_phone(rs.getString("book_phone"));
+//				dto.setBook_check(rs.getInt("book_check"));
+				
+				/**booking_time table 값 받아오기 for*/
+				String prefix = "T";
+				ArrayList timeTb = new ArrayList();
+				for(int i = 10; i < 22; i++){
+					String postfix = String.valueOf(i);
+					String index = prefix + postfix;
+					timeTb.add(rs.getInt(index));
+				}
+				
+				int StartTime = timeTb.indexOf(1)+10;
+				int EndTime = timeTb.lastIndexOf(1)+10;
+			
+				dto.setStartT(StartTime); //예약 시작 시간 
+				dto.setEndT(EndTime); // 예약 마감 시간
+				
+				
+				dto.setPic1(rs.getString("pic1"));				
+				dto.setRoom_type(rs.getString("room_type"));
+				
+				// 예약 상태 (지난 예약, 취소 예약, 다가 올 예약 받는 함수)
+				dto.setrStatus(rStatus(rs.getInt("book_check"), rs.getDate("book_date")));
+				
+				dto.setReview_no(rs.getInt("review_no"));
+				dto.setRe_date(rs.getDate("re_date"));
+				dto.setRe_point(rs.getInt("re_point"));
+				dto.setRe_content(rs.getString("re_content"));
+			
+				ReservList.add(dto);
+				
+//				System.out.println("Getlist 담김");
+			}
+			
+		
+		} catch (SQLException e) {
+			System.out.println("getList 함수 오류"+e);
+			e.printStackTrace();
+		} finally {
+			freeResource();
+		}
+//		System.out.println("벡터크기는?"+ReservList.size());
+		return ReservList;
+	}
+	
+	
+	/**호스트용 room_no 있을대 */
+	public ArrayList<ReservListDTO> getListHost2(String host_id, String room_no){
+		System.out.println("getList요청 들어옴");
+		
+//		Vector<ReservListDTO> ReservList = new Vector<ReservListDTO>();
+		ArrayList<ReservListDTO> ReservList = new ArrayList<ReservListDTO>();
+		
+		
+		
+		try {
+			con = ds.getConnection();	
+			System.out.println("연결됨");
+			String sql = "select * from " 
+						+"booking b join booking_time t " 
+						+"on b.book_no = t.book_no "
+						+"left outer join review r "
+						+"on b.book_no = r.book_no "
+						+"join hosting h "
+						+"on b.room_no = h.room_no "
+						+"join hosting_pic p "
+						+"on b.room_no = p.room_no "
+						+"where host_id = ? "
+						+"and b.room_no = ? "
+						+"order by b.book_no desc";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, host_id);
+			pstmt.setInt(2, Integer.parseInt(room_no));
+			System.out.println("Getlist 실행됨");
+
+			rs = pstmt.executeQuery();
+//			System.out.println("P1");
+			
+			while(rs.next()){
+			
+
+				ReservListDTO dto = new ReservListDTO();
+
+				dto.setBook_no(rs.getInt("book_no")); 
+				dto.setEmail(host_id);
+				dto.setBook_date(rs.getDate("book_date"));
+				dto.setTotal_price(rs.getInt("total_price"));
+				dto.setRoom_no(rs.getInt("room_no"));
+				dto.setSubject(rs.getString("subject"));
+				dto.setEmail(rs.getString("email"));
+				dto.setBook_phone(rs.getString("book_phone"));
+//				dto.setBook_check(rs.getInt("book_check"));
+				
+				/**booking_time table 값 받아오기 for*/
+				String prefix = "T";
+				ArrayList timeTb = new ArrayList();
+				for(int i = 10; i < 22; i++){
+					String postfix = String.valueOf(i);
+					String index = prefix + postfix;
+					timeTb.add(rs.getInt(index));
+				}
+				
+				int StartTime = timeTb.indexOf(1)+10;
+				int EndTime = timeTb.lastIndexOf(1)+10;
+			
+				dto.setStartT(StartTime); //예약 시작 시간 
+				dto.setEndT(EndTime); // 예약 마감 시간
+				
+				
+				dto.setPic1(rs.getString("pic1"));				
+				dto.setRoom_type(rs.getString("room_type"));
+				
+				// 예약 상태 (지난 예약, 취소 예약, 다가 올 예약 받는 함수)
+				dto.setrStatus(rStatus(rs.getInt("book_check"), rs.getDate("book_date")));
+				
+				dto.setReview_no(rs.getInt("review_no"));
+				dto.setRe_date(rs.getDate("re_date"));
+				dto.setRe_point(rs.getInt("re_point"));
+				dto.setRe_content(rs.getString("re_content"));
+			
+				ReservList.add(dto);
+				
+//				System.out.println("Getlist 담김");
+			}
+			
+		
+		} catch (SQLException e) {
+			System.out.println("getList 함수 오류"+e);
+			e.printStackTrace();
+		} finally {
+			freeResource();
+		}
+//		System.out.println("벡터크기는?"+ReservList.size());
+		return ReservList;
+	}
+	
+	
 }
 
 

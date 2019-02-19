@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/HostingReviewController.do")
-public class HostingReviewController extends HttpServlet {
+@WebServlet("/HostingReservationController.do")
+public class HostingReservationController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doProc(req, resp);
@@ -28,8 +28,10 @@ public class HostingReviewController extends HttpServlet {
 		String host_id = req.getParameter("host_id");
 		String room_no = req.getParameter("room_no");
 		HostingReviewDAO dao = new HostingReviewDAO();
+		ReservListDAO rdao = new ReservListDAO();
+		
 		ArrayList<HostingReviewInfoDTO> SpaceList = null;
-		ArrayList<HostingReviewDTO> ReviewList = null;
+		ArrayList<ReservListDTO> ReservList = null;
 		
 		if(host_id==null){
 			resp.setContentType("text/html; charset=UTF-8");
@@ -42,19 +44,19 @@ public class HostingReviewController extends HttpServlet {
 			
 		}else if(room_no == null){// 처음 실행하거나 전체선택 버튼 눌러서 공간 전체의 값을 얻어와야 할때
 			SpaceList = dao.SpaceList(host_id);
-			ReviewList = dao.ReviewList(host_id);
+			ReservList = rdao.getListHost(host_id);
 			req.setAttribute("check", 0);
 			
 		}else if(room_no != null){
 			SpaceList = dao.SpaceList(host_id);
-			ReviewList = dao.ReviewList(host_id, room_no);
+			ReservList = rdao.getListHost2(host_id, room_no);
 			req.setAttribute("check", 1);
 			
 		}
 		req.setAttribute("sList", SpaceList);
-		req.setAttribute("rList", ReviewList);
+		req.setAttribute("rList", ReservList);
 		
-		RequestDispatcher dis = req.getRequestDispatcher("/user/hostReviewList.jsp");
+		RequestDispatcher dis = req.getRequestDispatcher("/user/hostReserveList.jsp");
 		dis.forward(req, resp);
 		
 		

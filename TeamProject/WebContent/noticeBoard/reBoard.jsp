@@ -15,58 +15,11 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans|Unica+One" rel="stylesheet">
 <!-- 복사 1 font -->
 <link href='https://cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css' rel='stylesheet' type='text/css'>
+<!-- css -->
+<link rel="stylesheet" href="css/reBoard.css">
 
-
-<title>Insert title here</title>
-
-	<style type="text/css">
-		table{ 	border: 1px solid #cccccc;
-			border-radius : 0 50px 0 50px; 
-			border-spacing: 10px;
-			padding: 80px;
-			margin: 0 auto;
-			margin-bottom: 70px;
-			border-top: 2px solid #000000;
-			background-color:#f2f2f2;}
-		td{	border-top: 1px solid #cccccc;}
-		th{ color: #007acc;}
-		#no{color: #808080; font-size: 12px;
-			text-align: center;}
-		#id{color: #808080; font-size: 12px;
-			text-align: center;}
-		li{	color: #ff6600;;
-		list-style:square;
-		float: left;}
-		table tr #ctt:HOVER { height: 2px; 
-			background-color: #ffffe6;}
-
-		#subject { width: 1100px; 
-		background-color:white;
-		padding: 10px;
-		margin: 0 auto;
-		text-align: middle;
-		font-family: 'Unica One','Open Sans', cursive, sans-serif;
-		color: black;
-		font-size: 42px;}
-		
-		.class{border: 3px solid #f00;
-			background-color: #ffffe6;
-			/* background-image: url("boardImg1.jpg");*/
-			width: 500px;  height: 300px;
-			overflow: visible; }
-		.button {}
-		.paging{border: 1px solid red;
-				margin: 0 auto;}
-		#OS{font-family: ''Open Sans', sans-serif;
-			font-size: 42px;}
-		
-		.notice_subject{
-		
-			overflow: hidden; 
-			text-overflow: ellipsis;
-			white-space: nowrap;  
-		}
-	</style>
+<title>Insert title here</title>		
+	
 	
 </head>
 <body>
@@ -76,17 +29,11 @@
 
 <!-- 페이지 center-->
 <div class="w3-content w3-padding" style="max-width:1250px">
-
-	<!-- 제목 -->
-	<div class="w3-container w3-padding-32" id="projects">
-		<h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">공지사항</h3>
-		<h6 class="w3"></h6>
-	</div>
  
 	<!-- 게시판 테이블 만들기 -->	
 	<center>
 	<p>	
-		<p id="subject" width="1000">NOTICE</p>
+		<p id="subject" width="1000">공지 사항</p>
 		<table width="1000">
 			<tr height="40">
 				<th width="50"> NO </th>
@@ -105,24 +52,24 @@
 			<c:if test="${count > 0}">	
 				<c:forEach var="v" items="${boardList }">
 					<tr height="40">
-						<td>${v.notice_no}</td>
-						<td>${v.admin }</td>
+						<td align="center">${v.notice_no}</td>
+						<td align="center">${v.admin }</td>
 						<td class="notice_subject"><a href="./ReBoardReadController.do?notice_no=${v.notice_no}">${v.notice_subject}</a></td>
-						<td>${v.notice_date}</td>
-						<td>${v.notice_hit}</td>
+						<td align="center">${v.notice_date}</td>
+						<td align="center">${v.notice_hit}</td>
 					</tr>
 				</c:forEach>
 			</c:if>
 			
 				<tr>
-					<td colspan="4"></td>
-					<c:if test="${sessionScope.udto.email eq 'admin'}">
+					<td colspan="4"></td>					
 						<td>
-							<button class="w3-button w3-blue" onclick="location.href='./ReBoardInsertController.do'">
-								글쓰기
-							</button>
-						</td>
-					</c:if>
+							<c:if test="${sessionScope.udto.email eq 'admin'}">
+								<button class="w3-button w3-blue" onclick="location.href='./ReBoardInsertController.do'">
+									글쓰기
+								</button>
+							</c:if>	
+						</td>					
 				</tr>
 			
 		</table>
