@@ -221,7 +221,7 @@ a{
       				<span class="w3-badge w3-red" id="showAlertNum">0</span>
       			</button>
       			<div id="myHostAlertDown" class="w3-dropdown-content w3-bar-block w3-border myHostAlertDown">
-      				hiㄴㄴ
+      				
       			</div>
       		</div>	      		
    			<a href="#about" class="w3-bar-item w3-button" onclick="host_space()"><i class="material-icons">stars</i></a>  			
