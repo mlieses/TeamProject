@@ -28,9 +28,9 @@ public class UserSignUpController extends HttpServlet {
 		
 		UserDTO udto = new UserDTO();
 		
-		udto.setEmail(request.getParameter("email"));
+		udto.setEmail(request.getParameter("user_email"));
 		udto.setName(request.getParameter("name"));
-		udto.setPass(request.getParameter("pass"));
+		udto.setPass(request.getParameter("user_pass"));
 		
 		boolean result = false;
 		
@@ -40,6 +40,13 @@ public class UserSignUpController extends HttpServlet {
 		
 		if(result == false){
 			System.out.println("회원가입 실패");
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('회원가입에 실패 하였습니다.')");
+			out.println("location.href='index.jsp'");
+			out.println("</script>");	
+			out.close();
 			return;
 		}
 		
@@ -49,7 +56,7 @@ public class UserSignUpController extends HttpServlet {
 		out.println("alert('성공적으로 가입 되었습니다.')");
 		out.println("location.href='index.jsp'");
 		out.println("</script>");	
-		
+		out.close();
 		
 	}
 
