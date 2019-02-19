@@ -295,7 +295,9 @@
 		<tr class="review_content">
 	    	<td>${review.review_no}</td>
 	    	<td>${review.nic_name}<br>(${review.email})</td>
-	    	<td>${review.re_point}</td>
+	    	<td id="reviewPoint">
+	    		${review.re_point}
+	    	</td>
 	    	<td>${review.re_content}</td>
 	    	<td>${review.re_date}</td>
 	    </tr>
@@ -449,8 +451,12 @@
 		$("#insert_btn").addClass("w3-disabled");	
 	}
 	
-	
-	
+	var reviewPoint = '${review.re_point}';
+	var addStar
+	for(i=0;i<reviewPoint;i++){
+		addStar += '<span class="fa fa-star checked"></span>';
+	}
+	$("#reviewPoint").append(addStar);
 </script>
 <script src="js/m_detail_jquery.js"></script>
 <script src="js/m_detail_review.js"></script>

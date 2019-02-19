@@ -110,7 +110,7 @@ public class AlertDAO {
 	public int getNextDayBook(String email) {
 	
 		Date date = Date.valueOf(LocalDate.now().plusDays(1));
-		
+		System.out.println(date);
 		try{
 			con = ds.getConnection();
 			String sql = "select count(*) from booking "
@@ -173,22 +173,30 @@ public class AlertDAO {
 	}
 
 	public int getNextRoomBook(String host_id) {
-Date date = Date.valueOf(LocalDate.now().plusDays(1));
-		
+//		String date = String.valueOf(LocalDate.now().plusDays(1));
+		Date date = Date.valueOf(LocalDate.now().plusDays(1));
+//		date=date.replaceAll("-", "");
+		System.out.println(date);
 		try{
+			
 			con = ds.getConnection();
-			String sql = "select count(*) from booking "
-						+"where =? and book_date =?";
+			String sql = "select count(*) from booking b"
+						+"join hosting h "
+						+"on b.room_no = h.room_no "
+						+"where h.host_id=? and b.book_date =? ";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, email);
+			pstmt.setString(1, host_id);
 			pstmt.setDate(2, date);
 			rs = pstmt.executeQuery();
 		
 			if(rs.next()){
+				System.out.println("호스트 다음날 개수"+rs.getInt(1));
 				return rs.getInt(1);
 			}
+			
 		}catch(Exception e){
-			System.out.println("getNextDayBook에서 오류"+e);
+			e.printStackTrace();
+			System.out.println("getNextRoomBook에서 오류"+e);
 		}finally{
 			freeResource();
 		}

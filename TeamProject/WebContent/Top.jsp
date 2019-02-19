@@ -214,7 +214,16 @@ a{
       	</c:when>
       		
       	<%-- 호스트 회원이 로그인 됐을 때 --%>	
-      	<c:when test="${host_id ne null }">	      		
+      	<c:when test="${host_id ne null }">
+      		<div class="w3-dropdown-click" id="allAlert">
+      			<button onclick="myAlert()" class="w3-button w3-white hostAlertBtn">
+      				<img src="https://img.icons8.com/metro/50/000000/appointment-reminders.png" style="width:25px;">
+      				<span class="w3-badge w3-red" id="showAlertNum">0</span>
+      			</button>
+      			<div id="myHostAlertDown" class="w3-dropdown-content w3-bar-block w3-border myHostAlertDown">
+      				hiㄴㄴ
+      			</div>
+      		</div>	      		
    			<a href="#about" class="w3-bar-item w3-button" onclick="host_space()"><i class="material-icons">stars</i></a>  			
    			<a href="${path1}./ReservationController.do?userId=${sessionScope.hdto.email}" class="w3-bar-item w3-button">내 예약관리</a>
    			<div class="w3-dropdown-click">
@@ -289,15 +298,15 @@ a{
     x.className = x.className.replace(" w3-show", "");
   }  
 } 
- function myAlert() {
+/*  function myAlert() {
 	  var x = document.getElementById("myAlertDown");
-// 	  alert("버튼클릭");
+	  alert("버튼클릭");
 	  if (x.className.indexOf("w3-show") == -1) {
 	    x.className += " w3-show";
 	  } else { 
 	    x.className = x.className.replace(" w3-show", "");
 	  }  
-	} 
+	}  */
  // 상단 호스트 별표 클릭시
  function stars_click(){	 
 	 if("${sessionScope.udto.host_check}" != 1){		 
@@ -321,32 +330,47 @@ a{
 		if(alertNumber == 0){
 			alertNumber=1;
 			if(${email ne null} ){
-				
 				var email = '${email}';
 				alertUserAjax(email);
 			}else if(${host_id ne null}){
 				var host_id='${host_id}';
-				alert("host 들어옴");
-	 			alertHostAjax(${host_id});
+				var email='${sessionScope.hdto.email}';
+// 				alert("host 들어옴");
+	 			alertHostAjax(host_id, email);
 			}
 		}	
 	}
 	
 	
 	function myAlert() {
-		
-		var x = $("#myAlertDown");
+		var x;
+		if(${email ne null} ){
+			x = $("#myAlertDown");
+		}else if(${host_id ne null}){
+			
+			x = $("#myHostAlertDown");
+		}
 
 		if (!x.hasClass("w3-show")) {
+			
 			x.addClass("w3-show");
+			
 		} else { 
+			alert("show 삭제");
 			x.removeClass("w3-show");
 		}  
 	} 
 	
 	$(document).click(function(e){
-	    if (!($(e.target).is('.userAlertBtn') || $(e.target).is('#myAlertDown'))) {
-			$(".myAlertDown").removeClass("w3-show");
+		if(${email ne null} ){
+		    if (!($(e.target).is('.userAlertBtn') || $(e.target).is('#myAlertDown'))) {
+				$(".myAlertDown").removeClass("w3-show");
+		    }
+		}else if(${host_id ne null}){
+	    	if(!($(e.target).is('.hostAlertBtn') || $(e.target).is('#myHostAlertDown'))){
+	    	
+	    	$(".myHostAlertDown").removeClass("w3-show");
+	    	}
 	    }
 	});
 
@@ -356,8 +380,12 @@ a{
 		var nextNum=js[1];
 		
 		var html= '<a href="${path1}./ReservationController.do?userId=${sessionScope.udto.email}" class="w3-bar-item w3-button" style="color:red;">';
-		alert(dto.length);
-		$("#showAlertNum").html(dto.length);
+		
+		
+		$("#showAlertNum").html(dto.length+nextNum);
+		if(dto.length==0){
+			html+= '오늘 예약한 공간이 없습니다';
+		}
 		for(var i=0; i<dto.length;i++){
 			
 			html+= 	 '	오늘 예약<br> '
@@ -376,6 +404,52 @@ a{
 		
 	}
 	
+	function alertInsertHost(js){
+		var spacedto = js[0];
+		var nextSpaceNum = js[1];
+		
+		var dto = js[2];
+		var nextNum=js[3];
+		
+		var html= '<a href="${path1}./ReservationController.do?userId=${sessionScope.udto.email}" class="w3-bar-item w3-button" style="color:red;">';
+		
+		$("#showAlertNum").html(dto.length+nextNum);
+		if(spacedto.length==0){
+			html+= '오늘 예약된 공간이 없습니다'
+		}else{
+			html+=	 ' 오늘 예약된 공간 <br> '
+					+'&nbsp;'+spacedto[i].subject+'&nbsp;'+spacedto[i].book_time+'시&nbsp;'+spacedto[i].book_hour+'시간'
+					+'&nbsp;&nbsp;￦'+spacedto[i].total_price;
+		}
+		html +=  '</a>'
+			+'<hr style="margin:0;">'
+			+'<a href="#" class="w3-bar-item w3-button">'
+			+'	내일 예약 <br>'
+			+'&nbsp;&nbsp;'+nextNum+'건이 있습니다'
+			+'</a>'
+			+'<hr style="margin:0; height: 3px;">'
+			+'<a href="${path1}./ReservationController.do?userId=${sessionScope.hdto.email}" class="w3-bar-item w3-button">';
+		
+		if(dto.length==0){
+			html+= '오늘 예약한 공간이 없습니다';
+		}else{
+			for(var i=0; i<dto.length;i++){
+				
+				html+= 	 '	오늘 예약<br> '
+						+'&nbsp;'+dto[i].subject+'&nbsp;'+dto[i].room_type+'&nbsp;'+dto[i].book_time+'시 '
+						+'&nbsp;&nbsp;￦'+dto[i].total_price;
+				
+			}
+		}
+		html +=  '</a>'
+				+'<hr style="margin:0;">'
+				+'<a href="${path1}./ReservationController.do?userId=${sessionScope.udto.email}" class="w3-bar-item w3-button">'
+				+'	내일 예약 <br>'
+				+'&nbsp;&nbsp;'+nextNum+'건이 있습니다'
+				+'</a>';
+				
+		$("#myHostAlertDown").append(html);
+	}
 	function alertUserAjax(email){
 		
 		$.ajax({
@@ -391,12 +465,12 @@ a{
 		});
 		
 	}
-	function alertHostAjax(host_id){
+	function alertHostAjax(host_id, email){
 		$.ajax({
 			url:'AlertHostController.do',
 			type:'post',
 			datatype:"json",
-			data:{"host_id":host_id},
+			data:{"email":email, "host_id":host_id},
 			success : function(data){
 				var js = $.parseJSON(data);
 				
