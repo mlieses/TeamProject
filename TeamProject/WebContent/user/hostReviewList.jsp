@@ -57,6 +57,7 @@ body {
 	margin-top: 10px!important; 
 	margin-bottom: 10px!important;
 /* 	margin: 10px auto !important; */
+	z-index: 0;
 	
 }
 
@@ -64,6 +65,7 @@ body {
    
     margin-left: -50px;
     margin-right: -50px;
+    z-index: -9999;
    
 }
 
