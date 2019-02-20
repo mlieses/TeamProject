@@ -368,17 +368,18 @@
 
 	function renderList(comment){
         // 리스트 html을 정의
-		
-        let html = 	 '<li class="w3-bar">'
-					+'	<button class="w3-right w3-white w3-border-0 c-btn delete'+comment.comment_no+'" id="'+comment.comment_no+'">x</button>'
+		let html = 	 '<li class="w3-bar">';
+		if(user_email == comment.email || host_email == comment.email){
+			html+=	 '	<button class="w3-right w3-white w3-border-0 c-btn delete'+comment.comment_no+'" id="'+comment.comment_no+'">x</button>'
 					+'	<button class="w3-white w3-right w3-border-0 u-btn update'+comment.comment_no+'" id="'+comment.comment_no+'">'
 					+'		<img src="https://img.icons8.com/metro/26/000000/edit.png">'
 					+'	</button>'
-					+'	<div class="w3-bar-item item-img-div">'
+		}
+        	html+=	 '	<div class="w3-bar-item item-img-div">'
 					+'		<img src="img/c1.PNG" class="w3-circle w3-hide-small c-profile-img">'
 					+'	</div>'
 					+'	<div class="w3-bar-item item-div">'
-					+'		<span>ddd</span><br> <span>(ddd@)</span>'
+					+'		<span>'+comment.nick_name+'</span><br> <span>('+comment.email+')</span>'
 					+'	</div>'
 					+'	<div class="item-content upContent'+comment.comment_no+'">'
 					+'		<span>'+comment.com_content+'</span>'
@@ -386,7 +387,7 @@
 					+'</li>';
 		$(".content-comment ul li:last-child").after(html);
 		
-		
+		playWheel();
 	}
 
 
@@ -399,55 +400,70 @@
 		// 방명록 리스트를 가져올 때 시작 번호
 		// renderList 함수에서 html 코드를 보면 <li> 태그에 data-no 속성이 있는 것을 알 수 있다.
 		// ajax에서는 data- 속성의 값을 가져오기 위해 data() 함수를 제공.
-		let startNo = $(".c-btn").last().attr("id");
-	    console.log("코멘트 시작번호 "+startNo);
-		$.ajax({
-	    		url:"CommentSelectController" ,
-	    		type: "post",
-	    		datatype:"json",
-	    		data: {"startNo":startNo, "room_no":num},
-	    		success: function(data){
-	                    // 컨트롤러에서 가져온 방명록 리스트는data에 담겨오도록 했다.
-	            		// 남은 데이터가 10개 이하일 경우 무한 스크롤 종료
-	    				var ja = $.parseJSON(data);
-//	    				console.log("array 개수:"+ja.length);
-	    				if(ja.length<10){
-	    					isEnd=true;
-	    				}
-	    				
-	            		$.each(ja, function(index, comment){
-	            			
-	            			renderList(comment);
-	            			
-	            		});
-	            }
-	    });
+//		let startNo = $(".c-btn").last().attr("id");
+	    console.log("코멘트 시작번호 "+commentLastNum);
+	    if(commentLastNum!=1){
+			$.ajax({
+		    		url:"CommentSelectController" ,
+		    		type: "post",
+		    		datatype:"json",
+		    		data: {"startNo":commentLastNum, "room_no":num},
+		    		success: function(data){
+		                    // 컨트롤러에서 가져온 방명록 리스트는data에 담겨오도록 했다.
+		            		// 남은 데이터가 10개 이하일 경우 무한 스크롤 종료
+		    				var ja = $.parseJSON(data);
+		    				//console.log("array 개수:"+ja.length);
+		    				if(ja.length<10){
+		    					isEnd=true;
+		    				}
+		    				
+		            		$.each(ja, function(index, comment){
+		            			
+		            			renderList(comment);
+		            			
+		            		});
+		            }
+		    });
+	    }
 	}
-	
-/*
-	
-	$(window).scroll(function(){
+	let timer;
 
+	$(window).scroll(function() {
+		if(timer) {
+			window.clearTimeout(timer);
+		}
+
+		timer = window.setTimeout(function() {
+			// actual callback
+			console.log( "Firing!" );
+		}, 1000);
+	});
+
+	
+	$(window).scroll(function(event){
+		
 		let $window = $(this);
 		let scrollTop = $window.scrollTop();
         let windowHeight = $window.height();
         let documentHeight = $(document).height();
-
+        
+        
 //        console.log("documentHeight:" + documentHeight + " | scrollTop:" +
 //        			scrollTop + " | windowHeight: " + windowHeight );
 //        console.log("documentHeight:"+ documentHeight +"plus"+(scrollTop+windowHeight))
         // scrollbar의 thumb가 바닥 전 10px까지 도달 하면 리스트를 가져온다.
-        if( scrollTop + windowHeight + 3 > documentHeight ){
-        	
-        	timer = setTimeout( fetchList(), 1000 );
-        	clearTimeout(timer);
-        	
-        	
-        	
-        }
+        
+        if(timer) {
+			window.clearTimeout(timer);
+		}
+        timer = window.setTimeout(function(){
+        	if( scrollTop + windowHeight + 3 > documentHeight ){
+   	    	 fetchList();
+        	}
+        }, 500);   
 	});
 
-	*/
+	
 	//없는 옵션 가림
 	optionDisplay();
 	

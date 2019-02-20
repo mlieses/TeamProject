@@ -337,11 +337,12 @@
 			        	</c:if>
 			      	</div>
 				</li>
-
+				
 				<c:forEach var="comment" items="${commentList}">
 					
 					<li class="w3-bar">
-						<c:if test="${comment.email == session.email}'">
+						<c:if test="${comment.email eq session.email}">
+						
 						<button class="w3-right w3-white w3-border-0 c-btn ${comment.comment_no}" id="${comment.comment_no }">x</button>
 						<button class="w3-white w3-right w3-border-0 u-btn ${comment.comment_no}" id="${comment.comment_no}">
 							<img src="https://img.icons8.com/metro/26/000000/edit.png">
@@ -410,6 +411,9 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="js/m_detail_slide.js"></script>
 <script type="text/javascript">
+	var user_email = "${session.email}";
+	var host_email = "${hostSession.email}";
+	
 	var num = '${hosting.room_no}';//공간번호
 	var disabledDays = [];	//예약이 불가능한 날짜 리턴
 	var i =0;
@@ -430,6 +434,7 @@
 	var projector = '${option.projector}';
 	var laptop = '${option.laptop}';	
 	var cabinet = '${option.cabinet}';
+	
 	
 	
 	
@@ -469,6 +474,10 @@
 		}
 	</c:forEach>
 	$("#reviewPoint").append(addStar);
+	
+	
+	
+	var commentLastNum = "${commentList[9].comment_no}";
 </script>
 <script src="js/m_detail_jquery.js"></script>
 <script src="js/m_detail_review.js"></script>
