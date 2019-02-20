@@ -268,7 +268,8 @@ a{
           <input class="w3-input w3-border" type="password" placeholder="비밀번호" name="pass" required>
           <input class="w3-check w3-margin-top" type="checkbox" id="host_login""> 호스트 로그인
           <button class="w3-button w3-block w3-green w3-section w3-padding" type="button" onclick="login_click()">로그인</button>
-       	  <span class="w3-right w3-padding w3-hide-small">비밀번호를 잊으셨거나 변경이 필요하신가요? <a href="#"><font color="blue">비밀번호 재설정</font></a></span>
+       	  <span class="w3-right w3-padding w3-hide-small">비밀번호를 잊으셨거나 변경이 필요하신가요? 
+       	  <a href="./FindPasswordController.do"><font color="blue">비밀번호 재설정</font></a></span>
         </div>
       </form>
       	<hr>

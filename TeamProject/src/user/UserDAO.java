@@ -609,6 +609,63 @@ public class UserDAO {
 		
 		return 0;
 	}
+	
+	// 비밀번호 찾기 (호스트 회원)
+	public int setHostPasswordUpdate(String email, String authNum) {
+		int result=0;
+		
+		try {
+			
+			con = ds.getConnection();
+			
+			String sql = "UPDATE host SET host_pass=? WHERE email=?";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, String.valueOf(authNum));
+			pstmt.setString(2, email);
+			
+			System.out.println("호스트회원 비번변경");
+			result = pstmt.executeUpdate();
+			
+			return result;
+			
+		} catch (Exception e) {
+			System.out.println("setUserPasswordUpdate() 메서드에서 "+e);
+		}
+		
+		return 0;
+	}// setHostPasswordUpdate() 메서드 끝
+	
+	
+	// 비밀번호 찾기 (일반회원)
+	public int setUserPasswordUpdate(String email, String authNum) {
+		// TODO Auto-generated method stub
+		int result=0;
+		
+		try {
+			
+			con = ds.getConnection();
+			
+			String sql = "UPDATE user SET pass=? WHERE email=?";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, String.valueOf(authNum));
+			pstmt.setString(2, email);
+			System.out.println("일반회원 비번변경");
+			result = pstmt.executeUpdate();
+			
+			return result;
+			
+		} catch (Exception e) {
+			System.out.println("setUserPasswordUpdate() 메서드에서 "+e);
+		}
+		
+		
+		
+		return 0;
+	}// setUserPasswordUpdate() 메서드 끝
 
 	
 	

@@ -71,5 +71,12 @@ function popupOpen(){
 	<input type="text" maxlength="3" name="name">
 	
 	<div id=div_load></div>
+	
+	<a href="FindPasswordController.do">비밀 번호 찾기</a>
+	
+	
+	
+	
+	
 </body>
 </html>
