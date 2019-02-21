@@ -336,35 +336,7 @@
 	
 	//무한스크롤-----------------------------------
 	let isEnd = false;
-	
-	function playWheel()
-	{
-		console.log("해제");
-		$(window).off(".disableScroll");
-	}
 
-
-	
-	function blockWheel()
-	{
-		console.log("막음");
-		$(window).on("mousewheel.disableScroll DOMMouseScroll.disableScroll touchmove.disableScroll", function(e) {
-			e.preventDefault();
-			return;
-		});
-	 
-	 
-	 
-	    $(window).on("keydown.disableScroll", function(e) {
-	        var eventKeyArray = [32, 33, 34, 35, 36, 37, 38, 39, 40];
-	        for (var i = 0; i < eventKeyArray.length; i++) {
-	            if (e.keyCode === eventKeyArray [i]) {
-	                e.preventDefault();
-	                return;
-	            }
-	        }
-	    });
-	}
 
 	function renderList(comment){
         // 리스트 html을 정의
@@ -387,7 +359,7 @@
 					+'</li>';
 		$(".content-comment ul li:last-child").after(html);
 		
-		playWheel();
+	
 	}
 
 
@@ -428,16 +400,6 @@
 	}
 	let timer;
 
-	$(window).scroll(function() {
-		if(timer) {
-			window.clearTimeout(timer);
-		}
-
-		timer = window.setTimeout(function() {
-			// actual callback
-			console.log( "Firing!" );
-		}, 1000);
-	});
 
 	
 	$(window).scroll(function(event){
@@ -457,7 +419,7 @@
 			window.clearTimeout(timer);
 		}
         timer = window.setTimeout(function(){
-        	if( scrollTop + windowHeight + 3 > documentHeight ){
+        	if( scrollTop + windowHeight + 5 > documentHeight ){
    	    	 fetchList();
         	}
         }, 500);   
