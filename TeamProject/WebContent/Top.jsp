@@ -64,13 +64,13 @@ $(document).ready(function() {
 // 	<!-- 구글 client_secret : Vwl1rm1fi2naT41YevXIP7IB -->
 	$("#google-sign").click(function(){	
 		var popUrl ="https://accounts.google.com/o/oauth2/v2/auth?"
-			+"redirect_uri=http://localhost:8181/TeamProject/google&"
+			+"redirect_uri=http://"+location.host+"/TeamProject/google&"
 			+"response_type=code&"			
 			+"client_id=463533794318-unijrkh4odbf94n2pms494toetghdgir.apps.googleusercontent.com&"
 			+"scope=openid%20email&"
 			+"access_type=offline";	
 			//팝업창에 출력될 페이지 URL
-	
+		
 	var popOption = "width=400, height=500, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
 	
 	var win = window.open(popUrl,"",popOption);		
@@ -82,7 +82,7 @@ $(document).ready(function() {
 // 	&redirect_uri=http://localhost:8181/TeamProj/kakao&response_type=code” -->	
 	$("#kakao-sign").click(function(){	
 		var popUrl ="https://kauth.kakao.com/oauth/authorize?client_id=7bed2c2cc35da2f635429b5665085d84"
-			+"&redirect_uri=http://localhost:8181/TeamProject/kakao&response_type=code";	
+			+"&redirect_uri=http://"+location.host+"/TeamProject/kakao&response_type=code";	
 			//팝업창에 출력될 페이지 URL
 	
 	var popOption = "width=400, height=500, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
