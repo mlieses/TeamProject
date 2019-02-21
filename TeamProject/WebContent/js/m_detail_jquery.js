@@ -405,7 +405,7 @@
 		// ajax에서는 data- 속성의 값을 가져오기 위해 data() 함수를 제공.
 //		let startNo = $(".c-btn").last().attr("id");
 	    console.log("코멘트 시작번호 "+commentLastNum);
-	    if(commentLastNum<2){
+	    if(commentLastNum>1 || commentLastNum!=""){
 			$.ajax({
 		    		url:"CommentSelectController" ,
 		    		type: "post",

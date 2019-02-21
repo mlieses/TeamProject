@@ -268,7 +268,7 @@
 					<div id="cabinet">
 						<img src="https://img.icons8.com/metro/26/000000/filing-cabinet.png">
 						사물함
-					</div>`
+					</div>
 					<div id="parking">
 						<img src="https://img.icons8.com/metro/26/000000/parking.png">
 						주차
@@ -299,7 +299,7 @@
 		<tr class="review_content">
 	    	<td>${review.review_no}</td>
 	    	<td>${review.nic_name}<br>(${review.email})</td>
-	    	<td id="reviewPoint">
+	    	<td id="reviewPoint${review.review_no}">
 	    		
 	    	</td>
 	    	<td>${review.re_content}</td>
@@ -469,8 +469,9 @@
 		for(i=0;i<reviewPoint;i++){
 			addStar += '<i class="fa fa-star"></i>';
 		}
+		$("#reviewPoint${review.review_no}").append(addStar);
 	</c:forEach>
-	$("#reviewPoint").append(addStar);
+	
 	
 	
 	
