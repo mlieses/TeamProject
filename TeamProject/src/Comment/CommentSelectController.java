@@ -18,12 +18,17 @@ import org.json.simple.JSONArray;
 public class CommentSelectController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("selectcontroller에 들어옴");
-		int startNo = Integer.parseInt(request.getParameter("startNo"));
-		int room_no = Integer.parseInt(request.getParameter("room_no"));
-		CommentDao cDao = new CommentDao();
-		JSONArray ar = cDao.getSelectComment(startNo, room_no);
-		PrintWriter out = response.getWriter();
-		out.println(ar);
+		if(request.getParameter("startNo")==null || request.getParameter("startNo")==""){
+			PrintWriter out = response.getWriter();
+			out.println("");
+		}else{
+			int startNo = Integer.parseInt(request.getParameter("startNo"));
+			int room_no = Integer.parseInt(request.getParameter("room_no"));
+			CommentDao cDao = new CommentDao();
+			JSONArray ar = cDao.getSelectComment(startNo, room_no);
+			PrintWriter out = response.getWriter();
+			out.println(ar);
+		}		
 	}
 
 }
