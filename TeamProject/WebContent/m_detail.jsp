@@ -18,7 +18,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <!-- JQuery UI Datepicker -->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="/resources/demos/style.css">
+
 <!-- 별표  -->
 
 
@@ -92,7 +92,7 @@
 					</div>
 					<div class="w3-col m6 w3-center hidden">
 						<div class="scale" id="img_div2-4">
-							<img alt="" src="upload/${pic.pic1}" id="img1" onclick="big(5)">
+							<img alt="" src="upload/${pic.pic1}" id="img5" onclick="big(5)">
 						</div>
 					</div>
 				</div>
@@ -104,7 +104,7 @@
 	<div id="modal01" class="w3-modal" onclick="this.style.display='none'">
 	    <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
 	    <div class="w3-modal-content w3-animate-zoom">
-	      <img src="img_snowtops.jpg" id="modalImg" style="width:1000px;height:500px">
+	      <img src="#" id="modalImg" style="width:1000px;height:500px">
 	    </div>
 	</div>
 <!-- img modal------------------------------------------------- -->	
