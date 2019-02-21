@@ -82,7 +82,19 @@ padding: 0px;
 						}
 					
 							for(int i=0; i < vector.size() ; i++){
-								if(vector.size() == 0){break;} // 글이 없는 경우 반복문 빠져나가고 콘솔오류 발생 방지
+								if(vector.size() == 0){
+									
+									%>
+									<tr>
+										<td align="center">
+											<h1>등록된 공간이 없습니다.</h1>
+										</td>
+									</tr>
+								
+								<%			
+									return;
+									
+								} // 글이 없는 경우 반복문 빠져나가고 콘솔오류 발생 방지
 								SelectDTO dto = vector.get(i);	
 								
 								SelectDTO dto1	 = dao.selectReview(dto.getRoom_no()); // 룸 넘버 값 넘겨서 리뷰 글 개수 , 리뷰 점수 리턴.
