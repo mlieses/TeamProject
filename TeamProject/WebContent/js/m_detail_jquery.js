@@ -42,22 +42,7 @@
 	     }); 
 	 }
 	 
-	 //캘린더 함수
-	 $("#datepicker1").datepicker({
-			minDate: 1,
-			maxDate: 7,
-			defaultDate:+1,
-			dateFormat: 'yy-mm-dd D',
-			beforeShowDay: disableAllTheseDays,
-			onSelect: function(date) {
-				
-				s_date=date;
-
-				nonBtn(date)
-//	 	         alert(date);
-		    }   
-
-		});
+	 
 
 	 
 	 var firstTarget;//첫번째로 클릭한 이벤트타켓
@@ -111,10 +96,6 @@
 		}
 		
 		
-		
-		
-		
-		
 		/*
 		if(target.hasClass("w3-grey")){
 			var num = list.indexOf(target.attr("id"));
@@ -142,6 +123,28 @@
 			console.log(element);
 		});
 	})
+	
+	
+	//캘린더 함수
+	 $("#datepicker1").datepicker({
+			minDate: 1,
+			maxDate: 7,
+			defaultDate:+1,
+			dateFormat: 'yy-mm-dd D',
+			beforeShowDay: disableAllTheseDays,
+			onSelect: function(date) {
+				
+				s_date=date;
+
+				nonBtn(date)
+				firstTarget=null;
+//	 	         alert(date);
+		    }   
+
+		});
+	
+	
+	
 
 	//예약하기 버튼 누르면 값넣고 form 동작
 	$("#req-btn").on("click", function(){
