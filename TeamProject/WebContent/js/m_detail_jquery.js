@@ -223,7 +223,7 @@
         						+'		<img src="img/c1.PNG" class="w3-circle w3-hide-small c-profile-img">'
         						+'	</div>'
         						+'	<div class="w3-bar-item item-div">'
-        						+'		<span>'+nickName+'</span><br> <span>'+email+'</span>'
+        						+'		<span>'+nickName+'</span><br> <span>('+email+')</span>'
         						+'	</div>'
         						+'	<div class="item-content upContent'+comment_no+'">'
         						+'		<span>'+content+'</span>'

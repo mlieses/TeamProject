@@ -289,9 +289,9 @@
     <thead>
 		<tr class="w3-light-grey">
 			<th width="5%">no</th>
-			<th width="auto">작성자</th>
-			<th width="10%">별점</th>
-			<th width="60%">글내용</th>
+			<th width="10%">작성자</th>
+			<th width="15%">별점</th>
+			<th width="55%">글내용</th>
 			<th width="15%">날짜</th>
 		</tr>
     </thead>
@@ -468,9 +468,6 @@
 		
 		for(i=0;i<reviewPoint;i++){
 			addStar += '<i class="fa fa-star"></i>';
-		}
-		for(j=5-reviewPoint;j>0;j--){
-			addStar += '<i class="fa fa-star-o"></i>';
 		}
 	</c:forEach>
 	$("#reviewPoint").append(addStar);
