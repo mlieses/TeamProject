@@ -319,8 +319,7 @@ public class UserDAO {
 			System.out.println("hostCheck() 메서드에서 "+e);
 		} finally {
 			freeResource();
-		}
-		
+		}		
 		
 		
 		return check;

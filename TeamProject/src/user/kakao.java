@@ -37,14 +37,16 @@ public class kakao extends HttpServlet {
 		doProcess(request, response);
 	}
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 移댁뭅�삤�넚�뿉�꽌 �젒�냽 REST API CODE瑜� 諛쏆븘�샂
+		// 
 		String code = request.getParameter("code");
 		
 		System.out.println("code : "+code);
 		
 		String appKey = "7bed2c2cc35da2f635429b5665085d84";
 		
-		String redirectURI = "http://localhost:8181/TeamProject/kakao";
+		System.out.println(request.getRequestURL()+","+  request.getRequestURI());
+		
+		String redirectURI = request.getRequestURL().toString(); //"http://localhost:8181/TeamProject/kakao";
 		
 		String line = null;
 		

@@ -102,7 +102,7 @@ public class ReViewBoardDAO {
 				//정렬 최근글 맨처음 re_ref내림차순 답글순서 re_seq 오름차순
 				// limit 시작행-1 , 몇개 
 				/*sql="select * from board2 order by re_ref desc, re_seq asc limit ?,?";*/
-				sql = "SELECT * FROM review WHERE email=? order by rv_date limit ?,?";
+				sql = "SELECT * FROM review WHERE email=? order by rv_date desc limit ?,?";
 				pstmt=con.prepareStatement(sql);				
 				pstmt.setString(1, email);
 				pstmt.setInt(2, startRow-1);

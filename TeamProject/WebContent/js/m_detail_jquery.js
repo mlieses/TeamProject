@@ -42,22 +42,7 @@
 	     }); 
 	 }
 	 
-	 //캘린더 함수
-	 $("#datepicker1").datepicker({
-			minDate: 1,
-			maxDate: 7,
-			defaultDate:+1,
-			dateFormat: 'yy-mm-dd D',
-			beforeShowDay: disableAllTheseDays,
-			onSelect: function(date) {
-				
-				s_date=date;
-
-				nonBtn(date)
-//	 	         alert(date);
-		    }   
-
-		});
+	 
 
 	 
 	 var firstTarget;//첫번째로 클릭한 이벤트타켓
@@ -96,23 +81,19 @@
 					list.push($(".t_btn").eq(i-1).attr("id"));
 				}
 			}else if(firstNumber == secondNumber){
-				alert("같은곳");
+//				alert("같은곳");
 				list.splice(0, list.length);
 				$(".t_btn:gt("+(secondNumber-2)+")").removeClass("w3-grey");
 				firstTarget.removeClass("w3-grey");
 				firstTarget=null;
 			}else if(firstNumber > secondNumber){
-				alert("여기");
+//				alert("여기");
 				list.splice(0, list.length);
 				$(".t_btn:gt("+(firstNumber-2)+")").removeClass("w3-grey");
 				target.addClass("w3-grey");
 				firstTarget = target;
 			}
 		}
-		
-		
-		
-		
 		
 		
 		/*
@@ -142,6 +123,28 @@
 			console.log(element);
 		});
 	})
+	
+	
+	//캘린더 함수
+	 $("#datepicker1").datepicker({
+			minDate: 1,
+			maxDate: 7,
+			defaultDate:+1,
+			dateFormat: 'yy-mm-dd D',
+			beforeShowDay: disableAllTheseDays,
+			onSelect: function(date) {
+				
+				s_date=date;
+
+				nonBtn(date)
+				firstTarget=null;
+//	 	         alert(date);
+		    }   
+
+		});
+	
+	
+	
 
 	//예약하기 버튼 누르면 값넣고 form 동작
 	$("#req-btn").on("click", function(){
@@ -220,7 +223,7 @@
         						+'		<img src="img/c1.PNG" class="w3-circle w3-hide-small c-profile-img">'
         						+'	</div>'
         						+'	<div class="w3-bar-item item-div">'
-        						+'		<span>'+nickName+'</span><br> <span>'+email+'</span>'
+        						+'		<span>'+comment.nickName+'</span><br> <span>('+comment.email+')</span>'
         						+'	</div>'
         						+'	<div class="item-content upContent'+comment_no+'">'
         						+'		<span>'+content+'</span>'
@@ -374,7 +377,7 @@
 		// ajax에서는 data- 속성의 값을 가져오기 위해 data() 함수를 제공.
 //		let startNo = $(".c-btn").last().attr("id");
 	    console.log("코멘트 시작번호 "+commentLastNum);
-	    if(commentLastNum!=1){
+	    if(commentLastNum>1 || commentLastNum!=""){
 			$.ajax({
 		    		url:"CommentSelectController" ,
 		    		type: "post",

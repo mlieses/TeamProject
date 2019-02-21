@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="Jong/insertBoard.css">
 
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=55bb85418a60e0c25e4702007dc138fe&libraries=services"></script>
+<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8b1dfa990d9dfd48543e0889cfa06ab9&libraries=services"></script>
 
 <!-- 날짜추가 script -->
  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" /> 
@@ -309,7 +309,7 @@ $( function() {
       <b><label>제 목</label></b>
     </div>
     <div class="col-25">
-      <input type="text" id="subject" name="subject" placeholder="Title">
+      <input type="text" id="subject" name="subject" placeholder="Title" maxlength="14">
     </div>
   </div>  
   

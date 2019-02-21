@@ -18,7 +18,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <!-- JQuery UI Datepicker -->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="/resources/demos/style.css">
+
 <!-- 별표  -->
 
 
@@ -92,7 +92,7 @@
 					</div>
 					<div class="w3-col m6 w3-center hidden">
 						<div class="scale" id="img_div2-4">
-							<img alt="" src="upload/${pic.pic1}" id="img1" onclick="big(5)">
+							<img alt="" src="upload/${pic.pic1}" id="img5" onclick="big(5)">
 						</div>
 					</div>
 				</div>
@@ -104,7 +104,7 @@
 	<div id="modal01" class="w3-modal" onclick="this.style.display='none'">
 	    <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
 	    <div class="w3-modal-content w3-animate-zoom">
-	      <img src="img_snowtops.jpg" id="modalImg" style="width:1000px;height:500px">
+	      <img src="#" id="modalImg" style="width:1000px;height:500px">
 	    </div>
 	</div>
 <!-- img modal------------------------------------------------- -->	
@@ -268,7 +268,7 @@
 					<div id="cabinet">
 						<img src="https://img.icons8.com/metro/26/000000/filing-cabinet.png">
 						사물함
-					</div>`
+					</div>
 					<div id="parking">
 						<img src="https://img.icons8.com/metro/26/000000/parking.png">
 						주차
@@ -289,9 +289,9 @@
     <thead>
 		<tr class="w3-light-grey">
 			<th width="5%">no</th>
-			<th width="auto">작성자</th>
-			<th width="10%">별점</th>
-			<th width="60%">글내용</th>
+			<th width="10%">작성자</th>
+			<th width="15%">별점</th>
+			<th width="55%">글내용</th>
 			<th width="15%">날짜</th>
 		</tr>
     </thead>
@@ -299,7 +299,7 @@
 		<tr class="review_content">
 	    	<td>${review.review_no}</td>
 	    	<td>${review.nic_name}<br>(${review.email})</td>
-	    	<td id="reviewPoint">
+	    	<td id="reviewPoint${review.review_no}">
 	    		
 	    	</td>
 	    	<td>${review.re_content}</td>
@@ -461,19 +461,17 @@
 	if(host_id==null || email==null){
 		$("#insert_btn").addClass("w3-disabled");	
 	}
-	var addStar='';
+	
 	<c:forEach items="${reviewList}" var="review">
 		var reviewPoint = "${review.re_point}";
 		
 		
 		for(i=0;i<reviewPoint;i++){
-			addStar += '<i class="fa fa-star"></i>';
+			var addStar = '<i class="fa fa-star"></i>';
 		}
-		for(j=5-reviewPoint;j>0;j--){
-			addStar += '<i class="fa fa-star-o"></i>';
-		}
+		$("#reviewPoint${review.review_no}").append(addStar);
 	</c:forEach>
-	$("#reviewPoint").append(addStar);
+	
 	
 	
 	
