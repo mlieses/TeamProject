@@ -461,13 +461,13 @@
 	if(host_id==null || email==null){
 		$("#insert_btn").addClass("w3-disabled");	
 	}
-	var addStar='';
+	
 	<c:forEach items="${reviewList}" var="review">
 		var reviewPoint = "${review.re_point}";
 		
 		
 		for(i=0;i<reviewPoint;i++){
-			addStar += '<i class="fa fa-star"></i>';
+			var addStar = '<i class="fa fa-star"></i>';
 		}
 		$("#reviewPoint${review.review_no}").append(addStar);
 	</c:forEach>
