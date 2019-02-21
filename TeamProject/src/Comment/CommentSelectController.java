@@ -21,6 +21,7 @@ public class CommentSelectController extends HttpServlet {
 		if(request.getParameter("startNo")==null || request.getParameter("startNo")==""){
 			PrintWriter out = response.getWriter();
 			out.println("");
+			out.close();
 		}else{
 			int startNo = Integer.parseInt(request.getParameter("startNo"));
 			int room_no = Integer.parseInt(request.getParameter("room_no"));
@@ -28,6 +29,7 @@ public class CommentSelectController extends HttpServlet {
 			JSONArray ar = cDao.getSelectComment(startNo, room_no);
 			PrintWriter out = response.getWriter();
 			out.println(ar);
+			out.close();
 		}		
 	}
 
