@@ -51,21 +51,21 @@ public class SpaceDao {
 				try {
 					rs.close();
 				} catch (Exception e) {
-					// TODO: handle exception
+					System.out.println("rs.close");
 					e.printStackTrace();
 				}
 			}if(pstmt != null){
 				try {
 					pstmt.close();
 				} catch (Exception e) {
-					// TODO: handle exception
+					System.out.println("pstmt.close");
 					e.printStackTrace();
 				}
 			}if(con != null){
 				try {
 					con.close();
 				} catch (Exception e) {
-					// TODO: handle exception
+					System.out.println("con.close");
 					e.printStackTrace();
 				}
 			}
@@ -173,6 +173,7 @@ public class SpaceDao {
 			System.out.println("getSpace에서 오류남"+e);
 
 		}finally {
+			System.out.println("getSpace");
 			freeResource();
 		}
 		return list;
@@ -224,6 +225,7 @@ public class SpaceDao {
 		}catch(Exception e){
 			System.out.println("getNoDate에서 에러"+e);
 		}finally{
+			System.out.println("getNoDate");
 			freeResource();
 		}
 		
@@ -269,6 +271,7 @@ public class SpaceDao {
 		}catch(Exception e){
 			System.out.println("getTime에서 오류"+e);
 		}finally{
+			System.out.println("getTime");
 			freeResource();
 		}
 		for(int i=0;i<jarray.size();i++){
@@ -304,6 +307,7 @@ public class SpaceDao {
 		}catch(Exception e){
 			System.out.println("getCommentList에서 에러"+e);
 		}finally{
+			System.out.println("getCommentList");
 			freeResource();
 		}
 		
@@ -345,6 +349,7 @@ public class SpaceDao {
 			 System.out.println("getReviewList에서 에러"+e);
 			 
 		 }finally{
+			 System.out.println("getReviewList");
 			 freeResource();
 		 }
 		return reviewList;
@@ -362,6 +367,8 @@ public class SpaceDao {
 			}
 		}catch(Exception e){
 			System.out.println("getReviewCount에서 오류"+e);
+		}finally{
+			freeResource();
 		}
 		return count;
 	}

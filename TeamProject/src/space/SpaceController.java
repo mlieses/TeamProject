@@ -57,7 +57,7 @@ public class SpaceController extends HttpServlet {
 			}
 		}
 		request.setAttribute("noList", noList);
-		
+		System.out.println("noList까지 옴");
 		//review를 가져온다
 		int allCount = dao.getReviewCount();
 		request.setAttribute("allCount", allCount);
