@@ -64,8 +64,7 @@
 			var firstNumber = parseInt(firstTarget.attr("id"));
 			var secondNumber = parseInt(target.attr("id"));
 			console.log("첫 :"+firstNumber+"two : "+secondNumber);
-			console.log(typeof(firstNumber));
-			console.log(typeof(secondNumber));
+			
 			list = new Array();
 			if(firstNumber<secondNumber){
 				
@@ -93,7 +92,7 @@
 //				alert("여기");
 				console.log("> 첫 : "+firstNumber+", two : "+secondNumber);
 				list.splice(0, list.length);
-				$(".t_btn:gt("+(firstNumber-1)+")").removeClass("w3-grey");
+				$(".t_btn:gt("+(firstNumber-2)+")").removeClass("w3-grey");
 				target.addClass("w3-grey");
 				firstTarget = target;
 			}
