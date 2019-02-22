@@ -337,10 +337,10 @@
         	<i class="fa fa-car"></i><b><label>주차</label></b>
          </div><br><br><br>
           <div class="col-50">
-		      <input type="radio" name="parking"  value=1	onclick="optionShow(1)"  <%if(dto.getParking() == 1 || dto.getParking() >2){%>checked<%}%>>있음        
-	          <input type="radio" name="parking"  value=2   onclick="optionHide(1)" <%if(dto.getParking() == 2){%>checked<%}%>>없음
+		      <input type="radio" name="parking"  value="0"	onclick="optionShow(1)"  <%if(dto.getParking() == 0 || dto.getParking() >0){%>checked<%}%>>있음        
+	          <input type="radio" name="parking"  value="1"   onclick="optionHide(1)" <%if(dto.getParking() == 1){%>checked<%}%>>없음
 			  <input type="text"  name="parkingB" id="parkingB"  placeholder="가격입력"   
-			  <%if(dto.getParking() > 2){%>value="<%=dto.getParking()%>"<%}else{%> style="visibility: hidden;" value="0"<%}%>>          
+			  <%if(dto.getParking() > 1){%>value="<%=dto.getParking()%>"<%}else{%> style="visibility: hidden;" value="0"<%}%>>          
           </div>
     </div>
     <div class="col-20">
@@ -348,10 +348,10 @@
        <i class="fa fa-wifi"></i><b><label>WIFI</label></b>
      </div><br><br><br>
      <div class="col-50">       
-		<input type="radio" name="wifi"  value=1 onclick="optionShow(2)" <%if(dto.getWifi() == 1 || dto.getWifi() > 2){%>checked<%}%>>있음        
-        <input type="radio" name="wifi"  value=2 onclick="optionHide(2)" <%if(dto.getWifi() == 2){%>checked<%}%>>없음
+		<input type="radio" name="wifi"  value="0" onclick="optionShow(2)" <%if(dto.getWifi() == 0 || dto.getWifi() > 1){%>checked<%}%>>있음        
+        <input type="radio" name="wifi"  value="1" onclick="optionHide(2)" <%if(dto.getWifi() == 1){%>checked<%}%>>없음
 		<input type="text"  name="wifiB" id="wifiB"  placeholder="가격입력"   
-			  <%if(dto.getWifi() > 2){%>value="<%=dto.getWifi()%>"<%}else{%> style="visibility: hidden;" value="0"<%}%>>                   
+			  <%if(dto.getWifi() > 1){%>value="<%=dto.getWifi()%>"<%}else{%> style="visibility: hidden;" value="0"<%}%>>                   
      </div>
     </div>
     
@@ -360,10 +360,10 @@
 	       <i class="fab fa-first-order-alt"></i><b><label>프로젝트 빔</label></b>
 	     </div><br><br><br>
 	     <div class="col-50">
-	       <input type="radio" name="projector"  value=1  onclick="optionShow(3)"<%if(dto.getProjector() == 1 || dto.getProjector() > 2){%>checked<%}%>>있음        
-	       <input type="radio" name="projector"  value=2  onclick="optionHide(3)"<%if(dto.getProjector() == 2){%>checked<%}%>>없음
+	       <input type="radio" name="projector"  value="0"  onclick="optionShow(3)"<%if(dto.getProjector() == 0 || dto.getProjector() > 1){%>checked<%}%>>있음        
+	       <input type="radio" name="projector"  value="1"  onclick="optionHide(3)"<%if(dto.getProjector() == 1){%>checked<%}%>>없음
 		   <input type="text"  name="projectorB" id="projectorB"  placeholder="가격입력"   
-			  <%if(dto.getProjector() > 2){%>value="<%=dto.getProjector()%>"<%}else{%> style="visibility: hidden;" value="0"<%}%>>          	        	       
+			  <%if(dto.getProjector() > 1){%>value="<%=dto.getProjector()%>"<%}else{%> style="visibility: hidden;" value="0"<%}%>>          	        	       
 	     </div>
 	    </div>
 	    <div class="col-20">
@@ -371,10 +371,10 @@
 	     <i class="	fas fa-tv"></i><b>  <label>컴퓨터</label></b>
 	     </div><br><br><br>
 	      <div class="col-50">   
-	       <input type="radio" name="laptop"  value=1  onclick="optionShow(4)"<%if(dto.getLaptop() == 1 || dto.getLaptop() > 2){%>checked<%}%>>있음        
-	       <input type="radio" name="laptop"  value=2  onclick="optionHide(4)"<%if(dto.getLaptop() == 2){%>checked<%}%>>없음
+	       <input type="radio" name="laptop"  value="0"  onclick="optionShow(4)"<%if(dto.getLaptop() == 0 || dto.getLaptop() > 1){%>checked<%}%>>있음        
+	       <input type="radio" name="laptop"  value="1"  onclick="optionHide(4)"<%if(dto.getLaptop() == 1){%>checked<%}%>>없음
 	        <input type="text"  name="laptopB" id="laptopB"  placeholder="가격입력"   
-			  <%if(dto.getLaptop() > 2){%>value="<%=dto.getLaptop()%>"<%}else{%> style="visibility: hidden;" value="0"<%}%>>          
+			  <%if(dto.getLaptop() > 1){%>value="<%=dto.getLaptop()%>"<%}else{%> style="visibility: hidden;" value="0"<%}%>>          
 	      </div>
 	    </div>
 	    <div class="col-20">
@@ -382,10 +382,10 @@
 	       <i class="fas fa-box-open"></i><b> <label>캐비넷</label></b>
 	     </div><br><br><br>
 	      <div class="col-50">   
-	        <input type="radio" name="cabinet"  value=1 onclick="optionShow(5)" <%if(dto.getCabinet() == 1 || dto.getCabinet() > 2){%>checked<%}%>>있음        
-	        <input type="radio" name="cabinet"  value=2 onclick="optionHide(5)"<%if(dto.getCabinet() == 2){%>checked<%}%>>없음
+	        <input type="radio" name="cabinet"  value="0" onclick="optionShow(5)" <%if(dto.getCabinet() == 0 || dto.getCabinet() > 1){%>checked<%}%>>있음        
+	        <input type="radio" name="cabinet"  value="1" onclick="optionHide(5)"<%if(dto.getCabinet() == 1){%>checked<%}%>>없음
 	        <input type="text"  name="cabinetB" id="cabinetB"  placeholder="가격입력"   
-			  <%if(dto.getCabinet() > 2){%>value="<%=dto.getCabinet()%>"<%}else{%> style="visibility: hidden;" value="0"<%}%>>          
+			  <%if(dto.getCabinet() > 1){%>value="<%=dto.getCabinet()%>"<%}else{%> style="visibility: hidden;" value="0"<%}%>>          
 	      </div>
 	    </div>       
   </div> 
@@ -398,8 +398,8 @@
 	        <i class="	fas fa-wind"></i><b><label>에어컨</label></b>
 	     </div><br><br><br>
 	     <div class="col-50">
-	        <input type="radio" name="airconditioner"  value=1 <%if(dto.getAirconditioner() == 1){%>checked<%}%>>있음        
-	        <input type="radio" name="airconditioner"  value=2 <%if(dto.getAirconditioner() == 2){%>checked<%}%>>없음
+	        <input type="radio" name="airconditioner"  value="0" <%if(dto.getAirconditioner() == 0){%>checked<%}%>>있음        
+	        <input type="radio" name="airconditioner"  value="1" <%if(dto.getAirconditioner() == 1){%>checked<%}%>>없음
 	     </div>
 	    </div>
 	    <div class="col-20">
@@ -407,8 +407,8 @@
 	       <i class="fab fa-hotjar"></i><b> <label>난방</label></b>
 	     </div><br><br><br>
 	     <div class="col-50">       
-   			<input type="radio" name="heating"  value=1 <%if(dto.getHeating() == 1){%>checked<%}%>>있음        
-	        <input type="radio" name="heating"  value=2 <%if(dto.getHeating() == 2){%>checked<%}%>>없음
+   			<input type="radio" name="heating"  value="0" <%if(dto.getHeating() == 0){%>checked<%}%>>있음        
+	        <input type="radio" name="heating"  value="1" <%if(dto.getHeating() == 1){%>checked<%}%>>없음
 	     </div>
 	    </div>
 	    <div class="col-20">
@@ -416,8 +416,8 @@
 	         <i class="	fa fa-sort"></i><b><label>엘리베이터</label></b>
 	     </div><br><br><br>
 	     <div class="col-50">   
-	    	 <input type="radio" name="elevator"  value=1 <%if(dto.getElevator() == 1){%>checked<%}%>>있음        
-	         <input type="radio" name="elevator"  value=2 <%if(dto.getElevator() == 2){%>checked<%}%>>없음
+	    	 <input type="radio" name="elevator"  value="0" <%if(dto.getElevator() == 0){%>checked<%}%>>있음        
+	         <input type="radio" name="elevator"  value="1" <%if(dto.getElevator() == 1){%>checked<%}%>>없음
 	     </div>
 	    </div>
 	    <div class="col-20">
@@ -425,8 +425,8 @@
 	     <i class="fas fa-ruler-horizontal"></i> <b>  <label>콘센트</label></b>
 	     </div><br><br><br>
 	      <div class="col-50">
-	        <input type="radio" name="socket"  value=1 <%if(dto.getSocket() == 1){%>checked<%}%>>있음        
-	        <input type="radio" name="socket"  value=2 <%if(dto.getSocket() == 2){%>checked<%}%>>없음
+	        <input type="radio" name="socket"  value="0" <%if(dto.getSocket() == 0){%>checked<%}%>>있음        
+	        <input type="radio" name="socket"  value="1" <%if(dto.getSocket() == 1){%>checked<%}%>>없음
 	      </div>
 	    </div>  
 	    
@@ -435,8 +435,8 @@
         <i class="	fas fa-toilet"></i><b><label>화장실</label></b>
      </div> <br><br><br>
       <div class="col-50">
-        <input type="radio" name="toilet"  value=1 <%if(dto.getToilet() == 1){%>checked<%}%>>있음        
-        <input type="radio" name="toilet"  value=2 <%if(dto.getToilet() == 2){%>checked<%}%>>없음
+        <input type="radio" name="toilet"  value="0" <%if(dto.getToilet() == 0){%>checked<%}%>>있음        
+        <input type="radio" name="toilet"  value="1" <%if(dto.getToilet() == 1){%>checked<%}%>>없음
       </div>
     </div> 
 	         
@@ -448,8 +448,8 @@
          <i class="fas fa-mug-hot"></i><b><label>음료</label></b>
      </div><br><br><br>
      <div class="col-50">
-        <input type="radio" name="drink"  value=1 <%if(dto.getDrink() == 1){%>checked<%}%>>있음        
-        <input type="radio" name="drink"  value=2 <%if(dto.getDrink() == 2){%>checked<%}%>>없음
+        <input type="radio" name="drink"  value="0" <%if(dto.getDrink() == 0){%>checked<%}%>>있음        
+        <input type="radio" name="drink"  value="1" <%if(dto.getDrink() == 1){%>checked<%}%>>없음
      </div>
     </div>   
 	    

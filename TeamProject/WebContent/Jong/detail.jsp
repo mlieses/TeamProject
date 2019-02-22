@@ -262,9 +262,9 @@ function setValue(obj, target){
 						        <div class="w3-row w3-hide" style="position: fixed;" id="number_select">
 							        <div class="w3-col l10 w3-padding"></div>
 							        <div class="w3-col l2 w3-padding w3-white w3-round" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-left: 1040px; width: 10%">
-							  			<input type="button" value="소(1~4인)" onclick="setValue(this, 'number')" style="border: none; padding:0px; background-color: white;"><br/>
-							  			<input type="button" value="중(5~10인)" onclick="setValue(this, 'number')" style="border: none; padding:0px; background-color: white;"><br/> 
-							  			<input type="button" value="대(10~20인)" onclick="setValue(this, 'number')" style="border: none; padding:0px; background-color: white;"><br/>	  			 
+							  			<input type="button" value="소" onclick="setValue(this, 'number')" style="border: none; padding:0px; background-color: white;">(1~4인)<br/>
+							  			<input type="button" value="중" onclick="setValue(this, 'number')" style="border: none; padding:0px; background-color: white;">(5~10인)<br/> 
+							  			<input type="button" value="대" onclick="setValue(this, 'number')" style="border: none; padding:0px; background-color: white;">(10~20인)<br/>	  			 
 							        </div>        
 						        </div>
 						        
