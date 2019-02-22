@@ -22,7 +22,7 @@ public class UserProfileUpdateController extends HttpServlet {
 	}
 	protected void doPro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		UserDTO udto = new UserDTO();
+		
 		UserDAO udao = new UserDAO();
 		// System.out.println("여기는 일반회원정보 수정");
 		HttpSession session = request.getSession();
@@ -36,20 +36,22 @@ public class UserProfileUpdateController extends HttpServlet {
 		// 일반회원이면 전체 변경
 		if(userflag ==0){
 			
-			udto.setEmail(request.getParameter("email"));
-			udto.setName(request.getParameter("nick_name"));
+			session_dto.setEmail(request.getParameter("email"));
+			session_dto.setName(request.getParameter("nick_name"));
 			if(request.getParameter("passwd_ch") != null){
-				udto.setPass(request.getParameter("passwd_ch"));				
+				session_dto.setPass(request.getParameter("passwd_ch"));				
 			}else{
-				udto.setPass(session_dto.getPass());
+				session_dto.setPass(session_dto.getPass());
 			}		
 			
 		}else{
 			
-			udto.setName(request.getParameter("nick_name"));						
+			session_dto.setName(request.getParameter("nick_name"));						
 		}
 		
-		udao.userProfileUpdate(session_dto.getEmail(),udto);
+		udao.userProfileUpdate(session_dto.getEmail(),session_dto);
+		
+		session.setAttribute("udto", session_dto);
 		
 		RequestDispatcher dis = request.getRequestDispatcher("./index.jsp");
 		

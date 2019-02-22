@@ -22,25 +22,26 @@ public class HostProfileUpdateController extends HttpServlet {
 	}
 	protected void doPro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		HostDTO hdto = new HostDTO();
 		UserDAO udao = new UserDAO();
-		// System.out.println("여기는 일반회원정보 수정");
+		
 		HttpSession session = request.getSession();
 		HostDTO session_dto = (HostDTO)session.getAttribute("hdto");
 		
 		// 호스트 회원 정보 수정		
-		hdto.setHost_id(request.getParameter("host_id"));
-		hdto.setHost_nic(request.getParameter("host_nic"));
-		hdto.setHost_phone(request.getParameter("host_phone"));
+		session_dto.setHost_id(request.getParameter("host_id"));
+		session_dto.setHost_nic(request.getParameter("host_nic"));
+		session_dto.setHost_phone(request.getParameter("host_phone"));
 		// 비밀번호 변경이 일어 나면
 		if(request.getParameter("passwd_ch") != null){		
-			hdto.setHost_pass(request.getParameter("passwd_ch"));				
+			session_dto.setHost_pass(request.getParameter("passwd_ch"));				
 		}else{
 			// 변경이 없으면 세션에 패스워드
-			hdto.setHost_pass(session_dto.getHost_pass());
+			session_dto.setHost_pass(session_dto.getHost_pass());
 		}			
 		
-		udao.hostProfileUpdate(session_dto.getHost_id(), hdto);
+		udao.hostProfileUpdate(session_dto.getHost_id(), session_dto);
+		
+		session.setAttribute("hdto", session_dto);
 		
 		RequestDispatcher dis = request.getRequestDispatcher("./index.jsp");
 		
