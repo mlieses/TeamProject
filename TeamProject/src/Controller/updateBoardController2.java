@@ -296,10 +296,10 @@ public class updateBoardController2 extends HttpServlet {
 
 		} catch (Exception e) {
 			System.out.println("updateController2에서 오류" + e);
-			} //catch		
 
 	
+		}
+
 	}
 
 }
-
