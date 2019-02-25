@@ -372,6 +372,99 @@ public class SpaceDao {
 		}
 		return count;
 	}
+
+	public ArrayList getMoveSpaceList(String[] sLatLng) {
+		String swLat = sLatLng[0];
+		String swLng = sLatLng[1];
+		
+		String neLat = sLatLng[2];
+		String neLng = sLatLng[3];
+		ArrayList list = new ArrayList();
+		HostingDTO hdto;
+		HAddressDTO haDto;
+		HBillDTO hbDto;
+		HOptionDTO hoDto;
+		HPicDTO hpDto;
+		
+		
+		
+		try{
+			con = ds.getConnection();
+			String sql =  "select * "
+						 +"from hosting "
+						 +"natural join hosting_address "
+						 +"natural join hosting_bill "
+						 +"natural join hosting_option "
+						 +"natural join hosting_pic "
+						 +"where a_wdo between ? and ? and "
+						 +"a_kdo ? swLng and ? ";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, swLat);
+			pstmt.setString(2, neLat);
+			pstmt.setString(3, swLng);
+			pstmt.setString(1, neLng);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				hdto=new HostingDTO();
+				hdto.setRoom_no(rs.getInt("room_no"));
+				hdto.setHost_id(rs.getString("host_id"));
+				hdto.setSubject(rs.getString("subject"));
+				hdto.setRoom_type(rs.getString("room_type"));
+				hdto.setPeople(rs.getString("people"));
+				hdto.setDrink(rs.getInt("drink"));
+				hdto.setElevator(rs.getInt("elevator"));
+				hdto.setToilet(rs.getInt("toilet"));
+				hdto.setAirconditioner(rs.getInt("airconditioner"));
+				hdto.setHeating(rs.getInt("heating"));
+				hdto.setSocket(rs.getInt("socket"));
+				hdto.setContent(rs.getString("content"));
+				hdto.setFromdate(rs.getString("formdate"));
+				hdto.setTodate(rs.getString("todate"));
+				hdto.setTime(rs.getString("time"));
+				hdto.setEtc(rs.getString("etc"));
+				list.add(hdto);
+				
+				haDto=new HAddressDTO();
+				haDto.setA_wdo(rs.getString("a_wdo"));
+				haDto.setA_kdo(rs.getString("a_kdo"));
+				haDto.setA_woo(rs.getString("a_woo"));
+				haDto.setA_address(rs.getString("a_address"));
+				haDto.setA_D_address(rs.getString("a_D_address"));
+				haDto.setA_etc_address(rs.getString("a_etc_address"));
+				list.add(haDto);
+				
+				hbDto = new HBillDTO();
+				hbDto.setWeekday(rs.getInt("weekday"));
+				hbDto.setHoliday(rs.getInt("holiday"));
+				list.add(hbDto);
+				
+				hoDto = new HOptionDTO();
+				hoDto.setParking(rs.getInt("parking"));
+				hoDto.setWifi(rs.getInt("wifi"));
+				hoDto.setProjector(rs.getInt("projector"));
+				hoDto.setLaptop(rs.getInt("laptop"));
+				hoDto.setCabinet(rs.getInt("cabinet"));
+				list.add(hoDto);
+				
+				hpDto = new HPicDTO();
+				hpDto.setPic1(rs.getString("pic1"));
+				hpDto.setPic2(rs.getString("pic2"));
+				hpDto.setPic3(rs.getString("pic3"));
+				hpDto.setPic4(rs.getString("pic4"));
+				list.add(hpDto);
+				
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			freeResource();
+		}
+		
+		return list;
+	}
 		
 		
 

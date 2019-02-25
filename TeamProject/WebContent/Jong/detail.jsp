@@ -603,6 +603,6 @@ function setValue(obj, target){
 	
 		</div>
 	
-	
+	<script src="js/automap.js"></script>
 </body>
 </html>
